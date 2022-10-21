@@ -1,13 +1,14 @@
 import React from "react"
 import Layout from "../components/Layout"
+import * as styles from "../styles/home.module.css"
 
 export default function Home() {
   return (
     <Layout>
-      <section>
+      <section className={styles.header}>
         <div>
-          <h1>Official Online Store</h1>
-          <p>Welcome to the shop!</p>
+          <h2>Official Online Store</h2>
+          <span>Welcome to the shop!</span>
         </div>
       </section>
     </Layout>

@@ -1,0 +1,12 @@
+.collections {
+  text-align: center;
+}
+
+.collections > h2 {
+  font-size: 3rem;
+  margin-top: 80px;
+}
+
+.collections > span {
+  font-size: 2rem;
+}
