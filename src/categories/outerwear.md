@@ -1,6 +1,6 @@
 ---
 title: Outerwear
-items: Jackets & Coats
+description: Jackets & Coats
 slug: outerwear
 ---
 

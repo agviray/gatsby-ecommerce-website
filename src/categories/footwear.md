@@ -1,6 +1,6 @@
 ---
 title: Footwear
-items: Boots & Sneakers
+description: Boots & Sneakers
 slug: footwear
 ---
 

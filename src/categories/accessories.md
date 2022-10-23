@@ -1,6 +1,6 @@
 ---
 title: Accessories
-items: Headwear & Other Goodies
+description: Headwear & Other Goodies
 slug: accessories
 ---
 

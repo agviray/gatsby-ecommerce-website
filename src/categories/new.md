@@ -1,6 +1,6 @@
 ---
 title: New Styles
-items: Shop New Styles
+description: Shop New Styles
 slug: new-styles
 ---
 

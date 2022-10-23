@@ -1,6 +1,6 @@
 ---
 title: Bottoms
-items: Jeans, Pants, & Shorts
+description: Jeans, Pants, & Shorts
 slug: bottoms
 ---
 

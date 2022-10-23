@@ -1,6 +1,6 @@
 ---
 title: Tops
-items: Shirts & Tees
+description: Shirts & Tees
 slug: tops
 ---
 

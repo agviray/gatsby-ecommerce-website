@@ -18,7 +18,7 @@ export default function Collections({ data }) {
             >
               <div>
                 <h3>{category.frontmatter.title}</h3>
-                <p>{category.frontmatter.items}</p>
+                <p>{category.frontmatter.description}</p>
               </div>
             </Link>
           ))}
@@ -33,12 +33,12 @@ export const query = graphql`
   query Collections {
     allMarkdownRemark {
       nodes {
+        id
         frontmatter {
           title
-          items
           slug
+          description
         }
-        id
       }
     }
   }
