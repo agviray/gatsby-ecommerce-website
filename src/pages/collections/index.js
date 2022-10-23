@@ -4,14 +4,14 @@ import Layout from "../../components/Layout"
 import * as styles from "../../styles/collections.module.css"
 
 export default function Collections({ data }) {
-  const categories = data.allMarkdownRemark.nodes
+  const collectionCategories = data.categories.nodes
   return (
     <Layout>
       <div className={styles.collections}>
         <h2>Our Collections</h2>
         <span>We have several items to suit your style.</span>
         <div className={styles.categories}>
-          {categories.map(category => (
+          {collectionCategories.map(category => (
             <Link
               to={`/collections/${category.frontmatter.slug}`}
               key={category.id}
@@ -30,8 +30,8 @@ export default function Collections({ data }) {
 
 // - Use query data in the component by accessing the data prop.
 export const query = graphql`
-  query Collections {
-    allMarkdownRemark {
+  query CollectionsPage {
+    categories: allMarkdownRemark {
       nodes {
         id
         frontmatter {
