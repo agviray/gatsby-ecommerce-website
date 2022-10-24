@@ -1,4 +1,5 @@
 ---
+position: 2
 title: Tops
 description: Shirts & Tees
 slug: tops

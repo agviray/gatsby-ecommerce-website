@@ -1,4 +1,5 @@
 ---
+position: 1
 title: New Styles
 description: Shop New Styles
 slug: new-styles

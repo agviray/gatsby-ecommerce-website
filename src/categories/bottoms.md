@@ -1,4 +1,5 @@
 ---
+position: 3
 title: Bottoms
 description: Jeans, Pants, & Shorts
 slug: bottoms

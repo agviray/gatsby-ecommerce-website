@@ -1,4 +1,5 @@
 ---
+position: 6
 title: Accessories
 description: Headwear & Other Goodies
 slug: accessories

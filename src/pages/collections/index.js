@@ -39,7 +39,9 @@ export default function Collections({ data }) {
 // - Use query data in the component by accessing the data prop.
 export const query = graphql`
   query CollectionsPage {
-    categories: allMarkdownRemark {
+    categories: allMarkdownRemark(
+      sort: { fields: frontmatter___position, order: ASC }
+    ) {
       nodes {
         id
         frontmatter {

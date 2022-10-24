@@ -1,4 +1,5 @@
 ---
+position: 4
 title: Footwear
 description: Boots & Sneakers
 slug: footwear
