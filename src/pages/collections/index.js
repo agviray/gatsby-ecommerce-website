@@ -23,6 +23,7 @@ export default function Collections({ data }) {
                     category.frontmatter.thumbnail.childImageSharp
                       .gatsbyImageData
                   }
+                  alt={"category thumbnail"}
                 />
                 <h3>{category.frontmatter.title}</h3>
                 <p>{category.frontmatter.description}</p>
