@@ -2,6 +2,7 @@
 title: Accessories
 description: Headwear & Other Goodies
 slug: accessories
+thumbnail: ../images/collections-thumbnails/accessories-thumbnail.jpg
 ---
 
 Faucibus missisque dubitare iungi. Aut facite, ab sati qua exosa, ad me
