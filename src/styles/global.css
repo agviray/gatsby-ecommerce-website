@@ -22,34 +22,11 @@ p {
 }
 
 /* ************** */
-/* Layout and nav */
+/* Layout */
 /* ************** */
 .layout {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px auto;
-}
-
-nav .links {
-  display: inline-block;
-  text-align: right;
-}
-
-nav a {
-  display: inline-block;
-  margin-left: 20px;
-  padding: 8px 12px;
-  vertical-align: middle;
-}
-
-nav a:hover {
-  color: #f3f3f3;
-  background-color: #333333;
 }
 
 footer p {
