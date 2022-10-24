@@ -29,6 +29,11 @@ p {
   margin: 0 auto;
 }
 
+header {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 footer p {
   text-align: center;
   color: #616161;
