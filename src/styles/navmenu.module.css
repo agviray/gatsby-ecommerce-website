@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 8px 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.menu a:hover {
+  color: #f3f3f3;
+  background-color: #333333;
+}
