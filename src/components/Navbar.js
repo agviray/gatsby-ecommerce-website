@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import * as styles from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
@@ -6,6 +6,7 @@ import useWindowWidth from "../components/hooks/useWindowWidth"
 import Hamburger from "./Hamburger"
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const windowWidth = useWindowWidth()
 
   const data = useStaticQuery(graphql`
@@ -22,6 +23,10 @@ const Navbar = () => {
   //   the gatsby-config.js file.
   const { title } = data.site.siteMetadata
 
+  const updateIsMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
   const renderNav = () => {
     return (
       <nav>
@@ -30,7 +35,10 @@ const Navbar = () => {
             <h1>{title}</h1>
           </Link>
         </span>
-        {windowWidth < 800 ? <Hamburger /> : <NavMenu />}
+        {windowWidth < 800 ? (
+          <Hamburger onIsMenuOpenChange={updateIsMenuOpen} />
+        ) : null}
+        <NavMenu isMenuOpen={isMenuOpen} />
       </nav>
     )
   }
