@@ -13,7 +13,6 @@ export default function CategoryDetails({ data }) {
         <h2>{title}</h2>
         <h3>{description}</h3>
         <div className={styles.featured}>
-          Banner Image
           <GatsbyImage
             image={featuredImg.childImageSharp.gatsbyImageData}
             alt={"page banner"}
