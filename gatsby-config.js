@@ -27,8 +27,8 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    title: "Online Store",
+    title: "Good Garments",
     description: "online clothing store",
-    copyright: "This website is copyright 2022 Online Store",
+    copyright: "This website is copyright 2022 Fitted Finesse",
   },
 }
