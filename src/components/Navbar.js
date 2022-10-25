@@ -46,7 +46,10 @@ const Navbar = () => {
           </Link>
         </span>
         {windowWidth < 800 ? (
-          <Hamburger onIsMenuOpenChange={updateIsMenuOpen} />
+          <Hamburger
+            isMenuOpen={isMenuOpen}
+            onIsMenuOpenChange={updateIsMenuOpen}
+          />
         ) : null}
         <NavMenu isMenuOpen={isMenuOpen} />
       </nav>
