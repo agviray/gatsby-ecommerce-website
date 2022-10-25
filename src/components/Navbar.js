@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import * as styles from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
@@ -8,6 +8,22 @@ import Hamburger from "./Hamburger"
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const windowWidth = useWindowWidth()
+  const navContainerRef = useRef(null)
+
+  useEffect(() => {
+    const handleBodyClicked = e => {
+      if (navContainerRef.current.contains(e.target)) {
+        return
+      }
+      setIsMenuOpen(false)
+    }
+
+    document.body.addEventListener("click", handleBodyClicked)
+
+    return () => {
+      document.body.removeEventListener("click", handleBodyClicked)
+    }
+  }, [])
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -56,7 +72,11 @@ const Navbar = () => {
     )
   }
 
-  return <div className="navbar">{renderNav()}</div>
+  return (
+    <div ref={navContainerRef} className="navbar">
+      {renderNav()}
+    </div>
+  )
 }
 
 export default Navbar
