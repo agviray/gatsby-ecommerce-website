@@ -7,8 +7,8 @@ import Hamburger from "./Hamburger"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const windowWidth = useWindowWidth()
   const navContainerRef = useRef(null)
+  const windowWidth = useWindowWidth()
 
   useEffect(() => {
     const handleBodyClicked = e => {
@@ -73,7 +73,7 @@ const Navbar = () => {
   }
 
   return (
-    <div ref={navContainerRef} className="navbar">
+    <div ref={navContainerRef} className={styles.container}>
       {renderNav()}
     </div>
   )

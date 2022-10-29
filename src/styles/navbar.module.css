@@ -1,8 +1,11 @@
+.container {
+  padding: 2rem;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px auto;
 }
 
 nav span:first-of-type {
