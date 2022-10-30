@@ -74,8 +74,6 @@ const Navbar = () => {
     )
   }
 
-  console.log(isNavbarDisplayed)
-
   return (
     <div
       ref={navContainerRef}

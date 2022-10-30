@@ -8,8 +8,6 @@ const useNavigationDisplay = () => {
   useEffect(() => {
     const changePreviousScrollY = () => {
       let currentScrollYPos = window.scrollY
-      console.log(currentScrollYPos)
-      console.log(previousScrollY)
       if (typeof window !== "undefined") {
         if (currentScrollYPos < navigationHeight) {
           setShowNavigation(true)

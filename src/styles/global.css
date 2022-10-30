@@ -35,6 +35,10 @@ header {
   margin-bottom: 40px;
 }
 
+main {
+  padding-top: 140px;
+}
+
 footer p {
   text-align: center;
   color: #616161;
