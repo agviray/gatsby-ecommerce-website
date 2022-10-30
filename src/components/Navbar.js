@@ -10,8 +10,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navContainerRef = useRef(null)
   const windowWidth = useWindowWidth()
-  // - Only use custom hook if on mobile view.
-  // - Determine this by checking the window width.
   const isNavbarDisplayed = useNavigationDisplay()
 
   useEffect(() => {

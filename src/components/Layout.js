@@ -21,7 +21,7 @@ export default function Layout({ children }) {
       <header>
         <Navbar />
       </header>
-      <div className="content">{children}</div>
+      <main>{children}</main>
       <footer>
         <p>Copyright &copy; 2022 {title}</p>
       </footer>

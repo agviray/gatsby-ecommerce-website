@@ -6,7 +6,7 @@
   padding: 2rem;
   transform: translateY(0);
   transition: transform 0.3s ease;
-  background-color: red;
+  background-color: #ffffff;
   z-index: 90;
 }
 
