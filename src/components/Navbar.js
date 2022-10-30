@@ -2,13 +2,17 @@ import React, { useState, useEffect, useRef } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import * as styles from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
-import useWindowWidth from "../components/hooks/useWindowWidth"
 import Hamburger from "./Hamburger"
+import useWindowWidth from "../components/hooks/useWindowWidth"
+import useNavigationDisplay from "./hooks/useNavigationDisplay"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navContainerRef = useRef(null)
   const windowWidth = useWindowWidth()
+  // - Only use custom hook if on mobile view.
+  // - Determine this by checking the window width.
+  const isNavbarDisplayed = useNavigationDisplay()
 
   useEffect(() => {
     const handleBodyClicked = e => {
@@ -72,8 +76,15 @@ const Navbar = () => {
     )
   }
 
+  console.log(isNavbarDisplayed)
+
   return (
-    <div ref={navContainerRef} className={styles.container}>
+    <div
+      ref={navContainerRef}
+      className={`${styles.container} ${
+        isNavbarDisplayed ? `` : `${styles.notDisplayed}`
+      }`}
+    >
       {renderNav()}
     </div>
   )

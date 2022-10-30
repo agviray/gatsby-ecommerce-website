@@ -1,5 +1,17 @@
 .container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 2rem;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  background-color: red;
+  z-index: 90;
+}
+
+.notDisplayed {
+  transform: translateY(-99px);
 }
 
 nav {
