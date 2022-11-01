@@ -13,13 +13,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // - Generate a page for each item in
-  //   data (from above).
   data.allMarkdownRemark.nodes.forEach(node => {
     actions.createPage({
       path: `/collections/${node.frontmatter.slug}`,
       component: path.resolve("./src/templates/category-details.js"),
-      context: { slug: node.frontmatter.slug },
+      context: {
+        slug: node.frontmatter.slug,
+      },
     })
   })
 }
