@@ -1,27 +1,47 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
-import * as styles from "../styles/category-details.module.css"
+import ProductLink from "../components/ProductLink"
+import { container, category } from "../styles/category-details.module.css"
 
 export default function CategoryDetails({ data }) {
-  const { html } = data.markdownRemark
-  const { title, description, featuredImg } = data.markdownRemark.frontmatter
+  // console.log(data)
+  const { title } = data.category.frontmatter
+  const categoryProducts = data.products.nodes
+
+  const renderProductImages = product => {
+    const productDetails = product.frontmatter
+    const productImages = Object.values(productDetails).filter(
+      value => typeof value === "object" && value !== null
+    )
+    console.log(productImages)
+    return productImages.map((image, index) => (
+      <GatsbyImage
+        key={index}
+        image={image.childImageSharp.gatsbyImageData}
+        alt={product.frontmatter.slug}
+      />
+    ))
+  }
+
   return (
     <Layout>
-      <div className={styles.details}>
-        <h2>{title}</h2>
-        <h3>{description}</h3>
-        <div className={styles.featured}>
-          <GatsbyImage
-            image={featuredImg.childImageSharp.gatsbyImageData}
-            alt={"page banner"}
-          />
+      <div className={container}>
+        <div className={category}>
+          <h2>{title}</h2>
         </div>
-        <div
-          className={styles.html}
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <>
+          {categoryProducts.map(product => (
+            <ProductLink
+              key={product.id}
+              name={product.frontmatter.name}
+              price={product.frontmatter.price}
+            >
+              {renderProductImages(product)}
+            </ProductLink>
+          ))}
+        </>
       </div>
     </Layout>
   )
@@ -29,20 +49,40 @@ export default function CategoryDetails({ data }) {
 
 export const query = graphql`
   query CategoryDetailsPage($slug: String) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+    category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        description
-        featuredImg {
-          childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              formats: [AUTO, WEBP]
-              placeholder: BLURRED
-            )
+      }
+    }
+
+    products: allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: $slug } } }
+    ) {
+      nodes {
+        frontmatter {
+          image1 {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+              )
+            }
           }
+          image2 {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+              )
+            }
+          }
+          name
+          price
+          slug
         }
+        id
       }
     }
   }
