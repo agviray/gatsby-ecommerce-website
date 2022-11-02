@@ -13,6 +13,7 @@ const NavMenu = ({ isMenuOpen }) => {
       <Link to={"/collections/new-styles"}>New Styles</Link>
       <Link to={"/collections/tops"}>Tops</Link>
       <Link to={"/collections/bottoms"}>Bottoms</Link>
+      <Link to={"/collections/footwear"}>Footwear</Link>
       <Link to={"/collections/outerwear"}>Outerwear</Link>
       <Link to={"/collections/accessories"}>Accessories</Link>
     </div>
