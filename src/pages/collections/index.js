@@ -6,6 +6,7 @@ import * as styles from "../../styles/collections.module.css"
 
 export default function Collections({ data }) {
   const collectionCategories = data.categories.nodes
+
   return (
     <Layout>
       <div className={styles.collections}>
@@ -40,20 +41,20 @@ export default function Collections({ data }) {
 export const query = graphql`
   query CollectionsPage {
     categories: allMarkdownRemark(
-      sort: { fields: frontmatter___position, order: ASC }
+      sort: { order: ASC, fields: frontmatter___position }
+      filter: { fileAbsolutePath: { regex: "src/categories/" } }
     ) {
       nodes {
-        id
         frontmatter {
           title
-          slug
           description
+          slug
           thumbnail {
             childImageSharp {
               gatsbyImageData(
-                layout: FULL_WIDTH
                 formats: [AUTO, WEBP]
                 placeholder: BLURRED
+                layout: FULL_WIDTH
               )
             }
           }
