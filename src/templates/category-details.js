@@ -11,11 +11,8 @@ export default function CategoryDetails({ data }) {
   const categoryProducts = data.products.nodes
 
   const renderProductImages = product => {
-    const productDetails = product.frontmatter
-    const productImages = Object.values(productDetails).filter(
-      value => typeof value === "object" && value !== null
-    )
-    console.log(productImages)
+    const productImages = product.frontmatter.images
+
     return productImages.map((image, index) => (
       <GatsbyImage
         key={index}
@@ -60,16 +57,7 @@ export const query = graphql`
     ) {
       nodes {
         frontmatter {
-          image1 {
-            childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-                formats: [AUTO, WEBP]
-              )
-            }
-          }
-          image2 {
+          images {
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
