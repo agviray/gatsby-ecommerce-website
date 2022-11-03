@@ -45,6 +45,7 @@ export const query = graphql`
       filter: { fileAbsolutePath: { regex: "src/categories/" } }
     ) {
       nodes {
+        id
         frontmatter {
           title
           description
