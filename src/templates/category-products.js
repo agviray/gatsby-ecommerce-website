@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 import ProductLink from "../components/ProductLink"
 import { container, category } from "../styles/category-details.module.css"
 
-export default function CategoryDetails({ data }) {
+export default function CategoryProducts({ data }) {
   // console.log(data)
   const { title } = data.category.frontmatter
   const categoryProducts = data.products.nodes
@@ -45,7 +45,7 @@ export default function CategoryDetails({ data }) {
 }
 
 export const query = graphql`
-  query CategoryDetailsPage($slug: String) {
+  query CategoryProductsPage($slug: String) {
     category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title

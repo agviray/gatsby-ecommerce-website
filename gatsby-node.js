@@ -2,8 +2,8 @@ const path = require("path")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
-    query Categories {
-      allMarkdownRemark {
+    query {
+      products: allMarkdownRemark {
         nodes {
           frontmatter {
             slug
@@ -13,10 +13,10 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  data.allMarkdownRemark.nodes.forEach(node => {
+  data.products.nodes.forEach(node => {
     actions.createPage({
       path: `/collections/${node.frontmatter.slug}`,
-      component: path.resolve("./src/templates/category-details.js"),
+      component: path.resolve("./src/templates/category-products.js"),
       context: {
         slug: node.frontmatter.slug,
       },
