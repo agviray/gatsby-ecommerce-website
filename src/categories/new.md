@@ -5,7 +5,7 @@ description: Shop New Styles
 slug: new-styles
 thumbnail: ../images/collections-thumbnails/whats-new-thumbnail.jpg
 featuredImg: ../images/collections-thumbnails/whats-new-thumbnail.jpg
-type: category products
+contentType: category products
 ---
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Aenean in magna vulputate, consequat augue gravida, interdum purus. Proin ipsum dui, tincidunt vehicula est non, porta ultricies nulla. Cras quis eros sed ex congue tempus et vitae eros. Ut vehicula odio eu vulputate eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse malesuada leo nec turpis mattis, vitae sollicitudin lectus varius. Curabitur at ipsum eu dui aliquet pharetra id vel dolor.

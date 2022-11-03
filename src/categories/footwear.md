@@ -5,7 +5,7 @@ description: Boots & Sneakers
 slug: footwear
 thumbnail: ../images/collections-thumbnails/footwear-thumbnail.jpg
 featuredImg: ../images/collections-thumbnails/footwear-thumbnail.jpg
-type: category products
+contentType: category products
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores eveniet id animi fugiat culpa voluptatibus distinctio enim corrupti possimus eligendi ipsa libero laborum, qui cum consectetur optio ea quos accusantium!
