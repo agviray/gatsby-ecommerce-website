@@ -5,6 +5,7 @@ description: Shirts & Tees
 slug: tops
 thumbnail: ../images/collections-thumbnails/tops-thumbnail.jpg
 featuredImg: ../images/collections-thumbnails/tops-thumbnail.jpg
+type: category products
 ---
 
 Turpe Tatius praemia palmis plebe quondam mendacia. Hic ignem dextris, ore quod

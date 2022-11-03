@@ -3,7 +3,9 @@ const path = require("path")
 exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query {
-      products: allMarkdownRemark {
+      products: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "category products" } } }
+      ) {
         nodes {
           frontmatter {
             slug

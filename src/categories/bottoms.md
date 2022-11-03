@@ -5,6 +5,7 @@ description: Jeans, Pants, & Shorts
 slug: bottoms
 thumbnail: ../images/collections-thumbnails/bottoms-thumbnail.jpeg
 featuredImg: ../images/collections-thumbnails/bottoms-thumbnail.jpeg
+type: category products
 ---
 
 Visis ferrumque; manus ire est vocem niveo quid, conplectens haec, Meriones
