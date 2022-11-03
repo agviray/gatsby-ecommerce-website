@@ -7,7 +7,7 @@ import { container, category } from "../styles/category-details.module.css"
 
 export default function CategoryProducts({ data }) {
   // console.log(data)
-  const { title } = data.category.frontmatter
+  const collectionCategory = data.category.frontmatter
   const categoryProducts = data.products.nodes
 
   const renderProductImages = product => {
@@ -26,7 +26,7 @@ export default function CategoryProducts({ data }) {
     <Layout>
       <div className={container}>
         <div className={category}>
-          <h2>{title}</h2>
+          <h2>{collectionCategory.title}</h2>
         </div>
         <>
           {categoryProducts.map(product => (
@@ -34,6 +34,7 @@ export default function CategoryProducts({ data }) {
               key={product.id}
               name={product.frontmatter.name}
               price={product.frontmatter.price}
+              to={`/collections/${product.frontmatter.type}/${product.frontmatter.slug}`}
             >
               {renderProductImages(product)}
             </ProductLink>
@@ -49,6 +50,7 @@ export const query = graphql`
     category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        slug
       }
     }
 
@@ -68,6 +70,7 @@ export const query = graphql`
           }
           name
           price
+          type
           slug
         }
         id
