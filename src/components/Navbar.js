@@ -13,21 +13,6 @@ const Navbar = () => {
   const isNavbarDisplayed = useNavigationDisplay()
 
   useEffect(() => {
-    const handleBodyClicked = e => {
-      if (navContainerRef.current.contains(e.target)) {
-        return
-      }
-      setIsMenuOpen(false)
-    }
-
-    document.body.addEventListener("click", handleBodyClicked)
-
-    return () => {
-      document.body.removeEventListener("click", handleBodyClicked)
-    }
-  }, [])
-
-  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden"
     }
@@ -47,8 +32,6 @@ const Navbar = () => {
     }
   `)
 
-  // - Any property of siteMetadata--ie, title--was specified in
-  //   the gatsby-config.js file.
   const { title } = data.site.siteMetadata
 
   const updateIsMenuOpen = () => {
@@ -73,7 +56,8 @@ const Navbar = () => {
       </nav>
     )
   }
-
+  {
+  }
   return (
     <div
       ref={navContainerRef}
@@ -82,6 +66,12 @@ const Navbar = () => {
       }`}
     >
       {renderNav()}
+      <div
+        className={`${styles.overlay} ${
+          isMenuOpen ? `${styles.overlayActive}` : ``
+        }`}
+        onClick={updateIsMenuOpen}
+      ></div>
     </div>
   )
 }
