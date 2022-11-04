@@ -3,7 +3,11 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import ProductLink from "../components/ProductLink"
-import { container, category } from "../styles/category-products.module.css"
+import {
+  container,
+  categoryHeading,
+  productsContainer,
+} from "../styles/category-products.module.css"
 
 export default function CategoryProducts({ data }) {
   // console.log(data)
@@ -25,10 +29,10 @@ export default function CategoryProducts({ data }) {
   return (
     <Layout>
       <div className={container}>
-        <div className={category}>
+        <div className={categoryHeading}>
           <h2>{collectionCategory.title}</h2>
         </div>
-        <>
+        <div className={productsContainer}>
           {categoryProducts.map(product => (
             <ProductLink
               key={product.id}
@@ -39,7 +43,7 @@ export default function CategoryProducts({ data }) {
               {renderProductImages(product)}
             </ProductLink>
           ))}
-        </>
+        </div>
       </div>
     </Layout>
   )
