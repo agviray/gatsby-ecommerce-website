@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import ProductLink from "../components/ProductLink"
-import { container, category } from "../styles/category-details.module.css"
+import { container, category } from "../styles/category-products.module.css"
 
 export default function CategoryProducts({ data }) {
   // console.log(data)
