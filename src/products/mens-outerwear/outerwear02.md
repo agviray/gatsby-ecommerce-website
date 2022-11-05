@@ -1,9 +1,8 @@
 ---
-position: 2
 images: [./images/mens-outerwear04-a.jpg]
-name: Denim Jacket // Light Wash
+name: Bomber Jacket // Black
 price: $65.00
-slug: denim-jacket-light-wash
+slug: bomber-jacket-black
 type: outerwear
 contentType: product details
 ---

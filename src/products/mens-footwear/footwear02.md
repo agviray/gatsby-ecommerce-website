@@ -1,11 +1,10 @@
 ---
 position: 2
-images:
-  [./images/mens-footwear02-a-closeup.jpeg, ./images/mens-footwear02-b.jpg]
+images: [./images/mens-footwear08-a.jpg]
 
-name: Work Boots // Wheat
+name: Moc Work Boots // Brown
 price: $220.00
-slug: work-boots-wheat
+slug: moc-work-boots-brown
 type: footwear
 contentType: product details
 ---

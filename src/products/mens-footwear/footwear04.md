@@ -1,11 +1,8 @@
 ---
-position: 4
-images:
-  [./images/mens-footwear04-a-closeup.jpeg, ./images/mens-footwear04-b.jpg]
-
-name: Canvas Sneakers // Tan
+images: [./images/mens-footwear04-b.jpg]
+name: Canvas Sneakers // Sand
 price: $65.00
-slug: canvas-sneakers-tan
+slug: canvas-sneakers-sand
 type: footwear
 contentType: product details
 ---

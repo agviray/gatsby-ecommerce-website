@@ -1,10 +1,8 @@
 ---
-position: 3
-images: [./images/mens-footwear03-a-closeup.jpg, ./images/mens-footwear03-b.jpg]
-
-name: Canvas Sneakers // Black
+images: [./images/mens-footwear07-a.jpg]
+name: Suede Sneakers // Yellow
 price: $65.00
-slug: canvas-sneakers-black
+slug: suede-sneakers-yellow
 type: footwear
 contentType: product details
 ---
