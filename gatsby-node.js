@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
   //   page that displays all accessories.
   data.categoryProducts.nodes.forEach(node => {
     actions.createPage({
-      path: `/collections/${node.frontmatter.slug}`,
+      path: `/department/${node.frontmatter.slug}`,
       component: path.resolve("./src/templates/category-products.js"),
       context: {
         slug: node.frontmatter.slug,
@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // - Create pages for each individual product.
   data.productDetails.nodes.forEach(node => {
     actions.createPage({
-      path: `/collections/${node.frontmatter.type}/${node.frontmatter.slug}`,
+      path: `/department/${node.frontmatter.type}/${node.frontmatter.slug}`,
       component: path.resolve("./src/templates/product-details.js"),
       context: {
         slug: node.frontmatter.slug,

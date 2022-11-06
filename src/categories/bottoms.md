@@ -1,6 +1,7 @@
 ---
 position: 3
-title: Bottoms
+department: mens
+category: Bottoms
 description: Jeans, Pants, & Shorts
 slug: bottoms
 thumbnail: ../images/collections-thumbnails/bottoms-thumbnail.jpeg

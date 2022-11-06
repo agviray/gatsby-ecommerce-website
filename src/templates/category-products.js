@@ -11,7 +11,7 @@ import {
 
 export default function CategoryProducts({ data }) {
   // console.log(data)
-  const collectionCategory = data.category.frontmatter
+  const departmentCategory = data.category.frontmatter
   const categoryProducts = data.products.nodes
 
   const renderProductImages = product => {
@@ -30,7 +30,7 @@ export default function CategoryProducts({ data }) {
     <Layout>
       <div className={container}>
         <div className={categoryHeading}>
-          <h2>{collectionCategory.title}</h2>
+          <h2>{departmentCategory.category}</h2>
         </div>
         <div className={productsContainer}>
           {categoryProducts.map(product => (
@@ -38,7 +38,7 @@ export default function CategoryProducts({ data }) {
               key={product.id}
               name={product.frontmatter.name}
               price={product.frontmatter.price}
-              to={`/collections/${product.frontmatter.type}/${product.frontmatter.slug}`}
+              to={`/department/${product.frontmatter.type}/${product.frontmatter.slug}`}
             >
               {renderProductImages(product)}
             </ProductLink>
@@ -53,7 +53,7 @@ export const query = graphql`
   query CategoryProductsPage($slug: String) {
     category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
-        title
+        category
         slug
       }
     }

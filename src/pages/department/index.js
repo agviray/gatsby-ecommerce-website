@@ -2,20 +2,20 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../../components/Layout"
-import * as styles from "../../styles/collections.module.css"
+import * as styles from "../../styles/department.module.css"
 
-export default function Collections({ data }) {
-  const collectionCategories = data.categories.nodes
+export default function Department({ data }) {
+  const departmentCategories = data.departmentCategories.nodes
 
   return (
     <Layout>
-      <div className={styles.collections}>
-        <h2>Our Collections</h2>
-        <span>We have several items to suit your style.</span>
-        <div className={styles.categories}>
-          {collectionCategories.map(category => (
+      <div className={styles.departmentContainer}>
+        <h2>Department Heading!</h2>
+        <span>All the categories under this department are shown below!</span>
+        <div className={styles.categoriesContainer}>
+          {departmentCategories.map(category => (
             <Link
-              to={`/collections/${category.frontmatter.slug}`}
+              to={`/department/${category.frontmatter.slug}`}
               key={category.id}
             >
               <div>
@@ -26,7 +26,7 @@ export default function Collections({ data }) {
                   }
                   alt={"category thumbnail"}
                 />
-                <h3>{category.frontmatter.title}</h3>
+                <h3>{category.frontmatter.category}</h3>
                 <p>{category.frontmatter.description}</p>
               </div>
             </Link>
@@ -39,15 +39,15 @@ export default function Collections({ data }) {
 
 // - Use query data in the component by accessing the data prop.
 export const query = graphql`
-  query CollectionsPage {
-    categories: allMarkdownRemark(
+  query DepartmentPage {
+    departmentCategories: allMarkdownRemark(
       sort: { order: ASC, fields: frontmatter___position }
       filter: { fileAbsolutePath: { regex: "src/categories/" } }
     ) {
       nodes {
         id
         frontmatter {
-          title
+          category
           description
           slug
           thumbnail {

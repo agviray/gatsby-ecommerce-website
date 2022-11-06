@@ -10,12 +10,12 @@ const NavMenu = ({ isMenuOpen }) => {
     <div className={styles.menu}>
       <Link to={"/"}>Home</Link>
       <Link to={"/about"}>About</Link>
-      <Link to={"/collections/new-styles"}>New Styles</Link>
-      <Link to={"/collections/tops"}>Tops</Link>
-      <Link to={"/collections/bottoms"}>Bottoms</Link>
-      <Link to={"/collections/footwear"}>Footwear</Link>
-      <Link to={"/collections/outerwear"}>Outerwear</Link>
-      <Link to={"/collections/accessories"}>Accessories</Link>
+      <Link to={"/department/new-styles"}>New Styles</Link>
+      <Link to={"/department/tops"}>Tops</Link>
+      <Link to={"/department/bottoms"}>Bottoms</Link>
+      <Link to={"/department/footwear"}>Footwear</Link>
+      <Link to={"/department/outerwear"}>Outerwear</Link>
+      <Link to={"/department/accessories"}>Accessories</Link>
     </div>
   )
 

@@ -1,6 +1,7 @@
 ---
 position: 5
-title: Outerwear
+department: mens
+category: Outerwear
 description: Jackets & Coats
 slug: outerwear
 thumbnail: ../images/collections-thumbnails/outerwear-thumbnail.jpg

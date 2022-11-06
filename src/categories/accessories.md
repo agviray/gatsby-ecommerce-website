@@ -1,6 +1,7 @@
 ---
 position: 6
-title: Accessories
+department: mens
+category: Accessories
 description: Headwear & Other Goodies
 slug: accessories
 thumbnail: ../images/collections-thumbnails/accessories-thumbnail.jpg

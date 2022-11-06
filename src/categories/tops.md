@@ -1,6 +1,7 @@
 ---
 position: 2
-title: Tops
+department: mens
+category: Tops
 description: Shirts & Tees
 slug: tops
 thumbnail: ../images/collections-thumbnails/tops-thumbnail.jpg

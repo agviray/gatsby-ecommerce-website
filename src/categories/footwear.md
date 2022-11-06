@@ -1,6 +1,7 @@
 ---
 position: 4
-title: Footwear
+department: mens
+category: Footwear
 description: Boots & Sneakers
 slug: footwear
 thumbnail: ../images/collections-thumbnails/footwear-thumbnail.jpg
