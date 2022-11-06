@@ -1,5 +1,4 @@
 ---
-position: 2
 images: [./images/mens-top02-a.jpg]
 name: Short-Sleeve Shirt // Navy On White Pattern
 price: $35.00

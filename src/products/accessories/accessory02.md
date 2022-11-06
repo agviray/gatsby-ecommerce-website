@@ -1,5 +1,4 @@
 ---
-position: 2
 images: [./images/aviator-sunglasses.jpg]
 name: Aviator Sunglasses // Gold Frame
 price: $80.00

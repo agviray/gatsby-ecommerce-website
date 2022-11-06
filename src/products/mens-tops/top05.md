@@ -1,5 +1,4 @@
 ---
-position: 5
 images: [./images/mens-top05-a.jpg]
 name: Short-Sleeve Floral Shirt // Black-Multi
 price: $38.00
