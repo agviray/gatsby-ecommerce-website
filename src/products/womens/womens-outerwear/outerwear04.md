@@ -2,7 +2,8 @@
 images: [./images/womens-outerwear02-a.jpg]
 name: Leather Jacket // Black
 price: $200.00
-slug: leather-jacket-black
+department: womens
 type: outerwear
+slug: leather-jacket-black
 contentType: product details
 ---

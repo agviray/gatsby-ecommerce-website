@@ -55,6 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/templates/category-products.js"),
       context: {
         slug: node.frontmatter.slug,
+        department: node.frontmatter.department,
       },
     })
   })

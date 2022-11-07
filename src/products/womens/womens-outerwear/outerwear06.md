@@ -2,7 +2,8 @@
 images: [./images/womens-outerwear01-a.jpg]
 name: Fluffy Jacket // Navy
 price: $70.00
-slug: fluffy-jacket
+department: womens
 type: outerwear
+slug: fluffy-jacket
 contentType: product details
 ---

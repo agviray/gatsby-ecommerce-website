@@ -11,8 +11,8 @@ import {
 
 export default function CategoryProducts({ data }) {
   // console.log(data)
-  const departmentCategory = data.category.frontmatter
-  const categoryProducts = data.products.nodes
+  const category = data.category.frontmatter
+  const products = data.products.nodes
 
   const renderProductImages = product => {
     const productImages = product.frontmatter.images
@@ -30,22 +30,19 @@ export default function CategoryProducts({ data }) {
     <Layout>
       <div className={container}>
         <div className={categoryHeading}>
-          <h2>{departmentCategory.category}</h2>
+          <h2>{category.category}</h2>
         </div>
         <div className={productsContainer}>
-          {categoryProducts.map(product => {
-            return product.frontmatter.department ===
-              departmentCategory.department ? (
-              <ProductLink
-                key={product.id}
-                name={product.frontmatter.name}
-                price={product.frontmatter.price}
-                to={`/${product.frontmatter.department}/${product.frontmatter.slug}`}
-              >
-                {renderProductImages(product)}
-              </ProductLink>
-            ) : null
-          })}
+          {products.map(product => (
+            <ProductLink
+              key={product.id}
+              name={product.frontmatter.name}
+              price={product.frontmatter.price}
+              to={`/${product.frontmatter.department}/${product.frontmatter.slug}`}
+            >
+              {renderProductImages(product)}
+            </ProductLink>
+          ))}
         </div>
       </div>
     </Layout>
@@ -53,17 +50,21 @@ export default function CategoryProducts({ data }) {
 }
 
 export const query = graphql`
-  query CategoryProductsPage($slug: String) {
-    category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  query CategoryProductsPage($slug: String, $department: String) {
+    category: markdownRemark(
+      frontmatter: { slug: { eq: $slug }, department: { eq: $department } }
+    ) {
       frontmatter {
         department
-        category
         slug
+        category
       }
     }
 
     products: allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: $slug } } }
+      filter: {
+        frontmatter: { department: { eq: $department }, type: { eq: $slug } }
+      }
     ) {
       nodes {
         frontmatter {
