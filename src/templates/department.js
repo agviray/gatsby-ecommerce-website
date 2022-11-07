@@ -5,15 +5,16 @@ import Layout from "../components/Layout"
 import * as styles from "../styles/department.module.css"
 
 export default function Department({ data }) {
-  const departmentCategories = data.departmentCategories.nodes
-  console.log(departmentCategories)
+  const department = data.department.frontmatter
+  const categories = data.categories.nodes
+
   return (
     <Layout>
       <div className={styles.departmentContainer}>
-        <h2>Department Heading!</h2>
+        <h2>{department.name}</h2>
         <span>All the categories under this department are shown below!</span>
         <div className={styles.categoriesContainer}>
-          {departmentCategories.map(category => (
+          {categories.map(category => (
             <Link
               to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
               key={category.id}
@@ -39,15 +40,29 @@ export default function Department({ data }) {
 
 // - Use query data in the component by accessing the data prop.
 export const query = graphql`
-  query DepartmentPage($department: String) {
-    departmentCategories: allMarkdownRemark(
-      filter: { frontmatter: { department: { eq: $department } } }
+  query DepartmentPage($slug: String, $department: String) {
+    department: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        department
+        name
+      }
+    }
+
+    categories: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          contentType: { eq: "category products" }
+          department: { eq: $department }
+        }
+      }
     ) {
       nodes {
+        id
         frontmatter {
-          category
           department
+          category
           description
+          slug
           thumbnail {
             childImageSharp {
               gatsbyImageData(
@@ -57,7 +72,6 @@ export const query = graphql`
               )
             }
           }
-          slug
         }
       }
     }
