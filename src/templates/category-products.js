@@ -38,7 +38,7 @@ export default function CategoryProducts({ data }) {
               key={product.id}
               name={product.frontmatter.name}
               price={product.frontmatter.price}
-              to={`/department/${product.frontmatter.type}/${product.frontmatter.slug}`}
+              to={`/${product.frontmatter.department}/${product.frontmatter.slug}`}
             >
               {renderProductImages(product)}
             </ProductLink>
@@ -72,6 +72,7 @@ export const query = graphql`
               )
             }
           }
+          department
           name
           price
           type

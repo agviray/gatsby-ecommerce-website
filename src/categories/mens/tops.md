@@ -1,11 +1,11 @@
 ---
-position: 2
+position: 1
 department: mens
 category: Tops
 description: Shirts & Tees
 slug: tops
-thumbnail: ../images/collections-thumbnails/tops-thumbnail.jpg
-featuredImg: ../images/collections-thumbnails/tops-thumbnail.jpg
+thumbnail: ../../images/collections-thumbnails/tops-thumbnail.jpg
+featuredImg: ../../images/collections-thumbnails/tops-thumbnail.jpg
 contentType: category products
 ---
 

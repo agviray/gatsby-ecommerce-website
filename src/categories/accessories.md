@@ -1,6 +1,6 @@
 ---
 position: 6
-department: mens
+department: accessories
 category: Accessories
 description: Headwear & Other Goodies
 slug: accessories

@@ -1,12 +1,12 @@
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
-import Layout from "../../components/Layout"
-import * as styles from "../../styles/department.module.css"
+import Layout from "../components/Layout"
+import * as styles from "../styles/department.module.css"
 
 export default function Department({ data }) {
   const departmentCategories = data.departmentCategories.nodes
-
+  console.log(departmentCategories)
   return (
     <Layout>
       <div className={styles.departmentContainer}>
@@ -15,7 +15,7 @@ export default function Department({ data }) {
         <div className={styles.categoriesContainer}>
           {departmentCategories.map(category => (
             <Link
-              to={`/department/${category.frontmatter.slug}`}
+              to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
               key={category.id}
             >
               <div>
@@ -39,26 +39,25 @@ export default function Department({ data }) {
 
 // - Use query data in the component by accessing the data prop.
 export const query = graphql`
-  query DepartmentPage {
+  query DepartmentPage($department: String) {
     departmentCategories: allMarkdownRemark(
-      sort: { order: ASC, fields: frontmatter___position }
-      filter: { fileAbsolutePath: { regex: "src/categories/" } }
+      filter: { frontmatter: { department: { eq: $department } } }
     ) {
       nodes {
-        id
         frontmatter {
           category
+          department
           description
-          slug
           thumbnail {
             childImageSharp {
               gatsbyImageData(
                 formats: [AUTO, WEBP]
-                placeholder: BLURRED
                 layout: FULL_WIDTH
+                placeholder: BLURRED
               )
             }
           }
+          slug
         }
       }
     }
