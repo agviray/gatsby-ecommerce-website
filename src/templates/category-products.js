@@ -33,16 +33,19 @@ export default function CategoryProducts({ data }) {
           <h2>{departmentCategory.category}</h2>
         </div>
         <div className={productsContainer}>
-          {categoryProducts.map(product => (
-            <ProductLink
-              key={product.id}
-              name={product.frontmatter.name}
-              price={product.frontmatter.price}
-              to={`/${product.frontmatter.department}/${product.frontmatter.slug}`}
-            >
-              {renderProductImages(product)}
-            </ProductLink>
-          ))}
+          {categoryProducts.map(product => {
+            return product.frontmatter.department ===
+              departmentCategory.department ? (
+              <ProductLink
+                key={product.id}
+                name={product.frontmatter.name}
+                price={product.frontmatter.price}
+                to={`/${product.frontmatter.department}/${product.frontmatter.slug}`}
+              >
+                {renderProductImages(product)}
+              </ProductLink>
+            ) : null
+          })}
         </div>
       </div>
     </Layout>
@@ -53,6 +56,7 @@ export const query = graphql`
   query CategoryProductsPage($slug: String) {
     category: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
+        department
         category
         slug
       }
