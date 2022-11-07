@@ -30,7 +30,7 @@ export default function CategoryProducts({ data }) {
     <Layout>
       <div className={container}>
         <div className={categoryHeading}>
-          <h2>{category.category}</h2>
+          <h2>{category.name}</h2>
         </div>
         <div className={productsContainer}>
           {products.map(product => (
@@ -57,7 +57,7 @@ export const query = graphql`
       frontmatter {
         department
         slug
-        category
+        name
       }
     }
 

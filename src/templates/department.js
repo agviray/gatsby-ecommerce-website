@@ -27,7 +27,7 @@ export default function Department({ data }) {
                   }
                   alt={"category thumbnail"}
                 />
-                <h3>{category.frontmatter.category}</h3>
+                <h3>{category.frontmatter.name}</h3>
                 <p>{category.frontmatter.description}</p>
               </div>
             </Link>
@@ -60,7 +60,7 @@ export const query = graphql`
         id
         frontmatter {
           department
-          category
+          name
           description
           slug
           thumbnail {
