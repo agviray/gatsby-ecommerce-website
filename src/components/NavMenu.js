@@ -10,7 +10,7 @@ const NavMenu = ({ isMenuOpen }) => {
     <div className={styles.menu}>
       <Link to={"/womens"}>Women's</Link>
       <Link to={"/mens"}>Men's</Link>
-      <Link to={"/home"}>Home Goods</Link>
+      <Link to={"/home-goods"}>Home Goods</Link>
     </div>
   )
 
