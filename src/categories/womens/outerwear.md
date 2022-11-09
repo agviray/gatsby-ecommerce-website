@@ -4,8 +4,8 @@ department: womens
 name: Outerwear
 description: Jackets & Coats
 slug: outerwear
-thumbnail: ../../images/collections-thumbnails/outerwear-thumbnail.jpg
-featuredImg: ../../images/collections-thumbnails/outerwear-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/outerwear-thumbnail.jpg
+featuredImg: ../../images/category-thumbnails/outerwear-thumbnail.jpg
 contentType: category products
 ---
 

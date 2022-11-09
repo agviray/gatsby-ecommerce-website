@@ -4,8 +4,8 @@ department: accessories
 category: Accessories
 description: Headwear & Other Goodies
 slug: accessories
-thumbnail: ../images/collections-thumbnails/accessories-thumbnail.jpg
-featuredImg: ../images/collections-thumbnails/accessories-thumbnail.jpg
+thumbnail: ../images/category-thumbnails/accessories-thumbnail.jpg
+featuredImg: ../images/category-thumbnails/accessories-thumbnail.jpg
 contentType: category products
 ---
 

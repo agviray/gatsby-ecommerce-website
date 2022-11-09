@@ -4,8 +4,8 @@ department: mens
 name: Footwear
 description: Boots & Sneakers
 slug: footwear
-thumbnail: ../../images/collections-thumbnails/footwear-thumbnail.jpg
-featuredImg: ../../images/collections-thumbnails/footwear-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/footwear-thumbnail.jpg
+featuredImg: ../../images/category-thumbnails/footwear-thumbnail.jpg
 contentType: category products
 ---
 
