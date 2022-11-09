@@ -8,14 +8,9 @@ const NavMenu = ({ isMenuOpen }) => {
 
   const navMenu = (
     <div className={styles.menu}>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/about"}>About</Link>
-      <Link to={"/mens/new-styles"}>New Styles</Link>
-      <Link to={"/mens/tops"}>Tops</Link>
-      <Link to={"/mens/bottoms"}>Bottoms</Link>
-      <Link to={"/mens/footwear"}>Footwear</Link>
-      <Link to={"/mens/outerwear"}>Outerwear</Link>
-      <Link to={"/mens/accessories"}>Accessories</Link>
+      <Link to={"/womens"}>Women's</Link>
+      <Link to={"/mens"}>Men's</Link>
+      <Link to={"/home"}>Home Goods</Link>
     </div>
   )
 
