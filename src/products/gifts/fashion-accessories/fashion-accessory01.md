@@ -1,8 +1,9 @@
 ---
-images: [./images/assorted-pins-food-series.jpg]
+images: [./images/fashion-accessory03-a.jpg]
 name: Enamel Pins (3 pack) // Food Series
 price: $15.00
+department: gifts
 slug: enamel-pins-food-series
-type: accessories
+type: fashion-accessories
 contentType: product details
 ---

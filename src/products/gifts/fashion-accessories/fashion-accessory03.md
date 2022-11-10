@@ -1,8 +1,9 @@
 ---
-images: [./images/accessories06-a.jpg]
+images: [./images/fashion-accessory01-a.jpg]
 name: Smart Watch // White
 price: $300.00
+department: gifts
 slug: smart-watch-white
-type: accessories
+type: fashion-accessories
 contentType: product details
 ---

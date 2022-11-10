@@ -1,8 +1,9 @@
 ---
-images: [./images/orange-beanie.jpg]
+images: [./images/fashion-accessory04-a.jpg]
 name: Plain Beanie // Orange
 price: $20.00
+department: gifts
 slug: pain-beanie-orange
-type: accessories
+type: fashion-accessories
 contentType: product details
 ---
