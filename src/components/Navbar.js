@@ -22,6 +22,12 @@ const Navbar = () => {
     }
   }, [isMenuOpen])
 
+  useEffect(() => {
+    if (isMenuOpen === true) {
+      setIsMenuOpen(false)
+    }
+  }, [windowWidth])
+
   const data = useStaticQuery(graphql`
     query SiteInfo {
       site {
