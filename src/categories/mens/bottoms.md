@@ -4,8 +4,8 @@ department: mens
 name: Bottoms
 description: Jeans, Pants, & Shorts
 slug: bottoms
-thumbnail: ../../images/category-thumbnails/bottoms-thumbnail.jpeg
-featuredImg: ../../images/category-thumbnails/bottoms-thumbnail.jpeg
+thumbnail: ../../images/category-thumbnails/mens-bottoms-thumbnail.jpg
+# featuredImg: ../../images/category-thumbnails/bottoms-thumbnail.jpeg
 contentType: category products
 ---
 
