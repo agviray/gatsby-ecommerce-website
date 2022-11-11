@@ -20,6 +20,14 @@ nav {
   align-items: center;
 }
 
+@media screen and (min-width: 1399px) {
+  nav {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 nav span:first-of-type {
   font-display: inline-block;
 }
