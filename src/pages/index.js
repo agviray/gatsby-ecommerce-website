@@ -3,19 +3,24 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/Layout"
 import * as styles from "../styles/home.module.css"
+import HomeWomensSection from "../components/HomeWomensSection"
+import HomeMensSection from "../components/HomeMensSection"
+import HomeHomeGoodsSection from "../components/HomeHomeGoodsSection"
 
 export default function Home({ data }) {
   const image = getImage(data.image.childImageSharp)
   // console.log(data)
   return (
     <Layout>
-      <section className={styles.header}>
-        <div>
-          <h2>Official Online Store</h2>
-          <span>Welcome to the shop!</span>
-        </div>
+      <section>
+        <HomeWomensSection />
       </section>
-      <GatsbyImage image={image} alt="items group" />
+      <section>
+        <HomeMensSection />
+      </section>
+      <section>
+        <HomeHomeGoodsSection />
+      </section>
     </Layout>
   )
 }

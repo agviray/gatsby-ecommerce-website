@@ -35,30 +35,30 @@ const HomeMensSection = () => {
     }
   `)
 
-  const { mainImageMobile } = data.markdownRemark.frontmatter
-  const { supportImages } = data.markdownRemark.frontmatter
+  const mobileImage =
+    data.markdownRemark.frontmatter.mainImageMobile.childImageSharp
+      .gatsbyImageData
+  const desktopImages = [...data.markdownRemark.frontmatter.supportImages]
 
   const renderDesktopContent = () => {
     return (
       <div className={styles.supportImagesContainer}>
         <div className={styles.supportContainer}>
-          <GatsbyImage
-            image={mainImageMobile.childImageSharp.gatsbyImageData}
-            alt="man posing"
-          />
+          <GatsbyImage image={mobileImage} alt="man posing" />
         </div>
-        <div className={styles.supportContainer}>
-          <GatsbyImage
-            image={supportImages[0].childImageSharp.gatsbyImageData}
-            alt="man leaning"
-          />
-        </div>
-        <div className={styles.supportContainer}>
-          <GatsbyImage
-            image={supportImages[1].childImageSharp.gatsbyImageData}
-            alt="man leaning"
-          />
-        </div>
+        {desktopImages.map(img => {
+          return (
+            <div
+              key={img.childImageSharp.id}
+              className={styles.supportContainer}
+            >
+              <GatsbyImage
+                image={img.childImageSharp.gatsbyImageData}
+                alt="man posing"
+              />
+            </div>
+          )
+        })}
       </div>
     )
   }
@@ -67,10 +67,7 @@ const HomeMensSection = () => {
     <>
       {windowWidth < 800 ? (
         <div>
-          <GatsbyImage
-            image={mainImageMobile.childImageSharp.gatsbyImageData}
-            alt="man posing"
-          />
+          <GatsbyImage image={mobileImage} alt="man posing" />
         </div>
       ) : (
         renderDesktopContent()
