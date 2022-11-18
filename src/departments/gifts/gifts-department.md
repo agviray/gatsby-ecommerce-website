@@ -1,7 +1,7 @@
 ---
 position: 4
-mainImg: ../images/home-gifts-feat-img-mobile.jpg
-supportImg: ../images/home-gifts-feat-img-mobile.jpg
+mobileImage: ../images/home-gifts-feat-img-mobile.jpg
+desktopImage: ../images/home-gifts-collage02.png
 department: gifts
 name: Gifts
 slug: gifts
