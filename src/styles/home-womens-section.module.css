@@ -1,30 +1,9 @@
-.content {
+.sectionContent {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
 }
 
-.mainImageContainer {
-  width: 50%;
-  margin-right: 7px;
-}
-
-.supportImagesContainer {
-  width: 23%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.supportContainer01,
-.supportContainer02 {
-  width: 100%;
-  margin-bottom: 7px;
-}
-
-.womensDepartmentLink {
-  flex-grow: 1;
-  width: 100%;
-  background-color: black;
+.desktopImageContainer {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
