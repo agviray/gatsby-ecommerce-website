@@ -1,9 +1,3 @@
-.supportImagesContainer {
-  display: flex;
-  justify-content: center;
+.sectionContent {
   padding-top: 40px;
-}
-
-.supportContainer {
-  width: 33.33%;
 }

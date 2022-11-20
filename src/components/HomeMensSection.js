@@ -11,7 +11,7 @@ const HomeMensSection = () => {
     query HomeMensSectionComponent {
       markdownRemark(frontmatter: { slug: { eq: "mens" } }) {
         frontmatter {
-          mainImageMobile {
+          mobileImage {
             childImageSharp {
               gatsbyImageData(
                 formats: [AUTO, WEBP]
@@ -20,7 +20,7 @@ const HomeMensSection = () => {
               )
             }
           }
-          supportImages {
+          desktopImage {
             childImageSharp {
               id
               gatsbyImageData(
@@ -36,43 +36,22 @@ const HomeMensSection = () => {
   `)
 
   const mobileImage =
-    data.markdownRemark.frontmatter.mainImageMobile.childImageSharp
-      .gatsbyImageData
-  const desktopImages = [...data.markdownRemark.frontmatter.supportImages]
-
-  const renderDesktopContent = () => {
-    return (
-      <div className={styles.supportImagesContainer}>
-        <div className={styles.supportContainer}>
-          <GatsbyImage image={mobileImage} alt="man posing" />
-        </div>
-        {desktopImages.map(img => {
-          return (
-            <div
-              key={img.childImageSharp.id}
-              className={styles.supportContainer}
-            >
-              <GatsbyImage
-                image={img.childImageSharp.gatsbyImageData}
-                alt="man posing"
-              />
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
+    data.markdownRemark.frontmatter.mobileImage.childImageSharp.gatsbyImageData
+  const desktopImage =
+    data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
 
   return (
-    <>
+    <div className={styles.sectionContent}>
       {windowWidth < 800 ? (
         <div>
           <GatsbyImage image={mobileImage} alt="man posing" />
         </div>
       ) : (
-        renderDesktopContent()
+        <div>
+          <GatsbyImage image={desktopImage} alt="men closeup collage" />
+        </div>
       )}
-    </>
+    </div>
   )
 }
 
