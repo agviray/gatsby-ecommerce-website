@@ -41,7 +41,7 @@ const HomeWomensSection = () => {
     data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
 
   return (
-    <>
+    <div className={styles.sectionContent}>
       {windowWidth < 800 ? (
         <div>
           <GatsbyImage image={mobileImage} alt="woman posing" />
@@ -51,7 +51,7 @@ const HomeWomensSection = () => {
           <GatsbyImage image={desktopImage} alt="collage of images" />
         </div>
       )}
-    </>
+    </div>
   )
 }
 

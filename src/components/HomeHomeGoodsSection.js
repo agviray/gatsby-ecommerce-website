@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-// import * as styles from "../styles/home-home-goods-section.module.css"
+import * as styles from "../styles/home-home-goods-section.module.css"
 import useWindowWidth from "./hooks/useWindowWidth"
 
 const HomeHomeGoodsSection = () => {
@@ -11,7 +11,7 @@ const HomeHomeGoodsSection = () => {
     query HomeHomeGoodsSectionComponent {
       markdownRemark(frontmatter: { slug: { eq: "home-goods" } }) {
         frontmatter {
-          supportImg {
+          mobileImage {
             childImageSharp {
               gatsbyImageData(
                 formats: [AUTO, WEBP]
@@ -20,7 +20,7 @@ const HomeHomeGoodsSection = () => {
               )
             }
           }
-          mainImg {
+          desktopImage {
             childImageSharp {
               gatsbyImageData(
                 formats: [AUTO, WEBP]
@@ -35,12 +35,12 @@ const HomeHomeGoodsSection = () => {
   `)
 
   const mobileImage =
-    data.markdownRemark.frontmatter.mainImg.childImageSharp.gatsbyImageData
+    data.markdownRemark.frontmatter.mobileImage.childImageSharp.gatsbyImageData
   const desktopImage =
-    data.markdownRemark.frontmatter.supportImg.childImageSharp.gatsbyImageData
+    data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
 
   return (
-    <>
+    <div className={styles.sectionContent}>
       {windowWidth < 800 ? (
         <>
           <GatsbyImage image={mobileImage} alt="red chair sitting in nature" />
@@ -50,7 +50,7 @@ const HomeHomeGoodsSection = () => {
           <GatsbyImage image={desktopImage} alt="potted plant in empty room" />
         </>
       )}
-    </>
+    </div>
   )
 }
 

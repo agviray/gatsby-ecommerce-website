@@ -6,7 +6,7 @@ import HomeMensSection from "../components/HomeMensSection"
 import HomeHomeGoodsSection from "../components/HomeHomeGoodsSection"
 import HomeGiftsSection from "../components/HomeGiftsSection"
 
-export default function Home({ data }) {
+export default function Home() {
   return (
     <Layout>
       <section>
