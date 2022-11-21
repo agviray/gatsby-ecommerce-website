@@ -20,7 +20,17 @@ const HomeWomensSection = () => {
               )
             }
           }
-          desktopImage {
+          desktopImageA {
+            childImageSharp {
+              id
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                formats: [AUTO, WEBP]
+                placeholder: BLURRED
+              )
+            }
+          }
+          desktopImageB {
             childImageSharp {
               id
               gatsbyImageData(
@@ -37,8 +47,12 @@ const HomeWomensSection = () => {
 
   const mobileImage =
     data.markdownRemark.frontmatter.mobileImage.childImageSharp.gatsbyImageData
-  const desktopImage =
-    data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
+  const desktopImageA =
+    data.markdownRemark.frontmatter.desktopImageA.childImageSharp
+      .gatsbyImageData
+  const desktopImageB =
+    data.markdownRemark.frontmatter.desktopImageB.childImageSharp
+      .gatsbyImageData
 
   return (
     <div className={styles.sectionContent}>
@@ -48,7 +62,7 @@ const HomeWomensSection = () => {
         </div>
       ) : (
         <div className={styles.desktopImageContainer}>
-          <GatsbyImage image={desktopImage} alt="collage of images" />
+          <GatsbyImage image={desktopImageA} alt="collage of images" />
         </div>
       )}
     </div>

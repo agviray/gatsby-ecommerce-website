@@ -25,18 +25,17 @@ p {
 /* Layout */
 /* ************** */
 .layout {
-  max-width: 1400px;
-  margin: 0 auto;
+  /* max-width: 1400px;
+  margin: 0 auto; */
 }
 
 header {
   position: relative;
   height: 99px;
-  /* margin-bottom: 40px; */
 }
 
 main {
-  padding-top: 140px;
+  /* padding-top: 140px; */
 }
 
 footer p {
