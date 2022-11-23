@@ -2,18 +2,24 @@
   width: 100%;
 }
 
-.desktopImageContainer {
+.imageAContainer,
+.imageBContainer,
+.imageCContainer {
   width: 100%;
 }
 
-@media screen and (min-width: 799px) {
-  .sectionContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media screen and (min-width: 800px) {
+  .imageAContainer,
+  .imageBContainer,
+  .imageCContainer {
+    max-width: 80vw;
   }
+}
 
-  .desktopImageContainer {
-    max-width: 1400px;
+@media screen and (min-width: 1200px) {
+  .imageAContainer,
+  .imageBContainer,
+  .imageCContainer {
+    max-width: 60vw;
   }
 }
