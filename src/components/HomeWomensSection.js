@@ -76,7 +76,7 @@ const HomeWomensSection = () => {
         </div>
       ) : (
         <div>
-          <VerticalCarousel allSlides={slides} autoCycle={true} />
+          <VerticalCarousel allSlides={slides} />
         </div>
       )}
     </div>
