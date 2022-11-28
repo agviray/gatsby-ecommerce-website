@@ -1,6 +1,5 @@
 import React from "react"
 import Layout from "../components/Layout"
-// import * as styles from "../styles/home.module.css"
 import HomeWomensSection from "../components/HomeWomensSection"
 import HomeMensSection from "../components/HomeMensSection"
 import HomeHomeGoodsSection from "../components/HomeHomeGoodsSection"
@@ -16,10 +15,10 @@ export default function Home() {
         <HomeMensSection />
       </section>
       <section>
-        <HomeHomeGoodsSection />
+        <HomeGiftsSection />
       </section>
       <section>
-        <HomeGiftsSection />
+        <HomeHomeGoodsSection />
       </section>
     </Layout>
   )

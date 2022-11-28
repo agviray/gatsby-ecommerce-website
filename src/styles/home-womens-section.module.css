@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+@media screen and (min-width: 800px) {
+  .sectionContent {
+    padding-bottom: 99px;
+  }
+}
+
 .imageAContainer,
 .imageBContainer,
 .imageCContainer {
