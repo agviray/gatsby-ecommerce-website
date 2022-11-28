@@ -1,53 +1,33 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import * as styles from "../styles/home-gifts-section.module.css"
 import useWindowWidth from "./hooks/useWindowWidth"
 
 const HomeGiftsSection = () => {
   const windowWidth = useWindowWidth()
 
-  const data = useStaticQuery(graphql`
-    query GiftsSectionComponent {
-      markdownRemark(frontmatter: { slug: { eq: "gifts" } }) {
-        frontmatter {
-          mobileImage {
-            childImageSharp {
-              gatsbyImageData(
-                formats: [AUTO, WEBP]
-                placeholder: BLURRED
-                layout: FULL_WIDTH
-              )
-            }
-          }
-          desktopImage {
-            childImageSharp {
-              gatsbyImageData(
-                formats: [AUTO, WEBP]
-                placeholder: BLURRED
-                layout: FULL_WIDTH
-              )
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const mobileImage =
-    data.markdownRemark.frontmatter.mobileImage.childImageSharp.gatsbyImageData
-  const desktopImage =
-    data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
+  const mobileImage = "../departments/images/home-gifts-feat-img-mobile.jpg"
+  const desktopImage = "../departments/images/home-gifts-collage02.png"
 
   return (
     <div className={styles.sectionContent}>
       {windowWidth < 800 ? (
         <div>
-          <GatsbyImage image={mobileImage} alt="white purse" />
+          <StaticImage
+            src={mobileImage}
+            alt="white handbag"
+            placeholder="blurred"
+            layout="fullWidth"
+          />
         </div>
       ) : (
         <div>
-          <GatsbyImage image={desktopImage} alt="collage of images" />
+          <StaticImage
+            src={desktopImage}
+            alt="collage of people and accessories"
+            placeholder="blurred"
+            layout="fullWidth"
+          />
         </div>
       )}
     </div>

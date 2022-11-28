@@ -1,53 +1,35 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import * as styles from "../styles/home-home-goods-section.module.css"
 import useWindowWidth from "./hooks/useWindowWidth"
 
 const HomeHomeGoodsSection = () => {
   const windowWidth = useWindowWidth()
 
-  const data = useStaticQuery(graphql`
-    query HomeHomeGoodsSectionComponent {
-      markdownRemark(frontmatter: { slug: { eq: "home-goods" } }) {
-        frontmatter {
-          mobileImage {
-            childImageSharp {
-              gatsbyImageData(
-                formats: [AUTO, WEBP]
-                placeholder: BLURRED
-                layout: FULL_WIDTH
-              )
-            }
-          }
-          desktopImage {
-            childImageSharp {
-              gatsbyImageData(
-                formats: [AUTO, WEBP]
-                placeholder: BLURRED
-                layout: FULL_WIDTH
-              )
-            }
-          }
-        }
-      }
-    }
-  `)
-
   const mobileImage =
-    data.markdownRemark.frontmatter.mobileImage.childImageSharp.gatsbyImageData
+    "../departments/images/home-home-goods-feat-img-mobile.jpg"
   const desktopImage =
-    data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
+    "../departments/images/home-home-goods-feature-img-desktop.jpg"
 
   return (
     <div className={styles.sectionContent}>
       {windowWidth < 800 ? (
         <>
-          <GatsbyImage image={mobileImage} alt="red chair sitting in nature" />
+          <StaticImage
+            src={mobileImage}
+            alt="red chair sitting in nature"
+            placeholder="blurred"
+            layout="fullWidth"
+          />
         </>
       ) : (
         <>
-          <GatsbyImage image={desktopImage} alt="potted plant in empty room" />
+          <StaticImage
+            src={desktopImage}
+            alt="red chair sitting in nature"
+            placeholder="blurred"
+            layout="fullWidth"
+          />
         </>
       )}
     </div>
