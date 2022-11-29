@@ -1,9 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+@font-face {
+  font-family: "Prata Regular";
+  src: local("Prata Regular"),
+    url(../fonts/prata_ff/Prata-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Josefin Sans Regular";
+  src: local("Josefin Sans Regular"),
+    url(../fonts/josefinsans_ff/JosefinSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Josefin Sans Thin";
+  src: local("Josefin Sans Thin"),
+    url(../fonts/josefinsans_ff/JosefinSans-Thin.ttf) format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "Josefin Sans Regular", Arial, Helvetica, sans-serif;
   color: #333333;
 }
 
@@ -31,7 +50,13 @@ p {
 
 header {
   position: relative;
-  height: 99px;
+  padding-top: 99px;
+}
+
+@media screen and (min-width: 800px) {
+  header {
+    padding-top: 0;
+  }
 }
 
 main {

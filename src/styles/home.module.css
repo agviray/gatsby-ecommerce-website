@@ -6,24 +6,23 @@
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
 .text {
-  display: inline-block;
-  color: #f3f3f3;
-  font-size: 15vw;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  color: white;
+  font-family: "Prata Regular", Georgia, "Times New Roman", Times, serif;
+  font-size: 8vw;
   text-align: center;
+  z-index: 1;
 }
 
 @media screen and (min-width: 800px) {
   .text {
-    font-size: 5vw;
+    font-size: 3vw;
   }
 }

@@ -121,23 +121,21 @@ const VerticalCarousel = ({ allSlides }) => {
 
   return (
     <>
-      <div className={container}>
-        <div className={slidesContainer} style={applySlideDimensionStyles()}>
-          <div
-            className={`${slides} ${hasTransitionClass ? `${transition}` : ""}`}
-            style={{ top: calculateTopMargin() }}
-          >
-            {stateSlides.map((stateSlide, index) => (
-              <div
-                key={index}
-                ref={index === 0 ? slideContainerRef : null}
-                className={slide}
-                style={applySlideDimensionStyles()}
-              >
-                {stateSlide.content()}
-              </div>
-            ))}
-          </div>
+      <div className={slidesContainer} style={applySlideDimensionStyles()}>
+        <div
+          className={`${slides} ${hasTransitionClass ? `${transition}` : ""}`}
+          style={{ top: calculateTopMargin() }}
+        >
+          {stateSlides.map((stateSlide, index) => (
+            <div
+              key={index}
+              ref={index === 0 ? slideContainerRef : null}
+              className={slide}
+              style={applySlideDimensionStyles()}
+            >
+              {stateSlide.content()}
+            </div>
+          ))}
         </div>
       </div>
     </>

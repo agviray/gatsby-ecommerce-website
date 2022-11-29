@@ -4,28 +4,23 @@
 
 @media screen and (min-width: 800px) {
   .sectionContent {
+    padding-top: 99px;
     padding-bottom: 99px;
   }
 }
 
-.imageAContainer,
-.imageBContainer,
-.imageCContainer {
-  width: 100%;
+.mobileStaticImage {
+  height: 100vh;
 }
 
 @media screen and (min-width: 800px) {
-  .imageAContainer,
-  .imageBContainer,
-  .imageCContainer {
+  .desktopStaticImage {
     max-width: 80vw;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .imageAContainer,
-  .imageBContainer,
-  .imageCContainer {
+  .desktopStaticImage {
     max-width: 60vw;
   }
 }

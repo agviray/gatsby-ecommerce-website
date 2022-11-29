@@ -10,7 +10,7 @@ const HomeGiftsSection = () => {
   const windowWidth = useWindowWidth()
 
   const mobileImage = "../departments/images/home-gifts-feat-img-mobile.jpg"
-  const desktopImage = "../departments/images/home-gifts-collage02.png"
+  const desktopImage = "../departments/images/home-gifts-collage03.png"
 
   return (
     <div className={sectionContent}>
