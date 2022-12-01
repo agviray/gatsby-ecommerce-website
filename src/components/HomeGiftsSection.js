@@ -4,10 +4,10 @@ import {
   sectionContent,
   imageContainer,
 } from "../styles/home-gifts-section.module.css"
-import useWindowWidth from "./hooks/useWindowWidth"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const HomeGiftsSection = () => {
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
 
   const mobileImage = "../departments/images/home-gifts-feat-img-mobile.jpg"
   const desktopImage = "../departments/images/home-gifts-collage03.png"
@@ -15,7 +15,7 @@ const HomeGiftsSection = () => {
   return (
     <div className={sectionContent}>
       <div>
-        {windowWidth < 800 ? (
+        {windowDimensions.width < 800 ? (
           <>
             <StaticImage
               src={mobileImage}

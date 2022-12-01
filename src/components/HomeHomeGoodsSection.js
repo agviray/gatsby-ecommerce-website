@@ -1,10 +1,10 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import * as styles from "../styles/home-home-goods-section.module.css"
-import useWindowWidth from "./hooks/useWindowWidth"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const HomeHomeGoodsSection = () => {
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
 
   const mobileImage =
     "../departments/images/home-home-goods-feat-img-mobile.jpg"
@@ -13,7 +13,7 @@ const HomeHomeGoodsSection = () => {
 
   return (
     <div className={styles.sectionContent}>
-      {windowWidth < 800 ? (
+      {windowDimensions.width < 800 ? (
         <>
           <StaticImage
             src={mobileImage}

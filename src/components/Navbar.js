@@ -3,13 +3,13 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import * as styles from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
 import Hamburger from "./Hamburger"
-import useWindowWidth from "../components/hooks/useWindowWidth"
+import useWindowDimensions from "../components/hooks/useWindowDimensions"
 import useNavigationDisplay from "./hooks/useNavigationDisplay"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navContainerRef = useRef(null)
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
   const isNavbarDisplayed = useNavigationDisplay()
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Navbar = () => {
     if (isMenuOpen === true) {
       setIsMenuOpen(false)
     }
-  }, [windowWidth])
+  }, [windowDimensions])
 
   const data = useStaticQuery(graphql`
     query SiteInfo {
@@ -52,7 +52,7 @@ const Navbar = () => {
             <h1>{title}</h1>
           </Link>
         </span>
-        {windowWidth < 800 ? (
+        {windowDimensions.width < 800 ? (
           <Hamburger
             isMenuOpen={isMenuOpen}
             onIsMenuOpenChange={updateIsMenuOpen}

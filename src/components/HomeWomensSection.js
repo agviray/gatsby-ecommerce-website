@@ -5,11 +5,11 @@ import {
   mobileStaticImage,
   desktopStaticImage,
 } from "../styles/home-womens-section.module.css"
-import useWindowWidth from "./hooks/useWindowWidth"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 import VerticalCarousel from "./VerticalCarousel"
 
 const HomeWomensSection = () => {
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
 
   const mobileImage = "../departments/images/home-womens-mobile.jpg"
   const desktopImageA = "../departments/images/home-womens-slide01.png"
@@ -60,7 +60,7 @@ const HomeWomensSection = () => {
 
   return (
     <div className={sectionContent}>
-      {windowWidth < 800 ? (
+      {windowDimensions.width < 800 ? (
         <>
           <StaticImage
             className={mobileStaticImage}

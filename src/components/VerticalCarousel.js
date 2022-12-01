@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react"
 import {
-  container,
   slidesContainer,
   slides,
   slide,
   transition,
 } from "../styles/vertical-carousel.module.css"
-import useWindowWidth from "./hooks/useWindowWidth"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const VerticalCarousel = ({ allSlides }) => {
   const [visibleSlide, setVisibleSlide] = useState(1)
@@ -17,7 +16,7 @@ const VerticalCarousel = ({ allSlides }) => {
     height: null,
   })
   const slideContainerRef = useRef(null)
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
   const intervalId = useRef(null)
 
   // *** Creates clones of the first and last slide. ***
@@ -85,7 +84,7 @@ const VerticalCarousel = ({ allSlides }) => {
     }
   }, [visibleSlide])
 
-  // *** Resets the dimensions of the the slides whenever the windowWidth changes. ***
+  // *** Resets the dimensions of the the slides whenever the window width changes. ***
   // - Each slide's dimensions are based on the dimensions of each image
   //   within the slides.
   // - Therefore, it is important that the content of each slide has the same dimenions.
@@ -98,7 +97,7 @@ const VerticalCarousel = ({ allSlides }) => {
           slideContainerRef.current.childNodes[0].childNodes[0].offsetHeight,
       })
     }
-  }, [windowWidth])
+  }, [windowDimensions])
 
   // *** Determines the "window" height of the slides. ***
   // - The "window" created by this style is what enables only the

@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import * as styles from "../styles/navmenu.module.css"
-import useWindowWidth from "./hooks/useWindowWidth"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const NavMenu = ({ isMenuOpen }) => {
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
 
   const navMenu = (
     <div className={styles.menu}>
@@ -15,7 +15,7 @@ const NavMenu = ({ isMenuOpen }) => {
     </div>
   )
 
-  return windowWidth < 800 ? (
+  return windowDimensions.width < 800 ? (
     <div
       className={`${styles.container} ${isMenuOpen ? `${styles.isOpen}` : ``}`}
     >
