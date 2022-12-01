@@ -1,55 +1,58 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import * as styles from "../styles/home-mens-section.module.css"
-import useWindowWidth from "./hooks/useWindowWidth"
+import { StaticImage } from "gatsby-plugin-image"
+import {
+  sectionContent,
+  mobileStaticImage,
+} from "../styles/home-mens-section.module.css"
+import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const HomeMensSection = () => {
-  const windowWidth = useWindowWidth()
+  const windowDimensions = useWindowDimensions()
+  const mobileImage = "../departments/images/home-mens-mobile.jpg"
+  const desktopImage = "../departments/images/home-mens-desktop-collage.png"
 
-  const data = useStaticQuery(graphql`
-    query HomeMensSectionComponent {
-      markdownRemark(frontmatter: { slug: { eq: "mens" } }) {
-        frontmatter {
-          mobileImage {
-            childImageSharp {
-              gatsbyImageData(
-                formats: [AUTO, WEBP]
-                placeholder: BLURRED
-                layout: FULL_WIDTH
-              )
-            }
-          }
-          desktopImage {
-            childImageSharp {
-              id
-              gatsbyImageData(
-                formats: [AUTO, WEBP]
-                placeholder: BLURRED
-                layout: FULL_WIDTH
-              )
-            }
-          }
-        }
-      }
-    }
-  `)
+  const renderedMobileImage = (
+    <>
+      <StaticImage
+        className={mobileStaticImage}
+        src={mobileImage}
+        alt="man posing"
+        placeholder="blurred"
+        objectFit="cover"
+        objectPosition="top"
+      />
+    </>
+  )
 
-  const mobileImage =
-    data.markdownRemark.frontmatter.mobileImage.childImageSharp.gatsbyImageData
-  const desktopImage =
-    data.markdownRemark.frontmatter.desktopImage.childImageSharp.gatsbyImageData
+  const renderedDesktopImage = (
+    <>
+      <StaticImage
+        className={`${
+          windowDimensions.width < 800 &&
+          windowDimensions.width > windowDimensions.height
+            ? mobileStaticImage
+            : null
+        }`}
+        src={desktopImage}
+        alt="collage of men posing"
+        placeholder="blurred"
+        layout="fullWidth"
+      />
+    </>
+  )
+
+  const showMobileImage = () => {
+    return windowDimensions.width < windowDimensions.height
+      ? renderedMobileImage
+      : renderedDesktopImage
+  }
 
   return (
-    <div className={styles.sectionContent}>
-      {windowWidth < 800 ? (
-        <div>
-          <GatsbyImage image={mobileImage} alt="man posing" />
-        </div>
+    <div className={sectionContent}>
+      {windowDimensions.width < 800 ? (
+        <>{showMobileImage()}</>
       ) : (
-        <div>
-          <GatsbyImage image={desktopImage} alt="men closeup collage" />
-        </div>
+        <>{renderedDesktopImage}</>
       )}
     </div>
   )
