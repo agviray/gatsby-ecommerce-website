@@ -1,2 +1,7 @@
-/* .sectionContent {
-} */
+.sectionContent {
+  width: 100%;
+}
+
+.mobileStaticImage {
+  height: 100vh;
+}
