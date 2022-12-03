@@ -13,7 +13,7 @@ export default function Home() {
       <Link to={"/womens"}>
         <section className={section}>
           <div className={innerContainer}>
-            <div className={text}>WOMEN</div>
+            <span className={text}>WOMEN</span>
           </div>
           <HomeWomensSection />
         </section>
@@ -21,7 +21,7 @@ export default function Home() {
       <Link to={"mens"}>
         <section className={section}>
           <div className={innerContainer}>
-            <div className={text}>MEN</div>
+            <span className={text}>MEN</span>
           </div>
           <HomeMensSection />
         </section>
@@ -29,7 +29,7 @@ export default function Home() {
       <Link to={"/gifts"}>
         <section className={section}>
           <div className={innerContainer}>
-            <div className={text}>GIFTS</div>
+            <span className={text}>GIFTS</span>
           </div>
           <HomeGiftsSection />
         </section>
@@ -37,7 +37,7 @@ export default function Home() {
       <Link to={"home-goods"}>
         <section className={section}>
           <div className={innerContainer}>
-            <div className={text}>HOME GOODS</div>
+            <span className={text}>HOME GOODS</span>
           </div>
           <HomeHomeGoodsSection />
         </section>
