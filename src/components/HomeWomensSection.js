@@ -12,6 +12,8 @@ const HomeWomensSection = () => {
   const windowDimensions = useWindowDimensions()
 
   const mobileImage = "../departments/images/home-womens-mobile.jpg"
+  const mobileLandscapeImage =
+    "../departments/images/home-womens-mobile-landscape-image.png"
   const desktopImageA = "../departments/images/home-womens-slide01.png"
   const desktopImageB = "../departments/images/home-womens-slide02.png"
   const desktopImageC = "../departments/images/home-womens-slide03.png"
@@ -58,23 +60,47 @@ const HomeWomensSection = () => {
     },
   ]
 
+  const renderedDesktopContent = (
+    <>
+      <VerticalCarousel allSlides={slides} />
+    </>
+  )
+
+  const renderedMobileImage = (
+    <>
+      <StaticImage
+        className={mobileStaticImage}
+        src={mobileImage}
+        alt="woman posing"
+        placeholder="blurred"
+        objectFit="cover"
+        objectPosition={"top"}
+      />
+    </>
+  )
+
+  const renderedMobileLandscapeImage = (
+    <StaticImage
+      className={mobileStaticImage}
+      src={mobileLandscapeImage}
+      alt="woman posing"
+      placeholder="blurred"
+      layout="fullWidth"
+    />
+  )
+
+  const showMobileImage = () => {
+    return windowDimensions.width < windowDimensions.height
+      ? renderedMobileImage
+      : renderedMobileLandscapeImage
+  }
+
   return (
     <div className={sectionContent}>
       {windowDimensions.width < 800 ? (
-        <>
-          <StaticImage
-            className={mobileStaticImage}
-            src={mobileImage}
-            alt="woman posing"
-            placeholder="blurred"
-            objectFit="cover"
-            objectPosition={"top"}
-          />
-        </>
+        <>{showMobileImage()}</>
       ) : (
-        <>
-          <VerticalCarousel allSlides={slides} />
-        </>
+        <>{renderedDesktopContent}</>
       )}
     </div>
   )
