@@ -11,29 +11,58 @@ const HomeGiftsSection = () => {
   const windowDimensions = useWindowDimensions()
 
   const mobileImage = "../departments/images/home-gifts-mobile.jpg"
+  const mobileLandscapeImage =
+    "../departments/images/home-gifts-mobile-landscape-image.png"
   const desktopImage = "../departments/images/home-gifts-collage.png"
+
+  const renderedMobileImage = (
+    <>
+      <StaticImage
+        className={mobileStaticImage}
+        src={mobileImage}
+        alt={"white handbag"}
+        objectFit="cover"
+        objectPosition={"top"}
+      />
+    </>
+  )
+
+  const renderedMobileLandscapeImage = (
+    <>
+      <StaticImage
+        className={mobileStaticImage}
+        src={mobileLandscapeImage}
+        alt={"woman holding handbag and man posing"}
+        placeholder="blurred"
+        layout="fullWidth"
+      />
+    </>
+  )
+
+  const renderedDesktopImage = (
+    <>
+      <StaticImage
+        src={desktopImage}
+        alt="collage of people and accessories"
+        placeholder="blurred"
+        objectFit="cover"
+        objectPosition={"50% 50%"}
+      />
+    </>
+  )
+
+  const showMobileImage = () => {
+    return windowDimensions.width < windowDimensions.height
+      ? renderedMobileImage
+      : renderedMobileLandscapeImage
+  }
 
   return (
     <div className={sectionContent}>
       {windowDimensions.width < 800 ? (
-        <StaticImage
-          className={mobileStaticImage}
-          src={mobileImage}
-          alt="white handbag"
-          placeholder="blurred"
-          objectFit="cover"
-          objectPosition={"top"}
-        />
+        <>{showMobileImage()}</>
       ) : (
-        <div className={desktopImageContainer}>
-          <StaticImage
-            src={desktopImage}
-            alt="collage of people and accessories"
-            placeholder="blurred"
-            objectFit="cover"
-            objectPosition={"50% 50%"}
-          />
-        </div>
+        <div className={desktopImageContainer}>{renderedDesktopImage}</div>
       )}
     </div>
   )
