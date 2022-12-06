@@ -4,8 +4,7 @@ department: mens
 name: Tops
 description: Shirts & Tees
 slug: tops
-thumbnail: ../../images/category-thumbnails/mens-tops-thumbnail.jpg
-# featuredImg: ../../images/category-thumbnails/tops-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/mens-category-tops-thumbnail.jpg
 contentType: category products
 ---
 

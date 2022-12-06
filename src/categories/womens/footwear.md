@@ -4,7 +4,7 @@ department: womens
 name: Footwear
 description: Boots & Sneakers
 slug: footwear
-thumbnail: ../../images/category-thumbnails/womens-footwear-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/womens-category-footwear-thumbnail.jpg
 contentType: category products
 ---
 

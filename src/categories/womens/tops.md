@@ -4,7 +4,7 @@ department: womens
 name: Tops
 description: Shirts & Tees
 slug: tops
-thumbnail: ../../images/category-thumbnails/womens-tops-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/womens-category-tops-thumbnail.jpg
 contentType: category products
 ---
 

@@ -8,6 +8,8 @@ export default function Department({ data }) {
   const department = data.department.frontmatter
   const categories = data.categories.nodes
 
+  console.log(data)
+
   return (
     <Layout>
       <div className={styles.departmentContainer}>
