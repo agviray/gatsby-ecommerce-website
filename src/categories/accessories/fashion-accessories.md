@@ -1,5 +1,5 @@
 ---
-department: gifts
+department: accessories
 name: Fashion Accessories
 # description:
 slug: fashion-accessories

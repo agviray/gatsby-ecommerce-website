@@ -4,16 +4,16 @@ import {
   sectionContent,
   mobileStaticImage,
   desktopImageContainer,
-} from "../styles/home-gifts-section.module.css"
+} from "../styles/home-accessories-section.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
-const HomeGiftsSection = () => {
+const HomeAccessoriesSection = () => {
   const windowDimensions = useWindowDimensions()
 
-  const mobileImage = "../departments/images/home-gifts-mobile.jpg"
+  const mobileImage = "../departments/images/home-accessories-mobile.jpg"
   const mobileLandscapeImage =
-    "../departments/images/home-gifts-mobile-landscape-image.png"
-  const desktopImage = "../departments/images/home-gifts-collage.png"
+    "../departments/images/home-accessories-mobile-landscape-image.png"
+  const desktopImage = "../departments/images/home-accessories-collage.png"
 
   const renderedMobileImage = (
     <>
@@ -68,4 +68,4 @@ const HomeGiftsSection = () => {
   )
 }
 
-export default HomeGiftsSection
+export default HomeAccessoriesSection

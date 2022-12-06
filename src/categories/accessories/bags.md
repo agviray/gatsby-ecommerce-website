@@ -1,5 +1,5 @@
 ---
-department: gifts
+department: accessories
 name: Bags
 # description:
 slug: bags

@@ -10,7 +10,7 @@ import {
 import HomeWomensSection from "../components/HomeWomensSection"
 import HomeMensSection from "../components/HomeMensSection"
 import HomeHomeGoodsSection from "../components/HomeHomeGoodsSection"
-import HomeGiftsSection from "../components/HomeGiftsSection"
+import HomeAccessoriesSection from "../components/HomeAccessoriesSection"
 
 export default function Home() {
   return (
@@ -35,14 +35,14 @@ export default function Home() {
           <HomeMensSection />
         </section>
       </Link>
-      <Link to={"/gifts"}>
+      <Link to={"/accessories"}>
         <section className={section}>
           <div className={innerContainer}>
             <div className={textContainer}>
-              <span className={text}>GIFTS</span>
+              <span className={text}>ACCESSORIES</span>
             </div>
           </div>
-          <HomeGiftsSection />
+          <HomeAccessoriesSection />
         </section>
       </Link>
       <Link to={"home-goods"}>
