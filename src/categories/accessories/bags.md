@@ -1,6 +1,7 @@
 ---
+position: 1
 department: accessories
-name: Bags
+name: BAGS
 # description:
 slug: bags
 thumbnail: ../../images/category-thumbnails/accessories-category-bags.jpg

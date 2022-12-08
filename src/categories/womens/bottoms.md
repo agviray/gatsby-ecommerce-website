@@ -1,10 +1,10 @@
 ---
 position: 2
 department: womens
-name: Bottoms
-description: Jeans, Pants, & Shorts
+name: BOTTOMS
+# description: Jeans, Pants, & Shorts
 slug: bottoms
-thumbnail: ../../images/category-thumbnails/womens-category-bottoms-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/womens-bottoms.jpg
 contentType: category products
 ---
 

@@ -1,9 +1,10 @@
 ---
+position: 2
 department: accessories
-name: Fashion Accessories
+name: JEWELRY
 # description:
-slug: fashion-accessories
-thumbnail: ../../images/category-thumbnails/accessories-category-jewelry.jpg
+slug: jewelry
+thumbnail: ../../images/category-thumbnails/accessories-jewelry.jpg
 # featuredImg:
 contentType: category products
 ---

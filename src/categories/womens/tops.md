@@ -1,10 +1,10 @@
 ---
 position: 1
 department: womens
-name: Tops
-description: Shirts & Tees
+name: TOPS
+# description: Shirts & Tees
 slug: tops
-thumbnail: ../../images/category-thumbnails/womens-category-tops-thumbnail.jpg
+thumbnail: ../../images/category-thumbnails/womens-tops.jpg
 contentType: category products
 ---
 

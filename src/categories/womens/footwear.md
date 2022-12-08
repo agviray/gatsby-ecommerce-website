@@ -1,8 +1,8 @@
 ---
 position: 3
 department: womens
-name: Footwear
-description: Boots & Sneakers
+name: FOOTWEAR
+# description: Boots & Sneakers
 slug: footwear
 thumbnail: ../../images/category-thumbnails/womens-category-footwear-thumbnail.jpg
 contentType: category products

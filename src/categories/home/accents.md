@@ -1,6 +1,7 @@
 ---
+position: 1
 department: home-goods
-name: Accents
+name: ACCENTS
 # description:
 slug: accents
 thumbnail: ../../images/category-thumbnails/home-goods-category-accents.jpg

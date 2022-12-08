@@ -2,35 +2,52 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/Layout"
-import * as styles from "../styles/department.module.css"
+import {
+  departmentContainer,
+  categoriesContainer,
+  categoryImageContainer,
+  mobilePortrait,
+  innerContainer,
+  textContainer,
+  text,
+} from "../styles/department.module.css"
+import useWindowDimensions from "../components/hooks/useWindowDimensions"
 
 export default function Department({ data }) {
   const department = data.department.frontmatter
   const categories = data.categories.nodes
-
-  console.log(data)
+  const windowDimensions = useWindowDimensions()
 
   return (
     <Layout>
-      <div className={styles.departmentContainer}>
-        <h2>{department.name}</h2>
-        <span>All the categories under this department are shown below!</span>
-        <div className={styles.categoriesContainer}>
+      <div className={departmentContainer}>
+        <div className={categoriesContainer}>
           {categories.map(category => (
             <Link
               to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
               key={category.id}
             >
-              <div>
+              <div className={categoryImageContainer}>
                 <GatsbyImage
+                  className={
+                    windowDimensions.height > windowDimensions.width
+                      ? mobilePortrait
+                      : null
+                  }
                   image={
                     category.frontmatter.thumbnail.childImageSharp
                       .gatsbyImageData
                   }
                   alt={"category thumbnail"}
+                  placeholder="blurred"
+                  objectFit="cover"
+                  objectPosition={"50% 50%"}
                 />
-                <h3>{category.frontmatter.name}</h3>
-                <p>{category.frontmatter.description}</p>
+                <div className={innerContainer}>
+                  <div className={textContainer}>
+                    <span className={text}>{category.frontmatter.name}</span>
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
@@ -51,6 +68,7 @@ export const query = graphql`
     }
 
     categories: allMarkdownRemark(
+      sort: { fields: frontmatter___position }
       filter: {
         frontmatter: {
           contentType: { eq: "category products" }

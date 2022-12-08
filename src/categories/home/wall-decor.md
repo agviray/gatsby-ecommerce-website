@@ -1,6 +1,7 @@
 ---
+position: 5
 department: home-goods
-name: Wall Decor
+name: WALL DECOR
 # description:
 slug: wall-decor
 thumbnail: ../../images/category-thumbnails/home-goods-category-wall-decor.jpg
