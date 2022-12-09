@@ -1,3 +1,9 @@
+.departmentContainer {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: 800px) {
   .departmentContainer {
     padding-top: 96px;
@@ -6,14 +12,6 @@
 
 .categoriesContainer {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-@media screen and (min-width: 600px) {
-  .categoriesContainer {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .categoryImageContainer {
@@ -31,7 +29,7 @@
   }
 }
 
-.innerContainer {
+.categoryOverlay {
   display: flex;
   flex-direction: column;
   justify-content: center;

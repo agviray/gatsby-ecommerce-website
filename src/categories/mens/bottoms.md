@@ -1,7 +1,7 @@
 ---
 position: 2
 department: mens
-name: Bottoms
+name: BOTTOMS
 description: Jeans, Pants, & Shorts
 slug: bottoms
 thumbnail: ../../images/category-thumbnails/mens-category-bottoms.jpg

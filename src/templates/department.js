@@ -2,12 +2,13 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/Layout"
+import CategoryProductSnippets from "../components/CategoryProductSnippets"
 import {
   departmentContainer,
   categoriesContainer,
   categoryImageContainer,
   mobilePortrait,
-  innerContainer,
+  categoryOverlay,
   textContainer,
   text,
 } from "../styles/department.module.css"
@@ -16,41 +17,59 @@ import useWindowDimensions from "../components/hooks/useWindowDimensions"
 export default function Department({ data }) {
   const department = data.department.frontmatter
   const categories = data.categories.nodes
+  const categoryProducts = data.categoryProducts.nodes
+
   const windowDimensions = useWindowDimensions()
+
+  const renderMobileContent = () => {
+    return categories.map(category => (
+      <Link
+        to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+        key={category.id}
+      >
+        <div className={categoryImageContainer}>
+          <GatsbyImage
+            className={
+              windowDimensions.height > windowDimensions.width
+                ? mobilePortrait
+                : null
+            }
+            image={
+              category.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+            }
+            alt={"category thumbnail"}
+            placeholder="blurred"
+            objectFit="cover"
+            objectPosition={"50% 50%"}
+          />
+          <div className={categoryOverlay}>
+            <div className={textContainer}>
+              <span className={text}>{category.frontmatter.name}</span>
+            </div>
+          </div>
+        </div>
+      </Link>
+    ))
+  }
+
+  const renderDesktopContent = () => {
+    return categories.map(category => (
+      <CategoryProductSnippets
+        key={category.id}
+        categoryName={category.frontmatter.name}
+        categorySlug={category.frontmatter.slug}
+        categoryProducts={categoryProducts}
+      />
+    ))
+  }
 
   return (
     <Layout>
       <div className={departmentContainer}>
         <div className={categoriesContainer}>
-          {categories.map(category => (
-            <Link
-              to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
-              key={category.id}
-            >
-              <div className={categoryImageContainer}>
-                <GatsbyImage
-                  className={
-                    windowDimensions.height > windowDimensions.width
-                      ? mobilePortrait
-                      : null
-                  }
-                  image={
-                    category.frontmatter.thumbnail.childImageSharp
-                      .gatsbyImageData
-                  }
-                  alt={"category thumbnail"}
-                  placeholder="blurred"
-                  objectFit="cover"
-                  objectPosition={"50% 50%"}
-                />
-                <div className={innerContainer}>
-                  <div className={textContainer}>
-                    <span className={text}>{category.frontmatter.name}</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+          {windowDimensions.width < 800
+            ? renderMobileContent()
+            : renderDesktopContent()}
         </div>
       </div>
     </Layout>
@@ -89,6 +108,34 @@ export const query = graphql`
                 formats: [AUTO, WEBP]
                 layout: FULL_WIDTH
                 placeholder: BLURRED
+              )
+            }
+          }
+        }
+      }
+    }
+
+    categoryProducts: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          contentType: { eq: "product details" }
+          department: { eq: $department }
+        }
+      }
+    ) {
+      nodes {
+        id
+        frontmatter {
+          type
+          name
+          images {
+            childImageSharp {
+              gatsbyImageData(
+                formats: [AUTO, WEBP, JPG]
+                placeholder: BLURRED
+                layout: CONSTRAINED
+                height: 580
+                width: 386
               )
             }
           }

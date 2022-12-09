@@ -1,7 +1,7 @@
 ---
 position: 4
 department: mens
-name: Outerwear
+name: OUTERWEAR
 description: Jackets & Coats
 slug: outerwear
 thumbnail: ../../images/category-thumbnails/mens-category-outerwear.jpg
