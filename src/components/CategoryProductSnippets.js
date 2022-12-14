@@ -3,16 +3,12 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import {
   container,
-  textBlock,
+  link,
   image,
 } from "../styles/category-product-snippets.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
-const CategoryProductSnippets = ({
-  categoryName,
-  categorySlug,
-  categoryProducts,
-}) => {
+const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
   const windowDimensions = useWindowDimensions()
   const category = categorySlug
   const allProducts = categoryProducts.map(product => product.frontmatter)
@@ -23,25 +19,29 @@ const CategoryProductSnippets = ({
   const renderContent = () => {
     const products = [...productsTodisplay]
     return products.map((product, index) => (
-      <GatsbyImage
+      <Link
         key={index}
-        className={image}
-        image={product.images[0].childImageSharp.gatsbyImageData}
-        alt={product.name}
-      />
+        to={`/${product.department}/${product.type}/${product.slug}`}
+        className={link}
+      >
+        <GatsbyImage
+          className={image}
+          image={product.images[0].childImageSharp.gatsbyImageData}
+          alt={product.name}
+          placeholder="blurred"
+          objectFit="cover"
+          objectPosition={"50% 50%"}
+        />
+      </Link>
     ))
   }
 
   return (
-    <div className={container}>
-      <div className={textBlock}>
-        <span>{categoryName}</span>
-      </div>
-      {windowDimensions.width < 800 ? null : renderContent()}
-      <div className={textBlock}>
-        <span>MORE</span>
-      </div>
-    </div>
+    <>
+      {windowDimensions.width < 800 ? null : (
+        <div className={container}>{renderContent()}</div>
+      )}
+    </>
   )
 }
 

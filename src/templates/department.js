@@ -11,6 +11,9 @@ import {
   categoryOverlay,
   textContainer,
   text,
+  container,
+  textBlock,
+  arrow,
 } from "../styles/department.module.css"
 import useWindowDimensions from "../components/hooks/useWindowDimensions"
 
@@ -54,12 +57,27 @@ export default function Department({ data }) {
 
   const renderDesktopContent = () => {
     return categories.map(category => (
-      <CategoryProductSnippets
-        key={category.id}
-        categoryName={category.frontmatter.name}
-        categorySlug={category.frontmatter.slug}
-        categoryProducts={categoryProducts}
-      />
+      <div key={category.id} className={container}>
+        <Link
+          to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+        >
+          <div className={textBlock}>
+            <span>{category.frontmatter.name}</span>
+          </div>
+        </Link>
+        <CategoryProductSnippets
+          categorySlug={category.frontmatter.slug}
+          categoryProducts={categoryProducts}
+        />
+        <Link
+          to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+        >
+          <div className={textBlock}>
+            <span>MORE</span>
+            <span className={arrow}></span>
+          </div>
+        </Link>
+      </div>
     ))
   }
 
@@ -126,6 +144,8 @@ export const query = graphql`
       nodes {
         id
         frontmatter {
+          department
+          slug
           type
           name
           images {

@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import ProductLink from "../components/ProductLink"
@@ -10,7 +10,6 @@ import {
 } from "../styles/category-products.module.css"
 
 export default function CategoryProducts({ data }) {
-  // console.log(data)
   const category = data.category.frontmatter
   const products = data.products.nodes
 
