@@ -1,9 +1,9 @@
 ---
-images: [./images/accent04-a.jpg]
-name: Potpourri Candles Pack // Cream Floral
-price: $25.00
+images: [./images/patterned-throw.jpg]
+name: Patterned Throw
+price: $40.00
 department: home-goods
 type: accents
-slug: potpourri-candles-pack-cream-floral
+slug: patterned-throw
 contentType: product details
 ---

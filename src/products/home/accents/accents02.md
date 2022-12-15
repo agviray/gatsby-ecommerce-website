@@ -1,9 +1,9 @@
 ---
-images: [./images/accent01-a.jpg]
-name: Fluffy Throw // Black Gray Mix
+images: [./images/fluffy-throw.jpg]
+name: Fluffy Throw
 price: $40.00
 department: home-goods
 type: accents
-slug: fluffy-throw-black-gray-mix
+slug: fluffy-throw
 contentType: product details
 ---

@@ -1,9 +1,9 @@
 ---
-images: [./images/accent03-a.jpg]
-name: Autumn Throw Pillow set (4 piece set) // Multi Color
+images: [./images/vintage-alarm-clock.jpg]
+name: Vintage Alarm Clock
 price: $50.00
 department: home-goods
 type: accents
-slug: autumn-throw-pillow-set-multi-color
+slug: vintage-alarm-clock
 contentType: product details
 ---

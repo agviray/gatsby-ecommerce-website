@@ -1,9 +1,9 @@
 ---
-images: [./images/accent06-a.jpg]
-name: Wooden Chess Set // Black and White
+images: [./images/wooden-chess-set.jpg]
+name: Wooden Chess Set
 price: $80.00
 department: home-goods
 type: accents
-slug: wooden-chess-set-black-white
+slug: wooden-chess-set
 contentType: product details
 ---

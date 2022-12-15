@@ -1,9 +1,9 @@
 ---
-images: [./images/accent02-a.jpg]
-name: Patterned Throw // Black Stitching On White
-price: $40.00
+images: [./images/potpourri-candles.jpg]
+name: Potpourri Candles
+price: $25.00
 department: home-goods
 type: accents
-slug: patterend-throw-black-stitching-white
+slug: potpourri-candles
 contentType: product details
 ---
