@@ -1,9 +1,9 @@
 ---
-images: [./images/bag01-a.jpg]
-name: Crossbody Bag // White
-price: $90.00
+images: [./images/mini-leather-backpack-black.jpg]
+name: Mini Leather Backpack // Black
+price: $120.00
 department: accessories
-slug: crossbody-bag-white
+slug: mini-leather-backpack-black
 type: bags
 contentType: product details
 ---

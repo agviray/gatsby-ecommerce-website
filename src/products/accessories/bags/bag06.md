@@ -1,9 +1,9 @@
 ---
-images: [./images/bag05-a.jpg]
-name: Rattan Round Bag // Floral
-price: $80.00
+images: [./images/belt-bag-multi-color.jpg]
+name: Belt Bag // Multicolor
+price: $150.00
 department: accessories
-slug: rattan-round-bag-floral
+slug: belt-bag-multicolor
 type: bags
 contentType: product details
 ---

@@ -1,9 +1,9 @@
 ---
-images: [./images/bag02-a.jpg]
-name: Mini Leather Backpack // Black
-price: $130.00
+images: [./images/crocodile-leather-bag-black.jpg]
+name: Crocodile Leather Bag // Black
+price: $160.00
 department: accessories
-slug: mini-leather-backpack-black
+slug: crocodile-leather-bag-black
 type: bags
 contentType: product details
 ---
