@@ -1,9 +1,10 @@
 ---
-images: [./images/plant01-a.jpg]
-name: Faux Succulent Set (set of 8) // Ceramic Pots
-price: $35.00
+placement: 6
+images: [./images/large-potted-plant.jpg]
+name: Large Potted Plant
+price: $30.00
 department: home-goods
 type: plants
-slug: faux-succulent-set-ceramic-pots
+slug: large-potted-plant
 contentType: product details
 ---

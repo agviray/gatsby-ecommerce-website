@@ -1,9 +1,10 @@
 ---
-images: [./images/plant06-a.jpg]
-name: Faux Wheat Bundle // Light Brown Ceramic Vase
-price: $45.00
+placement: 5
+images: [./images/mini-potted-tree.jpg]
+name: Mini Potted Tree
+price: $15.00
 department: home-goods
 type: plants
-slug: faux-wheat-bundle-light-brown-ceramic-vase
+slug: mini-potted-tree
 contentType: product details
 ---

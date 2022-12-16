@@ -1,9 +1,10 @@
 ---
-images: [./images/plant03-a.jpg]
-name: Faux Dry Leaves // Rope Wound Pot
-price: $70.00
+placement: 2
+images: [./images/mini-round-potted-cactus.jpg]
+name: Mini Round Potted Cactus
+price: $8.00
 department: home-goods
 type: plants
-slug: faux-dry-leaves-rope-wound-pot
+slug: mini-round-potted-cactus
 contentType: product details
 ---

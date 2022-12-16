@@ -1,9 +1,10 @@
 ---
-images: [./images/plant04-a.jpg]
-name: Faux Branches With Petals // Glass Vase
-price: $35.00
+placement: 3
+images: [./images/small-potted-plant.jpg]
+name: Small Potted Plant
+price: $20.00
 department: home-goods
 type: plants
-slug: faux-branches-petals-glass-vase
+slug: small-potted-plant
 contentType: product details
 ---

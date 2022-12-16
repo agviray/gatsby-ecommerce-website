@@ -1,9 +1,10 @@
 ---
-images: [./images/plant05-a.jpg]
-name: Faux Mini Palm // White Ceramic Vase
-price: $35.00
+placement: 4
+images: [./images/medium-potted-plant.jpg]
+name: Medium Potted Plant
+price: $25.00
 department: home-goods
 type: plants
-slug: faux-mini-palm-white-ceramic-vase
+slug: medium-potted-plant
 contentType: product details
 ---
