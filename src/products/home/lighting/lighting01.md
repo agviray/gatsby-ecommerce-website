@@ -1,9 +1,9 @@
 ---
-images: [./images/lighting01-a.jpg]
-name: Dome Ceiling Light Fixture Set (set as shown) // Bronze
-price: $150.00
+images: [./images/breathe-neon-sign.jpg]
+name: Breathe Neon Sign
+price: $80.00
 department: home-goods
 type: lighting
-slug: dome-ceiling-light-fixture-set-bronze
+slug: breathe-neon-sign
 contentType: product details
 ---

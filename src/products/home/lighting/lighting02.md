@@ -1,9 +1,9 @@
 ---
-images: [./images/lighting04-a.jpg]
-name: Basket Ceiling Light Set (set as shown) // Multi Color
-price: $130.00
+images: [./images/large-bulb-desk-lamp.jpg]
+name: Large Bulb Desk Lamp
+price: $35.00
 department: home-goods
 type: lighting
-slug: basket-ceiling-light-set-multi-color
+slug: large-bulb-desk-lamp
 contentType: product details
 ---

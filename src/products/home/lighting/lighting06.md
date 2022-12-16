@@ -1,9 +1,9 @@
 ---
-images: [./images/lighting03-a.jpg]
-name: Heart Neon Sign // Muted Red
+images: [./images/heart-neon-sign.jpg]
+name: Heart Neon Sign
 price: $50.00
 department: home-goods
 type: lighting
-slug: heart-neon-sign-muted-red
+slug: heart-neon-sign
 contentType: product details
 ---

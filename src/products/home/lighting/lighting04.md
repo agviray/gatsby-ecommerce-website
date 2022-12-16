@@ -1,9 +1,9 @@
 ---
-images: [./images/lighting06-a.jpg]
-name: Level Up Neon Wall Sign // Yellow
-price: $60.00
+images: [./images/hello-neon-sign.jpg]
+name: Hello Neon Sign
+price: $80.00
 department: home-goods
 type: lighting
-slug: level-up-neon-wall-sign-yellow
+slug: hello-neon-sign
 contentType: product details
 ---

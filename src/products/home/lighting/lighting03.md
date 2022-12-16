@@ -1,9 +1,9 @@
 ---
-images: [./images/lighting05-a.jpg]
-name: Hello Neon Wall Sign // Bright Pink
-price: $50.00
+images: [./images/intricate-light-fixture.jpg]
+name: Intricate Light Fixture Set
+price: $180.00
 department: home-goods
 type: lighting
-slug: hello-neon-wall-sign-bright-pink
+slug: intricate-light-fixture
 contentType: product details
 ---

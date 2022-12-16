@@ -1,9 +1,9 @@
 ---
-images: [./images/lighting02-a.jpg]
-name: Light Bulb Cluster Fixture
+images: [./images/light-bulb-cluster.jpg]
+name: Light Bulb Cluster Light Fixture
 price: $180.00
 department: home-goods
 type: lighting
-slug: light-bulb-cluster-fixture
+slug: light-bulb-cluster-light-fixture
 contentType: product details
 ---
