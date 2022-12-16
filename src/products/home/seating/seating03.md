@@ -1,9 +1,10 @@
 ---
-images: [./images/chair03-a.jpg]
-name: Bar Stool // Black
-price: $120.00
+position: 3
+images: [./images/brown-worn-leather-chair.jpg]
+name: Brown Worn Leather Chair
+price: $180.00
 department: home-goods
 type: seating
-slug: bar-stool-black
+slug: brown-worn-leather-chair
 contentType: product details
 ---

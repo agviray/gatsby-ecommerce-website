@@ -1,9 +1,10 @@
 ---
-images: [./images/chair04-a.jpg]
-name: Chair // Off White
-price: $160.00
+position: 4
+images: [./images/black-weave-pattern-chair.jpg]
+name: Black Weave Pattern Chair
+price: $150.00
 department: home-goods
 type: seating
-slug: chair-off-white
+slug: black-weave-pattern-chair
 contentType: product details
 ---

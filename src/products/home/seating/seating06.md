@@ -1,9 +1,10 @@
 ---
-images: [./images/chair06-a.jpg]
-name: Chair // Yellow
-price: $170.00
+position: 6
+images: [./images/dark-brown-leather-chair.jpg]
+name: Dark Brown Leather Chair
+price: $180.00
 department: home-goods
 type: seating
-slug: chair-yellow
+slug: dark-brown-leather-chair
 contentType: product details
 ---
