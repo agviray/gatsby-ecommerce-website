@@ -1,4 +1,5 @@
 ---
+placement: 2
 images: [./images/large-bulb-desk-lamp.jpg]
 name: Large Bulb Desk Lamp
 price: $35.00

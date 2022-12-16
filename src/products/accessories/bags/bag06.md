@@ -1,4 +1,5 @@
 ---
+placement: 6
 images: [./images/belt-bag-multi-color.jpg]
 name: Belt Bag // Multicolor
 price: $150.00

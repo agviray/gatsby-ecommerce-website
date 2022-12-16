@@ -1,4 +1,5 @@
 ---
+placement: 1
 images: [./images/mini-leather-backpack-black.jpg]
 name: Mini Leather Backpack // Black
 price: $120.00

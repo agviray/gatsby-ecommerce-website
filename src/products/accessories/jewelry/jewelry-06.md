@@ -1,9 +1,10 @@
 ---
+placement: 6
 images: [./images/flat-gold-necklace.jpg]
-name: Flat Necklace // Gold
+name: Flat Gold Necklace
 price: $75.00
 department: accessories
-slug: flat-necklace-gold
+slug: flat-gold-necklace
 type: jewelry
 contentType: product details
 ---

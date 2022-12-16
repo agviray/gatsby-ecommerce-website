@@ -1,4 +1,5 @@
 ---
+placement: 1
 images: [./images/breathe-neon-sign.jpg]
 name: Breathe Neon Sign
 price: $80.00

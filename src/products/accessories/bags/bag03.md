@@ -1,4 +1,5 @@
 ---
+placement: 3
 images: [./images/crocodile-leather-purse-brown.jpg]
 name: Crocodile Leather Purse // Brown
 price: $170.00

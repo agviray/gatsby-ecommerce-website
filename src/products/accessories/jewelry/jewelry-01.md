@@ -1,9 +1,10 @@
 ---
+placement: 5
 images: [./images/ring-set.jpg]
-name: Ring Set (2 pack) // Sterling Silver
+name: Sterling Silver Ring Set
 price: $50.00
 department: accessories
-slug: ring-set-sterling-silver
+slug: sterling-silver-ring-set
 type: jewelry
 contentType: product details
 ---

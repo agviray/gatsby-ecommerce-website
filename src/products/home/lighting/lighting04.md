@@ -1,4 +1,5 @@
 ---
+placement: 4
 images: [./images/hello-neon-sign.jpg]
 name: Hello Neon Sign
 price: $80.00

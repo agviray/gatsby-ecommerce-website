@@ -1,4 +1,5 @@
 ---
+placement: 1
 images: [./images/wooden-chess-set.jpg]
 name: Wooden Chess Set
 price: $80.00

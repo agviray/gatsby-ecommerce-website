@@ -1,9 +1,10 @@
 ---
+placement: 2
 images: [./images/silver-bones-choker.jpg]
-name: Bones Choker // Sterling Silver
+name: Sterling Silver Bones Choker Necklace
 price: $60.00
 department: accessories
-slug: bones-choker-sterling-silver
+slug: sterling-silver-bones-choker-necklace
 type: jewelry
 contentType: product details
 ---

@@ -1,4 +1,5 @@
 ---
+placement: 6
 images: [./images/ceramic-miniature-vases.jpg]
 name: Ceramic Miniature Vases
 price: $25.00

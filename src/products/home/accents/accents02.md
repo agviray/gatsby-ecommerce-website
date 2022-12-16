@@ -1,4 +1,5 @@
 ---
+placement: 2
 images: [./images/fluffy-throw.jpg]
 name: Fluffy Throw
 price: $40.00

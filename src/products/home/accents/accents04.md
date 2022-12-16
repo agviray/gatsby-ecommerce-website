@@ -1,4 +1,5 @@
 ---
+placement: 4
 images: [./images/patterned-throw.jpg]
 name: Patterned Throw
 price: $40.00

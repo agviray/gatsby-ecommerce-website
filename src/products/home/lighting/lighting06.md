@@ -1,4 +1,5 @@
 ---
+placement: 6
 images: [./images/heart-neon-sign.jpg]
 name: Heart Neon Sign
 price: $50.00

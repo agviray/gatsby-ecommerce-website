@@ -1,4 +1,5 @@
 ---
+placement: 5
 images: [./images/vintage-alarm-clock.jpg]
 name: Vintage Alarm Clock
 price: $50.00
