@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-outerwear01-a.jpg]
-name: Fluffy Jacket // Navy
-price: $70.00
+placement: 6
+images: [./images/forest-green-puffer.jpg]
+name: Forest Green Puffer
+price: $115.00
 department: womens
 type: outerwear
-slug: fluffy-jacket
+slug: forest-green-puffer
 contentType: product details
 ---

@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-footwear02-a.jpg]
-name: Mesh Flats // Yellow
-price: $70.00
+placement: 2
+images: [./images/multicolor-sneakers.jpg]
+name: Multicolor Sneakers
+price: $125.00
 department: womens
 type: footwear
-slug: mesh-flats-yellow
+slug: multicolor-sneakers
 contentType: product details
 ---

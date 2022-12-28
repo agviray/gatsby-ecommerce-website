@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-outerwear05-a.jpg]
-name: Shaggy Jacket // Tan
-price: $135.00
+placement: 2
+images: [./images/hairy-houndstooth-jacket.jpg]
+name: Hairy Houndstooth Jacket
+price: $115.00
 department: womens
 type: outerwear
-slug: shaggy-jacket-tan
-contentType: product detais
+slug: hairy-houndstooth-jacket
+contentType: product details
 ---

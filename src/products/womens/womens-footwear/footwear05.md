@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-footwear04-a.jpg]
-name: Mismatched Suede Derby Sneakers // Tan and Pink
-price: $100.00
+placement: 4
+images: [./images/mismatched-derby-sneakers.jpg]
+name: Mismatched Derby Sneakers
+price: $125.00
 department: womens
 type: footwear
-slug: mismatched-suede-derby-sneakers-tan-pink
+slug: mismatched-derby-sneakers
 contentType: product details
 ---

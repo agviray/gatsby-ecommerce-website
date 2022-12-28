@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-outerwear06-a.jpg]
-name: Light Padded Jacket // Maroon
-price: $125.00
+placement: 3
+images: [./images/leather-biker-jacket.jpg]
+name: Leather Biker Jacket
+price: $185.00
 department: womens
 type: outerwear
-slug: light-padded-jacket-maroon
+slug: leather-biker-jacket
 contentType: product details
 ---

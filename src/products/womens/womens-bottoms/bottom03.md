@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-bottom05-a.jpg]
-name: Leather Leggings // Black
-price: $30.00
+placement: 3
+images: [./images/corduroy-skirt.jpg]
+name: Corduroy Skirt
+price: $35.00
 department: womens
 type: bottoms
-slug: leather-leggings-black
+slug: corduroy-skirt
 contentType: product details
 ---

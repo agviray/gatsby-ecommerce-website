@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-top05-a.jpg]
-name: Zip Cardigan // Floral Design
+placement: 4
+images: [./images/yellow-cardigan.jpg]
+name: Yellow Cardigan
 price: $35.00
 department: womens
 type: tops
-slug: zip-cardigan-floral-design
+slug: yellow-cardigan
 contentType: product details
 ---

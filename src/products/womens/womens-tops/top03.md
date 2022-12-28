@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-top06-a.jpg]
-name: Frilly Cardigan // Yellow
-price: $40.00
+placement: 1
+images: [./images/loose-fit-striped-tee.jpg]
+name: Loose Fit Striped Tee
+price: $25.00
 department: womens
 type: tops
-slug: frilly-cardigan-yellow
+slug: loose-fit-striped-tee
 contentType: product details
 ---

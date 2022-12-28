@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-bottom04-a.jpg]
-name: Leather Cargo Pants // Black
-price: $45.00
+placement: 4
+images: [./images/striped-wide-leg-pants.jpg]
+name: Striped Wide Leg Pants
+price: $40.00
 department: womens
 type: bottoms
-slug: leather-cargo-pants-black
+slug: striped-wide-leg-pants
 contentType: product details
 ---

@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-outerwear03-a.jpg]
-name: High Shine Bubble Jacket // Black
+placement: 5
+images: [./images/fluffy-jacket.jpg]
+name: Fluffy Jacket
 price: $90.00
 department: womens
 type: outerwear
-slug: high-shine-bubble-jacket
+slug: fluffy-jacket
 contentType: product details
 ---

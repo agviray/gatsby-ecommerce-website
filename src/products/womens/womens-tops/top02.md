@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-top04-a.jpg]
-name: Light Sweater // Multi Color Stripes
-price: $35.00
+placement: 2
+images: [./images/cozy-red-sweater.jpg]
+name: Cozy Red Sweater
+price: $40.00
 department: womens
 type: tops
-slug: light-sweater-multi-color-stripes
+slug: cozy-red-sweater
 contentType: product details
 ---

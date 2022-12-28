@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-bottom02-a.jpg]
-name: Plaid Pants // Gray
-price: $40.00
+placement: 6
+images: [./images/distressed-denim-skirt.jpg]
+name: Distressed Denim Skirt
+price: $30.00
 department: womens
 type: bottoms
-slug: plaid-pants-gray
+slug: distressed-denim-skirt
 contentType: product details
 ---

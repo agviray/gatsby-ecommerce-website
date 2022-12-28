@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-outerwear02-a.jpg]
-name: Leather Jacket // Black
-price: $200.00
+placement: 4
+images: [./images/high-shine-bubble-jacket.jpg]
+name: High Shine Bubble Jacket
+price: $110.00
 department: womens
 type: outerwear
-slug: leather-jacket-black
+slug: high-shine-bubble-jacket
 contentType: product details
 ---

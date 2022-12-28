@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-top03-a.jpg]
-name: Crop Top Blouse // Floral Design
-price: $35.00
+placement: 6
+images: [./images/cropped-floral-blouse.jpg]
+name: Cropped Floral Blouse
+price: $30.00
 department: womens
 type: tops
-slug: crop-top-blouse-floral-design
+slug: cropped-floral-blouse
 contentType: product details
 ---

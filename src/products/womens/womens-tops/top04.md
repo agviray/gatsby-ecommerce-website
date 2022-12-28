@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-top01-a.jpg]
-name: Loose Fit Stripe Tee // Black and Tan
-price: $25.00
+placement: 5
+images: [./images/white-blouse.jpg]
+name: White Blouse
+price: $35.00
 department: womens
 type: tops
-slug: loose-fit-stripe-tee-black-and-tan
+slug: white-blouse
 contentType: product details
 ---

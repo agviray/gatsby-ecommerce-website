@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-outerwear04-a.jpg]
-name: Bubble Jacket // Yellow
-price: $85.00
+placement: 1
+images: [./images/bubble-jacket.jpg]
+name: Bubble Jacket
+price: $110.00
 department: womens
 type: outerwear
-slug: bubble-jacket-yellow
+slug: bubble-jacket
 contentType: product details
 ---

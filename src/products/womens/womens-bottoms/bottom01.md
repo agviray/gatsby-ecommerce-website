@@ -1,9 +1,10 @@
 ---
-images: [./images/womens-bottom01-a.jpg]
-name: Plaid Skirt // Gray
-price: $35.00
+placement: 1
+images: [./images/leather-cargo-pants.jpg]
+name: Leather Cargo Pants
+price: $45.00
 department: womens
 type: bottoms
-slug: plaid-skirt-gray
+slug: leather-cargo-pants
 contentType: product details
 ---

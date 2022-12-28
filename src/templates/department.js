@@ -105,7 +105,7 @@ export const query = graphql`
     }
 
     categories: allMarkdownRemark(
-      sort: { fields: frontmatter___position }
+      sort: { fields: frontmatter___placement, order: ASC }
       filter: {
         frontmatter: {
           contentType: { eq: "category products" }
