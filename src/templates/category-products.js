@@ -61,6 +61,7 @@ export const query = graphql`
     }
 
     products: allMarkdownRemark(
+      sort: { fields: frontmatter___placement, order: ASC }
       filter: {
         frontmatter: { department: { eq: $department }, type: { eq: $slug } }
       }
