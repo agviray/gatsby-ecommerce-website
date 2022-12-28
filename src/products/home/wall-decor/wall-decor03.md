@@ -1,9 +1,10 @@
 ---
-images: [./images/wall-decor03-a.jpg]
-name: Wooden Circle Mirror // Finished Pine
+position: 3
+images: [./images/plain-round-mirror.jpg]
+name: Plain Round Mirror
 price: $50.00
 department: home-goods
 type: wall-decor
-slug: wooden-circle-mirror-finished-pine
+slug: plain-round-mirror
 contentType: product details
 ---

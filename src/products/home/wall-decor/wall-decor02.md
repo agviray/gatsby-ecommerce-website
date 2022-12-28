@@ -1,9 +1,10 @@
 ---
-images: [./images/wall-decor02-a.jpg]
-name: Large Eye Mirror // Bronze
+position: 2
+images: [./images/floral-branch-display.jpg]
+name: Floral Branch Display
 price: $80.00
 department: home-goods
 type: wall-decor
-slug: large-eye-mirror-bronze
+slug: floral-branch-display
 contentType: product details
 ---

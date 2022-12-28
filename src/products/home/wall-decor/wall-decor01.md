@@ -1,9 +1,10 @@
 ---
-images: [./images/wall-decor01-a.jpg]
-name: Ornate Oval Mirror // Gold
+position: 1
+images: [./images/oval-ornate-mirror.jpg]
+name: Oval Ornate Mirror
 price: $120.00
 department: home-goods
 type: wall-decor
-slug: ornate-oval-mirror-gold
+slug: oval-ornate-mirror
 contentType: product details
 ---

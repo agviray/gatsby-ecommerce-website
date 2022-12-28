@@ -1,9 +1,10 @@
 ---
-images: [./images/wall-decor05-a.jpg]
-name: Arrows (set of 2) // Bronze
-price: $150.00
+position: 5
+images: [./images/abstract-paintings.jpg]
+name: Abstract Paintings
+price: $80.00
 department: home-goods
 type: wall-decor
-slug: arrows-bronze
+slug: abstract-paintings
 contentType: product details
 ---
