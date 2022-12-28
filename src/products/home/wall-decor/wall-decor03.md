@@ -1,5 +1,5 @@
 ---
-position: 3
+placement: 3
 images: [./images/plain-round-mirror.jpg]
 name: Plain Round Mirror
 price: $50.00

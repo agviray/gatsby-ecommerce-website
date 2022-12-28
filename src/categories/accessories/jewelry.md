@@ -1,5 +1,5 @@
 ---
-position: 2
+placement: 2
 department: accessories
 name: JEWELRY
 # description:

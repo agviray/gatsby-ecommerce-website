@@ -1,5 +1,5 @@
 ---
-position: 1
+placement: 1
 department: home-goods
 name: ACCENTS
 # description:

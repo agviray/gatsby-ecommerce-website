@@ -1,5 +1,5 @@
 ---
-position: 3
+placement: 3
 images: [./images/brown-worn-leather-chair.jpg]
 name: Brown Worn Leather Chair
 price: $180.00

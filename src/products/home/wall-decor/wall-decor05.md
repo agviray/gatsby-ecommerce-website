@@ -1,5 +1,5 @@
 ---
-position: 5
+placement: 5
 images: [./images/abstract-paintings.jpg]
 name: Abstract Paintings
 price: $80.00

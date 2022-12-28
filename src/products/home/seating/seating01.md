@@ -1,5 +1,5 @@
 ---
-position: 1
+placement: 1
 images: [./images/bright-blue-sheen-chair.jpg]
 name: Bright Blue Sheen Chair
 price: $150.00

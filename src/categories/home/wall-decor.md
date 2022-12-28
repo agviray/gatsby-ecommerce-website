@@ -1,5 +1,5 @@
 ---
-position: 5
+placement: 5
 department: home-goods
 name: WALL DECOR
 # description:

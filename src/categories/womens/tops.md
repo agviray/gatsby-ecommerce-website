@@ -1,5 +1,5 @@
 ---
-position: 1
+placement: 1
 department: womens
 name: TOPS
 # description: Shirts & Tees

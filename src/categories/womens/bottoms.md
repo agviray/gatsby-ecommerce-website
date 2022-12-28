@@ -1,5 +1,5 @@
 ---
-position: 2
+placement: 2
 department: womens
 name: BOTTOMS
 # description: Jeans, Pants, & Shorts

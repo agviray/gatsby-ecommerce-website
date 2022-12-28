@@ -1,5 +1,5 @@
 ---
-position: 2
+placement: 2
 images: [./images/tufted-mustard-chair.jpg]
 name: Tufted Mustard Chair
 price: $160.00

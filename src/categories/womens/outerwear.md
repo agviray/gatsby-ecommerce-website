@@ -1,5 +1,5 @@
 ---
-position: 4
+placement: 4
 department: womens
 name: OUTERWEAR
 # description: Jackets & Coats

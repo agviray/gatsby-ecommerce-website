@@ -1,5 +1,5 @@
 ---
-position: 3
+placement: 3
 department: womens
 name: FOOTWEAR
 # description: Boots & Sneakers

@@ -1,5 +1,5 @@
 ---
-position: 2
+placement: 2
 images: [./images/floral-branch-display.jpg]
 name: Floral Branch Display
 price: $80.00

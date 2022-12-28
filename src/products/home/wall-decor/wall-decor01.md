@@ -1,5 +1,5 @@
 ---
-position: 1
+placement: 1
 images: [./images/oval-ornate-mirror.jpg]
 name: Oval Ornate Mirror
 price: $120.00

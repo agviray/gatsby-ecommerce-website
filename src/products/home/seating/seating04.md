@@ -1,5 +1,5 @@
 ---
-position: 4
+placement: 4
 images: [./images/black-weave-pattern-chair.jpg]
 name: Black Weave Pattern Chair
 price: $150.00

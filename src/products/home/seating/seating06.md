@@ -1,5 +1,5 @@
 ---
-position: 6
+placement: 6
 images: [./images/dark-brown-leather-chair.jpg]
 name: Dark Brown Leather Chair
 price: $180.00

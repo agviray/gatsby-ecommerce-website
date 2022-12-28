@@ -1,5 +1,5 @@
 ---
-position: 5
+placement: 5
 images: [./images/blue-linen-chair.jpg]
 name: Blue Linen Chair
 price: $140.00

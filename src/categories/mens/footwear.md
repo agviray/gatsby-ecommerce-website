@@ -1,5 +1,5 @@
 ---
-position: 3
+placement: 3
 department: mens
 name: FOOTWEAR
 description: Boots & Sneakers
