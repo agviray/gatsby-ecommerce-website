@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-top04-a.jpg]
-name: Short-Sleeve Shirt // Off-White Revere Collar
-price: $38.00
+placement: 4
+images: [./images/cream-vertical-striped-shirt.jpg]
+name: Cream Vertical Striped Shirt
+price: $40.00
 department: mens
 type: tops
-slug: short-sleeve-shirt-offwhite-revere-collar
+slug: cream-vertical-striped-shirt
 contentType: product details
 ---

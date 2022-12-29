@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-top06-a.jpg]
-name: Short-Sleeve Leaves Shirt // Off-White
+placement: 6
+images: [./images/abstract-patterned-shirt.jpg]
+name: Abstract Patterned Shirt
 price: $38.00
 department: mens
 type: tops
-slug: short-sleeve-leaves-shirt-off-white
+slug: abstract-patterned-shirt
 contentType: product details
 ---

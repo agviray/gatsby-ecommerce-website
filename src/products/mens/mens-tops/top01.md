@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-top01-a.jpg]
-name: Long-Sleeve Shirt // Red Plaid
-price: $40.00
+placement: 1
+images: [./images/multicolor-patterned-shirt.jpg]
+name: Multicolor Patterned Shirt
+price: $38.00
 department: mens
 type: tops
-slug: long-sleeve-shirt-red-plaid
+slug: multicolor-patterned-shirt
 contentType: product details
 ---

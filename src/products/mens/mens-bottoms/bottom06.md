@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-bottoms06-a.jpg]
-name: Slim Jeans // Black
-price: $40.00
+placement: 6
+images: [./images/colored-jeans.jpg]
+name: Slim Colored Jeans
+price: $55.00
 department: mens
 type: bottoms
-slug: slim-jeans-black
+slug: slim-colored-jeans
 contentType: product details
 ---

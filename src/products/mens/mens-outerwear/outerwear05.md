@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-outerwear07-a.jpg]
-name: Denim Jacket // Blue Acid Wash
-price: $65.00
+placement: 5
+images: [./images/leather-sherpa-collar-jacket.jpg]
+name: Leather Sherpa Collar Jacket
+price: $200.00
 department: mens
 type: outerwear
-slug: denim-jacket-blue-acid-wash
+slug: leather-sherpa-collar-jacket
 contentType: product details
 ---

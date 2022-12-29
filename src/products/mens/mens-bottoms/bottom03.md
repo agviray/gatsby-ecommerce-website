@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-bottoms03-a.jpg]
-name: Dress Pants // Black White Micro Check
-price: $45.00
+placement: 1
+images: [./images/micro-check-dress-pants.jpg]
+name: Micro Check Dress Pants
+price: $60.00
 department: mens
 type: bottoms
-slug: dress-pants-black-white-micro-check
+slug: micro-check-dress-pants
 contentType: product details
 ---

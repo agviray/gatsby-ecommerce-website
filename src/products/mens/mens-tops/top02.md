@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-top02-a.jpg]
-name: Short-Sleeve Shirt // Navy On White Pattern
-price: $35.00
+placement: 2
+images: [./images/gray-white-patterned-shirt.jpg]
+name: Gray On White Patterned Shirt
+price: $38.00
 department: mens
 type: tops
-slug: short-sleeve-shirt-navy-white-pattern
+slug: gray-white-patterned-shirt
 contentType: product details
 ---

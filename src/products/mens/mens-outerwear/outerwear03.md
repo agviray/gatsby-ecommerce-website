@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-outerwear06-a.jpg]
-name: Flight Jacket // Olive
+placement: 3
+images: [./images/flight-jacket.jpg]
+name: Flight Jacket
 price: $175.00
 department: mens
 type: outerwear
-slug: flight-jacket-olive
+slug: flight-jacket
 contentType: product details
 ---

@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-outerwear02-a.jpg]
-name: Leather Jacket // Black
+placement: 1
+images: [./images/leather-biker-jacket.jpg]
+name: Leather Biker Jacket
 price: $200.00
 department: mens
 type: outerwear
-slug: leather-jacket-black
+slug: leather-biker-jacket
 contentType: product details
 ---

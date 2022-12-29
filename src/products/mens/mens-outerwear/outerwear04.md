@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-outerwear03-a.jpg]
-name: Denim Sherpa Lining Jacket // Blue
-price: $85.00
+placement: 4
+images: [./images/wool-overcoat.jpg]
+name: Wool Overcoat
+price: $175.00
 department: mens
 type: outerwear
-slug: denim-sherpa-jacket-blue
+slug: wool-overcoat
 contentType: product details
 ---

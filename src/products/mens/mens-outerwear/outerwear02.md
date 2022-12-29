@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-outerwear04-a.jpg]
-name: Bomber Jacket // Black
+placement: 2
+images: [./images/bomber-jacket.jpg]
+name: Bomber Jacket
 price: $65.00
 department: mens
 type: outerwear
-slug: bomber-jacket-black
+slug: bomber-jacket
 contentType: product details
 ---

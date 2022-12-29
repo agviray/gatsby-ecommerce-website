@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-footwear07-a.jpg]
-name: Suede Sneakers // Yellow
-price: $65.00
+placement: 3
+images: [./images/yellow-suede-sneakers.jpg]
+name: Yellow Suede Sneakers
+price: $70.00
 department: mens
 type: footwear
-slug: suede-sneakers-yellow
+slug: yellow-suede-sneakers
 contentType: product details
 ---

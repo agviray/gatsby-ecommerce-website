@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-footwear06-a.jpg]
-name: Suede Sneakers // Black
-price: $70.00
+placement: 6
+images: [./images/leather-derby-shoes.jpg]
+name: Leather Derby Shoes
+price: $125.00
 department: mens
 type: footwear
-slug: suede-sneakers-black
+slug: leather-derby-shoes
 contentType: product details
 ---

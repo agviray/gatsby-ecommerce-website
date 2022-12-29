@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-top03-a.jpg]
-name: Long-Sleeve Shirt // Navy On Yellow Plaid
+placement: 3
+images: [./images/off-white-revere-collar-shirt.jpg]
+name: Off White Revere Collar Shirt
 price: $40.00
 department: mens
 type: tops
-slug: long-sleeve-shirt-navy-yellow-plaid
+slug: off-white-revere-collar-shirt
 contentType: product details
 ---

@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-footwear04-b.jpg]
-name: Canvas Sneakers // Sand
-price: $65.00
+placement: 4
+images: [./images/leather-work-boots.jpg]
+name: Leather Work Boots
+price: $150.00
 department: mens
 type: footwear
-slug: canvas-sneakers-sand
+slug: leather-work-boots
 contentType: product details
 ---

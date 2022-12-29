@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-outerwear01-a.jpg]
-name: Leather Sherpa Collar Jacket // Black
-price: $200.00
+placement: 6
+images: [./images/denim-sherpa-lining-jacket.jpg]
+name: Denim Sherpa Lining Jacket
+price: $85.00
 department: mens
 type: outerwear
-slug: leather-sherpa-collar-jacket-black
+slug: denim-sherpa-lining-jacket
 contentType: product details
 ---

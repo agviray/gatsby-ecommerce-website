@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-footwear01-b.jpg]
-name: Leather Boots // Black
-price: $250.00
+placement: 1
+images: [./images/leather-dress-boots.jpg]
+name: Leather Dress Boots
+price: $150.00
 department: mens
 type: footwear
-slug: leather-boots-black
+slug: leather-dress-boots
 contentType: product details
 ---

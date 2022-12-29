@@ -1,9 +1,10 @@
 ---
-images: [./images/mens-top05-a.jpg]
-name: Short-Sleeve Floral Shirt // Black-Multi
-price: $38.00
+placement: 5
+images: [./images/multicolor-vertical-striped-shirt.jpg]
+name: Multicolor Vertical Striped Shirt
+price: $40.00
 department: mens
 type: tops
-slug: short-sleeve-floral-shirt-black-multi
+slug: multicolor-vertical-striped-shirt
 contentType: product details
 ---
