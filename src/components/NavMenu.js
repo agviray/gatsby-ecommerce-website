@@ -11,12 +11,12 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const navMenu = (
     <div className={styles.menu}>
       {departments.map(department => (
-        <>
-          <Link key={department.id} to={`/${department.frontmatter.slug}`}>
+        <div key={department.id}>
+          <Link to={`/${department.frontmatter.slug}`}>
             {department.frontmatter.name}
           </Link>
-          {/* <SubNav deptSlug={department.frontmatter.slug} /> */}
-        </>
+          <SubNav deptSlug={department.frontmatter.slug} />
+        </div>
       ))}
     </div>
   )

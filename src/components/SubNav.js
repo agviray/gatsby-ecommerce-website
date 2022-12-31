@@ -27,14 +27,16 @@ const SubNav = ({ deptSlug }) => {
     category => category.frontmatter.department === department
   )
 
-  console.log(categoriesToDisplay)
-
   return (
     <div className="container">
-      <Link to={"https://www.google.com"}>Department Category 1</Link>
-      <Link to={"https://www.google.com"}>Department Category 2</Link>
-      <Link to={"https://www.google.com"}>Department Category 3</Link>
-      <Link to={"https://www.google.com"}>Department Category 4</Link>
+      {categoriesToDisplay.map(category => (
+        <Link
+          key={category.id}
+          to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+        >
+          {category.frontmatter.name}
+        </Link>
+      ))}
     </div>
   )
 }
