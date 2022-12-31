@@ -15,7 +15,7 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
           <Link key={department.id} to={`/${department.frontmatter.slug}`}>
             {department.frontmatter.name}
           </Link>
-          <SubNav deptSlug={department.frontmatter.slug} />
+          {/* <SubNav deptSlug={department.frontmatter.slug} /> */}
         </>
       ))}
     </div>
