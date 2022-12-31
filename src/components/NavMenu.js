@@ -3,15 +3,17 @@ import { Link } from "gatsby"
 import * as styles from "../styles/navmenu.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
-const NavMenu = ({ isMenuOpen }) => {
+const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const windowDimensions = useWindowDimensions()
+  const departments = departmentDetails
 
   const navMenu = (
     <div className={styles.menu}>
-      <Link to={"/womens"}>Women's</Link>
-      <Link to={"/mens"}>Men's</Link>
-      <Link to={"/accessories"}>Accessories</Link>
-      <Link to={"/home-goods"}>Home Goods</Link>
+      {departments.map(department => (
+        <Link key={department.id} to={`/${department.frontmatter.slug}`}>
+          {department.frontmatter.name}
+        </Link>
+      ))}
     </div>
   )
 

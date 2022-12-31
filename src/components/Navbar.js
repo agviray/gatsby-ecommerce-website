@@ -29,16 +29,30 @@ const Navbar = () => {
   }, [windowDimensions])
 
   const data = useStaticQuery(graphql`
-    query SiteInfo {
-      site {
+    query NavbarComponent {
+      siteData: site {
         siteMetadata {
           title
+        }
+      }
+
+      departments: allMarkdownRemark(
+        sort: { fields: frontmatter___placement, order: ASC }
+        filter: { frontmatter: { contentType: { eq: "department" } } }
+      ) {
+        nodes {
+          id
+          frontmatter {
+            slug
+            name
+          }
         }
       }
     }
   `)
 
-  const { title } = data.site.siteMetadata
+  const title = data.siteData.siteMetadata.title
+  const departments = data.departments.nodes
 
   const updateIsMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -58,12 +72,11 @@ const Navbar = () => {
             onIsMenuOpenChange={updateIsMenuOpen}
           />
         ) : null}
-        <NavMenu isMenuOpen={isMenuOpen} />
+        <NavMenu isMenuOpen={isMenuOpen} departmentDetails={departments} />
       </nav>
     )
   }
-  {
-  }
+
   return (
     <div
       ref={navContainerRef}
