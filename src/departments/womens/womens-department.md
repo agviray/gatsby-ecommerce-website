@@ -1,7 +1,7 @@
 ---
 placement: 1
 department: womens
-name: Women's Department
+name: WOMEN
 slug: womens
 contentType: department
 ---

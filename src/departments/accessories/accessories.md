@@ -1,7 +1,7 @@
 ---
 placement: 3
 department: accessories
-name: Accessories
+name: ACCESSORIES
 slug: accessories
 contentType: department
 ---

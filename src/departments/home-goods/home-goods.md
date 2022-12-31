@@ -1,7 +1,7 @@
 ---
 placement: 4
 department: home-goods
-name: Home Goods
+name: HOME GOODS
 slug: home-goods
 contentType: department
 ---

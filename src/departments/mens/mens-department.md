@@ -1,7 +1,7 @@
 ---
 placement: 2
 department: mens
-name: Men's Department
+name: MEN
 slug: mens
 contentType: department
 ---
