@@ -1,6 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-import * as styles from "../styles/navmenu.module.css"
+import {
+  container,
+  menu,
+  menuItem,
+  isOpen,
+  deptLink,
+} from "../styles/navmenu.module.css"
 import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
@@ -9,10 +15,10 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const departments = departmentDetails
 
   const navMenu = (
-    <div className={styles.menu}>
+    <div className={menu}>
       {departments.map(department => (
-        <div key={department.id}>
-          <Link to={`/${department.frontmatter.slug}`}>
+        <div key={department.id} className={menuItem}>
+          <Link to={`/${department.frontmatter.slug}`} className={deptLink}>
             {department.frontmatter.name}
           </Link>
           <SubNav deptSlug={department.frontmatter.slug} />
@@ -22,9 +28,7 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   )
 
   return windowDimensions.width < 800 ? (
-    <div
-      className={`${styles.container} ${isMenuOpen ? `${styles.isOpen}` : ``}`}
-    >
+    <div className={`${container} ${isMenuOpen ? `${isOpen}` : ``}`}>
       {navMenu}
     </div>
   ) : (

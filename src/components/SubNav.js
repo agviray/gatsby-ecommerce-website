@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import * as styles from "../styles/subnav.module.css"
+import { subNav, categoryLink } from "../styles/subnav.module.css"
 
 const SubNav = ({ deptSlug }) => {
   const data = useStaticQuery(graphql`
@@ -28,11 +28,12 @@ const SubNav = ({ deptSlug }) => {
   )
 
   return (
-    <div className="container">
+    <div className={subNav}>
       {categoriesToDisplay.map(category => (
         <Link
           key={category.id}
           to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+          className={categoryLink}
         >
           {category.frontmatter.name}
         </Link>
