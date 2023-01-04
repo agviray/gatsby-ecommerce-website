@@ -43,6 +43,7 @@ const Navbar = () => {
         nodes {
           id
           frontmatter {
+            department
             slug
             name
           }
