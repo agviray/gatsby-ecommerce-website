@@ -1,8 +1,13 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { subNav, categoryLink } from "../styles/subnav.module.css"
+import {
+  subNav,
+  departmentName,
+  departmentLink,
+  categoryLink,
+} from "../styles/subnav.module.css"
 
-const SubNav = ({ deptSlug }) => {
+const SubNav = ({ deptName, deptSlug }) => {
   const data = useStaticQuery(graphql`
     query SubNavComponent {
       categories: allMarkdownRemark(
@@ -21,6 +26,7 @@ const SubNav = ({ deptSlug }) => {
     }
   `)
 
+  const name = deptName
   const department = deptSlug
   const allCategories = data.categories.nodes
   const categoriesToDisplay = allCategories.filter(
@@ -29,6 +35,10 @@ const SubNav = ({ deptSlug }) => {
 
   return (
     <div className={subNav}>
+      <h3 className={departmentName}>{name}</h3>
+      <Link to={`/${deptSlug}`} className={departmentLink}>
+        VIEW ALL
+      </Link>
       {categoriesToDisplay.map(category => (
         <Link
           key={category.id}

@@ -14,24 +14,41 @@ import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const NavMenu = ({ isMenuOpen, departmentDetails }) => {
-  const [selectedDept, setSelectedDept] = useState("")
+  const [selectedDept, setSelectedDept] = useState({
+    name: "",
+    slug: "",
+  })
+
   const [slideToCategories, setSlideToCategories] = useState(false)
   const departments = departmentDetails
   const windowDimensions = useWindowDimensions()
 
   useEffect(() => {
     const clearSelectedDept = () => {
-      setSelectedDept("")
+      setSelectedDept({
+        name: "",
+        slug: "",
+      })
       setSlideToCategories(false)
     }
 
-    if (isMenuOpen === false && selectedDept !== "") {
+    if (
+      isMenuOpen === false &&
+      selectedDept !==
+        {
+          name: "",
+          slug: "",
+        }
+    ) {
       clearSelectedDept()
     }
   }, [isMenuOpen])
 
-  const showCategories = selectedDeptSlug => {
-    setSelectedDept(selectedDeptSlug)
+  const showCategories = (deptName, deptSlug) => {
+    setSelectedDept({
+      name: deptName,
+      slug: deptSlug,
+    })
     setSlideToCategories(true)
   }
 
@@ -40,18 +57,26 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
       <div className={deptSlide}>
         {departments.map(department => (
           <div key={department.id} className={menuItem}>
-            <span
-              onClick={() => showCategories(department.frontmatter.slug)}
+            <h3
+              onClick={() =>
+                showCategories(
+                  department.frontmatter.name,
+                  department.frontmatter.slug
+                )
+              }
               className={deptName}
             >
               {department.frontmatter.name}
-            </span>
+            </h3>
           </div>
         ))}
       </div>
       <div className={categoriesSlide}>
-        {selectedDept === "" ? null : (
-          <SubNav deptSlug={selectedDept === "" ? null : selectedDept} />
+        {selectedDept.name === "" ? null : (
+          <SubNav
+            deptName={selectedDept.name === "" ? null : selectedDept.name}
+            deptSlug={selectedDept.slug === "" ? null : selectedDept.slug}
+          />
         )}
       </div>
     </>
