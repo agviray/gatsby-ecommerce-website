@@ -7,48 +7,71 @@ import {
   isOpen,
   deptSlide,
   deptName,
+  categoriesSlide,
+  isSlid,
 } from "../styles/navmenu.module.css"
 import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const [selectedDept, setSelectedDept] = useState("")
+  const [slideToCategories, setSlideToCategories] = useState(false)
   const departments = departmentDetails
   const windowDimensions = useWindowDimensions()
 
   useEffect(() => {
+    const clearSelectedDept = () => {
+      setSelectedDept("")
+      setSlideToCategories(false)
+    }
+
     if (isMenuOpen === false && selectedDept !== "") {
-      return setSelectedDept("")
+      clearSelectedDept()
     }
   }, [isMenuOpen])
 
-  const navMenu = (
-    <div className={menu}>
+  const showCategories = selectedDeptSlug => {
+    setSelectedDept(selectedDeptSlug)
+    setSlideToCategories(true)
+  }
+
+  const mobileContents = (
+    <>
       <div className={deptSlide}>
         {departments.map(department => (
           <div key={department.id} className={menuItem}>
-            {windowDimensions.width < 800 ? (
-              <>
-                <span
-                  onClick={() => setSelectedDept(department.frontmatter.slug)}
-                  className={deptName}
-                >
-                  {department.frontmatter.name}
-                </span>
-              </>
-            ) : (
-              <Link to={`/${department.frontmatter.slug}`} className={deptName}>
-                {department.frontmatter.name}
-              </Link>
-            )}
+            <span
+              onClick={() => showCategories(department.frontmatter.slug)}
+              className={deptName}
+            >
+              {department.frontmatter.name}
+            </span>
           </div>
         ))}
       </div>
-      <div className="categoriesSlide">
+      <div className={categoriesSlide}>
         {selectedDept === "" ? null : (
           <SubNav deptSlug={selectedDept === "" ? null : selectedDept} />
         )}
       </div>
+    </>
+  )
+
+  const desktopContents = (
+    <>
+      {departments.map(department => (
+        <div key={department.id} className={menuItem}>
+          <Link to={`/${department.frontmatter.slug}`} className={deptName}>
+            {department.frontmatter.name}
+          </Link>
+        </div>
+      ))}
+    </>
+  )
+
+  const navMenu = (
+    <div className={`${menu} ${slideToCategories ? `${isSlid}` : ``}`}>
+      {windowDimensions.width < 800 ? mobileContents : desktopContents}
     </div>
   )
 
