@@ -9,6 +9,9 @@ import {
   deptName,
   categoriesSlide,
   isSlid,
+  arrowContainer,
+  text,
+  arrow,
 } from "../styles/navmenu.module.css"
 import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
@@ -24,13 +27,13 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const windowDimensions = useWindowDimensions()
 
   useEffect(() => {
-    const clearSelectedDept = () => {
-      setSelectedDept({
-        name: "",
-        slug: "",
-      })
-      setSlideToCategories(false)
-    }
+    // const clearSelectedDept = () => {
+    //   setSelectedDept({
+    //     name: "",
+    //     slug: "",
+    //   })
+    //   setSlideToCategories(false)
+    // }
 
     if (
       isMenuOpen === false &&
@@ -43,6 +46,14 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
       clearSelectedDept()
     }
   }, [isMenuOpen])
+
+  const clearSelectedDept = () => {
+    setSelectedDept({
+      name: "",
+      slug: "",
+    })
+    setSlideToCategories(false)
+  }
 
   const showCategories = (deptName, deptSlug) => {
     setSelectedDept({
@@ -72,6 +83,10 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
         ))}
       </div>
       <div className={categoriesSlide}>
+        <div onClick={() => clearSelectedDept()} className={arrowContainer}>
+          <span className={arrow}></span>
+          <span className={text}>BACK</span>
+        </div>
         {selectedDept.name === "" ? null : (
           <SubNav
             deptName={selectedDept.name === "" ? null : selectedDept.name}

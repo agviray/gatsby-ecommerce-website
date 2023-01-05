@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 60vw;
+  width: 70vw;
   height: 100vh;
   background-color: #ffffff;
   overflow-x: hidden;
@@ -55,7 +55,11 @@
 }
 
 .deptName {
-  padding: 16px 12px 25px 32px;
+  padding: 20px 12px 20px 32px;
+}
+
+.deptName:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 800px) {
@@ -68,7 +72,7 @@
 }
 
 .deptName:hover {
-  cursor: default;
+  cursor: pointer;
   color: #f3f3f3;
   background-color: #333333;
 }
@@ -87,4 +91,35 @@
   flex-direction: column;
   width: 100%;
   padding: 115px 0;
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 100%;
+  height: 30px;
+}
+
+.text {
+  display: inline-block;
+  text-align: center;
+  height: 12px;
+  margin-left: 3px;
+}
+
+.text:hover {
+  cursor: pointer;
+}
+
+.arrow {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-bottom: 2px solid #333333;
+  border-left: 2px solid #333333;
+  z-index: 3;
+  transform: rotate(45deg);
 }
