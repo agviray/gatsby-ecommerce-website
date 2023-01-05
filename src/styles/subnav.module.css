@@ -26,10 +26,3 @@
   color: #f3f3f3;
   background-color: #333333;
 }
-
-@media screen and (min-width: 800px) {
-  .categoryLink {
-    margin-left: 0;
-    padding: 8px 12px;
-  }
-}

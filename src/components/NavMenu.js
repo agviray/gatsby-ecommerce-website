@@ -94,10 +94,12 @@ const NavMenu = ({ onHoveredDeptChanged, isMenuOpen, departmentDetails }) => {
         <Link
           onMouseEnter={() =>
             onHoveredDeptChanged(
+              true,
               department.frontmatter.name,
               department.frontmatter.slug
             )
           }
+          onMouseLeave={() => onHoveredDeptChanged(false, "", "")}
           key={department.id}
           to={`/${department.frontmatter.slug}`}
         >

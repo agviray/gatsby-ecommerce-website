@@ -1,18 +1,25 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import * as styles from "../styles/navbar.module.css"
+import {
+  container,
+  notDisplayed,
+  overlay,
+  overlayActive,
+} from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
 import Hamburger from "./Hamburger"
+import SubNav from "./SubNav"
 import useWindowDimensions from "../components/hooks/useWindowDimensions"
 import useNavigationDisplay from "./hooks/useNavigationDisplay"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDropdownShown, setIsDropdownShown] = useState(false)
   const [hoveredDept, setHoveredDept] = useState({
+    showDropdown: false,
     name: "",
     slug: "",
   })
-  const navContainerRef = useRef(null)
   const windowDimensions = useWindowDimensions()
   const isNavbarDisplayed = useNavigationDisplay()
 
@@ -25,6 +32,17 @@ const Navbar = () => {
       document.body.style.overflow = "visible"
     }
   }, [isMenuOpen])
+
+  useEffect(() => {
+    if (hoveredDept.showDropdown) {
+      setIsDropdownShown(true)
+    }
+    if (!hoveredDept.showDropdown) {
+      if (isDropdownShown) {
+        setIsDropdownShown(false)
+      }
+    }
+  }, [hoveredDept])
 
   useEffect(() => {
     if (isMenuOpen === true) {
@@ -63,8 +81,9 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const updateHoveredDept = (deptName, deptSlug) => {
+  const updateHoveredDept = (showStatus, deptName, deptSlug) => {
     setHoveredDept({
+      showDropdown: showStatus,
       name: deptName,
       slug: deptSlug,
     })
@@ -72,39 +91,51 @@ const Navbar = () => {
 
   const renderNav = () => {
     return (
-      <nav>
-        <span>
-          <Link to={"/"}>
-            <h1>{title}</h1>
-          </Link>
-        </span>
-        {windowDimensions.width < 800 ? (
-          <Hamburger
+      <>
+        <nav>
+          <span>
+            <Link to={"/"}>
+              <h1>{title}</h1>
+            </Link>
+          </span>
+          {windowDimensions.width < 800 ? (
+            <Hamburger
+              isMenuOpen={isMenuOpen}
+              onIsMenuOpenChange={updateIsMenuOpen}
+            />
+          ) : null}
+          <NavMenu
+            onHoveredDeptChanged={updateHoveredDept}
             isMenuOpen={isMenuOpen}
-            onIsMenuOpenChange={updateIsMenuOpen}
+            departmentDetails={departments}
           />
+        </nav>
+        {isDropdownShown ? (
+          <div
+            onMouseEnter={() =>
+              setHoveredDept({ ...hoveredDept, showDropdown: true })
+            }
+            onMouseLeave={() =>
+              setHoveredDept({ ...hoveredDept, showDropdown: false })
+            }
+          >
+            <SubNav
+              deptName={hoveredDept.name === "" ? null : hoveredDept.name}
+              deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
+            />
+          </div>
         ) : null}
-        <NavMenu
-          onHoveredDeptChanged={updateHoveredDept}
-          isMenuOpen={isMenuOpen}
-          departmentDetails={departments}
-        />
-      </nav>
+      </>
     )
   }
 
   return (
     <div
-      ref={navContainerRef}
-      className={`${styles.container} ${
-        isNavbarDisplayed ? `` : `${styles.notDisplayed}`
-      }`}
+      className={`${container} ${isNavbarDisplayed ? `` : `${notDisplayed}`}`}
     >
       {renderNav()}
       <div
-        className={`${styles.overlay} ${
-          isMenuOpen ? `${styles.overlayActive}` : ``
-        }`}
+        className={`${overlay} ${isMenuOpen ? `${overlayActive}` : ``}`}
         onClick={updateIsMenuOpen}
       ></div>
     </div>
