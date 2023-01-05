@@ -100,11 +100,9 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const desktopContents = (
     <>
       {departments.map(department => (
-        <div key={department.id} className={menuItem}>
-          <Link to={`/${department.frontmatter.slug}`} className={deptName}>
-            {department.frontmatter.name}
-          </Link>
-        </div>
+        <Link key={department.id} to={`/${department.frontmatter.slug}`}>
+          <div className={deptName}>{department.frontmatter.name}</div>
+        </Link>
       ))}
     </>
   )
