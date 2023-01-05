@@ -8,6 +8,10 @@ import useNavigationDisplay from "./hooks/useNavigationDisplay"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [hoveredDept, setHoveredDept] = useState({
+    name: "",
+    slug: "",
+  })
   const navContainerRef = useRef(null)
   const windowDimensions = useWindowDimensions()
   const isNavbarDisplayed = useNavigationDisplay()
@@ -59,6 +63,13 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const updateHoveredDept = (deptName, deptSlug) => {
+    setHoveredDept({
+      name: deptName,
+      slug: deptSlug,
+    })
+  }
+
   const renderNav = () => {
     return (
       <nav>
@@ -73,7 +84,11 @@ const Navbar = () => {
             onIsMenuOpenChange={updateIsMenuOpen}
           />
         ) : null}
-        <NavMenu isMenuOpen={isMenuOpen} departmentDetails={departments} />
+        <NavMenu
+          onHoveredDeptChanged={updateHoveredDept}
+          isMenuOpen={isMenuOpen}
+          departmentDetails={departments}
+        />
       </nav>
     )
   }

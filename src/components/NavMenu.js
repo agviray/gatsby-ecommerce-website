@@ -16,25 +16,16 @@ import {
 import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
-const NavMenu = ({ isMenuOpen, departmentDetails }) => {
+const NavMenu = ({ onHoveredDeptChanged, isMenuOpen, departmentDetails }) => {
   const [selectedDept, setSelectedDept] = useState({
     name: "",
     slug: "",
   })
-
   const [slideToCategories, setSlideToCategories] = useState(false)
   const departments = departmentDetails
   const windowDimensions = useWindowDimensions()
 
   useEffect(() => {
-    // const clearSelectedDept = () => {
-    //   setSelectedDept({
-    //     name: "",
-    //     slug: "",
-    //   })
-    //   setSlideToCategories(false)
-    // }
-
     if (
       isMenuOpen === false &&
       selectedDept !==
@@ -100,7 +91,16 @@ const NavMenu = ({ isMenuOpen, departmentDetails }) => {
   const desktopContents = (
     <>
       {departments.map(department => (
-        <Link key={department.id} to={`/${department.frontmatter.slug}`}>
+        <Link
+          onMouseEnter={() =>
+            onHoveredDeptChanged(
+              department.frontmatter.name,
+              department.frontmatter.slug
+            )
+          }
+          key={department.id}
+          to={`/${department.frontmatter.slug}`}
+        >
           <div className={deptName}>{department.frontmatter.name}</div>
         </Link>
       ))}
