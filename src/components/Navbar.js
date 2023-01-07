@@ -3,6 +3,9 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import {
   container,
   notDisplayed,
+  dropdown,
+  dropdownContents,
+  isShown,
   overlay,
   overlayActive,
 } from "../styles/navbar.module.css"
@@ -81,6 +84,10 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const updateIsDropdownShown = () => {
+    setIsDropdownShown(!isDropdownShown)
+  }
+
   const updateHoveredDept = (showStatus, deptName, deptSlug) => {
     setHoveredDept({
       showDropdown: showStatus,
@@ -110,21 +117,6 @@ const Navbar = () => {
             departmentDetails={departments}
           />
         </nav>
-        {isDropdownShown ? (
-          <div
-            onMouseEnter={() =>
-              setHoveredDept({ ...hoveredDept, showDropdown: true })
-            }
-            onMouseLeave={() =>
-              setHoveredDept({ ...hoveredDept, showDropdown: false })
-            }
-          >
-            <SubNav
-              deptName={hoveredDept.name === "" ? null : hoveredDept.name}
-              deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
-            />
-          </div>
-        ) : null}
       </>
     )
   }
@@ -134,6 +126,28 @@ const Navbar = () => {
       className={`${container} ${isNavbarDisplayed ? `` : `${notDisplayed}`}`}
     >
       {renderNav()}
+      <div
+        className={dropdown}
+        onMouseEnter={() =>
+          setHoveredDept({ ...hoveredDept, showDropdown: true })
+        }
+        onMouseLeave={() =>
+          setHoveredDept({ ...hoveredDept, showDropdown: false })
+        }
+      >
+        <div
+          className={`${dropdownContents} ${
+            isDropdownShown ? `${isShown}` : ""
+          }`}
+        >
+          {isDropdownShown ? (
+            <SubNav
+              deptName={null}
+              deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
+            />
+          ) : null}
+        </div>
+      </div>
       <div
         className={`${overlay} ${isMenuOpen ? `${overlayActive}` : ``}`}
         onClick={updateIsMenuOpen}

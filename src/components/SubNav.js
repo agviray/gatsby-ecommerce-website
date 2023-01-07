@@ -35,7 +35,7 @@ const SubNav = ({ deptName, deptSlug }) => {
 
   return (
     <div className={subNav}>
-      <h3 className={departmentName}>{name}</h3>
+      {deptName ? <h3 className={departmentName}>{name}</h3> : null}
       <Link to={`/${deptSlug}`} className={departmentLink}>
         VIEW ALL
       </Link>
