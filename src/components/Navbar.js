@@ -3,6 +3,9 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import {
   container,
   notDisplayed,
+  dropdown,
+  dropdownContents,
+  isShown,
   overlay,
   overlayActive,
 } from "../styles/navbar.module.css"
@@ -81,6 +84,10 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const updateIsDropdownShown = () => {
+    setIsDropdownShown(!isDropdownShown)
+  }
+
   const updateHoveredDept = (showStatus, deptName, deptSlug) => {
     setHoveredDept({
       showDropdown: showStatus,
@@ -110,21 +117,28 @@ const Navbar = () => {
             departmentDetails={departments}
           />
         </nav>
-        {isDropdownShown ? (
+        <div
+          className={dropdown}
+          onMouseEnter={() =>
+            setHoveredDept({ ...hoveredDept, showDropdown: true })
+          }
+          onMouseLeave={() =>
+            setHoveredDept({ ...hoveredDept, showDropdown: false })
+          }
+        >
           <div
-            onMouseEnter={() =>
-              setHoveredDept({ ...hoveredDept, showDropdown: true })
-            }
-            onMouseLeave={() =>
-              setHoveredDept({ ...hoveredDept, showDropdown: false })
-            }
+            className={`${dropdownContents} ${
+              isDropdownShown ? `${isShown}` : ""
+            }`}
           >
-            <SubNav
-              deptName={hoveredDept.name === "" ? null : hoveredDept.name}
-              deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
-            />
+            {isDropdownShown ? (
+              <SubNav
+                deptName={null}
+                deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
+              />
+            ) : null}
           </div>
-        ) : null}
+        </div>
       </>
     )
   }
