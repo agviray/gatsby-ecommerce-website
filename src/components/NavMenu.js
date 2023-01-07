@@ -7,6 +7,7 @@ import {
   isOpen,
   deptSlide,
   deptName,
+  isHovered,
   categoriesSlide,
   isSlid,
   arrowContainer,
@@ -16,12 +17,18 @@ import {
 import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
-const NavMenu = ({ onHoveredDeptChanged, isMenuOpen, departmentDetails }) => {
+const NavMenu = ({
+  hoveredDept,
+  onHoveredDeptChanged,
+  isMenuOpen,
+  departmentDetails,
+}) => {
   const [selectedDept, setSelectedDept] = useState({
     name: "",
     slug: "",
   })
   const [slideToCategories, setSlideToCategories] = useState(false)
+  const [hasIsHoveredClass, setHasIsHoveredClass] = useState(false)
   const departments = departmentDetails
   const windowDimensions = useWindowDimensions()
 
@@ -52,6 +59,23 @@ const NavMenu = ({ onHoveredDeptChanged, isMenuOpen, departmentDetails }) => {
       slug: deptSlug,
     })
     setSlideToCategories(true)
+  }
+
+  const onMouseEnterDept = dept => {
+    setHasIsHoveredClass(true)
+    onHoveredDeptChanged(true, dept.frontmatter.name, dept.frontmatter.slug)
+  }
+
+  const onMouseLeaveDept = () => {
+    setHasIsHoveredClass(false)
+    onHoveredDeptChanged(false, "", "")
+  }
+
+  const applyIsHoveredClass = department => {
+    if (hoveredDept.slug === department.frontmatter.slug) {
+      return isHovered
+    }
+    return
   }
 
   const mobileContents = (
@@ -92,18 +116,20 @@ const NavMenu = ({ onHoveredDeptChanged, isMenuOpen, departmentDetails }) => {
     <>
       {departments.map(department => (
         <Link
-          onMouseEnter={() =>
-            onHoveredDeptChanged(
-              true,
-              department.frontmatter.name,
-              department.frontmatter.slug
-            )
-          }
-          onMouseLeave={() => onHoveredDeptChanged(false, "", "")}
+          onMouseEnter={() => onMouseEnterDept(department)}
+          onMouseLeave={onMouseLeaveDept}
           key={department.id}
           to={`/${department.frontmatter.slug}`}
         >
-          <div className={deptName}>{department.frontmatter.name}</div>
+          <div
+            className={`${deptName} ${
+              hoveredDept.slug === department.frontmatter.slug
+                ? `${isHovered}`
+                : ""
+            }`}
+          >
+            {department.frontmatter.name}
+          </div>
         </Link>
       ))}
     </>
