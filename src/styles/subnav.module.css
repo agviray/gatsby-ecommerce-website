@@ -5,7 +5,17 @@
 
 @media screen and (min-width: 800px) {
   .subNav {
-    padding: 16px 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 20px;
+  }
+}
+
+@media screen and (min-width: 1399px) {
+  .subNav {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -19,6 +29,14 @@
   display: block;
   padding: 20px 12px 20px 32px;
   font-size: 16px;
+}
+
+@media screen and (min-width: 800px) {
+  .departmentLink,
+  .categoryLink {
+    color: #f3f3f3;
+    padding: 20px 16px;
+  }
 }
 
 .departmentLink:hover,

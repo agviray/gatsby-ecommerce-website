@@ -112,6 +112,7 @@ const Navbar = () => {
             />
           ) : null}
           <NavMenu
+            hoveredDept={hoveredDept}
             onHoveredDeptChanged={updateHoveredDept}
             isMenuOpen={isMenuOpen}
             departmentDetails={departments}
@@ -148,6 +149,28 @@ const Navbar = () => {
       className={`${container} ${isNavbarDisplayed ? `` : `${notDisplayed}`}`}
     >
       {renderNav()}
+      <div
+        className={dropdown}
+        onMouseEnter={() =>
+          setHoveredDept({ ...hoveredDept, showDropdown: true })
+        }
+        onMouseLeave={() =>
+          setHoveredDept({ showDropdown: false, name: "", slug: "" })
+        }
+      >
+        <div
+          className={`${dropdownContents} ${
+            isDropdownShown ? `${isShown}` : ""
+          }`}
+        >
+          {isDropdownShown ? (
+            <SubNav
+              deptName={null}
+              deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
+            />
+          ) : null}
+        </div>
+      </div>
       <div
         className={`${overlay} ${isMenuOpen ? `${overlayActive}` : ``}`}
         onClick={updateIsMenuOpen}
