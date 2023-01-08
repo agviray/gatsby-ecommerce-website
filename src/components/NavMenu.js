@@ -62,20 +62,11 @@ const NavMenu = ({
   }
 
   const onMouseEnterDept = dept => {
-    setHasIsHoveredClass(true)
     onHoveredDeptChanged(true, dept.frontmatter.name, dept.frontmatter.slug)
   }
 
   const onMouseLeaveDept = () => {
-    setHasIsHoveredClass(false)
     onHoveredDeptChanged(false, "", "")
-  }
-
-  const applyIsHoveredClass = department => {
-    if (hoveredDept.slug === department.frontmatter.slug) {
-      return isHovered
-    }
-    return
   }
 
   const mobileContents = (
