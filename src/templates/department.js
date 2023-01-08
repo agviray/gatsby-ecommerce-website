@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import CategoryProductSnippets from "../components/CategoryProductSnippets"
 import {
   departmentContainer,
+  departmentHeading,
   categoriesContainer,
   categoryImageContainer,
   mobilePortrait,
@@ -84,6 +85,11 @@ export default function Department({ data }) {
   return (
     <Layout>
       <div className={departmentContainer}>
+        {windowDimensions.width >= 800 ? (
+          <div className={departmentHeading}>
+            <h2>{department.name}</h2>
+          </div>
+        ) : null}
         <div className={categoriesContainer}>
           {windowDimensions.width < 800
             ? renderMobileContent()
