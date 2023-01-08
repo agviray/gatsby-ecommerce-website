@@ -1,18 +1,32 @@
 .container {
-  /* font-size: 3.5em; */
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .categoryHeading {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 50vh;
-  padding-bottom: 100px;
+  align-items: center;
+  min-height: 30vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .categoryHeading h2 {
-  font-size: 3.5rem;
+  font-size: 7vw;
   text-align: center;
+  letter-spacing: 0.18rem;
+}
+
+@media screen and (min-width: 800px) {
+  .categoryHeading {
+    padding-top: 96px;
+  }
+  .categoryHeading h2 {
+    font-size: 55px;
+  }
 }
 
 .productsContainer {
