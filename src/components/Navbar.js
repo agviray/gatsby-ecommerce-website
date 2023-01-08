@@ -133,7 +133,7 @@ const Navbar = () => {
           setHoveredDept({ ...hoveredDept, showDropdown: true })
         }
         onMouseLeave={() =>
-          setHoveredDept({ ...hoveredDept, showDropdown: false })
+          setHoveredDept({ showDropdown: false, name: "", slug: "" })
         }
       >
         <div
