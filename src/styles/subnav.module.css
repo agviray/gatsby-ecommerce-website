@@ -26,6 +26,7 @@
 
 .departmentLink,
 .categoryLink {
+  position: relative;
   display: block;
   padding: 20px 12px 20px 32px;
   font-size: 16px;
@@ -36,6 +37,26 @@
   .categoryLink {
     color: #f3f3f3;
     padding: 20px 16px;
+  }
+
+  .departmentLink::after,
+  .categoryLink::after {
+    display: block;
+    content: "";
+    position: relative;
+    bottom: -15px;
+    left: 0;
+    width: 0px;
+    height: 2px;
+    margin: auto;
+    background-color: rgba(242, 242, 242, 0);
+    transition: all 0.3s ease;
+  }
+
+  .departmentLink:hover::after,
+  .categoryLink:hover::after {
+    width: 100%;
+    background-color: rgba(242, 242, 242, 1);
   }
 }
 
