@@ -70,7 +70,9 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/${node.frontmatter.department}/${node.frontmatter.type}/${node.frontmatter.slug}`,
       component: path.resolve("./src/templates/product-details.js"),
       context: {
+        department: node.frontmatter.department,
         slug: node.frontmatter.slug,
+        contentType: node.frontmatter.contentType,
       },
     })
   })

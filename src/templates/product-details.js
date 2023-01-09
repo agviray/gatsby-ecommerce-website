@@ -3,41 +3,39 @@ import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 
-const ProductDetails = () => {
+const ProductDetails = ({ data }) => {
+  const product = data.product.frontmatter
+  console.log(product)
   return (
     <Layout>
       <div className="container">
-        <div className="subNav">
-          <a href="#">
-            <span>Category Products</span>
-          </a>
-          /<span>Product Name</span>
-        </div>
-        <div className="flexContainer">
-          <div className="imageConatiner">
-            Image goes here
-            {/* <img /> */}
+        <div className="contents">
+          <div className="imageContainer">
+            <GatsbyImage
+              image={product.images[0].childImageSharp.gatsbyImageData}
+              alt={product.slug}
+            />
           </div>
-          <div className="infoContainer">
-            <div className="productHeading">
-              <h2>Product Name</h2>
+          <div className="detailsContainer">
+            <div className="productName">
+              <h2>{product.name}</h2>
             </div>
-            <div className="productPurchaseOptions">
-              <p>Size options</p>
-              <p>Quatity options</p>
-              <button>Add to Bag</button>
+            <div className="description">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
+                quasi minima iste ullam qui. Mollitia quo debitis dicta fuga
+                dolorum nostrum nam ea qui odit aliquid exercitationem,
+                repellat, esse quod!
+              </p>
             </div>
-            <div className="productDetails">
-              <h3>Details</h3>
-              <div className="description">
-                <p>General clothing description</p>
-                <p>Fit description</p>
-              </div>
-              <div className="contentCare">
-                <p>100% cotton</p>
-                <p>Machine wash</p>
-                <p>Imported</p>
-              </div>
+            <div className="price">{product.price}</div>
+            <ul className="sizeOptions">
+              <li>S</li>
+              <li>M</li>
+              <li>L</li>
+            </ul>
+            <div>
+              <button>ADD TO CART</button>
             </div>
           </div>
         </div>
@@ -45,5 +43,30 @@ const ProductDetails = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query ProductDetailsPage($department: String, $slug: String) {
+    product: markdownRemark(
+      frontmatter: { department: { eq: $department }, slug: { eq: $slug } }
+    ) {
+      frontmatter {
+        name
+        price
+        department
+        type
+        slug
+        images {
+          childImageSharp {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+            )
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ProductDetails
