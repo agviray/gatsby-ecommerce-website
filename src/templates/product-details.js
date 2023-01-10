@@ -2,10 +2,16 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
+import ProductDetailsImages from "../components/ProductDetailsImages"
 import {
   container,
   contents,
   imageContainer,
+  productImage,
+  productImage02,
+  productImage03,
+  productImage04,
+  productImage05,
   detailsContainer,
   productName,
   description,
@@ -18,6 +24,61 @@ import {
 const ProductDetails = ({ data }) => {
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
+
+  // - productImages contains the same image with an overlay to
+  //   simulate "different" product items.
+  const productImages = [
+    {
+      imageNumber: "Image #1",
+      content: () => (
+        <GatsbyImage
+          image={product.images[0].childImageSharp.gatsbyImageData}
+          alt={product.slug}
+          className={productImage}
+        />
+      ),
+    },
+    {
+      imageNumber: "Image #2",
+      content: () => (
+        <GatsbyImage
+          image={product.images[0].childImageSharp.gatsbyImageData}
+          alt={product.slug}
+          className={`${productImage} ${productImage02}`}
+        />
+      ),
+    },
+    {
+      imageNumber: "Image #3",
+      content: () => (
+        <GatsbyImage
+          image={product.images[0].childImageSharp.gatsbyImageData}
+          alt={product.slug}
+          className={`${productImage} ${productImage03}`}
+        />
+      ),
+    },
+    {
+      imageNumber: "Image #4",
+      content: () => (
+        <GatsbyImage
+          image={product.images[0].childImageSharp.gatsbyImageData}
+          alt={product.slug}
+          className={`${productImage} ${productImage04}`}
+        />
+      ),
+    },
+    {
+      imageNumber: "Image #5",
+      content: () => (
+        <GatsbyImage
+          image={product.images[0].childImageSharp.gatsbyImageData}
+          alt={product.slug}
+          className={`${productImage} ${productImage05}`}
+        />
+      ),
+    },
+  ]
 
   const renderProductSizes = sizes => {
     return sizes.map((size, index) => (
@@ -32,10 +93,7 @@ const ProductDetails = ({ data }) => {
       <div className={container}>
         <div className={contents}>
           <div className={imageContainer}>
-            <GatsbyImage
-              image={product.images[0].childImageSharp.gatsbyImageData}
-              alt={product.slug}
-            />
+            <ProductDetailsImages allProductImages={productImages} />
           </div>
           <div className={detailsContainer}>
             <div className={productName}>

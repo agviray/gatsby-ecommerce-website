@@ -27,6 +27,37 @@
 .imageContainer {
 }
 
+.productImage {
+  position: relative;
+  width: 100%;
+}
+
+.productImage02::after,
+.productImage03::after,
+.productImage04::after,
+.productImage05::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.productImage02::after {
+  background-color: rgba(51, 51, 51, 0.1);
+}
+.productImage03::after {
+  background-color: rgba(51, 51, 51, 0.3);
+}
+.productImage04::after {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+.productImage05::after {
+  background-color: rgba(51, 51, 51, 0.7);
+}
+
 .detailsContainer {
   padding-top: 40px;
 }
