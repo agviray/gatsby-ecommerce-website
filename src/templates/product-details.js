@@ -18,6 +18,18 @@ import {
 const ProductDetails = ({ data }) => {
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
+
+  const renderProductSizes = sizes => {
+    if (!sizes) {
+      return null
+    }
+    return sizes.map((size, index) => (
+      <div className={option} key={index}>
+        <span>{size}</span>
+      </div>
+    ))
+  }
+
   return (
     <Layout>
       <div className={container}>
@@ -42,15 +54,7 @@ const ProductDetails = ({ data }) => {
               </p>
             </div>
             <div className={sizeOptions}>
-              <div className={option}>
-                <span>S</span>
-              </div>
-              <div className={option}>
-                <span>M</span>
-              </div>
-              <div className={option}>
-                <span>L</span>
-              </div>
+              {renderProductSizes(product.allProductSizes)}
             </div>
             <div className={buttonContainer}>
               <button>ADD TO CART</button>
@@ -70,6 +74,7 @@ export const query = graphql`
       frontmatter {
         name
         price
+        allProductSizes
         department
         type
         slug
