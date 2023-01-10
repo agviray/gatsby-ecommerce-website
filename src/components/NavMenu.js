@@ -28,7 +28,6 @@ const NavMenu = ({
     slug: "",
   })
   const [slideToCategories, setSlideToCategories] = useState(false)
-  const [hasIsHoveredClass, setHasIsHoveredClass] = useState(false)
   const departments = departmentDetails
   const windowDimensions = useWindowDimensions()
 
@@ -74,7 +73,7 @@ const NavMenu = ({
       <div className={deptSlide}>
         {departments.map(department => (
           <div key={department.id} className={menuItem}>
-            <h3
+            <div
               onClick={() =>
                 showCategories(
                   department.frontmatter.name,
@@ -84,7 +83,7 @@ const NavMenu = ({
               className={deptName}
             >
               {department.frontmatter.name}
-            </h3>
+            </div>
           </div>
         ))}
       </div>

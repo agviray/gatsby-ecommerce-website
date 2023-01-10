@@ -14,6 +14,9 @@ import {
   text,
   container,
   textBlock,
+  categoryBlock,
+  moreBlock,
+  textBlockContent,
   arrow,
 } from "../styles/department.module.css"
 import useWindowDimensions from "../components/hooks/useWindowDimensions"
@@ -62,8 +65,8 @@ export default function Department({ data }) {
         <Link
           to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
         >
-          <div className={textBlock}>
-            <span>{category.frontmatter.name}</span>
+          <div className={`${textBlock} ${categoryBlock}`}>
+            <div className={textBlockContent}>{category.frontmatter.name}</div>
           </div>
         </Link>
         <CategoryProductSnippets
@@ -73,9 +76,11 @@ export default function Department({ data }) {
         <Link
           to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
         >
-          <div className={textBlock}>
-            <span>MORE</span>
-            <span className={arrow}></span>
+          <div className={`${textBlock} ${moreBlock}`}>
+            <div className={textBlockContent}>
+              <span>MORE</span>
+              <span className={arrow}></span>
+            </div>
           </div>
         </Link>
       </div>
