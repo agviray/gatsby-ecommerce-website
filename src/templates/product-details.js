@@ -2,39 +2,57 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
+import {
+  container,
+  contents,
+  imageContainer,
+  detailsContainer,
+  productName,
+  description,
+  price,
+  sizeOptions,
+  option,
+  buttonContainer,
+} from "../styles/product-details.module.css"
 
 const ProductDetails = ({ data }) => {
   const product = data.product.frontmatter
-  console.log(product)
+  const name = product.name.toUpperCase()
   return (
     <Layout>
-      <div className="container">
-        <div className="contents">
-          <div className="imageContainer">
+      <div className={container}>
+        <div className={contents}>
+          <div className={imageContainer}>
             <GatsbyImage
               image={product.images[0].childImageSharp.gatsbyImageData}
               alt={product.slug}
             />
           </div>
-          <div className="detailsContainer">
-            <div className="productName">
-              <h2>{product.name}</h2>
+          <div className={detailsContainer}>
+            <div className={productName}>
+              <span>{name}</span>
             </div>
-            <div className="description">
+            <div className={price}>{product.price}</div>
+            <div className={description}>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
-                quasi minima iste ullam qui. Mollitia quo debitis dicta fuga
-                dolorum nostrum nam ea qui odit aliquid exercitationem,
-                repellat, esse quod!
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut,
+                alias dolores sed molestias nobis minus debitis asperiores fugit
+                blanditiis beatae corporis aliquam provident! Vero amet sint
+                ullam dicta repudiandae hic.
               </p>
             </div>
-            <div className="price">{product.price}</div>
-            <ul className="sizeOptions">
-              <li>S</li>
-              <li>M</li>
-              <li>L</li>
-            </ul>
-            <div>
+            <div className={sizeOptions}>
+              <div className={option}>
+                <span>S</span>
+              </div>
+              <div className={option}>
+                <span>M</span>
+              </div>
+              <div className={option}>
+                <span>L</span>
+              </div>
+            </div>
+            <div className={buttonContainer}>
               <button>ADD TO CART</button>
             </div>
           </div>

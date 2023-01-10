@@ -7,8 +7,10 @@
 .imageWrapper {
 }
 
-.caption {
-  font-size: 18px;
+@media screen and (min-width: 800px) {
+  .caption {
+    font-size: 18px;
+  }
 }
 
 .productName,

@@ -1,0 +1,109 @@
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 96px;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    padding-top: 200px;
+    font-size: 18px;
+  }
+}
+
+.contents {
+  padding: 0 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .contents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+  }
+}
+
+.imageContainer {
+}
+
+.detailsContainer {
+  padding-top: 40px;
+}
+
+.productName > span {
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 800px) {
+  .productName span {
+    font-size: 25px;
+  }
+}
+
+.price {
+  padding-top: 20px;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 800px) {
+  .price {
+    font-size: 20px;
+  }
+}
+
+.description {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 800px) {
+  .description {
+    font-size: 18px;
+  }
+}
+
+.sizeOptions {
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+
+.option {
+  padding: 16px 10px;
+}
+
+.option:hover {
+  cursor: pointer;
+  background-color: #333333;
+}
+
+.option:hover span {
+  color: #f3f3f3;
+}
+
+.buttonContainer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 15px 12px;
+  background-color: black;
+  color: #f3f3f3;
+  font-size: 18px;
+  border-style: none;
+  letter-spacing: 1px;
+}
+
+@media screen and (min-width: 800px) {
+  .button {
+    font-size: 20px;
+  }
+}
+
+button:hover {
+  cursor: pointer;
+}
