@@ -20,9 +20,6 @@ const ProductDetails = ({ data }) => {
   const name = product.name.toUpperCase()
 
   const renderProductSizes = sizes => {
-    if (!sizes) {
-      return null
-    }
     return sizes.map((size, index) => (
       <div className={option} key={index}>
         <span>{size}</span>
@@ -53,9 +50,11 @@ const ProductDetails = ({ data }) => {
                 ullam dicta repudiandae hic.
               </p>
             </div>
-            <div className={sizeOptions}>
-              {renderProductSizes(product.allProductSizes)}
-            </div>
+            {product.allProductSizes ? (
+              <div className={sizeOptions}>
+                {renderProductSizes(product.allProductSizes)}
+              </div>
+            ) : null}
             <div className={buttonContainer}>
               <button>ADD TO CART</button>
             </div>
