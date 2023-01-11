@@ -14,6 +14,15 @@ const ProductDetailsImages = ({ allProductImages }) => {
   const [viewedImage, setViewedImage] = useState(allProductImages[0])
   const windowDimensions = useWindowDimensions()
 
+  const updateActiveImageIndex = newIndex => {
+    if (newIndex < 0) {
+      newIndex = 0
+    } else if (newIndex >= allProductImages.length) {
+      newIndex = allProductImages.length - 1
+    }
+    setActiveImageIndex(newIndex)
+  }
+
   return (
     <div className={container}>
       <div className={content}>
