@@ -29,7 +29,7 @@
 
 .productImage {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .productImage02::after,

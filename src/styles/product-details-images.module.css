@@ -4,10 +4,21 @@
 .content {
 }
 
-.thumbnailCollection {
+.imagesContainer {
+  overflow: hidden;
 }
 
-.thumbnail {
+.imagesContent {
+  display: flex;
+  transform: translateX(-0%);
+  transition: transform 0.3s;
+}
+
+.productImage {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
 }
 
 .mainImage {
