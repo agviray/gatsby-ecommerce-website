@@ -10,27 +10,22 @@ import {
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const ProductDetailsImages = ({ allProductImages }) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [viewedImage, setViewedImage] = useState(allProductImages[0])
   const windowDimensions = useWindowDimensions()
-
-  // const renderThumbnails = images => {
-  //   const thumbnails = images.filter(
-  //     image => image.imageNumber !== viewedImage.imageNumber
-  //   )
-  //   return thumbnails.map((image, index) => (
-  //     <div key={index} className={productImage}>
-  //       {image.content()}
-  //     </div>
-  //   ))
-  // }
 
   return (
     <div className={container}>
       <div className={content}>
         <div className={imagesContainer}>
-          <div className={imagesContent}>
+          <div
+            className={imagesContent}
+            style={{ transform: `translateX(-${activeImageIndex * 100}%)` }}
+          >
             {allProductImages.map((image, index) => (
-              <div key={index} className={productImage}>{image.content()}</div>
+              <div key={index} className={productImage}>
+                {image.content()}
+              </div>
             ))}
           </div>
         </div>
