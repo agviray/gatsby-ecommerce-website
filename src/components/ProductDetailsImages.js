@@ -6,18 +6,22 @@ import {
   carouselContent,
   carouselControls,
   controlsContent,
+  productImage,
   control,
   disabledControl,
   previous,
   next,
-  productImage,
+  tracker,
+  trackerContent,
+  currentTracked,
+  trackerLine,
+  allTracked,
   mainImage,
 } from "../styles/product-details-images.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const ProductDetailsImages = ({ allProductImages }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
-  const [viewedImage, setViewedImage] = useState(allProductImages[0])
   const windowDimensions = useWindowDimensions()
 
   const updateActiveImageIndex = newIndex => {
@@ -62,6 +66,13 @@ const ProductDetailsImages = ({ allProductImages }) => {
               }`}
             >
               <span className={next}></span>
+            </div>
+          </div>
+          <div className={tracker}>
+            <div className={trackerContent}>
+              <span className={currentTracked}>{activeImageIndex + 1}</span>
+              <span className={trackerLine}>|</span>
+              <span className={allTracked}>{allProductImages.length}</span>
             </div>
           </div>
         </div>
