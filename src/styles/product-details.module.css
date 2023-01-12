@@ -19,8 +19,8 @@
 @media screen and (min-width: 800px) {
   .contents {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
   }
 }
 
@@ -29,7 +29,6 @@
 
 .productImage {
   position: relative;
-  /* width: 100%; */
 }
 
 .productImage02::after,
@@ -60,6 +59,12 @@
 
 .detailsContainer {
   padding-top: 40px;
+}
+
+@media screen and (min-width: 800px) {
+  .detailsContainer {
+    padding-top: 0;
+  }
 }
 
 .productName > span {

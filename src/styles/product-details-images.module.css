@@ -2,6 +2,15 @@
 }
 
 .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+
+@media screen and (min-width: 800px) {
+  .content {
+    grid-template-columns: 1fr 8fr;
+  }
 }
 
 .carousel {
@@ -10,6 +19,10 @@
 }
 
 .carouselContent {
+  display: relative;
+}
+
+.carouselItems {
   display: flex;
   transition: transform 0.3s;
 }
@@ -92,13 +105,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  padding-bottom: 12px;
 }
 
 .trackerContent {
-  padding-bottom: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px 10px;
+  background-color: rgba(51, 51, 51, 0.4);
 }
 
 .currentTracked,
@@ -111,8 +126,18 @@
 
 .trackerLine {
   color: #f3f3f3;
-  padding: 0 10px;
+  padding: 0 7px;
 }
 
-.mainImage {
+.sidePanel {
+  position: relative;
+}
+
+.sidePanelContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.panelItem {
+  margin-bottom: 10px;
 }
