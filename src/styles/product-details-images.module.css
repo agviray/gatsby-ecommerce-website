@@ -4,11 +4,12 @@
 .content {
 }
 
-.imagesContainer {
+.carousel {
+  position: relative;
   overflow: hidden;
 }
 
-.imagesContent {
+.carouselContent {
   display: flex;
   transition: transform 0.3s;
 }
@@ -18,6 +19,70 @@
   justify-content: center;
   align-items: center;
   min-width: 100%;
+}
+
+.carouselControls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.controlsContent {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 1;
+}
+
+.control {
+  display: inline-block;
+  padding: 10px;
+}
+
+.control:nth-child(1) {
+  margin-left: 5px;
+}
+
+.control:nth-child(2) {
+  margin-right: 5px;
+}
+
+.control:hover {
+  cursor: pointer;
+}
+
+.disabledControl {
+  visibility: hidden;
+}
+
+.control:hover .previous,
+.control:hover .next {
+  border-color: rgba(243, 243, 243, 1);
+}
+
+.previous,
+.next {
+  display: block;
+  padding: 10px;
+  border-width: 3px 3px 0 0;
+  border-style: solid;
+  border-color: rgba(243, 243, 243, 0.5);
+  transition: all 0.3s;
+}
+
+.previous {
+  transform: rotate(-135deg);
+}
+
+.next {
+  transform: rotate(45deg);
 }
 
 .mainImage {
