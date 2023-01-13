@@ -20,6 +20,7 @@ import {
   sidePanel,
   sidePanelContent,
   panelItem,
+  panelItemSelected,
 } from "../styles/product-details-images.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
@@ -28,7 +29,6 @@ const ProductDetailsImages = ({ allProductImages }) => {
   const windowDimensions = useWindowDimensions()
 
   const updateActiveImageIndex = newIndex => {
-    console.log("A control was clicked!")
     if (newIndex < 0) {
       newIndex = 0
     } else if (newIndex >= allProductImages.length) {
@@ -90,8 +90,14 @@ const ProductDetailsImages = ({ allProductImages }) => {
       <div className={sidePanel}>
         <div className={sidePanelContent}>
           {allProductImages.map((image, index) => (
-            <div key={index} className={panelItem}>
-              <div className={productImage}>{image.content()}</div>
+            <div
+              key={index}
+              className={`${panelItem} ${
+                activeImageIndex === index ? `${panelItemSelected}` : ""
+              }`}
+              onClick={() => setActiveImageIndex(index)}
+            >
+              {image.content()}
             </div>
           ))}
         </div>
