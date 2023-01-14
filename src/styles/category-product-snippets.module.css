@@ -6,8 +6,19 @@
   margin-right: 10px;
 }
 
+.imageContainer {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
 .image {
   width: 100%;
   max-width: 386px;
   max-height: 580px;
+  transition: all 0.4s ease-in-out;
+}
+
+.link:hover .image {
+  transform: scale(1.3);
 }

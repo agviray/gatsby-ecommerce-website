@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import {
   container,
   link,
+  imageContainer,
   image,
 } from "../styles/category-product-snippets.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
@@ -24,14 +25,16 @@ const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
         to={`/${product.department}/${product.type}/${product.slug}`}
         className={link}
       >
-        <GatsbyImage
-          className={image}
-          image={product.images[0].childImageSharp.gatsbyImageData}
-          alt={product.name}
-          placeholder="blurred"
-          objectFit="cover"
-          objectPosition={"50% 50%"}
-        />
+        <span className={imageContainer}>
+          <GatsbyImage
+            className={image}
+            image={product.images[0].childImageSharp.gatsbyImageData}
+            alt={product.name}
+            placeholder="blurred"
+            objectFit="cover"
+            objectPosition={"50% 50%"}
+          />
+        </span>
       </Link>
     ))
   }
