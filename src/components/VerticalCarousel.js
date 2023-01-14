@@ -47,9 +47,7 @@ const VerticalCarousel = ({ allSlides }) => {
       }, cycleSpeed)
     }
 
-    if (stateSlides.length === 3) {
-      return
-    } else {
+    if (stateSlides.length === 5) {
       startCarouselCycling()
     }
   }, [stateSlides])
@@ -98,6 +96,12 @@ const VerticalCarousel = ({ allSlides }) => {
       })
     }
   }, [windowDimensions])
+
+  useEffect(() => {
+    if (slideDimensions.height === 0) {
+      window.location.reload(false)
+    }
+  }, [slideDimensions])
 
   // *** Determines the "window" height of the slides. ***
   // - The "window" created by this style is what enables only the
