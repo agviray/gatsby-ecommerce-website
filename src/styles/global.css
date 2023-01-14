@@ -40,12 +40,8 @@ p {
 }
 
 /* ************** */
-/* Layout */
+/* Layout Contents */
 /* ************** */
-.layout {
-  /* max-width: 1400px;
-  margin: 0 auto; */
-}
 
 header {
   position: relative;
@@ -56,14 +52,4 @@ header {
   header {
     padding-top: 0;
   }
-}
-
-main {
-  /* padding-top: 140px; */
-}
-
-footer p {
-  text-align: center;
-  color: #616161;
-  margin: 40px auto;
 }

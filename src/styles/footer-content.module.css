@@ -1,0 +1,69 @@
+.container {
+  background-color: black;
+  padding: 100px 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentBlock {
+  width: 70%;
+  padding-bottom: 80px;
+}
+
+.blockHeading {
+  color: #808080;
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 800px) {
+  .blockHeading {
+    font-size: 18px;
+  }
+}
+
+.companyInfoContent,
+.socialMediaContent {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.socialMediaContent {
+  display: flex;
+}
+
+.item {
+  padding: 8px 0;
+}
+
+.item a {
+  color: #f3f3f3;
+}
+
+.socialMediaIcon:first-of-type {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.socialMediaIcon {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.socialMediaIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+.siteCopyRight {
+  width: 70%;
+}
+
+.siteCopyrightContent {
+  color: #7b7b7b;
+}
