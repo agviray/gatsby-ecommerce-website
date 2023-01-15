@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 import twitterIcon from "../images/social-media/twitter-icon.svg"
 import instagramIcon from "../images/social-media/instagram-icon.svg"
 import facebookIcon from "../images/social-media/facebook-icon.svg"
@@ -46,10 +47,10 @@ const FooterContent = ({ title }) => {
           <div className={companyInfo}>
             <ul className={companyInfoContent}>
               <li className={item}>
-                <a href="#">Contact</a>
+                <Link to={"/contact"}>CONTACT</Link>
               </li>
               <li className={item}>
-                <a href="#">About</a>
+                <a href="#">ABOUT</a>
               </li>
               <li className={item}>
                 <a href="#">FAQ</a>
