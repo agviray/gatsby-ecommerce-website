@@ -84,3 +84,15 @@
 .formTextarea {
   resize: none;
 }
+
+.submitButton {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 16px 25px;
+  font-size: 16px;
+  text-align: center;
+  color: #f3f3f3;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}

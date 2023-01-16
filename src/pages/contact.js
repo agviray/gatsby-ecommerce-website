@@ -10,11 +10,18 @@ import {
   formItem,
   formLabel,
   formTextInput,
-  textareaContainer,
   formTextarea,
+  submitButton,
 } from "../styles/contact.module.css"
 
 const Contact = () => {
+  const sendMessage = e => {
+    e.preventDefault()
+  }
+
+  const handleFormSubmit = e => {
+    e.preventDefault()
+  }
   return (
     <Layout>
       <div className={container}>
@@ -23,7 +30,7 @@ const Contact = () => {
         </div>
         <div className={content}>
           <div className={formContainer}>
-            <form action="">
+            <form onSubmit={e => handleFormSubmit(e)}>
               <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
                 <div className={formItem}>
@@ -70,6 +77,12 @@ const Contact = () => {
                     placeholder="MESSAGE"
                   />
                 </div>
+                <input
+                  type="submit"
+                  value="SEND"
+                  className={submitButton}
+                  onClick={e => sendMessage(e)}
+                />
               </div>
             </form>
           </div>
