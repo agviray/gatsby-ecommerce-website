@@ -50,7 +50,7 @@ const FooterContent = ({ title }) => {
                 <Link to={"/contact"}>CONTACT</Link>
               </li>
               <li className={item}>
-                <a href="#">ABOUT</a>
+                <Link to={"/about"}>ABOUT</Link>
               </li>
               <li className={item}>
                 <a href="#">FAQ</a>
