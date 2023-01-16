@@ -10,6 +10,7 @@ import {
   formItem,
   formLabel,
   formTextInput,
+  textareaContainer,
   formTextarea,
 } from "../styles/contact.module.css"
 
@@ -23,7 +24,7 @@ const Contact = () => {
         <div className={content}>
           <div className={formContainer}>
             <form action="">
-              <h3 className={formHeading}>MESSAGE US</h3>
+              <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
                 <div className={formItem}>
                   <label className={formLabel} htmlFor="ContactFormName">
@@ -64,7 +65,7 @@ const Contact = () => {
                   </label>
                   <textarea
                     className={formTextarea}
-                    rows="15"
+                    rows="10"
                     id="ContactFormMessage"
                     placeholder="MESSAGE"
                   />

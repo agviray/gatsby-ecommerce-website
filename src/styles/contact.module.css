@@ -1,29 +1,86 @@
 .container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.heading h2 {
+  font-size: 7vw;
+  text-align: center;
+  letter-spacing: 0.18rem;
+}
+
+@media screen and (min-width: 800px) {
+  .heading {
+    padding-top: 96px;
+  }
+  .heading h2 {
+    font-size: 55px;
+  }
 }
 
 .content {
+  padding-bottom: 100px;
 }
 
 .formContainer {
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .formHeading {
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .formContent {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .formItem {
+  margin-bottom: 30px;
+  padding: 16px;
+  background-color: #f3f3f3;
+}
+
+.formLabel,
+.formTextInput,
+.formTextarea {
+  display: inline-block;
+  width: 100%;
+}
+
+.formTextInput,
+.formTextarea {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333333;
+  border: none;
+  outline: none;
+  background-color: #f3f3f3;
 }
 
 .formLabel {
-}
-
-.formTextInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .formTextarea {
+  resize: none;
 }
