@@ -60,7 +60,13 @@
 .formItem {
   margin-bottom: 30px;
   padding: 16px;
-  background-color: #f3f3f3;
+  background-color: rgba(243, 243, 243, 1);
+  transition: background-color 0.3s ease;
+}
+
+.formItem:focus-within {
+  border: 1px #e9e9e9 solid;
+  background-color: transparent;
 }
 
 .formLabel,
@@ -72,12 +78,11 @@
 
 .formTextInput,
 .formTextarea {
-  font-size: 16px;
   line-height: 1.75;
   color: #333333;
   border: none;
   outline: none;
-  background-color: #f3f3f3;
+  background-color: transparent;
 }
 
 .formLabel {
@@ -101,4 +106,9 @@
   background-color: black;
   border: none;
   cursor: pointer;
+}
+
+.invalidField {
+  border: 1px solid #900;
+  background-color: #fdd;
 }
