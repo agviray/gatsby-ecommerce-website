@@ -14,7 +14,15 @@ import {
   submitButton,
 } from "../styles/contact.module.css"
 
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+}
+
 const Contact = () => {
+  const [formData, setFormData] = useState(initialFormData)
   const sendMessage = e => {
     e.preventDefault()
   }
@@ -42,6 +50,10 @@ const Contact = () => {
                     type="text"
                     id="ContactFormName"
                     placeholder="NAME"
+                    value={formData.name}
+                    onChange={e =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                   />
                 </div>
                 <div className={formItem}>
@@ -53,6 +65,10 @@ const Contact = () => {
                     type="text"
                     id="ContactFormEmail"
                     placeholder="EMAIL"
+                    value={formData.email}
+                    onChange={e =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                   />
                 </div>
                 <div className={formItem}>
@@ -64,6 +80,10 @@ const Contact = () => {
                     type="text"
                     id="ContactFormPhone"
                     placeholder="PHONE"
+                    value={formData.phone}
+                    onChange={e =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                   />
                 </div>
                 <div className={formItem}>
@@ -75,6 +95,10 @@ const Contact = () => {
                     rows="10"
                     id="ContactFormMessage"
                     placeholder="MESSAGE"
+                    value={formData.message}
+                    onChange={e =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                   />
                 </div>
                 <input
