@@ -12,6 +12,7 @@ import {
   formTextInput,
   formTextarea,
   submitButton,
+  invalidField,
 } from "../styles/contact.module.css"
 
 const initialFormData = {
@@ -21,15 +22,51 @@ const initialFormData = {
   message: "",
 }
 
+const emailRegExp =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
 const Contact = () => {
   const [formData, setFormData] = useState(initialFormData)
+  const [isNameValid, setIsNameValid] = useState(true)
+  const [isEmailValid, setIsEmailValid] = useState(true)
+  const [isPhoneValid, setIsPhoneValid] = useState(true)
+  const [isMessageValid, setIsMessageValid] = useState(true)
+
+  const validateName = () => {
+    const nameValidity = formData.name !== ""
+    setIsNameValid(nameValidity)
+  }
+  const validateEmail = () => {
+    const emailValidity = emailRegExp.test(formData.email)
+    setIsEmailValid(emailValidity)
+  }
+
+  const validatePhone = () => {
+    const phoneValidity = formData.phone !== ""
+    setIsPhoneValid(phoneValidity)
+  }
+
+  const validateMessage = () => {
+    const messageValidity = formData.message !== ""
+    setIsMessageValid(messageValidity)
+  }
+
   const sendMessage = e => {
+    validateName()
+    validateEmail()
+    validatePhone()
+    validateMessage()
     e.preventDefault()
   }
 
   const handleFormSubmit = e => {
+    validateName()
+    validateEmail()
+    validatePhone()
+    validateMessage()
     e.preventDefault()
   }
+
   return (
     <Layout>
       <div className={container}>
@@ -41,7 +78,11 @@ const Contact = () => {
             <form onSubmit={e => handleFormSubmit(e)}>
               <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
-                <div className={formItem}>
+                <div
+                  className={`${formItem} ${
+                    isNameValid ? "" : `${invalidField}`
+                  }`}
+                >
                   <label className={formLabel} htmlFor="ContactFormName">
                     NAME
                   </label>
@@ -56,7 +97,11 @@ const Contact = () => {
                     }
                   />
                 </div>
-                <div className={formItem}>
+                <div
+                  className={`${formItem} ${
+                    isEmailValid ? "" : `${invalidField}`
+                  }`}
+                >
                   <label className={formLabel} htmlFor="ContactFormEmail">
                     EMAIL
                   </label>
@@ -71,7 +116,11 @@ const Contact = () => {
                     }
                   />
                 </div>
-                <div className={formItem}>
+                <div
+                  className={`${formItem} ${
+                    isPhoneValid ? "" : `${invalidField}`
+                  }`}
+                >
                   <label className={formLabel} htmlFor="ContactFormPhone">
                     PHONE
                   </label>
@@ -86,7 +135,11 @@ const Contact = () => {
                     }
                   />
                 </div>
-                <div className={formItem}>
+                <div
+                  className={`${formItem} ${
+                    isMessageValid ? "" : `${invalidField}`
+                  }`}
+                >
                   <label className={formLabel} htmlFor="ContactFormMessage">
                     MESSAGE
                   </label>

@@ -78,7 +78,6 @@
 
 .formTextInput,
 .formTextarea {
-  font-size: 16px;
   line-height: 1.75;
   color: #333333;
   border: none;
@@ -107,4 +106,9 @@
   background-color: black;
   border: none;
   cursor: pointer;
+}
+
+.invalidField {
+  border: 1px solid #900;
+  background-color: #fdd;
 }
