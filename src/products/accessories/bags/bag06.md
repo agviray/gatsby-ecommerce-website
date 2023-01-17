@@ -1,7 +1,7 @@
 ---
 placement: 6
 images: [./images/belt-bag-multi-color.jpg]
-name: Belt Bag // Multicolor
+name: Belt Bag
 price: $150.00
 department: accessories
 slug: belt-bag-multicolor

@@ -1,7 +1,7 @@
 ---
 placement: 5
 images: [./images/woven-leather-bag-brown.jpg]
-name: Woven Leather Bag // Brown
+name: Woven Leather Bag
 price: $150.00
 department: accessories
 slug: woven-leather-bag-brown
