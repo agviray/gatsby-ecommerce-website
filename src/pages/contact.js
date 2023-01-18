@@ -31,10 +31,6 @@ const Contact = () => {
   const [isPhoneValid, setIsPhoneValid] = useState(true)
   const [isMessageValid, setIsMessageValid] = useState(true)
 
-  useEffect(() => {
-    console.log(formData)
-  }, [formData])
-
   const validateName = () => {
     const nameValidity = formData.name !== ""
     setIsNameValid(nameValidity)
@@ -74,6 +70,13 @@ const Contact = () => {
     setFormData(updatedData)
   }
 
+  const clearError = (currentFieldValidity, callback) => {
+    if (currentFieldValidity === false) {
+      callback(true)
+    }
+    return
+  }
+
   return (
     <Layout>
       <div className={container}>
@@ -98,6 +101,7 @@ const Contact = () => {
                     onChange={e =>
                       updateFormData({ ...formData, name: e.target.value })
                     }
+                    onFocus={() => clearError(isNameValid, setIsNameValid)}
                   />
                 </ContactFormItem>
                 <ContactFormItem isFieldValid={isEmailValid}>
@@ -113,6 +117,7 @@ const Contact = () => {
                     onChange={e =>
                       updateFormData({ ...formData, email: e.target.value })
                     }
+                    onFocus={() => clearError(isEmailValid, setIsEmailValid)}
                   />
                 </ContactFormItem>
                 <ContactFormItem isFieldValid={isPhoneValid}>
@@ -129,6 +134,7 @@ const Contact = () => {
                     onChange={e =>
                       updateFormData({ ...formData, phone: e.target.value })
                     }
+                    onFocus={() => clearError(isPhoneValid, setIsPhoneValid)}
                   />
                 </ContactFormItem>
                 <ContactFormItem isFieldValid={isMessageValid}>
@@ -143,6 +149,9 @@ const Contact = () => {
                     value={formData.message}
                     onChange={e =>
                       updateFormData({ ...formData, message: e.target.value })
+                    }
+                    onFocus={() =>
+                      clearError(isMessageValid, setIsMessageValid)
                     }
                   />
                 </ContactFormItem>

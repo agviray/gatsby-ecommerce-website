@@ -1,16 +1,30 @@
 .formItem {
   margin-bottom: 30px;
+}
+
+.content {
   padding: 16px;
   background-color: rgba(243, 243, 243, 1);
   transition: background-color 0.3s ease;
 }
 
-.formItem:focus-within {
+.content:focus-within {
   border: 1px #e9e9e9 solid;
   background-color: transparent;
 }
 
 .invalidField {
-  border: 1px solid #900;
-  background-color: #fdd;
+  border: 1px solid #c74949;
+  background-color: #fddfdd;
+}
+
+.errorMessage {
+  display: none;
+  padding: 12px;
+  color: #f3f3f3;
+  background-color: rgb(199, 73, 73);
+}
+
+.errorActive {
+  display: block;
 }
