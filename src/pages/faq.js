@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { container, content, heading, body } from "../styles/faq.module.css"
 import Layout from "../components/Layout"
+import Accordion from "../components/Accordion"
 
 const Faq = () => {
   const allFaqContent = [
@@ -57,8 +58,9 @@ const Faq = () => {
             <h2>FAQ</h2>
           </div>
           <div className="body">
-            <h3>* SearchBar component here *</h3>
-            <h3>* All FAQ or searched FAQ results here *</h3>
+            {allFaqContent.map((content, index) => (
+              <Accordion accordionContent={content} />
+            ))}
           </div>
         </div>
       </div>
