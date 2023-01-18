@@ -59,7 +59,7 @@ const Faq = () => {
           </div>
           <div className="body">
             {allFaqContent.map((content, index) => (
-              <Accordion accordionContent={content} />
+              <Accordion key={index} accordionContent={content} />
             ))}
           </div>
         </div>
