@@ -12,7 +12,7 @@
 }
 
 .headingContainer h3 {
-  width: 80%;
+  width: 85%;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -21,7 +21,6 @@
   position: relative;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   width: 30px;
   height: 30px;
 }
@@ -34,10 +33,21 @@
   border-top: 2px solid #333333;
   border-right: 2px solid #333333;
   transform: translateY(-2px) rotate(135deg);
+  transition: all 0.3s ease;
+}
+
+.arrowActive {
+  transform: rotate(-45deg);
 }
 
 .bodyContainer {
-  padding: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.bodyContent {
+  padding: 12px;
 }
 
 .bodyContainer p {
