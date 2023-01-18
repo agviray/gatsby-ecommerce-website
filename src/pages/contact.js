@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import ContactFormItem from "../components/ContactFormItem"
 import Layout from "../components/Layout"
 import {
   container,
@@ -7,12 +8,10 @@ import {
   formContainer,
   formHeading,
   formContent,
-  formItem,
   formLabel,
   formTextInput,
   formTextarea,
   submitButton,
-  invalidField,
 } from "../styles/contact.module.css"
 
 const initialFormData = {
@@ -31,6 +30,10 @@ const Contact = () => {
   const [isEmailValid, setIsEmailValid] = useState(true)
   const [isPhoneValid, setIsPhoneValid] = useState(true)
   const [isMessageValid, setIsMessageValid] = useState(true)
+
+  useEffect(() => {
+    console.log(formData)
+  }, [formData])
 
   const validateName = () => {
     const nameValidity = formData.name !== ""
@@ -67,6 +70,10 @@ const Contact = () => {
     e.preventDefault()
   }
 
+  const updateFormData = updatedData => {
+    setFormData(updatedData)
+  }
+
   return (
     <Layout>
       <div className={container}>
@@ -78,11 +85,7 @@ const Contact = () => {
             <form onSubmit={e => handleFormSubmit(e)}>
               <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
-                <div
-                  className={`${formItem} ${
-                    isNameValid ? "" : `${invalidField}`
-                  }`}
-                >
+                <ContactFormItem isFieldValid={isNameValid}>
                   <label className={formLabel} htmlFor="ContactFormName">
                     NAME
                   </label>
@@ -93,15 +96,11 @@ const Contact = () => {
                     placeholder="NAME"
                     value={formData.name}
                     onChange={e =>
-                      setFormData({ ...formData, name: e.target.value })
+                      updateFormData({ ...formData, name: e.target.value })
                     }
                   />
-                </div>
-                <div
-                  className={`${formItem} ${
-                    isEmailValid ? "" : `${invalidField}`
-                  }`}
-                >
+                </ContactFormItem>
+                <ContactFormItem isFieldValid={isEmailValid}>
                   <label className={formLabel} htmlFor="ContactFormEmail">
                     EMAIL
                   </label>
@@ -112,15 +111,12 @@ const Contact = () => {
                     placeholder="EMAIL"
                     value={formData.email}
                     onChange={e =>
-                      setFormData({ ...formData, email: e.target.value })
+                      updateFormData({ ...formData, email: e.target.value })
                     }
                   />
-                </div>
-                <div
-                  className={`${formItem} ${
-                    isPhoneValid ? "" : `${invalidField}`
-                  }`}
-                >
+                </ContactFormItem>
+                <ContactFormItem isFieldValid={isPhoneValid}>
+                  {" "}
                   <label className={formLabel} htmlFor="ContactFormPhone">
                     PHONE
                   </label>
@@ -131,15 +127,11 @@ const Contact = () => {
                     placeholder="PHONE"
                     value={formData.phone}
                     onChange={e =>
-                      setFormData({ ...formData, phone: e.target.value })
+                      updateFormData({ ...formData, phone: e.target.value })
                     }
                   />
-                </div>
-                <div
-                  className={`${formItem} ${
-                    isMessageValid ? "" : `${invalidField}`
-                  }`}
-                >
+                </ContactFormItem>
+                <ContactFormItem isFieldValid={isMessageValid}>
                   <label className={formLabel} htmlFor="ContactFormMessage">
                     MESSAGE
                   </label>
@@ -150,10 +142,10 @@ const Contact = () => {
                     placeholder="MESSAGE"
                     value={formData.message}
                     onChange={e =>
-                      setFormData({ ...formData, message: e.target.value })
+                      updateFormData({ ...formData, message: e.target.value })
                     }
                   />
-                </div>
+                </ContactFormItem>
                 <input
                   type="submit"
                   value="SEND"
