@@ -3,6 +3,7 @@ import {
   accordion,
   headingContainer,
   arrowContainer,
+  arrow,
   bodyContainer,
 } from "../styles/accordion.module.css"
 
@@ -12,7 +13,9 @@ const Accordion = ({ accordionContent }) => {
       <div className={accordion}>
         <div className={headingContainer}>
           <h3>{content.headingText}</h3>
-          <div className={arrowContainer}></div>
+          <div className={arrowContainer}>
+            <span className={arrow}></span>
+          </div>
         </div>
         <div className={bodyContainer}>
           <p>{content.bodyText}</p>
