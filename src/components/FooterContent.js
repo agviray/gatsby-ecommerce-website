@@ -14,7 +14,6 @@ import {
   socialMediaContent,
   item,
   socialMediaIcon,
-  siteCopyright,
   siteCopyrightContent,
 } from "../styles/footer-content.module.css"
 
@@ -53,7 +52,7 @@ const FooterContent = ({ title }) => {
                 <Link to={"/about"}>ABOUT</Link>
               </li>
               <li className={item}>
-                <a href="#">FAQ</a>
+                <a href="/faq">FAQ</a>
               </li>
             </ul>
           </div>
