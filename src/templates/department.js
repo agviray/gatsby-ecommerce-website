@@ -160,6 +160,7 @@ export const query = graphql`
           slug
           type
           name
+          price
           images {
             childImageSharp {
               gatsbyImageData(

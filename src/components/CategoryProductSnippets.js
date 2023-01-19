@@ -6,6 +6,9 @@ import {
   link,
   imageContainer,
   image,
+  imageOverlay,
+  productName,
+  productPrice,
 } from "../styles/category-product-snippets.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
@@ -25,7 +28,7 @@ const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
         to={`/${product.department}/${product.type}/${product.slug}`}
         className={link}
       >
-        <span className={imageContainer}>
+        <div className={imageContainer}>
           <GatsbyImage
             className={image}
             image={product.images[0].childImageSharp.gatsbyImageData}
@@ -34,7 +37,11 @@ const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
             objectFit="cover"
             objectPosition={"50% 50%"}
           />
-        </span>
+          <div className={imageOverlay}>
+            <span className={productName}>{product.name}</span>
+            <span className={productPrice}>{product.price}</span>
+          </div>
+        </div>
       </Link>
     ))
   }
