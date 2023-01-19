@@ -11,6 +11,10 @@
   background-color: #f3f3f3;
 }
 
+.headingContainer:hover {
+  cursor: pointer;
+}
+
 .headingContainer h3 {
   width: 85%;
   font-size: 18px;
