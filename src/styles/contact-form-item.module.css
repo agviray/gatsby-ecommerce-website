@@ -14,15 +14,13 @@
 }
 
 .invalidField {
-  border: 1px solid #c74949;
-  background-color: #fddfdd;
+  border: 1px solid #f35b5b;
 }
 
 .errorMessage {
   display: none;
   padding: 12px;
-  color: #f3f3f3;
-  background-color: rgb(199, 73, 73);
+  color: #f35b5b;
 }
 
 .errorActive {
