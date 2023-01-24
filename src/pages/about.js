@@ -16,7 +16,6 @@ export default function About() {
         </div>
         <div className={content}>
           <div className={contentBlock}>
-            <h3>OUR VISION</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
               quo facere voluptates ut nam fugit, dolore laborum culpa est minus
