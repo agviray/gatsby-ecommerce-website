@@ -117,9 +117,11 @@ const Navbar = () => {
               isMenuOpen={isMenuOpen}
               departmentDetails={departments}
             />
-            <div className={bag}>
-              <img src={bagIcon} alt="bag icon" />
-            </div>
+            <Link to="/bag">
+              <div className={bag}>
+                <img src={bagIcon} alt="bag icon" />
+              </div>
+            </Link>
           </div>
         </nav>
         <div
