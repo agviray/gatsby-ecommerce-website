@@ -23,6 +23,7 @@ import {
   panelItemSelected,
 } from "../styles/product-details-images.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
+import { useSwipeable } from "react-swipeable"
 
 const ProductDetailsImages = ({ allProductImages }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
@@ -37,9 +38,14 @@ const ProductDetailsImages = ({ allProductImages }) => {
     setActiveImageIndex(newIndex)
   }
 
+  const swipedHandlers = useSwipeable({
+    onSwipedLeft: () => updateActiveImageIndex(activeImageIndex + 1),
+    onSwipedRight: () => updateActiveImageIndex(activeImageIndex - 1),
+  })
+
   const renderMobileView = () => {
     return (
-      <div className={carousel}>
+      <div {...swipedHandlers} className={carousel}>
         <div className={carouselContent}>
           <div
             className={carouselItems}
