@@ -6,6 +6,9 @@
 
 module.exports = {
   /* Your site config here */
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     "gatsby-plugin-sharp",
     "gatsby-transformer-remark",
