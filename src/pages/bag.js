@@ -8,15 +8,7 @@ import {
 } from "../styles/bag.module.css"
 import Layout from "../components/Layout"
 
-const initialItems = [
-  {
-    image: "",
-    name: "",
-    price: null,
-    size: "",
-    quantity: null,
-  },
-]
+const initialItems = []
 
 export default function Bag() {
   const [items, setItems] = useState([])
