@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import {
   container,
+  navRight,
+  bag,
   notDisplayed,
   dropdown,
   dropdownContents,
@@ -12,6 +14,7 @@ import {
 import NavMenu from "./NavMenu"
 import Hamburger from "./Hamburger"
 import SubNav from "./SubNav"
+import bagIcon from "../images/bag-icon.svg"
 import useWindowDimensions from "../components/hooks/useWindowDimensions"
 import useNavigationDisplay from "./hooks/useNavigationDisplay"
 
@@ -84,10 +87,6 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const updateIsDropdownShown = () => {
-    setIsDropdownShown(!isDropdownShown)
-  }
-
   const updateHoveredDept = (showStatus, deptName, deptSlug) => {
     setHoveredDept({
       showDropdown: showStatus,
@@ -105,18 +104,23 @@ const Navbar = () => {
               <h1>{title}</h1>
             </Link>
           </span>
-          {windowDimensions.width < 800 ? (
-            <Hamburger
+          <div className={navRight}>
+            {windowDimensions.width < 800 ? (
+              <Hamburger
+                isMenuOpen={isMenuOpen}
+                onIsMenuOpenChange={updateIsMenuOpen}
+              />
+            ) : null}
+            <NavMenu
+              hoveredDept={hoveredDept}
+              onHoveredDeptChanged={updateHoveredDept}
               isMenuOpen={isMenuOpen}
-              onIsMenuOpenChange={updateIsMenuOpen}
+              departmentDetails={departments}
             />
-          ) : null}
-          <NavMenu
-            hoveredDept={hoveredDept}
-            onHoveredDeptChanged={updateHoveredDept}
-            isMenuOpen={isMenuOpen}
-            departmentDetails={departments}
-          />
+            <div className={bag}>
+              <img src={bagIcon} alt="bag icon" />
+            </div>
+          </div>
         </nav>
         <div
           className={dropdown}

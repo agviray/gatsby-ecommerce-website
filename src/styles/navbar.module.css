@@ -32,6 +32,16 @@ nav span:first-of-type {
   font-display: inline-block;
 }
 
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bag {
+  padding: 0.5rem;
+}
+
 .overlay {
   position: fixed;
   top: 0;
