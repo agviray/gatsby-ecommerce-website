@@ -1,10 +1,8 @@
-import React, { useState, useEffect, createContext } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Navbar from "./Navbar"
 import FooterContent from "./FooterContent"
 import "../styles/global.css"
-
-export const BagContext = createContext(null)
 
 const initialNewItem = {
   image: "",
@@ -58,20 +56,13 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <BagContext.Provider
-        value={{
-          itemsInBag: [...itemsInBag],
-          onNewItemChange: addNewItem,
-        }}
-      >
-        <header>
-          <Navbar />
-        </header>
-        <main>{children}</main>
-        <footer>
-          <FooterContent title={title} />
-        </footer>
-      </BagContext.Provider>
+      <header>
+        <Navbar />
+      </header>
+      <main>{children}</main>
+      <footer>
+        <FooterContent title={title} />
+      </footer>
     </>
   )
 }

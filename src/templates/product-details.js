@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import ProductDetailsImages from "../components/ProductDetailsImages"
 import {
+  wrapper,
   container,
   contents,
   imageContainer,
@@ -18,7 +19,12 @@ import {
   price,
   sizeOptions,
   option,
+  activeSize,
   buttonContainer,
+  errorModal,
+  errorActive,
+  errorContent,
+  errorBox,
 } from "../styles/product-details.module.css"
 
 const initialSelection = {
@@ -30,8 +36,9 @@ const initialSelection = {
 }
 
 const ProductDetails = ({ data }) => {
-  const [selectedSize, setSelectedSize] = useState("")
   const [selection, setSelection] = useState(initialSelection)
+  const [selectedSize, setSelectedSize] = useState("")
+  const [isError, setIsError] = useState(false)
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
 
@@ -47,7 +54,7 @@ const ProductDetails = ({ data }) => {
     }
   }, [])
 
-  // *** About the contents of this useEffect ***  */
+  // *** About useEffect's contents ***
   // - Checks to see what department the product is under, as the
   //   department determines the selected 'size'.
   // - For example, accessories products come in one size, and home-goods
@@ -62,6 +69,9 @@ const ProductDetails = ({ data }) => {
     }
   }, [selection])
 
+  // *** About useEffect's contents ***
+  // - Updates selection size value when user selects or changes their
+  //   size selection.
   useEffect(() => {
     if (selectedSize === "") {
       return
@@ -72,6 +82,17 @@ const ProductDetails = ({ data }) => {
     }
   }, [selectedSize])
 
+  useEffect(() => {
+    if (isError) {
+      document.body.style.overflow = "hidden"
+    }
+
+    if (!isError) {
+      document.body.style.overflow = "visible"
+    }
+  }, [isError])
+
+  // *** About productImages ***
   // - productImages contains the same image with an overlay to
   //   simulate "different" product items.
   const productImages = [
@@ -131,7 +152,7 @@ const ProductDetails = ({ data }) => {
     return sizes.map((size, index) => (
       <div
         onClick={() => updateSelectedSize(size)}
-        className={option}
+        className={`${option} ${size === selectedSize ? `${activeSize}` : ""} `}
         key={index}
       >
         <span>{size}</span>
@@ -143,38 +164,67 @@ const ProductDetails = ({ data }) => {
     setSelectedSize(size)
   }
 
+  const addToBag = (e, item) => {
+    e.preventDefault()
+    const product = { ...item }
+    if (product.size === "") {
+      setIsError(true)
+    }
+  }
+
   return (
-    <Layout>
-      <div className={container}>
-        <div className={contents}>
-          <div className={imageContainer}>
-            <ProductDetailsImages allProductImages={productImages} />
-          </div>
-          <div className={detailsContainer}>
-            <div className={productName}>
-              <span>{name}</span>
+    <div className={wrapper}>
+      <Layout>
+        <div className={container}>
+          <div className={contents}>
+            <div className={imageContainer}>
+              <ProductDetailsImages allProductImages={productImages} />
             </div>
-            <div className={price}>{product.price}</div>
-            <div className={description}>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut,
-                alias dolores sed molestias nobis minus debitis asperiores fugit
-                blanditiis beatae corporis aliquam provident! Vero amet sint
-                ullam dicta repudiandae hic.
-              </p>
-            </div>
-            {product.allProductSizes ? (
-              <div className={sizeOptions}>
-                {renderProductSizes(product.allProductSizes)}
+            <div className={detailsContainer}>
+              <div className={productName}>
+                <span>{name}</span>
               </div>
-            ) : null}
-            <div className={buttonContainer}>
-              <button>ADD TO BAG</button>
+              <div className={price}>{product.price}</div>
+              <div className={description}>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut,
+                  alias dolores sed molestias nobis minus debitis asperiores
+                  fugit blanditiis beatae corporis aliquam provident! Vero amet
+                  sint ullam dicta repudiandae hic.
+                </p>
+              </div>
+              {product.allProductSizes ? (
+                <div className={sizeOptions}>
+                  {renderProductSizes(product.allProductSizes)}
+                </div>
+              ) : null}
+              <div
+                onClick={e => addToBag(e, selection)}
+                className={buttonContainer}
+              >
+                <button>ADD TO BAG</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+      <div className={`${errorModal} ${isError ? `${errorActive}` : ""}`}>
+        <div className={errorContent}>
+          <div className={errorBox}>
+            Please select a size
+            <div
+              onClick={e => {
+                e.preventDefault()
+                setIsError(false)
+              }}
+              className={buttonContainer}
+            >
+              <button>OK</button>
             </div>
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   )
 }
 
