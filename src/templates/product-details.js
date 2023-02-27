@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
@@ -21,9 +21,56 @@ import {
   buttonContainer,
 } from "../styles/product-details.module.css"
 
+const initialSelection = {
+  name: "",
+  image: "",
+  price: null,
+  size: "",
+  quantity: 1,
+}
+
 const ProductDetails = ({ data }) => {
+  const [selectedSize, setSelectedSize] = useState("")
+  const [selection, setSelection] = useState(initialSelection)
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
+
+  useEffect(() => {
+    if (selection.name === "") {
+      setSelection({
+        image: product.images[0].childImageSharp.gatsbyImageData,
+        name: product.name,
+        price: product.price,
+        size: "",
+        quantity: 1,
+      })
+    }
+  }, [])
+
+  // *** About the contents of this useEffect ***  */
+  // - Checks to see what department the product is under, as the
+  //   department determines the selected 'size'.
+  // - For example, accessories products come in one size, and home-goods
+  //   products sizes don't exist--whereas clothing sizes vary.
+  useEffect(() => {
+    if (product.department === "accessories") {
+      setSelectedSize("OS")
+    } else if (product.department === "home-goods") {
+      setSelectedSize(null)
+    } else {
+      return
+    }
+  }, [selection])
+
+  useEffect(() => {
+    if (selectedSize === "") {
+      return
+    }
+
+    if (selection.size !== selectedSize) {
+      setSelection({ ...selection, size: selectedSize })
+    }
+  }, [selectedSize])
 
   // - productImages contains the same image with an overlay to
   //   simulate "different" product items.
@@ -82,10 +129,18 @@ const ProductDetails = ({ data }) => {
 
   const renderProductSizes = sizes => {
     return sizes.map((size, index) => (
-      <div className={option} key={index}>
+      <div
+        onClick={() => updateSelectedSize(size)}
+        className={option}
+        key={index}
+      >
         <span>{size}</span>
       </div>
     ))
+  }
+
+  const updateSelectedSize = size => {
+    setSelectedSize(size)
   }
 
   return (
@@ -114,7 +169,7 @@ const ProductDetails = ({ data }) => {
               </div>
             ) : null}
             <div className={buttonContainer}>
-              <button>ADD TO CART</button>
+              <button>ADD TO BAG</button>
             </div>
           </div>
         </div>
