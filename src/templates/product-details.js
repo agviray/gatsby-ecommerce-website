@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
+import { BagContext } from "../components/BagContextComponent"
 import ProductDetailsImages from "../components/ProductDetailsImages"
 import {
   wrapper,
@@ -52,14 +53,7 @@ const ProductDetails = ({ data }) => {
         quantity: 1,
       })
     }
-  }, [])
 
-  // *** About useEffect's contents ***
-  // - Checks to see what department the product is under, as the
-  //   department determines the selected 'size'.
-  // - For example, accessories products come in one size, and home-goods
-  //   products sizes don't exist--whereas clothing sizes vary.
-  useEffect(() => {
     if (product.department === "accessories") {
       setSelectedSize("OS")
     } else if (product.department === "home-goods") {
@@ -152,7 +146,9 @@ const ProductDetails = ({ data }) => {
     return sizes.map((size, index) => (
       <div
         onClick={() => updateSelectedSize(size)}
-        className={`${option} ${size === selectedSize ? `${activeSize}` : ""} `}
+        className={`${option} ${
+          size === selection.size ? `${activeSize}` : ""
+        }`}
         key={index}
       >
         <span>{size}</span>
@@ -164,12 +160,15 @@ const ProductDetails = ({ data }) => {
     setSelectedSize(size)
   }
 
-  const addToBag = (e, item) => {
+  const addToBag = (e, item, bagContext) => {
     e.preventDefault()
     const product = { ...item }
     if (product.size === "") {
       setIsError(true)
+      return
     }
+    bagContext.addNewItem(product)
+    setSelection(initialSelection)
   }
 
   return (
@@ -198,12 +197,17 @@ const ProductDetails = ({ data }) => {
                   {renderProductSizes(product.allProductSizes)}
                 </div>
               ) : null}
-              <div
-                onClick={e => addToBag(e, selection)}
-                className={buttonContainer}
-              >
-                <button>ADD TO BAG</button>
-              </div>
+
+              <BagContext.Consumer>
+                {value => (
+                  <div
+                    onClick={e => addToBag(e, selection, value)}
+                    className={buttonContainer}
+                  >
+                    <button>ADD TO BAG</button>
+                  </div>
+                )}
+              </BagContext.Consumer>
             </div>
           </div>
         </div>
