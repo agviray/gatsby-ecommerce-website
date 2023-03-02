@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 
+const initialStoredBag = { items: [] }
 export const BagContext = React.createContext()
 
 const BagContextProvider = ({ children }) => {
@@ -7,15 +8,28 @@ const BagContextProvider = ({ children }) => {
   const [newItem, setNewItem] = useState({})
 
   useEffect(() => {
-    const item = { ...newItem }
-    if (Object.keys(item).length !== 0) {
-      setItemsInBag([...itemsInBag, item])
+    const storedBag = JSON.parse(localStorage.getItem("bag"))
+
+    if (!storedBag) {
+      localStorage.setItem("bag", JSON.stringify(initialStoredBag))
     }
-  }, [newItem])
+  }, [])
 
   useEffect(() => {
-    console.log(itemsInBag)
-  }, [itemsInBag])
+    const storedBag = JSON.parse(localStorage.getItem("bag"))
+    const storedBagItems = [...storedBag.items]
+    let newBagItems
+
+    if (itemsInBag.length === 0) {
+      newBagItems = [...storedBagItems]
+    }
+    if (storedBag) {
+      if (Object.keys(newItem).length !== 0) {
+        const newBagToStore = { ...storedBag, items: [...newBagItems, newItem] }
+        localStorage.setItem("bag", JSON.stringify(newBagToStore))
+      }
+    }
+  }, [newItem])
 
   const addNewItem = item => {
     setNewItem({ ...item })

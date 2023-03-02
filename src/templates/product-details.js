@@ -36,12 +36,18 @@ const initialSelection = {
   quantity: 1,
 }
 
+const initialSelectedSize = ""
+
 const ProductDetails = ({ data }) => {
   const [selection, setSelection] = useState(initialSelection)
-  const [selectedSize, setSelectedSize] = useState("")
+  const [selectedSize, setSelectedSize] = useState(initialSelectedSize)
   const [isError, setIsError] = useState(false)
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
+
+  useEffect(() => {
+    console.log(selectedSize)
+  })
 
   useEffect(() => {
     if (selection.name === "") {
@@ -169,6 +175,7 @@ const ProductDetails = ({ data }) => {
     }
     bagContext.addNewItem(product)
     setSelection(initialSelection)
+    setSelectedSize(initialSelectedSize)
   }
 
   return (
