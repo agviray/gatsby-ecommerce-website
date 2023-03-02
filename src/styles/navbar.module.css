@@ -38,10 +38,6 @@ nav span:first-of-type {
   gap: 1rem;
 }
 
-.bag {
-  padding: 0.5rem;
-}
-
 .overlay {
   position: fixed;
   top: 0;

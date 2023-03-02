@@ -3,7 +3,6 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import {
   container,
   navRight,
-  bag,
   notDisplayed,
   dropdown,
   dropdownContents,
@@ -14,7 +13,8 @@ import {
 import NavMenu from "./NavMenu"
 import Hamburger from "./Hamburger"
 import SubNav from "./SubNav"
-import bagIcon from "../images/bag-icon.svg"
+import BagIcon from "./BagIcon"
+
 import useWindowDimensions from "../components/hooks/useWindowDimensions"
 import useNavigationDisplay from "./hooks/useNavigationDisplay"
 
@@ -118,9 +118,7 @@ const Navbar = () => {
               departmentDetails={departments}
             />
             <Link to="/bag">
-              <div className={bag}>
-                <img src={bagIcon} alt="bag icon" />
-              </div>
+              <BagIcon />
             </Link>
           </div>
         </nav>
