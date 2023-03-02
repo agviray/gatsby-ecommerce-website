@@ -46,10 +46,6 @@ const ProductDetails = ({ data }) => {
   const name = product.name.toUpperCase()
 
   useEffect(() => {
-    console.log(selectedSize)
-  })
-
-  useEffect(() => {
     if (selection.name === "") {
       setSelection({
         image: product.images[0].childImageSharp.gatsbyImageData,
@@ -166,14 +162,14 @@ const ProductDetails = ({ data }) => {
     setSelectedSize(size)
   }
 
-  const addToBag = (e, item, bagContext) => {
+  const addItemToBag = (e, item, bagContext) => {
     e.preventDefault()
     const product = { ...item }
     if (product.size === "") {
       setIsError(true)
       return
     }
-    bagContext.addNewItem(product)
+    bagContext.addItem(product)
     setSelection(initialSelection)
     setSelectedSize(initialSelectedSize)
   }
@@ -208,7 +204,7 @@ const ProductDetails = ({ data }) => {
               <BagContext.Consumer>
                 {value => (
                   <div
-                    onClick={e => addToBag(e, selection, value)}
+                    onClick={e => addItemToBag(e, selection, value)}
                     className={buttonContainer}
                   >
                     <button>ADD TO BAG</button>
