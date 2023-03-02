@@ -1,29 +1,51 @@
 import React, { useState, useEffect, useContext } from "react"
 
-const initialStoredBag = { items: [] }
+const initialStoredBag = { items: [], itemCount: null }
 export const BagContext = React.createContext()
 
 const BagContextProvider = ({ children }) => {
   const [itemsInBag, setItemsInBag] = useState([])
+  const [itemCount, setItemCount] = useState(null)
   const [addedItem, setAddedItem] = useState({})
-  const [removedItem, setRemovedItem] = useState({})
+  // const [removedItem, setRemovedItem] = useState({})
 
   useEffect(() => {
+    console.log("first useEffect runs")
     const storedBag = JSON.parse(localStorage.getItem("bag"))
 
     if (!storedBag) {
       localStorage.setItem("bag", JSON.stringify(initialStoredBag))
     }
+
+    if (storedBag) {
+      const storedItems = [...storedBag.items]
+      setItemsInBag([...storedItems])
+    }
   }, [])
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
-    const storedBagItems = [...storedBag.items]
-    let newBagItems
-
-    if (itemsInBag.length === 0) {
-      newBagItems = [...storedBagItems]
+    const updateItemCount = bag => {
+      const totalItems = itemsInBag.length
+      const storedTotalItems = bag.itemCount
+      if (storedTotalItems !== totalItems) {
+        console.log(totalItems)
+        const newBagToStore = { ...storedBag, itemCount: totalItems }
+        localStorage.setItem("bag", JSON.stringify(newBagToStore))
+        setItemCount(totalItems)
+      }
     }
+
+    if (storedBag) {
+      updateItemCount(storedBag)
+    }
+  }, [itemsInBag])
+
+  useEffect(() => {
+    const storedBag = JSON.parse(localStorage.getItem("bag"))
+    const storedBagItems = [...storedBag.items]
+    let newBagItems = [...storedBagItems]
+
     if (storedBag) {
       if (Object.keys(addedItem).length !== 0) {
         const newBagToStore = {
@@ -31,6 +53,7 @@ const BagContextProvider = ({ children }) => {
           items: [...newBagItems, addedItem],
         }
         localStorage.setItem("bag", JSON.stringify(newBagToStore))
+        setItemsInBag([...newBagItems, addedItem])
       }
     }
   }, [addedItem])
@@ -39,14 +62,15 @@ const BagContextProvider = ({ children }) => {
     setAddedItem({ ...item })
   }
 
-  const removeItem = item => {
-    setRemovedItem({ ...item })
-  }
+  // const removeItem = item => {
+  //   setRemovedItem({ ...item })
+  // }
 
   const contextValue = {
     itemsInBag: itemsInBag,
+    itemCount: itemCount,
     addItem: addItem,
-    removeItem: removeItem,
+    // removeItem: removeItem,
   }
 
   return (
