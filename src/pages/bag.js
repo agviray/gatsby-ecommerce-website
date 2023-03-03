@@ -29,7 +29,7 @@ export default function Bag() {
           <h2>SHOPPING BAG</h2>
         </div>
         <div className={content}>
-          <div className={`${contentBlock} ${empty}`}>
+          <div className={`${contentBlock}`}>
             <BagContext.Consumer>
               {value => renderItems(value.itemsInBag)}
             </BagContext.Consumer>

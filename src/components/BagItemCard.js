@@ -13,7 +13,7 @@ import {
 } from "../styles/bag-item-card.module.css"
 
 const BagItemCard = ({ item }) => {
-  console.log(item)
+  // console.log(item)
   return (
     <div className={container}>
       <div className={itemContainer}>

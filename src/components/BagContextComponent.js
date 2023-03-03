@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect } from "react"
 
 const initialStoredBag = { items: [], itemCount: null }
 export const BagContext = React.createContext()
@@ -6,7 +6,6 @@ export const BagContext = React.createContext()
 const BagContextProvider = ({ children }) => {
   const [itemsInBag, setItemsInBag] = useState([])
   const [itemCount, setItemCount] = useState(null)
-  const [addedItem, setAddedItem] = useState({})
   // const [removedItem, setRemovedItem] = useState({})
 
   useEffect(() => {
@@ -24,40 +23,39 @@ const BagContextProvider = ({ children }) => {
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
-    const updateItemCount = bag => {
-      const totalItems = itemsInBag.length
-      const storedTotalItems = bag.itemCount
-      if (storedTotalItems !== totalItems) {
-        const newBagToStore = { ...storedBag, itemCount: totalItems }
-        localStorage.setItem("bag", JSON.stringify(newBagToStore))
-        setItemCount(totalItems)
-      }
-    }
+    let newBagItems = [...itemsInBag]
+    let totalItems = 0
 
     if (storedBag) {
-      updateItemCount(storedBag)
+      newBagItems.forEach(item => {
+        totalItems += item.quantity
+      })
+      let newBag = { items: [...newBagItems], itemCount: totalItems }
+      localStorage.setItem("bag", JSON.stringify({ ...newBag }))
+      setItemCount(totalItems)
     }
   }, [itemsInBag])
 
-  useEffect(() => {
-    const storedBag = JSON.parse(localStorage.getItem("bag"))
-    const storedBagItems = [...storedBag.items]
-    let newBagItems = [...storedBagItems]
+  const addItem = addedItem => {
+    const currentBagItems = [...itemsInBag]
+    let updatedBagItems = [...currentBagItems]
+    const newItem = { ...addedItem }
+    let newItemIsCopy = false
 
-    if (storedBag) {
-      if (Object.keys(addedItem).length !== 0) {
-        const newBagToStore = {
-          ...storedBag,
-          items: [...newBagItems, addedItem],
+    if (currentBagItems.length === 0) {
+      setItemsInBag([newItem])
+    } else {
+      currentBagItems.forEach((item, index) => {
+        if (item.name === newItem.name && item.size === newItem.size) {
+          const updatedItem = { ...item, quantity: item.quantity + 1 }
+          updatedBagItems[index] = updatedItem
+          newItemIsCopy = true
         }
-        localStorage.setItem("bag", JSON.stringify(newBagToStore))
-        setItemsInBag([...newBagItems, addedItem])
-      }
+      })
+      return newItemIsCopy
+        ? setItemsInBag([...updatedBagItems])
+        : setItemsInBag([...updatedBagItems, newItem])
     }
-  }, [addedItem])
-
-  const addItem = item => {
-    setAddedItem({ ...item })
   }
 
   // const removeItem = item => {
