@@ -7,11 +7,20 @@ import {
   empty,
 } from "../styles/bag.module.css"
 import Layout from "../components/Layout"
+import BagItemCard from "../components/BagItemCard"
+import { BagContext } from "../components/BagContextComponent"
 
 const initialItems = []
 
 export default function Bag() {
   const [items, setItems] = useState([])
+
+  const renderItems = items => {
+    if (items.length === 0) {
+      return <p className={empty}>Your bag is empty</p>
+    }
+    return items.map((item, index) => <BagItemCard key={index} item={item} />)
+  }
 
   return (
     <Layout>
@@ -21,11 +30,9 @@ export default function Bag() {
         </div>
         <div className={content}>
           <div className={`${contentBlock} ${empty}`}>
-            {items.length === 0 ? (
-              <p>Your bag is empty</p>
-            ) : (
-              <p>Your bag is not empty</p>
-            )}
+            <BagContext.Consumer>
+              {value => renderItems(value.itemsInBag)}
+            </BagContext.Consumer>
           </div>
         </div>
       </div>

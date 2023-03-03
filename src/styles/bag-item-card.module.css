@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid lightgray;
+}
+
+.itemContainer {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.imageContainer {
+  position: relative;
+  width: 25%;
+  min-width: 67px;
+}
+
+.imageContainer img {
+  width: 100%;
+}
+
+.leftDetail {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.leftDetail h3 {
+  padding-bottom: 1rem;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity .plusButton,
+.quantity .minusButton {
+  width: 25px;
+  padding: 5px 0;
+  font-size: 20px;
+  text-align: center;
+  color: #f3f3f3;
+  background-color: black;
+}

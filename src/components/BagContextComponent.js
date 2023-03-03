@@ -10,7 +10,6 @@ const BagContextProvider = ({ children }) => {
   // const [removedItem, setRemovedItem] = useState({})
 
   useEffect(() => {
-    console.log("first useEffect runs")
     const storedBag = JSON.parse(localStorage.getItem("bag"))
 
     if (!storedBag) {
@@ -29,7 +28,6 @@ const BagContextProvider = ({ children }) => {
       const totalItems = itemsInBag.length
       const storedTotalItems = bag.itemCount
       if (storedTotalItems !== totalItems) {
-        console.log(totalItems)
         const newBagToStore = { ...storedBag, itemCount: totalItems }
         localStorage.setItem("bag", JSON.stringify(newBagToStore))
         setItemCount(totalItems)
