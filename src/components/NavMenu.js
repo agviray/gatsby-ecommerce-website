@@ -131,13 +131,17 @@ const NavMenu = ({
     </div>
   )
 
-  return windowDimensions.width < 800 ? (
-    <div className={`${container} ${isMenuOpen ? `${isOpen}` : ``}`}>
-      {navMenu}
-    </div>
-  ) : (
-    <>{navMenu}</>
-  )
+  const renderNavMenu = () => {
+    return windowDimensions.width < 800 ? (
+      <div className={`${container} ${isMenuOpen ? `${isOpen}` : ``}`}>
+        {navMenu}
+      </div>
+    ) : (
+      <>{navMenu}</>
+    )
+  }
+
+  return <>{renderNavMenu()}</>
 }
 
 export default NavMenu
