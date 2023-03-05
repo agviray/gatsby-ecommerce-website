@@ -6,7 +6,6 @@ export const BagContext = React.createContext()
 const BagContextProvider = ({ children }) => {
   const [itemsInBag, setItemsInBag] = useState([])
   const [itemCount, setItemCount] = useState(null)
-  // const [removedItem, setRemovedItem] = useState({})
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
@@ -58,6 +57,16 @@ const BagContextProvider = ({ children }) => {
     }
   }
 
+  const editItemQuantity = (item, idx, amount) => {
+    const currentBagItems = [...itemsInBag]
+    const idxOfItem = idx
+    const newQty = amount
+    let updatedBagItems = [...currentBagItems]
+    let itemEdited = { ...item, quantity: newQty }
+    updatedBagItems[idxOfItem] = itemEdited
+    setItemsInBag([...updatedBagItems])
+  }
+
   // const removeItem = item => {
   //   setRemovedItem({ ...item })
   // }
@@ -65,6 +74,7 @@ const BagContextProvider = ({ children }) => {
   const contextValue = {
     itemsInBag: itemsInBag,
     itemCount: itemCount,
+    editItemQuantity: editItemQuantity,
     addItem: addItem,
     // removeItem: removeItem,
   }

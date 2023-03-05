@@ -1,4 +1,3 @@
-import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import {
   container,
@@ -7,10 +6,8 @@ import {
   detail,
   leftDetail,
   rightDetail,
-  quantity,
-  minusButton,
-  plusButton,
 } from "../styles/bag-item-card.module.css"
+import QuantityEditor from "./QuantityEditor"
 
 const BagItemCard = ({ item }) => {
   // console.log(item)
@@ -27,11 +24,7 @@ const BagItemCard = ({ item }) => {
             <p>Price: {item.price}</p>
           </div>
           <div className={rightDetail}>
-            <div className={quantity}>
-              <span className={minusButton}>-</span>
-              <span>{item.quantity}</span>
-              <span className={plusButton}>+</span>
-            </div>
+            <QuantityEditor quantity={item.quantity} />
           </div>
         </div>
       </div>

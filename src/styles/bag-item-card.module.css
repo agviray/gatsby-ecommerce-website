@@ -57,19 +57,3 @@
 
 .rightDetail {
 }
-
-.quantity {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.quantity .plusButton,
-.quantity .minusButton {
-  width: 25px;
-  padding: 5px 0;
-  font-size: 20px;
-  text-align: center;
-  color: #f3f3f3;
-  background-color: black;
-}
