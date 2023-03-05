@@ -24,7 +24,7 @@ const BagItemCard = ({ item }) => {
             <p>Price: {item.price}</p>
           </div>
           <div className={rightDetail}>
-            <QuantityEditor quantity={item.quantity} />
+            <QuantityEditor item={item} />
           </div>
         </div>
       </div>

@@ -13,5 +13,11 @@
   background-color: black;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .quantityAmount {
+  text-align: center;
+  width: 20px;
 }

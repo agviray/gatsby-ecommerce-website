@@ -22,7 +22,7 @@ const BagContextProvider = ({ children }) => {
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
-    let newBagItems = [...itemsInBag]
+    let newBagItems = itemsInBag.map((item, index) => ({ ...item, id: index }))
     let totalItems = 0
 
     if (storedBag) {

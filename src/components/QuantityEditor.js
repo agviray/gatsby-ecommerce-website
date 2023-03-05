@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import {
   quantityEditorContainer,
   button,
@@ -6,30 +6,40 @@ import {
 } from "../styles/QuantityEditor.module.css"
 import { BagContext } from "./BagContextComponent"
 
-const QuantityEditor = ({ quantity }) => {
-  // const [itemQuantity, setItemQuantity] = useState(quantity)
-  // useEffect(() => {}, [])
-  const changeQuantity = () => {
-    return
+const QuantityEditor = ({ item }) => {
+  const decreaseQty = (item, qty, bagContext) => {
+    const observedItem = { ...item }
+    const newQty = qty - 1
+    bagContext.editItemQuantity(item, observedItem.id, newQty)
   }
 
-  {
-    /* <BagContext.Consumer>
-        {value => (
-          <>
-          </>
-        )}
-      </BagContext.Consumer> */
+  const increaseQty = (item, qty, bagContext) => {
+    const observedItem = { ...item }
+    const newQty = qty + 1
+    bagContext.editItemQuantity(item, observedItem.id, newQty)
   }
+
   return (
     <div className={quantityEditorContainer}>
-      <span onClick={changeQuantity} className={button}>
-        -
-      </span>
-      <span className={quantityAmount}>{quantity}</span>
-      <span onClick={changeQuantity} className={button}>
-        +
-      </span>
+      <BagContext.Consumer>
+        {value => (
+          <>
+            <span
+              onClick={() => decreaseQty(item, item.quantity, value)}
+              className={button}
+            >
+              -
+            </span>
+            <span className={quantityAmount}>{item.quantity}</span>
+            <span
+              onClick={() => increaseQty(item, item.quantity, value)}
+              className={button}
+            >
+              +
+            </span>
+          </>
+        )}
+      </BagContext.Consumer>
     </div>
   )
 }
