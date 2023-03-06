@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../components/Layout"
 import { BagContext } from "../components/BagContextComponent"
+import Layout from "../components/Layout"
 import ProductDetailsImages from "../components/ProductDetailsImages"
+import Modal from "../components/Modal"
 import {
   wrapper,
   container,
@@ -22,9 +23,6 @@ import {
   option,
   activeSize,
   buttonContainer,
-  errorModal,
-  errorActive,
-  errorContent,
   errorBox,
 } from "../styles/product-details.module.css"
 
@@ -218,22 +216,20 @@ const ProductDetails = ({ data }) => {
           </div>
         </div>
       </Layout>
-      <div className={`${errorModal} ${isError ? `${errorActive}` : ""}`}>
-        <div className={errorContent}>
-          <div className={errorBox}>
-            Please select a size
-            <div
-              onClick={e => {
-                e.preventDefault()
-                setIsError(false)
-              }}
-              className={buttonContainer}
-            >
-              <button>OK</button>
-            </div>
+      <Modal activeStatus={isError}>
+        <div className={errorBox}>
+          Please select a size
+          <div
+            onClick={e => {
+              e.preventDefault()
+              setIsError(false)
+            }}
+            className={buttonContainer}
+          >
+            <button>OK</button>
           </div>
         </div>
-      </div>
+      </Modal>
     </div>
   )
 }
