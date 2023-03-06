@@ -53,6 +53,9 @@ const ProductDetails = ({ data }) => {
         price: product.price,
         size: "",
         quantity: 1,
+        department: product.department,
+        type: product.type,
+        slug: product.slug,
       })
     }
 

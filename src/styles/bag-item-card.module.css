@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.itemLink {
+  display: inline-block;
+}
+
 .imageContainer {
   position: relative;
   width: 50%;

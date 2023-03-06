@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import {
   container,
   itemContainer,
@@ -6,20 +7,32 @@ import {
   detail,
   leftDetail,
   rightDetail,
+  itemLink,
 } from "../styles/bag-item-card.module.css"
 import QuantityEditor from "./QuantityEditor"
 
 const BagItemCard = ({ item }) => {
-  // console.log(item)
   return (
     <div className={container}>
       <div className={itemContainer}>
         <div className={imageContainer}>
-          <img src={item.image.images.fallback.src} alt={item.name} />
+          <Link
+            className={itemLink}
+            to={`/${item.department}/${item.type}/${item.slug}`}
+          >
+            <img src={item.image.images.fallback.src} alt={item.name} />
+          </Link>
         </div>
         <div className={detail}>
           <div className={leftDetail}>
-            <h3>{item.name}</h3>
+            <h3>
+              <Link
+                className={itemLink}
+                to={`/${item.department}/${item.type}/${item.slug}`}
+              >
+                {item.name}
+              </Link>
+            </h3>
             <p>Size: {item.size}</p>
             <p>Price: {item.price}</p>
           </div>
