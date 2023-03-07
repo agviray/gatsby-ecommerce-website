@@ -67,16 +67,21 @@ const BagContextProvider = ({ children }) => {
     setItemsInBag([...updatedBagItems])
   }
 
-  // const removeItem = item => {
-  //   setRemovedItem({ ...item })
-  // }
+  const removeItem = itemId => {
+    let currentBagItems = [...itemsInBag]
+    const indexOfItem = itemId
+    currentBagItems = currentBagItems.filter(
+      (item, index) => index !== indexOfItem
+    )
+    setItemsInBag([...currentBagItems])
+  }
 
   const contextValue = {
     itemsInBag: itemsInBag,
     itemCount: itemCount,
     editItemQuantity: editItemQuantity,
     addItem: addItem,
-    // removeItem: removeItem,
+    removeItem: removeItem,
   }
 
   return (

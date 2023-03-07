@@ -1,0 +1,64 @@
+.quantityEditorWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantityEditorContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.button {
+  width: 25px;
+  padding: 5px 0;
+  font-size: 20px;
+  text-align: center;
+  color: #f3f3f3;
+  background-color: black;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.quantityAmount {
+  text-align: center;
+  width: 20px;
+}
+
+.removeButton {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  color: #5f5f5f;
+}
+
+.removeButton:hover {
+  cursor: pointer;
+}
+
+.confirmationBox {
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+}
+
+.confirmationBox > .buttonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmationBox > .buttonContainer button {
+  margin-top: 1rem;
+}
+
+.confirmationBox > .buttonContainer button.cancelButton {
+  background-color: #f3f3f3;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
