@@ -10,16 +10,14 @@ import Layout from "../components/Layout"
 import BagItemCard from "../components/BagItemCard"
 import { BagContext } from "../components/BagContextComponent"
 
-const initialItems = []
-
-export default function Bag() {
-  const [items, setItems] = useState([])
-
-  const renderItems = items => {
-    if (items.length === 0) {
+const Bag = () => {
+  const renderItems = itemsToRender => {
+    if (itemsToRender.length === 0) {
       return <p className={empty}>Your bag is empty</p>
     }
-    return items.map((item, index) => <BagItemCard key={index} item={item} />)
+    return itemsToRender.map((item, index) => (
+      <BagItemCard key={index} item={item} />
+    ))
   }
 
   return (
@@ -31,7 +29,7 @@ export default function Bag() {
         <div className={content}>
           <div className={`${contentBlock}`}>
             <BagContext.Consumer>
-              {value => renderItems(value.itemsInBag)}
+              {value => renderItems([...value.itemsInBag])}
             </BagContext.Consumer>
           </div>
         </div>
@@ -39,3 +37,5 @@ export default function Bag() {
     </Layout>
   )
 }
+
+export default Bag

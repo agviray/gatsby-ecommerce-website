@@ -22,66 +22,27 @@ const BagContextProvider = ({ children }) => {
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
-    let newBagItems = itemsInBag.map((item, index) => ({ ...item, id: index }))
+    const newBagItems = [...itemsInBag]
     let totalItems = 0
 
     if (storedBag) {
       newBagItems.forEach(item => {
         totalItems += item.quantity
       })
-      let newBag = { items: [...newBagItems], itemCount: totalItems }
+      const newBag = { items: [...newBagItems], itemCount: totalItems }
       localStorage.setItem("bag", JSON.stringify({ ...newBag }))
       setItemCount(totalItems)
     }
   }, [itemsInBag])
 
-  const addItem = addedItem => {
-    const currentBagItems = [...itemsInBag]
-    let updatedBagItems = [...currentBagItems]
-    const newItem = { ...addedItem }
-    let newItemIsCopy = false
-
-    if (currentBagItems.length === 0) {
-      setItemsInBag([newItem])
-    } else {
-      currentBagItems.forEach((item, index) => {
-        if (item.name === newItem.name && item.size === newItem.size) {
-          const updatedItem = { ...item, quantity: item.quantity + 1 }
-          updatedBagItems[index] = updatedItem
-          newItemIsCopy = true
-        }
-      })
-      return newItemIsCopy
-        ? setItemsInBag([...updatedBagItems])
-        : setItemsInBag([...updatedBagItems, newItem])
-    }
-  }
-
-  const editItemQuantity = (item, idx, amount) => {
-    const currentBagItems = [...itemsInBag]
-    const idxOfItem = idx
-    const newQty = amount
-    let updatedBagItems = [...currentBagItems]
-    let itemEdited = { ...item, quantity: newQty }
-    updatedBagItems[idxOfItem] = itemEdited
+  const updateItemsInBag = updatedBagItems => {
     setItemsInBag([...updatedBagItems])
-  }
-
-  const removeItem = itemId => {
-    let currentBagItems = [...itemsInBag]
-    const indexOfItem = itemId
-    currentBagItems = currentBagItems.filter(
-      (item, index) => index !== indexOfItem
-    )
-    setItemsInBag([...currentBagItems])
   }
 
   const contextValue = {
     itemsInBag: itemsInBag,
     itemCount: itemCount,
-    editItemQuantity: editItemQuantity,
-    addItem: addItem,
-    removeItem: removeItem,
+    updateItemsInBag: updateItemsInBag,
   }
 
   return (

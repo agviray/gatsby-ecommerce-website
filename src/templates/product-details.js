@@ -165,14 +165,42 @@ const ProductDetails = ({ data }) => {
 
   const addItemToBag = (e, item, bagContext) => {
     e.preventDefault()
-    const product = { ...item }
-    if (product.size === "") {
+    let currentBagItems = [...bagContext.itemsInBag]
+    let updatedBagItems = [...currentBagItems]
+    let itemToAdd = { ...item }
+    let itemToAddIsCopy = false
+
+    if (itemToAdd.size === "") {
       setIsError(true)
       return
     }
-    bagContext.addItem(product)
-    setSelection(initialSelection)
-    setSelectedSize(initialSelectedSize)
+
+    if (currentBagItems.length === 0) {
+      itemToAdd = { ...itemToAdd, id: 0 }
+      updatedBagItems = [itemToAdd]
+      setSelection(initialSelection)
+      setSelectedSize(initialSelectedSize)
+      bagContext.updateItemsInBag([...updatedBagItems])
+    } else {
+      currentBagItems.forEach((item, index, thisArray) => {
+        item.id = index
+        if (item.name === itemToAdd.name && item.size === itemToAdd.size) {
+          const updatedItem = { ...itemToAdd, quantity: item.quantity + 1 }
+          thisArray[index] = updatedItem
+          itemToAddIsCopy = true
+        }
+      })
+      updatedBagItems = [...currentBagItems]
+      if (itemToAddIsCopy === false) {
+        console.log(updatedBagItems.length)
+        itemToAdd.id = updatedBagItems.length
+        updatedBagItems = [...updatedBagItems, itemToAdd]
+      }
+
+      setSelection(initialSelection)
+      setSelectedSize(initialSelectedSize)
+      bagContext.updateItemsInBag([...updatedBagItems])
+    }
   }
 
   return (

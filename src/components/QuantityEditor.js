@@ -14,16 +14,29 @@ import Modal from "./Modal"
 
 const QuantityEditor = ({ item }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
+
   const decreaseQty = (item, qty, bagContext) => {
-    const observedItem = { ...item }
-    const newQty = qty - 1
-    bagContext.editItemQuantity(item, observedItem.id, newQty)
+    let currentBagItems = [...bagContext.itemsInBag]
+    const updatedItem = { ...item, quantity: qty - 1 }
+    currentBagItems[item.id] = updatedItem
+    const updatedBagItems = currentBagItems.map((item, index) => ({
+      ...item,
+      id: index,
+    }))
+
+    bagContext.updateItemsInBag([...updatedBagItems])
   }
 
   const increaseQty = (item, qty, bagContext) => {
-    const observedItem = { ...item }
-    const newQty = qty + 1
-    bagContext.editItemQuantity(item, observedItem.id, newQty)
+    let currentBagItems = [...bagContext.itemsInBag]
+    const updatedItem = { ...item, quantity: qty + 1 }
+    currentBagItems[item.id] = updatedItem
+    const updatedBagItems = currentBagItems.map((item, index) => ({
+      ...item,
+      id: index,
+    }))
+
+    bagContext.updateItemsInBag([...updatedBagItems])
   }
 
   const updateShowConfirmation = status => {
@@ -32,8 +45,17 @@ const QuantityEditor = ({ item }) => {
 
   const removeItemFromBag = (e, item, bagContext) => {
     e.preventDefault()
-    const itemId = item.id
-    bagContext.removeItem(itemId)
+    const currentBagItems = [...bagContext.itemsInBag]
+    const idOfItemToRemove = item.id
+    let updatedBagItems = currentBagItems.filter((item, index, thisArray) => {
+      if (thisArray.indexOf(item) !== idOfItemToRemove) {
+        return item
+      }
+    })
+    updatedBagItems.forEach((item, index) => {
+      item.id = index
+    })
+    bagContext.updateItemsInBag([...updatedBagItems])
     updateShowConfirmation(false)
   }
 
