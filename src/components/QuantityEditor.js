@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
   quantityEditorWrapper,
   quantityEditorContainer,
@@ -6,14 +6,30 @@ import {
   quantityAmount,
   removeButton,
   confirmationBox,
+  contentContainer,
+  imageContainer,
+  detail,
   buttonContainer,
   cancelButton,
 } from "../styles/quantity-editor.module.css"
 import { BagContext } from "./BagContextComponent"
 import Modal from "./Modal"
 
+const initialItemToRemove = {}
+
 const QuantityEditor = ({ item }) => {
-  const [showConfirmation, setShowConfirmation] = useState(false)
+  const [itemToRemove, setItemToRemove] = useState(initialItemToRemove)
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
+
+  useEffect(() => {
+    if (isConfirmationOpen) {
+      document.body.style.overflow = "hidden"
+    }
+
+    if (!isConfirmationOpen) {
+      document.body.style.overflow = "visible"
+    }
+  }, [isConfirmationOpen])
 
   const decreaseQty = (item, qty, bagContext) => {
     let currentBagItems = [...bagContext.itemsInBag]
@@ -39,8 +55,9 @@ const QuantityEditor = ({ item }) => {
     bagContext.updateItemsInBag([...updatedBagItems])
   }
 
-  const updateShowConfirmation = status => {
-    setShowConfirmation(status)
+  const displayConfirmation = (status, item) => {
+    setItemToRemove({ ...item })
+    setIsConfirmationOpen(status)
   }
 
   const removeItemFromBag = (e, item, bagContext) => {
@@ -56,7 +73,7 @@ const QuantityEditor = ({ item }) => {
       item.id = index
     })
     bagContext.updateItemsInBag([...updatedBagItems])
-    updateShowConfirmation(false)
+    displayConfirmation(false, initialItemToRemove)
   }
 
   return (
@@ -81,13 +98,28 @@ const QuantityEditor = ({ item }) => {
             </div>
             <span
               className={removeButton}
-              onClick={() => updateShowConfirmation(true)}
+              onClick={() => displayConfirmation(true, { ...item })}
             >
               Remove
             </span>
-            <Modal activeStatus={showConfirmation}>
+            <Modal activeStatus={isConfirmationOpen}>
               <div className={confirmationBox}>
                 Remove this item from your bag?
+                {Object.keys(itemToRemove).length === 0 ? null : (
+                  <div className={contentContainer}>
+                    <div className={imageContainer}>
+                      <img
+                        src={itemToRemove.image.images.fallback.src}
+                        alt={itemToRemove.name}
+                      />
+                    </div>
+                    <div className={detail}>
+                      <h3>{itemToRemove.name}</h3>
+                      <p>Size: {itemToRemove.size}</p>
+                      <p>Price: {itemToRemove.price}</p>
+                    </div>
+                  </div>
+                )}
                 <div className={buttonContainer}>
                   <button onClick={e => removeItemFromBag(e, item, value)}>
                     REMOVE ITEM
@@ -95,7 +127,7 @@ const QuantityEditor = ({ item }) => {
                   <button
                     onClick={e => {
                       e.preventDefault()
-                      updateShowConfirmation(false)
+                      displayConfirmation(false, initialItemToRemove)
                     }}
                     className={cancelButton}
                   >

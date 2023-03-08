@@ -47,6 +47,39 @@
   font-size: 16px;
 }
 
+.confirmationBox > .contentContainer {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.confirmationBox .detail {
+  text-align: left;
+}
+
+.confirmationBox h3 {
+  padding-bottom: 1rem;
+  font-size: 18px;
+  text-align: left;
+  display: inline-block;
+}
+
+.confirmationBox .imageContainer {
+  position: relative;
+  width: 50%;
+  min-width: 67px;
+}
+
+.confirmationBox .imageContainer img {
+  width: 100%;
+}
+
+@media screen and (min-width: 350px) {
+  .confirmationBox .imageContainer {
+    width: 25%;
+  }
+}
+
 .confirmationBox > .buttonContainer {
   display: flex;
   flex-direction: column;
