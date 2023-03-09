@@ -5,6 +5,7 @@ import {
   content,
   contentBlock,
   empty,
+  cardContentHeadings,
 } from "../styles/bag.module.css"
 import Layout from "../components/Layout"
 import BagItemCard from "../components/BagItemCard"
@@ -15,9 +16,17 @@ const Bag = () => {
     if (itemsToRender.length === 0) {
       return <p className={empty}>Your bag is empty</p>
     }
-    return itemsToRender.map((item, index) => (
-      <BagItemCard key={index} item={item} />
-    ))
+    return (
+      <>
+        <div className={cardContentHeadings}>
+          <h2>ITEM</h2>
+          <h2>QTY</h2>
+        </div>
+        {itemsToRender.map((item, index) => (
+          <BagItemCard key={index} item={item} />
+        ))}
+      </>
+    )
   }
 
   return (
