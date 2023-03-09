@@ -10,6 +10,7 @@ import {
 import Layout from "../components/Layout"
 import BagItemCard from "../components/BagItemCard"
 import { BagContext } from "../components/BagContextComponent"
+import OrderSummary from "../components/OrderSummary"
 
 const Bag = () => {
   const renderItems = itemsToRender => {
@@ -29,6 +30,10 @@ const Bag = () => {
     )
   }
 
+  const renderOrderSummary = bagContext => {
+    return <OrderSummary bagContext={bagContext} />
+  }
+
   return (
     <Layout>
       <div className={container}>
@@ -41,6 +46,9 @@ const Bag = () => {
               {value => renderItems([...value.itemsInBag])}
             </BagContext.Consumer>
           </div>
+          <BagContext.Consumer>
+            {value => renderOrderSummary(value)}
+          </BagContext.Consumer>
         </div>
       </div>
     </Layout>

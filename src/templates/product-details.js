@@ -192,7 +192,6 @@ const ProductDetails = ({ data }) => {
       })
       updatedBagItems = [...currentBagItems]
       if (itemToAddIsCopy === false) {
-        console.log(updatedBagItems.length)
         itemToAdd.id = updatedBagItems.length
         updatedBagItems = [...updatedBagItems, itemToAdd]
       }

@@ -22,16 +22,6 @@ const QuantityEditor = ({ item }) => {
   const [itemToRemove, setItemToRemove] = useState(initialItemToRemove)
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
 
-  useEffect(() => {
-    if (isConfirmationOpen) {
-      document.body.style.overflow = "hidden"
-    }
-
-    if (!isConfirmationOpen) {
-      document.body.style.overflow = "visible"
-    }
-  }, [isConfirmationOpen])
-
   const decreaseQty = (item, qty, bagContext) => {
     let currentBagItems = [...bagContext.itemsInBag]
     const updatedItem = { ...item, quantity: qty - 1 }
