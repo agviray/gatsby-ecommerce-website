@@ -3,6 +3,7 @@ import {
   quantityEditorWrapper,
   quantityEditorContainer,
   button,
+  hidden,
   quantityAmount,
   removeButton,
   confirmationBox,
@@ -84,7 +85,7 @@ const QuantityEditor = ({ item }) => {
             <div className={quantityEditorContainer}>
               <span
                 onClick={() => decreaseQty(item, item.quantity, value)}
-                className={button}
+                className={`${button} ${item.quantity < 2 ? `${hidden}` : ""}`}
               >
                 -
               </span>
