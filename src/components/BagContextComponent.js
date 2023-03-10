@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react"
 
-const initialStoredBag = { items: [], itemCount: null, itemsTotal: null }
+const initialStoredBag = {
+  items: [],
+  itemCount: null,
+  itemsTotal: null,
+  isBagUpdated: false,
+}
+
 export const BagContext = React.createContext()
 
 const BagContextProvider = ({ children }) => {
   const [itemsInBag, setItemsInBag] = useState([])
   const [itemCount, setItemCount] = useState(null)
   const [itemsTotal, setItemsTotal] = useState(null)
+  const [isBagUpdated, setIsBagUpdated] = useState(false)
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
@@ -20,6 +27,10 @@ const BagContextProvider = ({ children }) => {
       setItemsInBag([...storedItems])
     }
   }, [])
+
+  useEffect(() => {
+    console.log(isBagUpdated)
+  }, [isBagUpdated])
 
   useEffect(() => {
     const calculateGrandTotal = items => {
@@ -47,6 +58,7 @@ const BagContextProvider = ({ children }) => {
         items: [...newBagItems],
         itemCount: totalItems,
         itemsTotal: itemsOnlyTotal,
+        isBagUpdated: isBagUpdated,
       }
 
       localStorage.setItem("bag", JSON.stringify({ ...newBag }))
@@ -59,11 +71,17 @@ const BagContextProvider = ({ children }) => {
     setItemsInBag([...updatedBagItems])
   }
 
+  const changeBagUpdated = status => {
+    setIsBagUpdated(status)
+  }
+
   const contextValue = {
     itemsInBag: itemsInBag,
     itemCount: itemCount,
     itemsTotal: itemsTotal,
     updateItemsInBag: updateItemsInBag,
+    isBagUpdated: isBagUpdated,
+    changeBagUpdated: changeBagUpdated,
   }
 
   return (

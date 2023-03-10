@@ -155,12 +155,15 @@ button:hover {
   cursor: pointer;
 }
 
-.errorBox {
+.messageBox {
   width: 80%;
   max-width: 300px;
   margin: 0 auto;
   padding: 1.5rem 1rem;
   background-color: #ffffff;
-  text-align: center;
   font-size: 16px;
+}
+
+.messageBox.error {
+  text-align: center;
 }

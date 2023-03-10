@@ -23,7 +23,8 @@ import {
   option,
   activeSize,
   buttonContainer,
-  errorBox,
+  messageBox,
+  error,
 } from "../styles/product-details.module.css"
 
 const initialSelection = {
@@ -40,8 +41,20 @@ const ProductDetails = ({ data }) => {
   const [selection, setSelection] = useState(initialSelection)
   const [selectedSize, setSelectedSize] = useState(initialSelectedSize)
   const [isError, setIsError] = useState(false)
+  const [isSuccessful, setIsSuccessful] = useState(false)
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
+
+  useEffect(() => {
+    const storedBag = JSON.parse(localStorage.getItem("bag"))
+
+    if (storedBag) {
+      const updateStatus = storedBag.isBagUpdated
+      if (updateStatus === true) {
+        setIsSuccessful(true)
+      }
+    }
+  }, [localStorage.getItem("bag")])
 
   useEffect(() => {
     if (selection.name === "") {
@@ -181,6 +194,7 @@ const ProductDetails = ({ data }) => {
       setSelection(initialSelection)
       setSelectedSize(initialSelectedSize)
       bagContext.updateItemsInBag([...updatedBagItems])
+      bagContext.changeBagUpdated(true)
     } else {
       currentBagItems.forEach((item, index, thisArray) => {
         item.id = index
@@ -199,6 +213,7 @@ const ProductDetails = ({ data }) => {
       setSelection(initialSelection)
       setSelectedSize(initialSelectedSize)
       bagContext.updateItemsInBag([...updatedBagItems])
+      bagContext.changeBagUpdated(true)
     }
   }
 
@@ -244,12 +259,26 @@ const ProductDetails = ({ data }) => {
         </div>
       </Layout>
       <Modal activeStatus={isError}>
-        <div className={errorBox}>
-          Please select a size
+        <div className={`${messageBox} ${error}`}>
+          <p>Please select a size</p>
           <div
             onClick={e => {
               e.preventDefault()
               setIsError(false)
+            }}
+            className={buttonContainer}
+          >
+            <button>OK</button>
+          </div>
+        </div>
+      </Modal>
+      <Modal activeStatus={isSuccessful}>
+        <div className={messageBox}>
+          <p>Item "{product.name}" was added to your bag</p>
+          <div
+            onClick={e => {
+              e.preventDefault()
+              setIsSuccessful(false)
             }}
             className={buttonContainer}
           >
