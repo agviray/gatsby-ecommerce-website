@@ -58,10 +58,12 @@ const ProductDetails = ({ data }) => {
     if (storedBag) {
       const updateStatus = storedBag.isBagUpdated
       if (updateStatus === true) {
+        const newBagToStore = { ...storedBag, isBagUpdated: false }
+        localStorage.setItem("bag", JSON.stringify({ ...newBagToStore }))
         setIsSuccessful(true)
       }
     }
-  }, [localStorage.getItem("bag")])
+  })
 
   useEffect(() => {
     if (selection.name === "") {
@@ -224,6 +226,10 @@ const ProductDetails = ({ data }) => {
     }
   }
 
+  const updateIsSuccessful = status => {
+    setIsSuccessful(status)
+  }
+
   return (
     <div className={wrapper}>
       <Layout>
@@ -303,8 +309,7 @@ const ProductDetails = ({ data }) => {
         <div className={messageBox}>
           <p>Item "{product.name}" was added to your bag</p>
           <div
-            onClick={e => {
-              e.preventDefault()
+            onClick={() => {
               setIsSuccessful(false)
             }}
             className={buttonContainer}

@@ -29,10 +29,6 @@ const BagContextProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
-    console.log(isBagUpdated)
-  }, [isBagUpdated])
-
-  useEffect(() => {
     const calculateGrandTotal = items => {
       const currentItems = [...items]
       let itemsOnlyTotal = 0
