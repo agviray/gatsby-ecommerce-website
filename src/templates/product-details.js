@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { BagContext } from "../components/BagContextComponent"
 import Layout from "../components/Layout"
 import ProductDetailsImages from "../components/ProductDetailsImages"
 import Modal from "../components/Modal"
+import {
+  breadcrumbsContainer,
+  breadcrumbs,
+  crumb,
+} from "../styles/breadcrumbs.module.css"
 import {
   wrapper,
   container,
@@ -44,6 +49,8 @@ const ProductDetails = ({ data }) => {
   const [isSuccessful, setIsSuccessful] = useState(false)
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
+  const department = product.department.toUpperCase()
+  const category = product.type.charAt(0).toUpperCase() + product.type.slice(1)
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
@@ -221,6 +228,26 @@ const ProductDetails = ({ data }) => {
     <div className={wrapper}>
       <Layout>
         <div className={container}>
+          <div className={breadcrumbsContainer}>
+            <ul className={breadcrumbs}>
+              <li className={crumb}>
+                <Link to="/">
+                  <span>Home</span>
+                </Link>
+              </li>
+              <li className={crumb}>
+                <Link to={`/${product.department}`}>
+                  <span>{department}</span>
+                </Link>
+              </li>
+              <li className={crumb}>
+                <Link to={`/${product.department}/${product.type}`}>
+                  {category}
+                </Link>
+              </li>
+              <li className={crumb}>{product.name}</li>
+            </ul>
+          </div>
           <div className={contents}>
             <div className={imageContainer}>
               <ProductDetailsImages allProductImages={productImages} />

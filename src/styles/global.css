@@ -45,7 +45,7 @@ p {
 
 header {
   position: relative;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 @media screen and (min-width: 800px) {

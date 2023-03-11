@@ -1,8 +1,13 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import ProductLink from "../components/ProductLink"
+import {
+  breadcrumbsContainer,
+  breadcrumbs,
+  crumb,
+} from "../styles/breadcrumbs.module.css"
 import {
   container,
   categoryHeading,
@@ -12,6 +17,9 @@ import {
 export default function CategoryProducts({ data }) {
   const category = data.category.frontmatter
   const products = data.products.nodes
+  const department = category.department.toUpperCase()
+  const categoryName =
+    category.slug.charAt(0).toUpperCase() + category.slug.slice(1)
 
   const renderProductImages = product => {
     const productImages = product.frontmatter.images
@@ -30,6 +38,23 @@ export default function CategoryProducts({ data }) {
       <div className={container}>
         <div className={categoryHeading}>
           <h2>{category.name}</h2>
+        </div>
+        <div className={breadcrumbsContainer}>
+          <ul className={breadcrumbs}>
+            <li className={crumb}>
+              <Link to="/">
+                <span>Home</span>
+              </Link>
+            </li>
+            <li className={crumb}>
+              <Link to={`/${category.department}`}>
+                <span>{department}</span>
+              </Link>
+            </li>
+            <li className={crumb}>
+              <span>{categoryName}</span>
+            </li>
+          </ul>
         </div>
         <div className={productsContainer}>
           {products.map(product => (

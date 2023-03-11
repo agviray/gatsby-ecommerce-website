@@ -4,6 +4,11 @@ import React from "react"
 import Layout from "../components/Layout"
 import CategoryProductSnippets from "../components/CategoryProductSnippets"
 import {
+  breadcrumbsContainer,
+  breadcrumbs,
+  crumb,
+} from "../styles/breadcrumbs.module.css"
+import {
   departmentContainer,
   departmentHeading,
   categoriesContainer,
@@ -25,6 +30,7 @@ export default function Department({ data }) {
   const department = data.department.frontmatter
   const categories = data.categories.nodes
   const categoryProducts = data.categoryProducts.nodes
+  const departmentName = department.name.toUpperCase()
 
   const windowDimensions = useWindowDimensions()
 
@@ -96,6 +102,18 @@ export default function Department({ data }) {
           </div>
         ) : null}
         <div className={categoriesContainer}>
+          <div className={breadcrumbsContainer}>
+            <ul className={breadcrumbs}>
+              <li className={crumb}>
+                <Link to="/">
+                  <span>Home</span>
+                </Link>
+              </li>
+              <li className={crumb}>
+                <span>{departmentName}</span>
+              </li>
+            </ul>
+          </div>
           {windowDimensions.width < 800
             ? renderMobileContent()
             : renderDesktopContent()}
