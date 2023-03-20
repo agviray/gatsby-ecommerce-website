@@ -43,7 +43,7 @@ const Bag = () => {
       <div>
         <OrderSummary bagContext={bagContext} />
         <div className={buttonContainer}>
-          <Link to="#" className={checkoutLink}>
+          <Link to="/checkout" className={checkoutLink}>
             CHECKOUT
           </Link>
         </div>
