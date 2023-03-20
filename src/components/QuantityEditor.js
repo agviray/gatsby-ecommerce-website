@@ -7,6 +7,7 @@ import {
   quantityAmount,
   removeButton,
   confirmationBox,
+  question,
   contentContainer,
   imageContainer,
   detail,
@@ -95,7 +96,7 @@ const QuantityEditor = ({ item }) => {
             </span>
             <Modal activeStatus={isConfirmationOpen}>
               <div className={confirmationBox}>
-                Remove this item from your bag?
+                <p className={question}>Remove this item from your bag?</p>
                 {Object.keys(itemToRemove).length === 0 ? null : (
                   <div className={contentContainer}>
                     <div className={imageContainer}>

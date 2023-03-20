@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
+import { Link } from "gatsby"
 import {
   container,
   heading,
@@ -6,6 +7,8 @@ import {
   contentBlock,
   empty,
   cardContentHeadings,
+  buttonContainer,
+  checkoutLink,
 } from "../styles/bag.module.css"
 import Layout from "../components/Layout"
 import BagItemCard from "../components/BagItemCard"
@@ -31,7 +34,21 @@ const Bag = () => {
   }
 
   const renderOrderSummary = bagContext => {
-    return <OrderSummary bagContext={bagContext} />
+    const items = [...bagContext.itemsInBag]
+
+    if (items.length === 0) {
+      return
+    }
+    return (
+      <div>
+        <OrderSummary bagContext={bagContext} />
+        <div className={buttonContainer}>
+          <Link to="#" className={checkoutLink}>
+            CHECKOUT
+          </Link>
+        </div>
+      </div>
+    )
   }
 
   return (

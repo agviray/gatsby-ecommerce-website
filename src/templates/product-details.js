@@ -226,10 +226,6 @@ const ProductDetails = ({ data }) => {
     }
   }
 
-  const updateIsSuccessful = status => {
-    setIsSuccessful(status)
-  }
-
   return (
     <div className={wrapper}>
       <Layout>
@@ -294,27 +290,30 @@ const ProductDetails = ({ data }) => {
       <Modal activeStatus={isError}>
         <div className={`${messageBox} ${error}`}>
           <p>Please select a size</p>
-          <div
-            onClick={e => {
-              e.preventDefault()
-              setIsError(false)
-            }}
-            className={buttonContainer}
-          >
-            <button>OK</button>
+          <div className={buttonContainer}>
+            <button
+              onClick={e => {
+                e.preventDefault()
+                setIsError(false)
+              }}
+            >
+              OK
+            </button>
           </div>
         </div>
       </Modal>
       <Modal activeStatus={isSuccessful}>
         <div className={messageBox}>
           <p>Item "{product.name}" was added to your bag</p>
-          <div
-            onClick={() => {
-              setIsSuccessful(false)
-            }}
-            className={buttonContainer}
-          >
-            <button>OK</button>
+          <div className={buttonContainer}>
+            <button
+              onClick={e => {
+                e.preventDefault()
+                setIsSuccessful(false)
+              }}
+            >
+              OK
+            </button>
           </div>
         </div>
       </Modal>
