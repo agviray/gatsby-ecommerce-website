@@ -11,7 +11,6 @@
   align-items: center;
   min-height: 30vh;
   padding-top: 20px;
-  padding-bottom: 30px;
 }
 
 .heading h2 {
@@ -32,4 +31,143 @@
 
 .content {
   padding: 0 10px 150px 10px;
+}
+
+.formHeading {
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 800px) {
+  .formHeading {
+    font-size: 25px;
+  }
+}
+
+.formContent {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media screen and (min-width: 1150px) {
+  .formContent {
+    display: flex;
+  }
+}
+
+.contentBlock {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.billingGrid,
+.shippingGrid,
+.paymentGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .billingGrid,
+  .shippingGrid,
+  .paymentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .billingGrid .areaA,
+  .shippingGrid .areaA,
+  .paymentGrid .areaA {
+    grid-area: a;
+  }
+
+  .billingGrid .areaB,
+  .shippingGrid .areaB,
+  .paymentGrid .areaB {
+    grid-area: b;
+  }
+
+  .billingGrid .areaC,
+  .shippingGrid .areaC,
+  .paymentGrid .areaC {
+    grid-area: c;
+  }
+
+  .shippingGrid .areaD {
+    grid-area: d;
+  }
+
+  .billingGrid {
+    grid-template-areas:
+      "a a"
+      "b c";
+  }
+
+  .shippingGrid {
+    grid-template-areas:
+      "a a"
+      "b c"
+      "d .";
+  }
+
+  .paymentGrid {
+    grid-template-areas:
+      "a a"
+      "b c";
+  }
+}
+
+.fieldsetStyle {
+  padding-bottom: 2rem;
+  border: 0;
+}
+
+.legendStyle {
+  padding-bottom: 1rem;
+  font-size: 18px;
+}
+
+.formLabel,
+.formTextInput {
+  display: inline-block;
+  width: 100%;
+}
+
+.formTextInput {
+  line-height: 1.75;
+  color: #333333;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.formLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.buttonContainer {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  display: inline-block;
+  padding: 16px 25px;
+  font-size: 16px;
+  text-align: center;
+  color: #f3f3f3;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1150px) {
+  .submitButton {
+    width: 100%;
+  }
 }

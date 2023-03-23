@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react"
 import {
-  formItem,
   content,
   invalidField,
   errorMessage,
   errorActive,
-} from "../styles/contact-form-item.module.css"
+} from "../styles/form-item.module.css"
 
-const ContactFormItem = ({ children, isFieldValid }) => {
+const FormItem = ({ children, isFieldValid }) => {
   const [isItemFieldValid, setIsItemFieldValid] = useState(true)
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const ContactFormItem = ({ children, isFieldValid }) => {
   }, [isFieldValid])
 
   return (
-    <div className={formItem}>
+    <div>
       <div
         className={`${content} ${isItemFieldValid ? "" : `${invalidField}`}`}
       >
@@ -38,4 +37,4 @@ const ContactFormItem = ({ children, isFieldValid }) => {
   )
 }
 
-export default ContactFormItem
+export default FormItem

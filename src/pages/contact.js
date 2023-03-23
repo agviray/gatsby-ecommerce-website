@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import ContactFormItem from "../components/ContactFormItem"
+import FormItem from "../components/FormItem"
 import Layout from "../components/Layout"
 import {
   container,
@@ -8,6 +8,7 @@ import {
   formContainer,
   formHeading,
   formContent,
+  formItemWrapper,
   formLabel,
   formTextInput,
   formTextarea,
@@ -88,73 +89,81 @@ const Contact = () => {
             <form onSubmit={e => handleFormSubmit(e)}>
               <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
-                <ContactFormItem isFieldValid={isNameValid}>
-                  <label className={formLabel} htmlFor="ContactFormName">
-                    NAME
-                  </label>
-                  <input
-                    className={formTextInput}
-                    type="text"
-                    id="ContactFormName"
-                    placeholder="NAME"
-                    value={formData.name}
-                    onChange={e =>
-                      updateFormData({ ...formData, name: e.target.value })
-                    }
-                    onFocus={() => clearError(isNameValid, setIsNameValid)}
-                  />
-                </ContactFormItem>
-                <ContactFormItem isFieldValid={isEmailValid}>
-                  <label className={formLabel} htmlFor="ContactFormEmail">
-                    EMAIL
-                  </label>
-                  <input
-                    className={formTextInput}
-                    type="text"
-                    id="ContactFormEmail"
-                    placeholder="EMAIL"
-                    value={formData.email}
-                    onChange={e =>
-                      updateFormData({ ...formData, email: e.target.value })
-                    }
-                    onFocus={() => clearError(isEmailValid, setIsEmailValid)}
-                  />
-                </ContactFormItem>
-                <ContactFormItem isFieldValid={isPhoneValid}>
-                  {" "}
-                  <label className={formLabel} htmlFor="ContactFormPhone">
-                    PHONE
-                  </label>
-                  <input
-                    className={formTextInput}
-                    type="text"
-                    id="ContactFormPhone"
-                    placeholder="PHONE"
-                    value={formData.phone}
-                    onChange={e =>
-                      updateFormData({ ...formData, phone: e.target.value })
-                    }
-                    onFocus={() => clearError(isPhoneValid, setIsPhoneValid)}
-                  />
-                </ContactFormItem>
-                <ContactFormItem isFieldValid={isMessageValid}>
-                  <label className={formLabel} htmlFor="ContactFormMessage">
-                    MESSAGE
-                  </label>
-                  <textarea
-                    className={formTextarea}
-                    rows="10"
-                    id="ContactFormMessage"
-                    placeholder="MESSAGE"
-                    value={formData.message}
-                    onChange={e =>
-                      updateFormData({ ...formData, message: e.target.value })
-                    }
-                    onFocus={() =>
-                      clearError(isMessageValid, setIsMessageValid)
-                    }
-                  />
-                </ContactFormItem>
+                <div className={formItemWrapper}>
+                  <FormItem isFieldValid={isNameValid}>
+                    <label className={formLabel} htmlFor="ContactFormName">
+                      NAME
+                    </label>
+                    <input
+                      className={formTextInput}
+                      type="text"
+                      id="ContactFormName"
+                      placeholder="NAME"
+                      value={formData.name}
+                      onChange={e =>
+                        updateFormData({ ...formData, name: e.target.value })
+                      }
+                      onFocus={() => clearError(isNameValid, setIsNameValid)}
+                    />
+                  </FormItem>
+                </div>
+                <div className={formItemWrapper}>
+                  <FormItem isFieldValid={isEmailValid}>
+                    <label className={formLabel} htmlFor="ContactFormEmail">
+                      EMAIL
+                    </label>
+                    <input
+                      className={formTextInput}
+                      type="text"
+                      id="ContactFormEmail"
+                      placeholder="EMAIL"
+                      value={formData.email}
+                      onChange={e =>
+                        updateFormData({ ...formData, email: e.target.value })
+                      }
+                      onFocus={() => clearError(isEmailValid, setIsEmailValid)}
+                    />
+                  </FormItem>
+                </div>
+                <div className={formItemWrapper}>
+                  <FormItem isFieldValid={isPhoneValid}>
+                    {" "}
+                    <label className={formLabel} htmlFor="ContactFormPhone">
+                      PHONE
+                    </label>
+                    <input
+                      className={formTextInput}
+                      type="text"
+                      id="ContactFormPhone"
+                      placeholder="PHONE"
+                      value={formData.phone}
+                      onChange={e =>
+                        updateFormData({ ...formData, phone: e.target.value })
+                      }
+                      onFocus={() => clearError(isPhoneValid, setIsPhoneValid)}
+                    />
+                  </FormItem>
+                </div>
+                <div className={formItemWrapper}>
+                  <FormItem isFieldValid={isMessageValid}>
+                    <label className={formLabel} htmlFor="ContactFormMessage">
+                      MESSAGE
+                    </label>
+                    <textarea
+                      className={formTextarea}
+                      rows="10"
+                      id="ContactFormMessage"
+                      placeholder="MESSAGE"
+                      value={formData.message}
+                      onChange={e =>
+                        updateFormData({ ...formData, message: e.target.value })
+                      }
+                      onFocus={() =>
+                        clearError(isMessageValid, setIsMessageValid)
+                      }
+                    />
+                  </FormItem>
+                </div>
                 <input
                   type="submit"
                   value="SEND"
