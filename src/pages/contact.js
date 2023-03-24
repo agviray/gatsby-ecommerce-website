@@ -14,6 +14,7 @@ import {
   formTextarea,
   submitButton,
 } from "../styles/contact.module.css"
+import useFormValidation from "../components/hooks/useFormValidation"
 
 const initialFormData = {
   name: "",
@@ -31,6 +32,7 @@ const Contact = () => {
   const [isEmailValid, setIsEmailValid] = useState(true)
   const [isPhoneValid, setIsPhoneValid] = useState(true)
   const [isMessageValid, setIsMessageValid] = useState(true)
+  const { formValues, updateFormValues } = useFormValidation()
 
   const validateName = () => {
     const nameValidity = formData.name !== ""
@@ -67,9 +69,9 @@ const Contact = () => {
     e.preventDefault()
   }
 
-  const updateFormData = updatedData => {
-    setFormData(updatedData)
-  }
+  // const updateFormData = updatedData => {
+  //   setFormData(updatedData)
+  // }
 
   const clearError = (currentFieldValidity, callback) => {
     if (currentFieldValidity === false) {
@@ -99,10 +101,9 @@ const Contact = () => {
                       type="text"
                       id="ContactFormName"
                       placeholder="NAME"
-                      value={formData.name}
-                      onChange={e =>
-                        updateFormData({ ...formData, name: e.target.value })
-                      }
+                      name="name"
+                      value={formValues.name ? formValues.name : ""}
+                      onChange={e => updateFormValues(e)}
                       onFocus={() => clearError(isNameValid, setIsNameValid)}
                     />
                   </FormItem>
@@ -117,10 +118,9 @@ const Contact = () => {
                       type="text"
                       id="ContactFormEmail"
                       placeholder="EMAIL"
-                      value={formData.email}
-                      onChange={e =>
-                        updateFormData({ ...formData, email: e.target.value })
-                      }
+                      name="email"
+                      value={formValues.email ? formValues.email : ""}
+                      onChange={e => updateFormValues(e)}
                       onFocus={() => clearError(isEmailValid, setIsEmailValid)}
                     />
                   </FormItem>
@@ -136,10 +136,9 @@ const Contact = () => {
                       type="text"
                       id="ContactFormPhone"
                       placeholder="PHONE"
-                      value={formData.phone}
-                      onChange={e =>
-                        updateFormData({ ...formData, phone: e.target.value })
-                      }
+                      name="phone"
+                      value={formValues.phone ? formValues.phone : ""}
+                      onChange={e => updateFormValues(e)}
                       onFocus={() => clearError(isPhoneValid, setIsPhoneValid)}
                     />
                   </FormItem>
@@ -154,10 +153,9 @@ const Contact = () => {
                       rows="10"
                       id="ContactFormMessage"
                       placeholder="MESSAGE"
-                      value={formData.message}
-                      onChange={e =>
-                        updateFormData({ ...formData, message: e.target.value })
-                      }
+                      name="message"
+                      value={formValues.message ? formValues.message : ""}
+                      onChange={e => updateFormValues(e)}
                       onFocus={() =>
                         clearError(isMessageValid, setIsMessageValid)
                       }
