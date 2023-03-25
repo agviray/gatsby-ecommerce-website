@@ -2,21 +2,102 @@ import React, { useState, useEffect } from "react"
 
 const useFormValidation = () => {
   const [formValues, setFormValues] = useState({})
+  const [formErrors, setFormErrors] = useState({})
 
   useEffect(() => {
     console.log(formValues)
   }, [formValues])
 
+  useEffect(() => {
+    console.log(formErrors)
+  }, [formErrors])
+
+  const validate = (e, name, value) => {
+    switch (name) {
+      case "name":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            name: "Please enter your first and last name.",
+          })
+        } else {
+          /*
+          ***************************************************
+          Re-set formErrors, excluding this key:value pair
+          ***************************************************
+          */
+        }
+        break
+
+      case "email":
+        const emailRegExp =
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        if (value === "" || !emailRegExp.test(value)) {
+          setFormErrors({
+            ...formErrors,
+            email: "Please enter a valid email address.",
+          })
+        } else {
+          /*
+          ***************************************************
+          Re-set formErrors, excluding this key:value pair
+          ***************************************************
+          */
+        }
+        break
+
+      case "phone":
+        const phoneRegExp = /^[0-9]*$/
+        if (!phoneRegExp.test(value)) {
+          setFormErrors({
+            ...formErrors,
+            phone:
+              "Please enter a valid phone number. Do not include special characters such as: -_.@",
+          })
+        } else if (value === "" || value.length < 10) {
+          setFormErrors({
+            ...formErrors,
+            phone: "Please enter your 10 digit phone number.",
+          })
+        } else {
+          /*
+          ***************************************************
+          Re-set formErrors, excluding this key:value pair
+          ***************************************************
+          */
+          const clone = Object.assign({}, formErrors)
+          delete clone.phone
+        }
+        break
+
+      case "message":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            message: "Please enter your message.",
+          })
+        } else {
+          /*
+          ***************************************************
+          Re-set formErrors, excluding this key:value pair
+          ***************************************************
+          */
+        }
+        break
+
+      default:
+        break
+    }
+  }
+
   const updateFormValues = e => {
     let name = e.target.name
     let value = e.target.value
-
-    // Use some sort of validate function to check values here.
-
+    validate(e, name, value)
     setFormValues({ ...formValues, [name]: value })
   }
 
-  return { formValues, updateFormValues }
+  return { formValues, formErrors, updateFormValues }
 }
 
 export default useFormValidation

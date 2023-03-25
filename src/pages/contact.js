@@ -32,7 +32,7 @@ const Contact = () => {
   const [isEmailValid, setIsEmailValid] = useState(true)
   const [isPhoneValid, setIsPhoneValid] = useState(true)
   const [isMessageValid, setIsMessageValid] = useState(true)
-  const { formValues, updateFormValues } = useFormValidation()
+  const { formValues, formErrors, updateFormValues } = useFormValidation()
 
   const validateName = () => {
     const nameValidity = formData.name !== ""
@@ -134,6 +134,7 @@ const Contact = () => {
                     <input
                       className={formTextInput}
                       type="text"
+                      maxLength={10}
                       id="ContactFormPhone"
                       placeholder="PHONE"
                       name="phone"
