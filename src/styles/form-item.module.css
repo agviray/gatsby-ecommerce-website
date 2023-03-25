@@ -9,16 +9,13 @@
   background-color: transparent;
 }
 
-.invalidField {
+.content.invalidField {
   border: 1px solid #f35b5b;
 }
 
 .errorMessage {
-  display: none;
-  padding: 12px;
-  color: #f35b5b;
-}
-
-.errorActive {
   display: block;
+  padding-left: 16px;
+  padding-top: 12px;
+  color: #f35b5b;
 }

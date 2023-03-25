@@ -92,7 +92,7 @@ const Contact = () => {
               <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
                 <div className={formItemWrapper}>
-                  <FormItem isFieldValid={isNameValid}>
+                  <FormItem error={formErrors.name ? formErrors.name : null}>
                     <label className={formLabel} htmlFor="ContactFormName">
                       NAME
                     </label>
@@ -109,7 +109,7 @@ const Contact = () => {
                   </FormItem>
                 </div>
                 <div className={formItemWrapper}>
-                  <FormItem isFieldValid={isEmailValid}>
+                  <FormItem error={formErrors.email ? formErrors.email : null}>
                     <label className={formLabel} htmlFor="ContactFormEmail">
                       EMAIL
                     </label>
@@ -126,7 +126,7 @@ const Contact = () => {
                   </FormItem>
                 </div>
                 <div className={formItemWrapper}>
-                  <FormItem isFieldValid={isPhoneValid}>
+                  <FormItem error={formErrors.phone ? formErrors.phone : null}>
                     {" "}
                     <label className={formLabel} htmlFor="ContactFormPhone">
                       PHONE
@@ -145,7 +145,9 @@ const Contact = () => {
                   </FormItem>
                 </div>
                 <div className={formItemWrapper}>
-                  <FormItem isFieldValid={isMessageValid}>
+                  <FormItem
+                    error={formErrors.message ? formErrors.message : null}
+                  >
                     <label className={formLabel} htmlFor="ContactFormMessage">
                       MESSAGE
                     </label>

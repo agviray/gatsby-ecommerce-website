@@ -3,36 +3,31 @@ import {
   content,
   invalidField,
   errorMessage,
-  errorActive,
 } from "../styles/form-item.module.css"
 
-const FormItem = ({ children, isFieldValid }) => {
-  const [isItemFieldValid, setIsItemFieldValid] = useState(true)
+const FormItem = ({ children, error }) => {
+  const [errorNotification, setErrorNotification] = useState(null)
 
   useEffect(() => {
-    if (isFieldValid === true) {
-      setIsItemFieldValid(true)
+    if (error) {
+      setErrorNotification(error)
+    } else {
+      setErrorNotification(null)
     }
-
-    if (isFieldValid === false) {
-      setIsItemFieldValid(false)
-    }
-  }, [isFieldValid])
+  }, [error])
 
   return (
     <div>
       <div
-        className={`${content} ${isItemFieldValid ? "" : `${invalidField}`}`}
+        className={`${content} ${
+          errorNotification === null ? "" : `${invalidField}`
+        }`}
       >
         {children}
       </div>
-      <div
-        className={`${errorMessage} ${
-          isItemFieldValid ? "" : `${errorActive}`
-        }`}
-      >
-        Please check this field.
-      </div>
+      {errorNotification ? (
+        <div className={errorMessage}>{errorNotification}</div>
+      ) : null}
     </div>
   )
 }

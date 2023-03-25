@@ -21,11 +21,9 @@ const useFormValidation = () => {
             name: "Please enter your first and last name.",
           })
         } else {
-          /*
-          ***************************************************
-          Re-set formErrors, excluding this key:value pair
-          ***************************************************
-          */
+          let clone = Object.assign({}, formErrors)
+          delete clone.name
+          setFormErrors(clone)
         }
         break
 
@@ -38,11 +36,9 @@ const useFormValidation = () => {
             email: "Please enter a valid email address.",
           })
         } else {
-          /*
-          ***************************************************
-          Re-set formErrors, excluding this key:value pair
-          ***************************************************
-          */
+          let clone = Object.assign({}, formErrors)
+          delete clone.email
+          setFormErrors(clone)
         }
         break
 
@@ -60,13 +56,9 @@ const useFormValidation = () => {
             phone: "Please enter your 10 digit phone number.",
           })
         } else {
-          /*
-          ***************************************************
-          Re-set formErrors, excluding this key:value pair
-          ***************************************************
-          */
-          const clone = Object.assign({}, formErrors)
+          let clone = Object.assign({}, formErrors)
           delete clone.phone
+          setFormErrors(clone)
         }
         break
 
@@ -77,11 +69,9 @@ const useFormValidation = () => {
             message: "Please enter your message.",
           })
         } else {
-          /*
-          ***************************************************
-          Re-set formErrors, excluding this key:value pair
-          ***************************************************
-          */
+          let clone = Object.assign({}, formErrors)
+          delete clone.message
+          setFormErrors(clone)
         }
         break
 
