@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react"
-import { container, content, heading, body } from "../styles/faq.module.css"
+import React from "react"
+import { Link } from "gatsby"
+import { container, content, heading, siteLink } from "../styles/faq.module.css"
 import Layout from "../components/Layout"
 import Accordion from "../components/Accordion"
 
@@ -13,7 +14,7 @@ const Faq = () => {
     {
       headingText: "What are your accepted payment types?",
       bodyText:
-        "We accept Visa and MasterCard, American Express, Discover, and PayPal.",
+        "We only accept credit card payments with Visa and MasterCard, American Express, Discover.",
     },
     {
       headingText: "Can I place orders over the phone?",
@@ -37,17 +38,40 @@ const Faq = () => {
     },
     {
       headingText: "How do I return an item?",
-      bodyText: "You can start the return process by clicking here.",
+      bodyTextWithLink: () => (
+        <p>
+          You can start the return process by sending us a message through our{" "}
+          <Link to="/contact">
+            <span className={siteLink}>Contact page</span>
+          </Link>
+          . Be sure to include your order number and reason for return.
+        </p>
+      ),
     },
     {
       headingText: "Can I exchange my purchased item for a different size?",
-      bodyText:
-        "We will happily exchange your purchased item as long as we have your requested size in stock. Click here to start the exchange process.",
+      bodyTextWithLink: () => (
+        <p>
+          We will happily exchange your purchased item as long as we have your
+          requested size in stock. Head over to our{" "}
+          <Link to="/contact">
+            <span className={siteLink}>Contact page</span>
+          </Link>
+          , and send us a message with your request.
+        </p>
+      ),
     },
     {
       headingText: "What should I do if I received the wrong item?",
-      bodyText:
-        "Please send us a message if you have received an incorrect item.",
+      bodyTextWithLink: () => (
+        <p>
+          Please visit our{" "}
+          <Link to="/contact">
+            <span className={siteLink}>Contact page</span>
+          </Link>
+          , and send us a message if you have received an incorrect item.
+        </p>
+      ),
     },
   ]
   return (

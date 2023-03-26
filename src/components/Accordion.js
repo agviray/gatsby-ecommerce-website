@@ -25,6 +25,7 @@ const Accordion = ({ accordionContent }) => {
       bodyText.style.maxHeight = ``
     }
   }, [isOpen])
+
   const renderContent = content => {
     return (
       <div className={accordion}>
@@ -38,7 +39,11 @@ const Accordion = ({ accordionContent }) => {
         </div>
         <div ref={bodyTextRef} className={bodyContainer}>
           <div className={bodyContent}>
-            <p>{content.bodyText}</p>
+            {content.bodyTextWithLink ? (
+              <>{content.bodyTextWithLink()}</>
+            ) : (
+              <p>{content.bodyText}</p>
+            )}
           </div>
         </div>
       </div>
