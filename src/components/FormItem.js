@@ -5,7 +5,7 @@ import {
   errorMessage,
 } from "../styles/form-item.module.css"
 
-const FormItem = ({ children, error }) => {
+const FormItem = ({ children, error, isErrorVisible }) => {
   const [errorNotification, setErrorNotification] = useState(null)
 
   useEffect(() => {
@@ -18,14 +18,10 @@ const FormItem = ({ children, error }) => {
 
   return (
     <div>
-      <div
-        className={`${content} ${
-          errorNotification === null ? "" : `${invalidField}`
-        }`}
-      >
+      <div className={`${content} ${isErrorVisible ? `${invalidField}` : ""}`}>
         {children}
       </div>
-      {errorNotification ? (
+      {isErrorVisible ? (
         <div className={errorMessage}>{errorNotification}</div>
       ) : null}
     </div>

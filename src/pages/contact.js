@@ -16,68 +16,12 @@ import {
 } from "../styles/contact.module.css"
 import useFormValidation from "../components/hooks/useFormValidation"
 
-const initialFormData = {
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-}
-
-const emailRegExp =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-
 const Contact = () => {
-  const [formData, setFormData] = useState(initialFormData)
-  const [isNameValid, setIsNameValid] = useState(true)
-  const [isEmailValid, setIsEmailValid] = useState(true)
-  const [isPhoneValid, setIsPhoneValid] = useState(true)
-  const [isMessageValid, setIsMessageValid] = useState(true)
-  const { formValues, formErrors, updateFormValues } = useFormValidation()
-
-  const validateName = () => {
-    const nameValidity = formData.name !== ""
-    setIsNameValid(nameValidity)
-  }
-  const validateEmail = () => {
-    const emailValidity = emailRegExp.test(formData.email)
-    setIsEmailValid(emailValidity)
-  }
-
-  const validatePhone = () => {
-    const phoneValidity = formData.phone !== ""
-    setIsPhoneValid(phoneValidity)
-  }
-
-  const validateMessage = () => {
-    const messageValidity = formData.message !== ""
-    setIsMessageValid(messageValidity)
-  }
+  const { formValues, formErrors, updateFormValues, clearError } =
+    useFormValidation()
 
   const sendMessage = e => {
-    validateName()
-    validateEmail()
-    validatePhone()
-    validateMessage()
     e.preventDefault()
-  }
-
-  const handleFormSubmit = e => {
-    validateName()
-    validateEmail()
-    validatePhone()
-    validateMessage()
-    e.preventDefault()
-  }
-
-  // const updateFormData = updatedData => {
-  //   setFormData(updatedData)
-  // }
-
-  const clearError = (currentFieldValidity, callback) => {
-    if (currentFieldValidity === false) {
-      callback(true)
-    }
-    return
   }
 
   return (
@@ -88,11 +32,14 @@ const Contact = () => {
         </div>
         <div className={content}>
           <div className={formContainer}>
-            <form onSubmit={e => handleFormSubmit(e)}>
+            <form onSubmit={e => sendMessage(e)}>
               <h3 className={formHeading}>SEND US A MESSAGE</h3>
               <div className={formContent}>
                 <div className={formItemWrapper}>
-                  <FormItem error={formErrors.name ? formErrors.name : null}>
+                  <FormItem
+                    error={formErrors.name ? formErrors.name : null}
+                    isErrorVisible={formErrors.name ? true : false}
+                  >
                     <label className={formLabel} htmlFor="ContactFormName">
                       NAME
                     </label>
@@ -104,12 +51,16 @@ const Contact = () => {
                       name="name"
                       value={formValues.name ? formValues.name : ""}
                       onChange={e => updateFormValues(e)}
-                      onFocus={() => clearError(isNameValid, setIsNameValid)}
+                      onFocus={e => clearError(e)}
+                      onBlur={e => updateFormValues(e)}
                     />
                   </FormItem>
                 </div>
                 <div className={formItemWrapper}>
-                  <FormItem error={formErrors.email ? formErrors.email : null}>
+                  <FormItem
+                    error={formErrors.email ? formErrors.email : null}
+                    isErrorVisible={formErrors.email ? true : false}
+                  >
                     <label className={formLabel} htmlFor="ContactFormEmail">
                       EMAIL
                     </label>
@@ -121,12 +72,16 @@ const Contact = () => {
                       name="email"
                       value={formValues.email ? formValues.email : ""}
                       onChange={e => updateFormValues(e)}
-                      onFocus={() => clearError(isEmailValid, setIsEmailValid)}
+                      onFocus={e => clearError(e)}
+                      onBlur={e => updateFormValues(e)}
                     />
                   </FormItem>
                 </div>
                 <div className={formItemWrapper}>
-                  <FormItem error={formErrors.phone ? formErrors.phone : null}>
+                  <FormItem
+                    error={formErrors.phone ? formErrors.phone : null}
+                    isErrorVisible={formErrors.phone ? true : false}
+                  >
                     {" "}
                     <label className={formLabel} htmlFor="ContactFormPhone">
                       PHONE
@@ -140,13 +95,15 @@ const Contact = () => {
                       name="phone"
                       value={formValues.phone ? formValues.phone : ""}
                       onChange={e => updateFormValues(e)}
-                      onFocus={() => clearError(isPhoneValid, setIsPhoneValid)}
+                      onFocus={e => clearError(e)}
+                      onBlur={e => updateFormValues(e)}
                     />
                   </FormItem>
                 </div>
                 <div className={formItemWrapper}>
                   <FormItem
                     error={formErrors.message ? formErrors.message : null}
+                    isErrorVisible={formErrors.message ? true : false}
                   >
                     <label className={formLabel} htmlFor="ContactFormMessage">
                       MESSAGE
@@ -159,9 +116,8 @@ const Contact = () => {
                       name="message"
                       value={formValues.message ? formValues.message : ""}
                       onChange={e => updateFormValues(e)}
-                      onFocus={() =>
-                        clearError(isMessageValid, setIsMessageValid)
-                      }
+                      onFocus={e => clearError(e)}
+                      onBlur={e => updateFormValues(e)}
                     />
                   </FormItem>
                 </div>

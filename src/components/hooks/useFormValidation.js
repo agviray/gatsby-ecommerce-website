@@ -12,6 +12,7 @@ const useFormValidation = () => {
     console.log(formErrors)
   }, [formErrors])
 
+  // - Validates all form values.
   const validate = (e, name, value) => {
     switch (name) {
       case "name":
@@ -87,7 +88,17 @@ const useFormValidation = () => {
     setFormValues({ ...formValues, [name]: value })
   }
 
-  return { formValues, formErrors, updateFormValues }
+  const clearError = e => {
+    let name = e.target.name
+    let clone = Object.assign({}, formErrors)
+
+    if (clone[name]) {
+      delete clone[name]
+      setFormErrors(clone)
+    }
+  }
+
+  return { formValues, formErrors, updateFormValues, clearError }
 }
 
 export default useFormValidation
