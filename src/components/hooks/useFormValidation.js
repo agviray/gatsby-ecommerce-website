@@ -4,13 +4,13 @@ const useFormValidation = () => {
   const [formValues, setFormValues] = useState({})
   const [formErrors, setFormErrors] = useState({})
 
-  useEffect(() => {
-    console.log(formValues)
-  }, [formValues])
+  // useEffect(() => {
+  //   console.log(formValues)
+  // }, [formValues])
 
-  useEffect(() => {
-    console.log(formErrors)
-  }, [formErrors])
+  // useEffect(() => {
+  //   console.log(formErrors)
+  // }, [formErrors])
 
   // - Validates all form values.
   const validate = (e, name, value) => {
@@ -34,7 +34,7 @@ const useFormValidation = () => {
         if (value === "" || !emailRegExp.test(value)) {
           setFormErrors({
             ...formErrors,
-            email: "Please enter a valid email address.",
+            email: "Please enter your full email address.",
           })
         } else {
           let clone = Object.assign({}, formErrors)
@@ -44,17 +44,10 @@ const useFormValidation = () => {
         break
 
       case "phone":
-        const phoneRegExp = /^[0-9]*$/
-        if (!phoneRegExp.test(value)) {
+        if (value === "" || value.length < 10) {
           setFormErrors({
             ...formErrors,
-            phone:
-              "Please enter a valid phone number. Do not include special characters such as: -_.@",
-          })
-        } else if (value === "" || value.length < 10) {
-          setFormErrors({
-            ...formErrors,
-            phone: "Please enter your 10 digit phone number.",
+            phone: "Please enter your 10 digit phone number, area code first.",
           })
         } else {
           let clone = Object.assign({}, formErrors)
@@ -82,8 +75,15 @@ const useFormValidation = () => {
   }
 
   const updateFormValues = e => {
+    const phoneRegExp = /^[0-9]*$/
     let name = e.target.name
     let value = e.target.value
+
+    if (name === "phone") {
+      if (!phoneRegExp.test(value)) {
+        return
+      }
+    }
     validate(e, name, value)
     setFormValues({ ...formValues, [name]: value })
   }
