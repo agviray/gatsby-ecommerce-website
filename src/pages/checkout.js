@@ -5,7 +5,7 @@ import {
   heading,
   content,
   contentBlock,
-  formContent,
+  flexFormContent,
   billingGrid,
   shippingGrid,
   paymentGrid,
@@ -20,6 +20,7 @@ import {
   buttonContainer,
   submitButton,
 } from "../styles/checkout.module.css"
+import { formContent } from "../styles/form.module.css"
 import {
   breadcrumbsContainer,
   breadcrumbs,
@@ -62,7 +63,7 @@ const Checkout = () => {
           </section>
           <section>
             <form>
-              <div className={formContent}>
+              <div className={`${formContent} ${flexFormContent}`}>
                 <div className={contentBlock}>
                   <fieldset className={fieldsetStyle}>
                     <legend className={legendStyle}>BILLING</legend>

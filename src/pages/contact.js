@@ -5,6 +5,9 @@ import {
   container,
   heading,
   content,
+  submitButton,
+} from "../styles/contact.module.css"
+import {
   formContainer,
   formHeading,
   formContent,
@@ -12,8 +15,7 @@ import {
   formLabel,
   formTextInput,
   formTextarea,
-  submitButton,
-} from "../styles/contact.module.css"
+} from "../styles/form.module.css"
 import useFormValidation from "../components/hooks/useFormValidation"
 
 const Contact = () => {
