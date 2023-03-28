@@ -1,3 +1,7 @@
+.contactWrapper {
+  position: relative;
+}
+
 .container {
   max-width: 1400px;
   margin-left: auto;
@@ -44,5 +48,41 @@
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.messageBox {
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+.modalButtonContainer {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modalButton {
+  width: 100%;
+  max-width: 300px;
+  padding: 15px 12px;
+  background-color: black;
+  color: #f3f3f3;
+  font-size: 18px;
+  border-style: none;
+  letter-spacing: 1px;
+}
+
+@media screen and (min-width: 800px) {
+  button {
+    font-size: 20px;
+  }
+}
+
+button:hover {
   cursor: pointer;
 }

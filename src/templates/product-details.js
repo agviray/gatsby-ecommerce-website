@@ -14,7 +14,6 @@ import {
   wrapper,
   container,
   contents,
-  imageContainer,
   productImage,
   productImage02,
   productImage03,
@@ -251,7 +250,7 @@ const ProductDetails = ({ data }) => {
             </ul>
           </div>
           <div className={contents}>
-            <div className={imageContainer}>
+            <div>
               <ProductDetailsImages allProductImages={productImages} />
             </div>
             <div className={detailsContainer}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { modal, content, isActive } from "../styles/modal.module.css"
 
 const Modal = ({ children, activeStatus }) => {

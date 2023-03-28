@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import twitterIcon from "../images/social-media/twitter-icon.svg"
 import instagramIcon from "../images/social-media/instagram-icon.svg"
@@ -8,9 +8,7 @@ import {
   content,
   contentBlock,
   blockHeading,
-  companyInfo,
   companyInfoContent,
-  socialMedia,
   socialMediaContent,
   item,
   socialMediaIcon,
@@ -43,7 +41,7 @@ const FooterContent = ({ title }) => {
       <div className={content}>
         <div className={contentBlock}>
           <h4 className={blockHeading}>MORE INFO</h4>
-          <div className={companyInfo}>
+          <div>
             <ul className={companyInfoContent}>
               <li className={item}>
                 <Link to={"/contact"}>CONTACT</Link>
@@ -59,11 +57,11 @@ const FooterContent = ({ title }) => {
         </div>
         <div className={contentBlock}>
           <h4 className={blockHeading}>GET CONNECTED</h4>
-          <div className={socialMedia}>
+          <div>
             <ul className={socialMediaContent}>
               {socialMediaIcons.map(icon => (
                 <li key={icon.alt} className={`${item} ${socialMediaIcon}`}>
-                  <a href={icon.href} target="_blank">
+                  <a href={icon.href} target="_blank" rel="noreferrer">
                     <img src={icon.src} alt={icon.alt} />
                   </a>
                 </li>

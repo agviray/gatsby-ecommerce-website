@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react"
+import { useState } from "react"
 
 const useFormValidation = () => {
   const [formValues, setFormValues] = useState({})
   const [formErrors, setFormErrors] = useState({})
 
-  // useEffect(() => {
-  //   console.log(formValues)
-  // }, [formValues])
-
-  // useEffect(() => {
-  //   console.log(formErrors)
-  // }, [formErrors])
+  const resetForm = () => {
+    setFormValues({})
+    setFormErrors({})
+  }
 
   // - Validates all form values.
   const validate = (e, name, value) => {
@@ -74,8 +71,9 @@ const useFormValidation = () => {
     }
   }
 
-  const updateFormValues = e => {
+  const updateFormValues = (e, errorName, errorValue) => {
     const phoneRegExp = /^[0-9]*$/
+
     let name = e.target.name
     let value = e.target.value
 
@@ -98,7 +96,13 @@ const useFormValidation = () => {
     }
   }
 
-  return { formValues, formErrors, updateFormValues, clearError }
+  return {
+    formValues,
+    formErrors,
+    updateFormValues,
+    clearError,
+    resetForm,
+  }
 }
 
 export default useFormValidation
