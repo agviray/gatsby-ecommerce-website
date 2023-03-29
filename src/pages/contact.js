@@ -43,17 +43,17 @@ const Contact = () => {
     if (Object.keys(formErrors).length !== 0) {
       setFormStatus({
         hasErrors: true,
-        message: `Please review your provided information, and try sending your message again.`,
+        message: `Please review your provided information.`,
       })
     } else if (Object.keys(formValues).length < 4) {
       setFormStatus({
         hasErrors: true,
-        message: `Please fill in all form fields before sending your message.`,
+        message: `Please complete all form fields.`,
       })
     } else if (Object.keys(formErrors).length === 0) {
       setFormStatus({
         hasErrors: false,
-        message: `Your message was sent! Please check your email for future responses from us.`,
+        message: `Your message was sent! Please check your email for future responses from our team.`,
       })
     }
   }
