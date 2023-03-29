@@ -77,7 +77,8 @@
     grid-area: c;
   }
 
-  .shippingGrid .areaD {
+  .shippingGrid .areaD,
+  .paymentGrid .areaD {
     grid-area: d;
   }
 
@@ -97,7 +98,8 @@
   .paymentGrid {
     grid-template-areas:
       "a a"
-      "b c";
+      "b b"
+      "c d";
   }
 }
 

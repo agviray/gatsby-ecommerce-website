@@ -255,6 +255,34 @@ const Checkout = () => {
                       <div className={areaA}>
                         <FormItem
                           error={
+                            formErrors.cardholder ? formErrors.cardholder : null
+                          }
+                          isErrorVisible={formErrors.cardholder ? true : false}
+                        >
+                          <label
+                            className={formLabel}
+                            htmlFor="CheckoutFormCCHolder"
+                          >
+                            CARD HOLDER NAME
+                          </label>
+                          <input
+                            className={formTextInput}
+                            type="text"
+                            id="CheckoutFormCCHolder"
+                            placeholder="CARD HOLDER"
+                            name="cardholder"
+                            value={
+                              formValues.cardholder ? formValues.cardholder : ""
+                            }
+                            onChange={e => updateFormValues(e)}
+                            onFocus={e => clearError(e)}
+                            onBlur={e => updateFormValues(e)}
+                          />
+                        </FormItem>
+                      </div>
+                      <div className={areaB}>
+                        <FormItem
+                          error={
                             formErrors.cardnumber ? formErrors.cardnumber : null
                           }
                           isErrorVisible={formErrors.cardnumber ? true : false}
@@ -280,7 +308,7 @@ const Checkout = () => {
                           />
                         </FormItem>
                       </div>
-                      <div className={areaB}>
+                      <div className={areaC}>
                         <FormItem
                           error={
                             formErrors.cardexpiry ? formErrors.cardexpiry : null
@@ -308,7 +336,7 @@ const Checkout = () => {
                           />
                         </FormItem>
                       </div>
-                      <div className={areaC}>
+                      <div className={areaD}>
                         <FormItem
                           error={
                             formErrors.cardsecuritycode

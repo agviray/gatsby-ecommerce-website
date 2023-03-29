@@ -107,6 +107,19 @@ const useFormValidation = () => {
         }
         break
 
+      case "cardholder":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            cardholder: "Please enter the card holder's name.",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.cardholder
+          setFormErrors(clone)
+        }
+        break
+
       case "cardnumber":
         if (value === "") {
           setFormErrors({
