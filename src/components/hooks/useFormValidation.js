@@ -53,6 +53,101 @@ const useFormValidation = () => {
         }
         break
 
+      case "address":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            address:
+              "Please enter your street address. (Example: 1234 Wall Street)",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.address
+          setFormErrors(clone)
+        }
+        break
+
+      case "city":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            city: "Please enter the name of your city.",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.city
+          setFormErrors(clone)
+        }
+        break
+
+      case "state":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            state:
+              "Please enter your abbreviated state. (Example: Texas written as TX)",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.state
+          setFormErrors(clone)
+        }
+        break
+
+      case "zipcode":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            zipcode: "Please enter your 5 digit zip code.",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.zipcode
+          setFormErrors(clone)
+        }
+        break
+
+      case "cardnumber":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            cardnumber: "Please enter your card number.",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.cardnumber
+          setFormErrors(clone)
+        }
+        break
+
+      case "cardexpiry":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            cardexpiry:
+              "Please enter your card's expiration date in the following format: mmyy. (Example: May 2023 written as 0523)",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.cardexpiry
+          setFormErrors(clone)
+        }
+        break
+
+      case "cardsecuritycode":
+        if (value === "") {
+          setFormErrors({
+            ...formErrors,
+            cardsecuritycode:
+              "Please enter your card's security code. This is the 3-4 digit number, usually found at the back of your card.",
+          })
+        } else {
+          let clone = Object.assign({}, formErrors)
+          delete clone.cardsecuritycode
+          setFormErrors(clone)
+        }
+        break
+
       case "message":
         if (value === "") {
           setFormErrors({
