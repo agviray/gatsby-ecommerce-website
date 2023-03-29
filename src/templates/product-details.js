@@ -287,7 +287,7 @@ const ProductDetails = ({ data }) => {
         </div>
       </Layout>
       <Modal activeStatus={isError}>
-        <div className={`${messageBox} ${error}`}>
+        <div className={messageBox}>
           <p>Please select a size</p>
           <div className={buttonContainer}>
             <button

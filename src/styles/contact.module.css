@@ -53,11 +53,12 @@
 
 .messageBox {
   width: 80%;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 1.5rem 1rem;
   background-color: #ffffff;
   font-size: 16px;
+  text-align: center;
 }
 
 .modalButtonContainer {

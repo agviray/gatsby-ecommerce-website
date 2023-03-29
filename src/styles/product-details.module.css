@@ -162,8 +162,5 @@ button:hover {
   padding: 1.5rem 1rem;
   background-color: #ffffff;
   font-size: 16px;
-}
-
-.messageBox.error {
   text-align: center;
 }
