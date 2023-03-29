@@ -1,3 +1,7 @@
+.checkoutWrapper {
+  position: relative;
+}
+
 .container {
   max-width: 1400px;
   margin-left: auto;
@@ -157,4 +161,30 @@
   .submitButton {
     width: 100%;
   }
+}
+
+.messageBox {
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.modalButtonContainer {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.modalButton {
+  width: 100%;
+  max-width: 300px;
+  padding: 15px 12px;
+  background-color: black;
+  color: #f3f3f3;
+  font-size: 18px;
+  border-style: none;
+  letter-spacing: 1px;
 }

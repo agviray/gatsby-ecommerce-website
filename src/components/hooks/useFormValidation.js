@@ -81,7 +81,7 @@ const useFormValidation = () => {
         break
 
       case "state":
-        if (value === "") {
+        if (value === "" || value.length < 2) {
           setFormErrors({
             ...formErrors,
             state:
@@ -95,7 +95,7 @@ const useFormValidation = () => {
         break
 
       case "zipcode":
-        if (value === "") {
+        if (value === "" || value.length < 5) {
           setFormErrors({
             ...formErrors,
             zipcode: "Please enter your 5 digit zip code.",
@@ -134,7 +134,7 @@ const useFormValidation = () => {
         break
 
       case "cardexpiry":
-        if (value === "") {
+        if (value === "" || value.length < 4) {
           setFormErrors({
             ...formErrors,
             cardexpiry:
@@ -179,14 +179,25 @@ const useFormValidation = () => {
     }
   }
 
-  const updateFormValues = (e, errorName, errorValue) => {
+  const updateFormValues = e => {
     const phoneRegExp = /^[0-9]*$/
+    const stateRegExp = /^[a-zA-Z]*$/
 
     let name = e.target.name
     let value = e.target.value
 
-    if (name === "phone") {
+    if (
+      name === "phone" ||
+      name === "zipcode" ||
+      name === "cardnumber" ||
+      name === "cardsecuritycode" ||
+      name === "cardexpiry"
+    ) {
       if (!phoneRegExp.test(value)) {
+        return
+      }
+    } else if (name === "state") {
+      if (!stateRegExp.test(value)) {
         return
       }
     }
