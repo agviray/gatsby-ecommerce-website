@@ -39,18 +39,10 @@ import useFormValidation from "../components/hooks/useFormValidation"
 
 const Checkout = () => {
   const [items, setItems] = useState([])
-  const [formStatus, setFormStatus] = useState({})
+  const [modalContent, setModalContent] = useState({})
   const [displayModal, setDisplayModal] = useState(false)
   const { formValues, formErrors, updateFormValues, clearError, resetForm } =
     useFormValidation()
-
-  useEffect(() => {
-    if (Object.keys(formStatus).length === 0) {
-      setDisplayModal(false)
-    } else {
-      setDisplayModal(true)
-    }
-  }, [formStatus])
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
@@ -63,13 +55,21 @@ const Checkout = () => {
     }
   }, [])
 
+  useEffect(() => {
+    if (Object.keys(modalContent).length === 0) {
+      setDisplayModal(false)
+    } else {
+      setDisplayModal(true)
+    }
+  }, [modalContent])
+
   const closeModal = e => {
-    e.preventDefault()
-    if (formStatus.hasErrors === true) {
-      setFormStatus({})
-    } else if (formStatus.hasErrors === false) {
+    if (modalContent.formErrorsExist === true) {
+      e.preventDefault()
+      setModalContent({})
+    } else if (modalContent.formErrorsExist === false) {
       resetForm()
-      setFormStatus({})
+      localStorage.removeItem("bag")
     }
   }
 
@@ -77,19 +77,34 @@ const Checkout = () => {
     e.preventDefault()
 
     if (Object.keys(formErrors).length !== 0) {
-      setFormStatus({
-        hasErrors: true,
+      setModalContent({
+        formErrorsExist: true,
         message: `Please review your information.`,
+        renderedButton: callback => (
+          <button onClick={e => callback(e)} className={modalButton}>
+            OK
+          </button>
+        ),
       })
     } else if (Object.keys(formValues).length < 11) {
-      setFormStatus({
-        hasErrors: true,
+      setModalContent({
+        formErrorsExist: true,
         message: `Please complete all form fields.`,
+        renderedButton: callback => (
+          <button onClick={e => callback(e)} className={modalButton}>
+            OK
+          </button>
+        ),
       })
     } else if (Object.keys(formErrors).length === 0) {
-      setFormStatus({
-        hasErrors: false,
+      setModalContent({
+        formErrorsExist: false,
         message: `Thank you for your order!`,
+        renderedButton: callback => (
+          <Link to="/" onClick={callback} className={modalButton}>
+            OK
+          </Link>
+        ),
       })
     }
   }
@@ -455,7 +470,7 @@ const Checkout = () => {
                     </BagContext.Consumer>
                     <div className={buttonContainer}>
                       <input
-                        type="submit"
+                        type="button"
                         value="PLACE MY ORDER"
                         className={submitButton}
                         onClick={e => placeOrder(e)}
@@ -470,11 +485,11 @@ const Checkout = () => {
       </Layout>
       <Modal activeStatus={displayModal}>
         <div className={messageBox}>
-          <p>{formStatus.message}</p>
+          <p>{modalContent.message}</p>
           <div className={modalButtonContainer}>
-            <button onClick={e => closeModal(e)} className={modalButton}>
-              OK
-            </button>
+            {Object.keys(modalContent).length === 0 ? null : (
+              <>{modalContent.renderedButton(closeModal)}</>
+            )}
           </div>
         </div>
       </Modal>
