@@ -19,12 +19,6 @@
   letter-spacing: 0.18rem;
 }
 
-/* @media screen and (min-width: 800px) {
-  .departmentContainer {
-    padding-top: 96px;
-  }
-} */
-
 .categoriesContainer {
   position: relative;
 }
@@ -64,10 +58,11 @@
 }
 
 .textContainer {
-  padding: 0.25rem 1rem;
-  height: 50px;
+  display: inline-block;
+  padding: 0 1rem;
   text-align: center;
   line-height: 50px;
+  vertical-align: middle;
   border: solid 0.3rem white;
   background-color: rgba(66, 66, 66, 0.5);
 }

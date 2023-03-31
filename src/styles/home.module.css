@@ -16,8 +16,8 @@
 }
 
 .textContainer {
-  padding: 0.25rem 1rem;
-  height: 50px;
+  display: inline-block;
+  padding: 0 1rem;
   text-align: center;
   line-height: 50px;
   border: solid 0.3rem white;
