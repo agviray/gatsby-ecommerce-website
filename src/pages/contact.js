@@ -25,47 +25,50 @@ import {
 import useFormValidation from "../components/hooks/useFormValidation"
 
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState({})
+  const [modalContent, setModalContent] = useState({})
   const [displayModal, setDisplayModal] = useState(false)
   const { formValues, formErrors, updateFormValues, clearError, resetForm } =
     useFormValidation()
 
   useEffect(() => {
-    if (Object.keys(formStatus).length === 0) {
+    if (Object.keys(modalContent).length === 0) {
       setDisplayModal(false)
     } else {
       setDisplayModal(true)
     }
-  }, [formStatus])
+  }, [modalContent])
 
   const sendMessage = e => {
     e.preventDefault()
 
     if (Object.keys(formErrors).length !== 0) {
-      setFormStatus({
-        hasErrors: true,
-        message: `Please review your provided information.`,
+      setModalContent({
+        formErrorsExist: true,
+        heading: `OH NO!`,
+        message: `Something isn't right. Please review your information.`,
       })
     } else if (Object.keys(formValues).length < 4) {
-      setFormStatus({
-        hasErrors: true,
-        message: `Please complete all form fields.`,
+      setModalContent({
+        formErrorsExist: true,
+        heading: `MISSING ITEMS`,
+        message: `You must complete all form fields.`,
       })
     } else if (Object.keys(formErrors).length === 0) {
-      setFormStatus({
-        hasErrors: false,
-        message: `Your message was sent! Please check your email for future responses from our team.`,
+      setModalContent({
+        formErrorsExist: false,
+        heading: `MESSAGE SENT`,
+        message: `We're on it! Check your email for future responses from our team.`,
       })
     }
   }
 
   const closeModal = e => {
     e.preventDefault()
-    if (formStatus.hasErrors === true) {
-      setFormStatus({})
-    } else if (formStatus.hasErrors === false) {
+    if (modalContent.formErrorsExist === true) {
+      setModalContent({})
+    } else if (modalContent.formErrorsExist === false) {
       resetForm()
-      setFormStatus({})
+      setModalContent({})
     }
   }
 
@@ -183,8 +186,8 @@ const Contact = () => {
       </Layout>
       <Modal activeStatus={displayModal}>
         <div className={messageBox}>
-          <h3 className={modalHeading}></h3>
-          <p>{formStatus.message}</p>
+          <h3 className={modalHeading}>{modalContent.heading}</h3>
+          <p>{modalContent.message}</p>
           <button onClick={e => closeModal(e)} className={modalButton}>
             OK
           </button>
