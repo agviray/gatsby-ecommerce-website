@@ -146,8 +146,10 @@
 
 .submitButton {
   display: inline-block;
-  padding: 16px 25px;
-  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem 1.25rem;
+  font-size: 18px;
   text-align: center;
   color: #f3f3f3;
   background-color: black;
@@ -164,24 +166,31 @@
 }
 
 .messageBox {
-  width: 80%;
-  max-width: 300px;
+  width: 85%;
+  max-width: 350px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2rem;
   background-color: #ffffff;
   font-size: 16px;
   text-align: center;
 }
 
-.modalButtonContainer {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
+.messageBox > .modalHeading {
+  padding-bottom: 1.5rem;
+  font-size: 25px;
 }
+
+@media screen and (min-width: 800px) {
+  .messageBox > .modalHeading {
+    font-size: 30px;
+  }
+}
+
 .modalButton {
+  display: inline-block;
   width: 100%;
-  max-width: 300px;
-  padding: 15px 12px;
+  margin-top: 20px;
+  padding: 1rem 1.25rem;
   background-color: black;
   color: #f3f3f3;
   font-size: 18px;

@@ -30,7 +30,7 @@
 }
 
 .content {
-  padding: 0 10px 150px 10px;
+  padding: 0 10px 300px 10px;
 }
 
 @media screen and (min-width: 1150px) {
@@ -85,7 +85,7 @@
 .checkoutLink {
   width: 100%;
   max-width: 300px;
-  padding: 15px 12px;
+  padding: 1rem 1.25rem;
   background-color: black;
   color: #f3f3f3;
   font-size: 18px;

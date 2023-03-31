@@ -21,7 +21,7 @@ import {
   buttonContainer,
   submitButton,
   messageBox,
-  modalButtonContainer,
+  modalHeading,
   modalButton,
 } from "../styles/checkout.module.css"
 import { formContent } from "../styles/form.module.css"
@@ -79,7 +79,8 @@ const Checkout = () => {
     if (Object.keys(formErrors).length !== 0) {
       setModalContent({
         formErrorsExist: true,
-        message: `Please review your information.`,
+        heading: `OH NO!`,
+        message: `Something isn't right. Please review your information.`,
         renderedButton: callback => (
           <button onClick={e => callback(e)} className={modalButton}>
             OK
@@ -89,7 +90,8 @@ const Checkout = () => {
     } else if (Object.keys(formValues).length < 11) {
       setModalContent({
         formErrorsExist: true,
-        message: `Please complete all form fields.`,
+        heading: `MISSING ITEMS`,
+        message: `You must complete all form fields.`,
         renderedButton: callback => (
           <button onClick={e => callback(e)} className={modalButton}>
             OK
@@ -99,10 +101,11 @@ const Checkout = () => {
     } else if (Object.keys(formErrors).length === 0) {
       setModalContent({
         formErrorsExist: false,
-        message: `Thank you for your order!`,
+        heading: `ORDER PLACED`,
+        message: `Thank you for your order! You will receive an email confirmation shortly.`,
         renderedButton: callback => (
           <Link to="/" onClick={callback} className={modalButton}>
-            OK
+            RETURN HOME
           </Link>
         ),
       })
@@ -485,12 +488,11 @@ const Checkout = () => {
       </Layout>
       <Modal activeStatus={displayModal}>
         <div className={messageBox}>
+          <h3 className={modalHeading}>{modalContent.heading}</h3>
           <p>{modalContent.message}</p>
-          <div className={modalButtonContainer}>
-            {Object.keys(modalContent).length === 0 ? null : (
-              <>{modalContent.renderedButton(closeModal)}</>
-            )}
-          </div>
+          {Object.keys(modalContent).length === 0 ? null : (
+            <>{modalContent.renderedButton(closeModal)}</>
+          )}
         </div>
       </Modal>
     </div>

@@ -24,6 +24,7 @@
   text-decoration: none;
   font-family: "Josefin Sans Regular", Arial, Helvetica, sans-serif;
   color: #333333;
+  box-sizing: border-box;
 }
 
 html,

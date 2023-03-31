@@ -37,11 +37,18 @@
   padding: 0 10px 150px 10px;
 }
 
+.buttonContainer {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
 .submitButton {
   display: inline-block;
-  margin-top: 16px;
-  padding: 16px 25px;
-  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem 1.25rem;
+  font-size: 18px;
   text-align: center;
   color: #f3f3f3;
   background-color: black;
@@ -51,37 +58,36 @@
   cursor: pointer;
 }
 
+.messageBox > .modalHeading {
+  padding-bottom: 1.5rem;
+  font-size: 25px;
+}
+
+@media screen and (min-width: 800px) {
+  .messageBox > .modalHeading {
+    font-size: 30px;
+  }
+}
+
 .messageBox {
-  width: 80%;
-  max-width: 400px;
+  width: 85%;
+  max-width: 350px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2rem;
   background-color: #ffffff;
   font-size: 16px;
   text-align: center;
 }
 
-.modalButtonContainer {
-  padding-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 .modalButton {
+  margin-top: 20px;
   width: 100%;
-  max-width: 300px;
-  padding: 15px 12px;
+  padding: 1rem 1.25rem;
   background-color: black;
   color: #f3f3f3;
   font-size: 18px;
   border-style: none;
   letter-spacing: 1px;
-}
-
-@media screen and (min-width: 800px) {
-  button {
-    font-size: 20px;
-  }
 }
 
 button:hover {

@@ -7,9 +7,10 @@ import {
   container,
   heading,
   content,
+  buttonContainer,
   submitButton,
   messageBox,
-  modalButtonContainer,
+  modalHeading,
   modalButton,
 } from "../styles/contact.module.css"
 import {
@@ -166,12 +167,14 @@ const Contact = () => {
                       />
                     </FormItem>
                   </div>
-                  <input
-                    type="submit"
-                    value="SEND"
-                    className={submitButton}
-                    onClick={e => sendMessage(e)}
-                  />
+                  <div className={buttonContainer}>
+                    <input
+                      type="button"
+                      value="SEND"
+                      className={submitButton}
+                      onClick={e => sendMessage(e)}
+                    />
+                  </div>
                 </div>
               </form>
             </div>
@@ -180,12 +183,11 @@ const Contact = () => {
       </Layout>
       <Modal activeStatus={displayModal}>
         <div className={messageBox}>
+          <h3 className={modalHeading}></h3>
           <p>{formStatus.message}</p>
-          <div className={modalButtonContainer}>
-            <button onClick={e => closeModal(e)} className={modalButton}>
-              OK
-            </button>
-          </div>
+          <button onClick={e => closeModal(e)} className={modalButton}>
+            OK
+          </button>
         </div>
       </Modal>
     </div>
