@@ -12,6 +12,7 @@ import {
   socialMediaContent,
   item,
   socialMediaIcon,
+  iconContainer,
   siteCopyrightContent,
 } from "../styles/footer-content.module.css"
 
@@ -60,9 +61,11 @@ const FooterContent = ({ title }) => {
           <div>
             <ul className={socialMediaContent}>
               {socialMediaIcons.map(icon => (
-                <li key={icon.alt} className={`${item} ${socialMediaIcon}`}>
+                <li key={icon.alt} className={`${socialMediaIcon}`}>
                   <a href={icon.href} target="_blank" rel="noreferrer">
-                    <img src={icon.src} alt={icon.alt} />
+                    <span className={iconContainer}>
+                      <img src={icon.src} alt={icon.alt} />
+                    </span>
                   </a>
                 </li>
               ))}

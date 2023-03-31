@@ -3,6 +3,10 @@
   padding: 100px 0;
 }
 
+.container a {
+  color: #f3f3f3;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -32,16 +36,16 @@
   padding: 0;
 }
 
-.socialMediaContent {
-  display: flex;
-}
-
 .item {
   padding: 8px 0;
 }
 
-.item a {
-  color: #f3f3f3;
+.socialMediaContent {
+  display: flex;
+}
+
+.socialMediaIcon a {
+  display: inline-block;
 }
 
 .socialMediaIcon:first-of-type {
@@ -50,14 +54,18 @@
 }
 
 .socialMediaIcon {
-  width: 30px;
-  height: 30px;
   margin: 0 10px;
 }
 
 .socialMediaIcon img {
   width: 100%;
   height: 100%;
+}
+
+.iconContainer {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
 }
 
 .siteCopyRight {
