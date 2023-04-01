@@ -129,15 +129,15 @@
 }
 
 .buttonContainer {
-  padding-top: 20px;
   display: flex;
   justify-content: center;
 }
 
-button {
+.addToBagButton {
+  margin-top: 20px;
   width: 100%;
-  max-width: 300px;
-  padding: 15px 12px;
+  max-width: 350px;
+  padding: 1rem 1.25rem;
   background-color: black;
   color: #f3f3f3;
   font-size: 18px;
@@ -145,22 +145,6 @@ button {
   letter-spacing: 1px;
 }
 
-@media screen and (min-width: 800px) {
-  button {
-    font-size: 20px;
-  }
-}
-
-button:hover {
+.addToBagButton:hover {
   cursor: pointer;
-}
-
-.messageBox {
-  width: 80%;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  background-color: #ffffff;
-  font-size: 16px;
-  text-align: center;
 }

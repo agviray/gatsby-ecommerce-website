@@ -25,11 +25,15 @@ import {
   price,
   sizeOptions,
   option,
-  activeSize,
   buttonContainer,
-  messageBox,
-  error,
+  addToBagButton,
+  activeSize,
 } from "../styles/product-details.module.css"
+import {
+  messageBox,
+  modalHeading,
+  modalButton,
+} from "../styles/modal.module.css"
 
 const initialSelection = {
   name: "",
@@ -87,9 +91,6 @@ const ProductDetails = ({ data }) => {
     }
   }, [selection])
 
-  // *** About useEffect's contents ***
-  // - Updates selection size value when user selects or changes their
-  //   size selection.
   useEffect(() => {
     if (selectedSize === "") {
       return
@@ -272,16 +273,18 @@ const ProductDetails = ({ data }) => {
                 </div>
               ) : null}
 
-              <BagContext.Consumer>
-                {value => (
-                  <div
-                    onClick={e => addItemToBag(e, selection, value)}
-                    className={buttonContainer}
-                  >
-                    <button>ADD TO BAG</button>
-                  </div>
-                )}
-              </BagContext.Consumer>
+              <div className={buttonContainer}>
+                <BagContext.Consumer>
+                  {value => (
+                    <button
+                      onClick={e => addItemToBag(e, selection, value)}
+                      className={addToBagButton}
+                    >
+                      ADD TO BAG
+                    </button>
+                  )}
+                </BagContext.Consumer>
+              </div>
             </div>
           </div>
         </div>
@@ -289,31 +292,29 @@ const ProductDetails = ({ data }) => {
       <Modal activeStatus={isError}>
         <div className={messageBox}>
           <p>Please select a size</p>
-          <div className={buttonContainer}>
-            <button
-              onClick={e => {
-                e.preventDefault()
-                setIsError(false)
-              }}
-            >
-              OK
-            </button>
-          </div>
+          <button
+            onClick={e => {
+              e.preventDefault()
+              setIsError(false)
+            }}
+            className={modalButton}
+          >
+            OK
+          </button>
         </div>
       </Modal>
       <Modal activeStatus={isSuccessful}>
         <div className={messageBox}>
           <p>Item "{product.name}" was added to your bag</p>
-          <div className={buttonContainer}>
-            <button
-              onClick={e => {
-                e.preventDefault()
-                setIsSuccessful(false)
-              }}
-            >
-              OK
-            </button>
-          </div>
+          <button
+            onClick={e => {
+              e.preventDefault()
+              setIsSuccessful(false)
+            }}
+            className={modalButton}
+          >
+            OK
+          </button>
         </div>
       </Modal>
     </div>

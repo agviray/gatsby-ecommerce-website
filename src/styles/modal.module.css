@@ -56,3 +56,7 @@
   border-style: none;
   letter-spacing: 1px;
 }
+
+.modalButton:hover {
+  cursor: pointer;
+}
