@@ -6,14 +6,16 @@ import {
   hidden,
   quantityAmount,
   removeButton,
-  confirmationBox,
-  question,
   contentContainer,
   imageContainer,
   detail,
-  buttonContainer,
   cancelButton,
 } from "../styles/quantity-editor.module.css"
+import {
+  messageBox,
+  modalHeading,
+  modalButton,
+} from "../styles/modal.module.css"
 import { BagContext } from "./BagContextComponent"
 import Modal from "./Modal"
 
@@ -21,7 +23,7 @@ const initialItemToRemove = {}
 
 const QuantityEditor = ({ item }) => {
   const [itemToRemove, setItemToRemove] = useState(initialItemToRemove)
-  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
+  const [displayModal, setDisplayModal] = useState(false)
 
   const decreaseQty = (item, qty, bagContext) => {
     let currentBagItems = [...bagContext.itemsInBag]
@@ -49,7 +51,7 @@ const QuantityEditor = ({ item }) => {
 
   const displayConfirmation = (status, item) => {
     setItemToRemove({ ...item })
-    setIsConfirmationOpen(status)
+    setDisplayModal(status)
   }
 
   const removeItemFromBag = (e, item, bagContext) => {
@@ -94,9 +96,9 @@ const QuantityEditor = ({ item }) => {
             >
               Remove
             </span>
-            <Modal activeStatus={isConfirmationOpen}>
-              <div className={confirmationBox}>
-                <p className={question}>Remove this item from your bag?</p>
+            <Modal activeStatus={displayModal}>
+              <div className={messageBox}>
+                <p className={modalHeading}>Remove this item?</p>
                 {Object.keys(itemToRemove).length === 0 ? null : (
                   <div className={contentContainer}>
                     <div className={imageContainer}>
@@ -112,20 +114,21 @@ const QuantityEditor = ({ item }) => {
                     </div>
                   </div>
                 )}
-                <div className={buttonContainer}>
-                  <button onClick={e => removeItemFromBag(e, item, value)}>
-                    REMOVE ITEM
-                  </button>
-                  <button
-                    onClick={e => {
-                      e.preventDefault()
-                      displayConfirmation(false, initialItemToRemove)
-                    }}
-                    className={cancelButton}
-                  >
-                    CANCEL
-                  </button>
-                </div>
+                <button
+                  onClick={e => removeItemFromBag(e, item, value)}
+                  className={modalButton}
+                >
+                  REMOVE ITEM
+                </button>
+                <button
+                  onClick={e => {
+                    e.preventDefault()
+                    displayConfirmation(false, initialItemToRemove)
+                  }}
+                  className={cancelButton}
+                >
+                  CANCEL
+                </button>
               </div>
             </Modal>
           </>

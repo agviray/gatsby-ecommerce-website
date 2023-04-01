@@ -41,71 +41,55 @@
   cursor: pointer;
 }
 
-.confirmationBox {
-  width: 80%;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  background-color: #ffffff;
-  text-align: center;
-  font-size: 16px;
-}
-
-.confirmationBox .question {
+.question {
   font-size: 18px;
 }
 
 @media screen and (min-width: 800px) {
-  .confirmationBox .question {
+  .question {
     font-size: 20px;
   }
 }
 
-.confirmationBox > .contentContainer {
-  margin-top: 2rem;
+.contentContainer {
   display: flex;
   gap: 1rem;
 }
 
-.confirmationBox .detail {
+.detail {
   text-align: left;
 }
 
-.confirmationBox h3 {
+.detail h3 {
   padding-bottom: 1rem;
   font-size: 18px;
   text-align: left;
   display: inline-block;
 }
 
-.confirmationBox .imageContainer {
+.imageContainer {
   position: relative;
   width: 50%;
   min-width: 67px;
 }
 
-.confirmationBox .imageContainer img {
+.imageContainer img {
   width: 100%;
 }
 
 @media screen and (min-width: 350px) {
-  .confirmationBox .imageContainer {
+  .imageContainer {
     width: 25%;
   }
 }
 
-.confirmationBox > .buttonContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.confirmationBox > .buttonContainer button {
-  margin-top: 1rem;
-}
-
-.confirmationBox > .buttonContainer button.cancelButton {
-  background-color: #f3f3f3;
-  color: black;
+.cancelButton {
+  margin-top: 20px;
+  width: 100%;
+  padding: 1rem 1.25rem;
   background-color: white;
+  color: black;
+  font-size: 18px;
   border: 1px solid black;
+  letter-spacing: 1px;
 }
