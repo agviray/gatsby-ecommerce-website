@@ -9,10 +9,12 @@ import {
   content,
   buttonContainer,
   submitButton,
+} from "../styles/contact.module.css"
+import {
   messageBox,
   modalHeading,
   modalButton,
-} from "../styles/contact.module.css"
+} from "../styles/modal.module.css"
 import {
   formContainer,
   formHeading,

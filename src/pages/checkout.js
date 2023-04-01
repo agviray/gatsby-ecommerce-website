@@ -20,10 +20,12 @@ import {
   formTextInput,
   buttonContainer,
   submitButton,
+} from "../styles/checkout.module.css"
+import {
   messageBox,
   modalHeading,
   modalButton,
-} from "../styles/checkout.module.css"
+} from "../styles/modal.module.css"
 import { formContent } from "../styles/form.module.css"
 import {
   breadcrumbsContainer,

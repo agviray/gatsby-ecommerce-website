@@ -164,36 +164,3 @@
     width: 100%;
   }
 }
-
-.messageBox {
-  width: 85%;
-  max-width: 350px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  font-size: 16px;
-  text-align: center;
-}
-
-.messageBox > .modalHeading {
-  padding-bottom: 1.5rem;
-  font-size: 25px;
-}
-
-@media screen and (min-width: 800px) {
-  .messageBox > .modalHeading {
-    font-size: 30px;
-  }
-}
-
-.modalButton {
-  display: inline-block;
-  width: 100%;
-  margin-top: 20px;
-  padding: 1rem 1.25rem;
-  background-color: black;
-  color: #f3f3f3;
-  font-size: 18px;
-  border-style: none;
-  letter-spacing: 1px;
-}
