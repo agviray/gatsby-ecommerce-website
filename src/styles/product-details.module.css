@@ -69,14 +69,14 @@
   }
 }
 
-.productName > span {
+.productName {
   font-size: 20px;
   letter-spacing: 0.8px;
   line-height: 1.5;
 }
 
 @media screen and (min-width: 800px) {
-  .productName span {
+  .productName {
     font-size: 25px;
   }
 }

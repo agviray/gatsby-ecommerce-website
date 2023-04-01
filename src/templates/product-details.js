@@ -29,11 +29,7 @@ import {
   addToBagButton,
   activeSize,
 } from "../styles/product-details.module.css"
-import {
-  messageBox,
-  modalHeading,
-  modalButton,
-} from "../styles/modal.module.css"
+import { messageBox, modalButton } from "../styles/modal.module.css"
 
 const initialSelection = {
   name: "",
@@ -48,8 +44,9 @@ const initialSelectedSize = ""
 const ProductDetails = ({ data }) => {
   const [selection, setSelection] = useState(initialSelection)
   const [selectedSize, setSelectedSize] = useState(initialSelectedSize)
-  const [isError, setIsError] = useState(false)
-  const [isSuccessful, setIsSuccessful] = useState(false)
+  const [modalContent, setModalContent] = useState({})
+  const [displayModal, setDisplayModal] = useState(false)
+
   const product = data.product.frontmatter
   const name = product.name.toUpperCase()
   const department = product.department.toUpperCase()
@@ -63,7 +60,10 @@ const ProductDetails = ({ data }) => {
       if (updateStatus === true) {
         const newBagToStore = { ...storedBag, isBagUpdated: false }
         localStorage.setItem("bag", JSON.stringify({ ...newBagToStore }))
-        setIsSuccessful(true)
+        setModalContent({
+          doesErrorExist: false,
+          message: `Item "${product.name}" was added to your bag`,
+        })
       }
     }
   })
@@ -102,14 +102,22 @@ const ProductDetails = ({ data }) => {
   }, [selectedSize])
 
   useEffect(() => {
-    if (isError) {
+    if (displayModal) {
       document.body.style.overflow = "hidden"
     }
 
-    if (!isError) {
+    if (!displayModal) {
       document.body.style.overflow = "visible"
     }
-  }, [isError])
+  }, [displayModal])
+
+  useEffect(() => {
+    if (Object.keys(modalContent).length === 0) {
+      setDisplayModal(false)
+    } else {
+      setDisplayModal(true)
+    }
+  }, [modalContent])
 
   // *** About productImages ***
   // - productImages contains the same image with an overlay to
@@ -193,7 +201,10 @@ const ProductDetails = ({ data }) => {
     let itemToAddIsCopy = false
 
     if (itemToAdd.size === "") {
-      setIsError(true)
+      setModalContent({
+        doesErrorExist: true,
+        message: `Please select a size`,
+      })
       return
     }
 
@@ -230,91 +241,77 @@ const ProductDetails = ({ data }) => {
     <div className={wrapper}>
       <Layout>
         <div className={container}>
-          <div className={breadcrumbsContainer}>
-            <ul className={breadcrumbs}>
-              <li className={crumb}>
-                <Link to="/">
-                  <span>Home</span>
-                </Link>
-              </li>
-              <li className={crumb}>
-                <Link to={`/${product.department}`}>
-                  <span>{department}</span>
-                </Link>
-              </li>
-              <li className={crumb}>
-                <Link to={`/${product.department}/${product.type}`}>
-                  {category}
-                </Link>
-              </li>
-              <li className={crumb}>{product.name}</li>
-            </ul>
-          </div>
-          <div className={contents}>
-            <div>
-              <ProductDetailsImages allProductImages={productImages} />
+          <section>
+            <div className={breadcrumbsContainer}>
+              <ul className={breadcrumbs}>
+                <li className={crumb}>
+                  <Link to="/">
+                    <span>Home</span>
+                  </Link>
+                </li>
+                <li className={crumb}>
+                  <Link to={`/${product.department}`}>
+                    <span>{department}</span>
+                  </Link>
+                </li>
+                <li className={crumb}>
+                  <Link to={`/${product.department}/${product.type}`}>
+                    {category}
+                  </Link>
+                </li>
+                <li className={crumb}>{product.name}</li>
+              </ul>
             </div>
-            <div className={detailsContainer}>
-              <div className={productName}>
-                <span>{name}</span>
+          </section>
+          <section>
+            <div className={contents}>
+              <div>
+                <ProductDetailsImages allProductImages={productImages} />
               </div>
-              <div className={price}>{product.price}</div>
-              <div className={description}>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut,
-                  alias dolores sed molestias nobis minus debitis asperiores
-                  fugit blanditiis beatae corporis aliquam provident! Vero amet
-                  sint ullam dicta repudiandae hic.
-                </p>
-              </div>
-              {product.allProductSizes ? (
-                <div className={sizeOptions}>
-                  {renderProductSizes(product.allProductSizes)}
+              <div className={detailsContainer}>
+                <h2 className={productName}>{name}</h2>
+                <div className={price}>{product.price}</div>
+                <div className={description}>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Aut, alias dolores sed molestias nobis minus debitis
+                    asperiores fugit blanditiis beatae corporis aliquam
+                    provident! Vero amet sint ullam dicta repudiandae hic.
+                  </p>
                 </div>
-              ) : null}
-
-              <div className={buttonContainer}>
-                <BagContext.Consumer>
-                  {value => (
-                    <button
-                      onClick={e => addItemToBag(e, selection, value)}
-                      className={addToBagButton}
-                    >
-                      ADD TO BAG
-                    </button>
-                  )}
-                </BagContext.Consumer>
+                <div>
+                  <p>Select a size</p>
+                  {product.allProductSizes ? (
+                    <div className={sizeOptions}>
+                      {renderProductSizes(product.allProductSizes)}
+                    </div>
+                  ) : null}
+                </div>
+                <div className={buttonContainer}>
+                  <BagContext.Consumer>
+                    {value => (
+                      <button
+                        onClick={e => addItemToBag(e, selection, value)}
+                        className={addToBagButton}
+                      >
+                        ADD TO BAG
+                      </button>
+                    )}
+                  </BagContext.Consumer>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </Layout>
-      <Modal activeStatus={isError}>
+      <Modal activeStatus={displayModal}>
         <div className={messageBox}>
-          <p>Please select a size</p>
-          <button
-            onClick={e => {
-              e.preventDefault()
-              setIsError(false)
-            }}
-            className={modalButton}
-          >
-            OK
-          </button>
-        </div>
-      </Modal>
-      <Modal activeStatus={isSuccessful}>
-        <div className={messageBox}>
-          <p>Item "{product.name}" was added to your bag</p>
-          <button
-            onClick={e => {
-              e.preventDefault()
-              setIsSuccessful(false)
-            }}
-            className={modalButton}
-          >
-            OK
-          </button>
+          <p>{modalContent.message}</p>
+          {Object.keys(modalContent).length === 0 ? null : (
+            <button onClick={e => setModalContent({})} className={modalButton}>
+              OK
+            </button>
+          )}
         </div>
       </Modal>
     </div>
