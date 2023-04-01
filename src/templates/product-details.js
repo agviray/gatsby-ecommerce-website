@@ -280,7 +280,7 @@ const ProductDetails = ({ data }) => {
                   </p>
                 </div>
                 <div>
-                  <p>Select a size</p>
+                  {selectedSize === null ? null : <p>Select a size</p>}
                   {product.allProductSizes ? (
                     <div className={sizeOptions}>
                       {renderProductSizes(product.allProductSizes)}
