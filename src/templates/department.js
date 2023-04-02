@@ -37,88 +37,100 @@ export default function Department({ data }) {
   const renderMobileContent = () => {
     return categories.map(category => (
       <Link
-        to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
         key={category.id}
+        to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
       >
-        <div className={categoryImageContainer}>
-          <GatsbyImage
-            className={
-              windowDimensions.height > windowDimensions.width
-                ? mobilePortrait
-                : null
-            }
-            image={
-              category.frontmatter.thumbnail.childImageSharp.gatsbyImageData
-            }
-            alt={"category thumbnail"}
-            placeholder="blurred"
-            objectFit="cover"
-            objectPosition={"50% 50%"}
-          />
-          <div className={categoryOverlay}>
-            <div className={textContainer}>
-              <span className={text}>{category.frontmatter.name}</span>
+        <figure>
+          <div className={categoryImageContainer}>
+            <GatsbyImage
+              className={
+                windowDimensions.height > windowDimensions.width
+                  ? mobilePortrait
+                  : null
+              }
+              image={
+                category.frontmatter.thumbnail.childImageSharp.gatsbyImageData
+              }
+              alt={"category thumbnail"}
+              placeholder="blurred"
+              objectFit="cover"
+              objectPosition={"50% 50%"}
+            />
+            <div className={categoryOverlay}>
+              <div className={textContainer}>
+                <span className={text}>{category.frontmatter.name}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </figure>
       </Link>
     ))
   }
 
   const renderDesktopContent = () => {
     return categories.map(category => (
-      <div key={category.id} className={container}>
-        <Link
-          to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
-        >
-          <div className={`${textBlock} ${categoryBlock}`}>
-            <div className={textBlockContent}>{category.frontmatter.name}</div>
-          </div>
-        </Link>
-        <CategoryProductSnippets
-          categorySlug={category.frontmatter.slug}
-          categoryProducts={categoryProducts}
-        />
-        <Link
-          to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
-        >
-          <div className={`${textBlock} ${moreBlock}`}>
-            <div className={textBlockContent}>
-              <span>MORE</span>
-              <span className={arrow}></span>
+      <section key={category.id}>
+        <div key={category.id} className={container}>
+          <Link
+            to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+          >
+            <div className={`${textBlock} ${categoryBlock}`}>
+              <div className={textBlockContent}>
+                {category.frontmatter.name}
+              </div>
             </div>
-          </div>
-        </Link>
-      </div>
+          </Link>
+          <CategoryProductSnippets
+            categorySlug={category.frontmatter.slug}
+            categoryProducts={categoryProducts}
+          />
+          <Link
+            to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
+          >
+            <div className={`${textBlock} ${moreBlock}`}>
+              <div className={textBlockContent}>
+                <span>MORE</span>
+                <span className={arrow}></span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
     ))
   }
 
   return (
     <Layout>
-      <div className={departmentContainer}>
-        {windowDimensions.width >= 800 ? (
-          <div className={departmentHeading}>
-            <h2>{department.name}</h2>
+      <section>
+        <div className={departmentContainer}>
+          {windowDimensions.width >= 800 ? (
+            <div className={departmentHeading}>
+              <h2>{department.name}</h2>
+            </div>
+          ) : null}
+          <div className={categoriesContainer}>
+            <section>
+              <div className={breadcrumbsContainer}>
+                <ul className={breadcrumbs}>
+                  <li className={crumb}>
+                    <Link to="/">
+                      <span>Home</span>
+                    </Link>
+                  </li>
+                  <li className={crumb}>
+                    <span>{departmentName}</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              {windowDimensions.width < 800
+                ? renderMobileContent()
+                : renderDesktopContent()}
+            </section>
           </div>
-        ) : null}
-        <div className={categoriesContainer}>
-          <div className={breadcrumbsContainer}>
-            <ul className={breadcrumbs}>
-              <li className={crumb}>
-                <Link to="/">
-                  <span>Home</span>
-                </Link>
-              </li>
-              <li className={crumb}>
-                <span>{departmentName}</span>
-              </li>
-            </ul>
-          </div>
-          {windowDimensions.width < 800
-            ? renderMobileContent()
-            : renderDesktopContent()}
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

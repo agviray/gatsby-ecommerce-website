@@ -38,47 +38,55 @@ const currentYear = new Date().getFullYear()
 
 const FooterContent = ({ title }) => {
   return (
-    <div id="footer" className={container}>
-      <div className={content}>
-        <div className={contentBlock}>
-          <h4 className={blockHeading}>MORE INFO</h4>
-          <div>
-            <ul className={companyInfoContent}>
-              <li className={item}>
-                <Link to={"/contact"}>CONTACT</Link>
-              </li>
-              <li className={item}>
-                <Link to={"/about"}>ABOUT</Link>
-              </li>
-              <li className={item}>
-                <a href="/faq">FAQ</a>
-              </li>
-            </ul>
+    <section>
+      <div id="footer" className={container}>
+        <div className={content}>
+          <div className={contentBlock}>
+            <article>
+              <h4 className={blockHeading}>MORE INFO</h4>
+              <div>
+                <ul className={companyInfoContent}>
+                  <li className={item}>
+                    <Link to={"/contact"}>CONTACT</Link>
+                  </li>
+                  <li className={item}>
+                    <Link to={"/about"}>ABOUT</Link>
+                  </li>
+                  <li className={item}>
+                    <a href="/faq">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+            </article>
           </div>
-        </div>
-        <div className={contentBlock}>
-          <h4 className={blockHeading}>GET CONNECTED</h4>
-          <div>
-            <ul className={socialMediaContent}>
-              {socialMediaIcons.map(icon => (
-                <li key={icon.alt} className={`${socialMediaIcon}`}>
-                  <a href={icon.href} target="_blank" rel="noreferrer">
-                    <span className={iconContainer}>
-                      <img src={icon.src} alt={icon.alt} />
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className={contentBlock}>
+            <article>
+              <h4 className={blockHeading}>GET CONNECTED</h4>
+              <div>
+                <ul className={socialMediaContent}>
+                  {socialMediaIcons.map(icon => (
+                    <li key={icon.alt} className={`${socialMediaIcon}`}>
+                      <a href={icon.href} target="_blank" rel="noreferrer">
+                        <span className={iconContainer}>
+                          <img src={icon.src} alt={icon.alt} />
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           </div>
-        </div>
-        <div className={contentBlock}>
-          <div className={siteCopyrightContent}>
-            &copy; {currentYear} {title}
+          <div className={contentBlock}>
+            <article>
+              <div className={siteCopyrightContent}>
+                &copy; {currentYear} {title}
+              </div>
+            </article>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

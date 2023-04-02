@@ -16,7 +16,7 @@ const HomeAccessoriesSection = () => {
   const desktopImage = "../departments/images/home-accessories-collage.png"
 
   const renderedMobileImage = (
-    <>
+    <figure>
       <StaticImage
         className={mobileStaticImage}
         src={mobileImage}
@@ -24,11 +24,11 @@ const HomeAccessoriesSection = () => {
         objectFit="cover"
         objectPosition={"top"}
       />
-    </>
+    </figure>
   )
 
   const renderedMobileLandscapeImage = (
-    <>
+    <figure>
       <StaticImage
         className={mobileStaticImage}
         src={mobileLandscapeImage}
@@ -36,11 +36,11 @@ const HomeAccessoriesSection = () => {
         placeholder="blurred"
         layout="fullWidth"
       />
-    </>
+    </figure>
   )
 
   const renderedDesktopImage = (
-    <>
+    <figure>
       <StaticImage
         src={desktopImage}
         alt="collage of people and accessories"
@@ -48,7 +48,7 @@ const HomeAccessoriesSection = () => {
         objectFit="cover"
         objectPosition={"50% 50%"}
       />
-    </>
+    </figure>
   )
 
   const showMobileImage = () => {

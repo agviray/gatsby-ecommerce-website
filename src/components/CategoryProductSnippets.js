@@ -28,20 +28,22 @@ const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
         to={`/${product.department}/${product.type}/${product.slug}`}
         className={link}
       >
-        <div className={imageContainer}>
-          <GatsbyImage
-            className={image}
-            image={product.images[0].childImageSharp.gatsbyImageData}
-            alt={product.name}
-            placeholder="blurred"
-            objectFit="cover"
-            objectPosition={"50% 50%"}
-          />
-          <div className={imageOverlay}>
-            <span className={productName}>{product.name}</span>
-            <span className={productPrice}>{product.price}</span>
+        <figure>
+          <div className={imageContainer}>
+            <GatsbyImage
+              className={image}
+              image={product.images[0].childImageSharp.gatsbyImageData}
+              alt={product.name}
+              placeholder="blurred"
+              objectFit="cover"
+              objectPosition={"50% 50%"}
+            />
+            <div className={imageOverlay}>
+              <span className={productName}>{product.name}</span>
+              <span className={productPrice}>{product.price}</span>
+            </div>
           </div>
-        </div>
+        </figure>
       </Link>
     ))
   }

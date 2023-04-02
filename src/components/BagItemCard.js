@@ -20,7 +20,9 @@ const BagItemCard = ({ item }) => {
             className={itemLink}
             to={`/${item.department}/${item.type}/${item.slug}`}
           >
-            <img src={item.image.images.fallback.src} alt={item.name} />
+            <figure>
+              <img src={item.image.images.fallback.src} alt={item.name} />
+            </figure>
           </Link>
         </div>
         <div className={detail}>

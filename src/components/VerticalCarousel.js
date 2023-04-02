@@ -136,7 +136,7 @@ const VerticalCarousel = ({ allSlides }) => {
               className={slide}
               style={applySlideDimensionStyles()}
             >
-              {stateSlide.content()}
+              <figure>{stateSlide.content()}</figure>
             </div>
           ))}
         </div>

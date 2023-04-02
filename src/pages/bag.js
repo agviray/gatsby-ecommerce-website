@@ -27,7 +27,9 @@ const Bag = () => {
           <h2>QTY</h2>
         </div>
         {itemsToRender.map((item, index) => (
-          <BagItemCard key={index} item={item} />
+          <article key={index}>
+            <BagItemCard item={item} />
+          </article>
         ))}
       </>
     )
@@ -41,7 +43,9 @@ const Bag = () => {
     }
     return (
       <div>
-        <OrderSummary bagContext={bagContext} />
+        <article>
+          <OrderSummary bagContext={bagContext} />
+        </article>
         <div className={buttonContainer}>
           <Link to="/checkout" className={checkoutLink}>
             CHECKOUT
@@ -53,21 +57,23 @@ const Bag = () => {
 
   return (
     <Layout>
-      <div className={container}>
-        <div className={heading}>
-          <h2>SHOPPING BAG</h2>
-        </div>
-        <div className={content}>
-          <div className={`${contentBlock}`}>
+      <section>
+        <div className={container}>
+          <div className={heading}>
+            <h2>SHOPPING BAG</h2>
+          </div>
+          <div className={content}>
+            <div className={`${contentBlock}`}>
+              <BagContext.Consumer>
+                {value => renderItems([...value.itemsInBag])}
+              </BagContext.Consumer>
+            </div>
             <BagContext.Consumer>
-              {value => renderItems([...value.itemsInBag])}
+              {value => renderOrderSummary(value)}
             </BagContext.Consumer>
           </div>
-          <BagContext.Consumer>
-            {value => renderOrderSummary(value)}
-          </BagContext.Consumer>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

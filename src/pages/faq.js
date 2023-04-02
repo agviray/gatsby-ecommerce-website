@@ -76,18 +76,22 @@ const Faq = () => {
   ]
   return (
     <Layout>
-      <div className={container}>
-        <div className={content}>
-          <div className={heading}>
-            <h2>FAQ</h2>
-          </div>
-          <div className="body">
-            {allFaqContent.map((content, index) => (
-              <Accordion key={index} accordionContent={content} />
-            ))}
+      <section>
+        <div className={container}>
+          <div className={content}>
+            <div className={heading}>
+              <h2>FAQ</h2>
+            </div>
+            <div className="body">
+              {allFaqContent.map((content, index) => (
+                <article key={index}>
+                  <Accordion accordionContent={content} />
+                </article>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

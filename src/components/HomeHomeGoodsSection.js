@@ -13,7 +13,7 @@ const HomeHomeGoodsSection = () => {
   const desktopImage = "../departments/images/home-home-goods-desktop.jpg"
 
   const renderedMobileImage = (
-    <>
+    <figure>
       <StaticImage
         className={mobileStaticImage}
         src={mobileImage}
@@ -22,11 +22,11 @@ const HomeHomeGoodsSection = () => {
         objectFit="cover"
         objectPosition={"top"}
       />
-    </>
+    </figure>
   )
 
   const renderedDesktopImage = (
-    <>
+    <figure>
       <StaticImage
         className={`${
           windowDimensions.width < 800 &&
@@ -39,7 +39,7 @@ const HomeHomeGoodsSection = () => {
         placeholder="blurred"
         layout="fullWidth"
       />
-    </>
+    </figure>
   )
 
   const showMobileImage = () => {

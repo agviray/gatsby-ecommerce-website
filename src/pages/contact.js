@@ -77,114 +77,119 @@ const Contact = () => {
   return (
     <div className={contactWrapper}>
       <Layout>
-        <div className={container}>
-          <div className={heading}>
-            <h2>CONTACT</h2>
-          </div>
-          <div className={content}>
-            <div className={formContainer}>
-              <form onSubmit={e => sendMessage(e)}>
-                <h3 className={formHeading}>SEND US A MESSAGE</h3>
-                <div className={formContent}>
-                  <div className={formItemWrapper}>
-                    <FormItem
-                      error={formErrors.name ? formErrors.name : null}
-                      isErrorVisible={formErrors.name ? true : false}
-                    >
-                      <label className={formLabel} htmlFor="ContactFormName">
-                        NAME
-                      </label>
+        <section>
+          <div className={container}>
+            <div className={heading}>
+              <h2>CONTACT</h2>
+            </div>
+            <div className={content}>
+              <div className={formContainer}>
+                <form onSubmit={e => sendMessage(e)}>
+                  <h3 className={formHeading}>SEND US A MESSAGE</h3>
+                  <div className={formContent}>
+                    <div className={formItemWrapper}>
+                      <FormItem
+                        error={formErrors.name ? formErrors.name : null}
+                        isErrorVisible={formErrors.name ? true : false}
+                      >
+                        <label className={formLabel} htmlFor="ContactFormName">
+                          NAME
+                        </label>
+                        <input
+                          className={formTextInput}
+                          type="text"
+                          id="ContactFormName"
+                          placeholder="NAME"
+                          name="name"
+                          value={formValues.name ? formValues.name : ""}
+                          onChange={e => updateFormValues(e)}
+                          onFocus={e => clearError(e)}
+                          onBlur={e => updateFormValues(e)}
+                        />
+                      </FormItem>
+                    </div>
+                    <div className={formItemWrapper}>
+                      <FormItem
+                        error={formErrors.email ? formErrors.email : null}
+                        isErrorVisible={formErrors.email ? true : false}
+                      >
+                        <label className={formLabel} htmlFor="ContactFormEmail">
+                          EMAIL
+                        </label>
+                        <input
+                          className={formTextInput}
+                          type="text"
+                          id="ContactFormEmail"
+                          placeholder="EMAIL"
+                          name="email"
+                          value={formValues.email ? formValues.email : ""}
+                          onChange={e => updateFormValues(e)}
+                          onFocus={e => clearError(e)}
+                          onBlur={e => updateFormValues(e)}
+                        />
+                      </FormItem>
+                    </div>
+                    <div className={formItemWrapper}>
+                      <FormItem
+                        error={formErrors.phone ? formErrors.phone : null}
+                        isErrorVisible={formErrors.phone ? true : false}
+                      >
+                        {" "}
+                        <label className={formLabel} htmlFor="ContactFormPhone">
+                          PHONE
+                        </label>
+                        <input
+                          className={formTextInput}
+                          type="text"
+                          maxLength={10}
+                          id="ContactFormPhone"
+                          placeholder="PHONE"
+                          name="phone"
+                          value={formValues.phone ? formValues.phone : ""}
+                          onChange={e => updateFormValues(e)}
+                          onFocus={e => clearError(e)}
+                          onBlur={e => updateFormValues(e)}
+                        />
+                      </FormItem>
+                    </div>
+                    <div className={formItemWrapper}>
+                      <FormItem
+                        error={formErrors.message ? formErrors.message : null}
+                        isErrorVisible={formErrors.message ? true : false}
+                      >
+                        <label
+                          className={formLabel}
+                          htmlFor="ContactFormMessage"
+                        >
+                          MESSAGE
+                        </label>
+                        <textarea
+                          className={formTextarea}
+                          rows="10"
+                          id="ContactFormMessage"
+                          placeholder="MESSAGE"
+                          name="message"
+                          value={formValues.message ? formValues.message : ""}
+                          onChange={e => updateFormValues(e)}
+                          onFocus={e => clearError(e)}
+                          onBlur={e => updateFormValues(e)}
+                        />
+                      </FormItem>
+                    </div>
+                    <div className={buttonContainer}>
                       <input
-                        className={formTextInput}
-                        type="text"
-                        id="ContactFormName"
-                        placeholder="NAME"
-                        name="name"
-                        value={formValues.name ? formValues.name : ""}
-                        onChange={e => updateFormValues(e)}
-                        onFocus={e => clearError(e)}
-                        onBlur={e => updateFormValues(e)}
+                        type="button"
+                        value="SEND"
+                        className={submitButton}
+                        onClick={e => sendMessage(e)}
                       />
-                    </FormItem>
+                    </div>
                   </div>
-                  <div className={formItemWrapper}>
-                    <FormItem
-                      error={formErrors.email ? formErrors.email : null}
-                      isErrorVisible={formErrors.email ? true : false}
-                    >
-                      <label className={formLabel} htmlFor="ContactFormEmail">
-                        EMAIL
-                      </label>
-                      <input
-                        className={formTextInput}
-                        type="text"
-                        id="ContactFormEmail"
-                        placeholder="EMAIL"
-                        name="email"
-                        value={formValues.email ? formValues.email : ""}
-                        onChange={e => updateFormValues(e)}
-                        onFocus={e => clearError(e)}
-                        onBlur={e => updateFormValues(e)}
-                      />
-                    </FormItem>
-                  </div>
-                  <div className={formItemWrapper}>
-                    <FormItem
-                      error={formErrors.phone ? formErrors.phone : null}
-                      isErrorVisible={formErrors.phone ? true : false}
-                    >
-                      {" "}
-                      <label className={formLabel} htmlFor="ContactFormPhone">
-                        PHONE
-                      </label>
-                      <input
-                        className={formTextInput}
-                        type="text"
-                        maxLength={10}
-                        id="ContactFormPhone"
-                        placeholder="PHONE"
-                        name="phone"
-                        value={formValues.phone ? formValues.phone : ""}
-                        onChange={e => updateFormValues(e)}
-                        onFocus={e => clearError(e)}
-                        onBlur={e => updateFormValues(e)}
-                      />
-                    </FormItem>
-                  </div>
-                  <div className={formItemWrapper}>
-                    <FormItem
-                      error={formErrors.message ? formErrors.message : null}
-                      isErrorVisible={formErrors.message ? true : false}
-                    >
-                      <label className={formLabel} htmlFor="ContactFormMessage">
-                        MESSAGE
-                      </label>
-                      <textarea
-                        className={formTextarea}
-                        rows="10"
-                        id="ContactFormMessage"
-                        placeholder="MESSAGE"
-                        name="message"
-                        value={formValues.message ? formValues.message : ""}
-                        onChange={e => updateFormValues(e)}
-                        onFocus={e => clearError(e)}
-                        onBlur={e => updateFormValues(e)}
-                      />
-                    </FormItem>
-                  </div>
-                  <div className={buttonContainer}>
-                    <input
-                      type="button"
-                      value="SEND"
-                      className={submitButton}
-                      onClick={e => sendMessage(e)}
-                    />
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </Layout>
       <Modal activeStatus={displayModal}>
         <div className={messageBox}>

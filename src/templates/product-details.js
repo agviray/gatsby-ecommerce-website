@@ -126,51 +126,61 @@ const ProductDetails = ({ data }) => {
     {
       imageNumber: "Image #1",
       content: () => (
-        <GatsbyImage
-          image={product.images[0].childImageSharp.gatsbyImageData}
-          alt={product.slug}
-          className={productImage}
-        />
+        <figure>
+          <GatsbyImage
+            image={product.images[0].childImageSharp.gatsbyImageData}
+            alt={product.slug}
+            className={productImage}
+          />
+        </figure>
       ),
     },
     {
       imageNumber: "Image #2",
       content: () => (
-        <GatsbyImage
-          image={product.images[0].childImageSharp.gatsbyImageData}
-          alt={product.slug}
-          className={`${productImage} ${productImage02}`}
-        />
+        <figure>
+          <GatsbyImage
+            image={product.images[0].childImageSharp.gatsbyImageData}
+            alt={product.slug}
+            className={`${productImage} ${productImage02}`}
+          />
+        </figure>
       ),
     },
     {
       imageNumber: "Image #3",
       content: () => (
-        <GatsbyImage
-          image={product.images[0].childImageSharp.gatsbyImageData}
-          alt={product.slug}
-          className={`${productImage} ${productImage03}`}
-        />
+        <figure>
+          <GatsbyImage
+            image={product.images[0].childImageSharp.gatsbyImageData}
+            alt={product.slug}
+            className={`${productImage} ${productImage03}`}
+          />
+        </figure>
       ),
     },
     {
       imageNumber: "Image #4",
       content: () => (
-        <GatsbyImage
-          image={product.images[0].childImageSharp.gatsbyImageData}
-          alt={product.slug}
-          className={`${productImage} ${productImage04}`}
-        />
+        <figure>
+          <GatsbyImage
+            image={product.images[0].childImageSharp.gatsbyImageData}
+            alt={product.slug}
+            className={`${productImage} ${productImage04}`}
+          />
+        </figure>
       ),
     },
     {
       imageNumber: "Image #5",
       content: () => (
-        <GatsbyImage
-          image={product.images[0].childImageSharp.gatsbyImageData}
-          alt={product.slug}
-          className={`${productImage} ${productImage05}`}
-        />
+        <figure>
+          <GatsbyImage
+            image={product.images[0].childImageSharp.gatsbyImageData}
+            alt={product.slug}
+            className={`${productImage} ${productImage05}`}
+          />
+        </figure>
       ),
     },
   ]
