@@ -35,6 +35,10 @@
   padding: 0 10px 150px 10px;
 }
 
+p {
+  padding-bottom: 1.5rem;
+}
+
 .contentBlock {
   max-width: 1000px;
   margin: 0 auto;
