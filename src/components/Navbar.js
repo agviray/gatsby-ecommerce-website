@@ -115,6 +115,7 @@ const Navbar = () => {
               hoveredDept={hoveredDept}
               onHoveredDeptChanged={updateHoveredDept}
               isMenuOpen={isMenuOpen}
+              onIsMenuOpenChange={updateIsMenuOpen}
               departmentDetails={departments}
             />
             <Link to="/bag">

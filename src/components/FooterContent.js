@@ -38,7 +38,7 @@ const currentYear = new Date().getFullYear()
 
 const FooterContent = ({ title }) => {
   return (
-    <div className={container}>
+    <div id="footer" className={container}>
       <div className={content}>
         <div className={contentBlock}>
           <h4 className={blockHeading}>MORE INFO</h4>

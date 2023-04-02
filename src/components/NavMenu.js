@@ -21,6 +21,7 @@ const NavMenu = ({
   hoveredDept,
   onHoveredDeptChanged,
   isMenuOpen,
+  onIsMenuOpenChange,
   departmentDetails,
 }) => {
   const [selectedDept, setSelectedDept] = useState({
@@ -68,6 +69,10 @@ const NavMenu = ({
     onHoveredDeptChanged(false, "", "")
   }
 
+  const routeToFooter = () => {
+    onIsMenuOpenChange()
+  }
+
   const mobileContents = (
     <>
       <div className={deptSlide}>
@@ -86,6 +91,9 @@ const NavMenu = ({
             </div>
           </div>
         ))}
+        <a href={"/#footer"} onClick={routeToFooter}>
+          <div className={deptName}>NEED HELP?</div>
+        </a>
       </div>
       <div className={categoriesSlide}>
         <div onClick={clearSelectedDept} className={arrowContainer}>
@@ -122,6 +130,9 @@ const NavMenu = ({
           </div>
         </Link>
       ))}
+      <a href={"/#footer"}>
+        <div className={deptName}>NEED HELP?</div>
+      </a>
     </>
   )
 
