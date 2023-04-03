@@ -21,7 +21,7 @@ import {
   productImage05,
   detailsContainer,
   productName,
-  description,
+  productDescription,
   price,
   sizeOptions,
   option,
@@ -281,13 +281,8 @@ const ProductDetails = ({ data }) => {
               <div className={detailsContainer}>
                 <h2 className={productName}>{name}</h2>
                 <div className={price}>{product.price}</div>
-                <div className={description}>
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Aut, alias dolores sed molestias nobis minus debitis
-                    asperiores fugit blanditiis beatae corporis aliquam
-                    provident! Vero amet sint ullam dicta repudiandae hic.
-                  </p>
+                <div className={productDescription}>
+                  <p>{product.description}</p>
                 </div>
                 <div>
                   {selectedSize === null ? null : <p>Select a size</p>}
@@ -337,6 +332,7 @@ export const query = graphql`
         name
         price
         allProductSizes
+        description
         department
         type
         slug

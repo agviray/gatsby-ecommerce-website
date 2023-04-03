@@ -3,6 +3,7 @@ placement: 6
 images: [./images/distressed-denim-skirt.jpg]
 name: Distressed Denim Skirt
 price: $30.00
+description: The Distressed Denim Skirt is a trendy and versatile addition to any casual wardrobe. Made from soft denim fabric, this skirt features a rugged and worn-in look that is both edgy and fashionable.
 allProductSizes:
   [
     "0",

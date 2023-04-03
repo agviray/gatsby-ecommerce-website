@@ -92,13 +92,13 @@
   }
 }
 
-.description {
+.productDescription {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 @media screen and (min-width: 800px) {
-  .description {
+  .productDescription {
     font-size: 18px;
   }
 }
