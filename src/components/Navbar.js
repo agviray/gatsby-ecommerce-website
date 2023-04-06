@@ -7,8 +7,6 @@ import {
   dropdown,
   dropdownContents,
   isShown,
-  overlay,
-  overlayActive,
 } from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
 import Hamburger from "./Hamburger"
@@ -27,14 +25,12 @@ const Navbar = () => {
     slug: "",
   })
   const windowDimensions = useWindowDimensions()
-  const isNavbarDisplayed = useNavigationDisplay()
+  const isNavbarDisplayed = useNavigationDisplay(isMenuOpen)
 
   useEffect(() => {
-    if (isMenuOpen) {
+    if (isMenuOpen === true) {
       document.body.style.overflow = "hidden"
-    }
-
-    if (!isMenuOpen) {
+    } else if (isMenuOpen === false) {
       document.body.style.overflow = "visible"
     }
   }, [isMenuOpen])
@@ -176,10 +172,6 @@ const Navbar = () => {
           ) : null}
         </div>
       </div>
-      <div
-        className={`${overlay} ${isMenuOpen ? `${overlayActive}` : ``}`}
-        onClick={updateIsMenuOpen}
-      ></div>
     </div>
   )
 }

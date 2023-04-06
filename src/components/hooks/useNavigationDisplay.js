@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const useNavigationDisplay = () => {
+const useNavigationDisplay = isMenuOpen => {
   const navigationHeight = 99
   const [previousScrollY, setPreviousScrollY] = useState(0)
   const [showNavigation, setShowNavigation] = useState(true)
@@ -9,6 +9,10 @@ const useNavigationDisplay = () => {
     const changePreviousScrollY = () => {
       let currentScrollYPos = window.scrollY
       if (typeof window !== "undefined") {
+        if (isMenuOpen) {
+          return
+        }
+
         if (currentScrollYPos < navigationHeight) {
           setShowNavigation(true)
           setPreviousScrollY(currentScrollYPos)
@@ -26,10 +30,15 @@ const useNavigationDisplay = () => {
 
     window.addEventListener("scroll", changePreviousScrollY)
 
+    if (isMenuOpen === true) {
+      window.removeEventListener("scroll", changePreviousScrollY)
+      return
+    }
+
     return () => {
       window.removeEventListener("scroll", changePreviousScrollY)
     }
-  }, [previousScrollY])
+  }, [previousScrollY, isMenuOpen])
 
   return showNavigation
 }

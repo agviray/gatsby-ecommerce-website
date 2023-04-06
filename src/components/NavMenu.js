@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Link } from "gatsby"
 import {
+  overlay,
+  overlayActive,
   container,
   menu,
   menuItem,
+  slideContents,
   isOpen,
   deptSlide,
   deptName,
@@ -31,6 +34,7 @@ const NavMenu = ({
   const [slideToCategories, setSlideToCategories] = useState(false)
   const departments = departmentDetails
   const windowDimensions = useWindowDimensions()
+  const menuContainerRef = useRef(null)
 
   useEffect(() => {
     if (
@@ -73,39 +77,52 @@ const NavMenu = ({
     onIsMenuOpenChange()
   }
 
+  const closeMenu = e => {
+    const menuContainer = menuContainerRef.current
+    if (menuContainer.contains(e.target)) {
+      return
+    } else {
+      onIsMenuOpenChange()
+    }
+  }
+
   const mobileContents = (
     <>
       <div className={deptSlide}>
-        {departments.map(department => (
-          <div key={department.id} className={menuItem}>
-            <div
-              onClick={() =>
-                showCategories(
-                  department.frontmatter.name,
-                  department.frontmatter.slug
-                )
-              }
-              className={deptName}
-            >
-              {department.frontmatter.name}
+        <div className={slideContents}>
+          {departments.map(department => (
+            <div key={department.id} className={menuItem}>
+              <div
+                onClick={() =>
+                  showCategories(
+                    department.frontmatter.name,
+                    department.frontmatter.slug
+                  )
+                }
+                className={deptName}
+              >
+                {department.frontmatter.name}
+              </div>
             </div>
-          </div>
-        ))}
-        <a href={"/#footer"} onClick={routeToFooter}>
-          <div className={deptName}>NEED HELP?</div>
-        </a>
+          ))}
+          <a href={"/#footer"} onClick={routeToFooter}>
+            <div className={deptName}>NEED HELP?</div>
+          </a>
+        </div>
       </div>
       <div className={categoriesSlide}>
-        <div onClick={clearSelectedDept} className={arrowContainer}>
-          <span className={arrow}></span>
-          <span className={text}>BACK</span>
+        <div className={slideContents}>
+          <div onClick={clearSelectedDept} className={arrowContainer}>
+            <span className={arrow}></span>
+            <span className={text}>BACK</span>
+          </div>
+          {selectedDept.name === "" ? null : (
+            <SubNav
+              deptName={selectedDept.name === "" ? null : selectedDept.name}
+              deptSlug={selectedDept.slug === "" ? null : selectedDept.slug}
+            />
+          )}
         </div>
-        {selectedDept.name === "" ? null : (
-          <SubNav
-            deptName={selectedDept.name === "" ? null : selectedDept.name}
-            deptSlug={selectedDept.slug === "" ? null : selectedDept.slug}
-          />
-        )}
       </div>
     </>
   )
@@ -144,8 +161,16 @@ const NavMenu = ({
 
   const renderNavMenu = () => {
     return windowDimensions.width < 800 ? (
-      <div className={`${container} ${isMenuOpen ? `${isOpen}` : ``}`}>
-        {navMenu}
+      <div
+        className={`${overlay} ${isMenuOpen ? `${overlayActive}` : ``}`}
+        onClick={e => closeMenu(e)}
+      >
+        <div
+          ref={menuContainerRef}
+          className={`${container} ${isMenuOpen ? `${isOpen}` : ``}`}
+        >
+          {navMenu}
+        </div>
       </div>
     ) : (
       <>{navMenu}</>
