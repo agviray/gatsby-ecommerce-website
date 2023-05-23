@@ -40,4 +40,66 @@ header {
   header {
     padding-top: 0;
   }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  background-color: #ffffff;
+  z-index: 90;
+}
+.navbar.notDisplayed {
+  transform: translateY(-96px);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+@media screen and (min-width: 1399px) {
+  nav {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+nav > span:first-of-type {
+  display: inline-block;
+}
+nav .navRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dropdown {
+  position: fixed;
+  top: 76px;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  background-color: #333333;
+}
+.dropdown > div.content {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+@media screen and (min-width: 1399px) {
+  .dropdown > div.content {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.dropdown > div.content.isShown {
+  opacity: 1;
 }/*# sourceMappingURL=main.css.map */

@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import {
-  container,
-  navRight,
-  notDisplayed,
-  dropdown,
-  dropdownContents,
-  isShown,
-} from "../styles/navbar.module.css"
 import NavMenu from "./NavMenu"
 import Hamburger from "./Hamburger"
 import SubNav from "./SubNav"
@@ -100,7 +92,7 @@ const Navbar = () => {
               <h1>{title}</h1>
             </Link>
           </span>
-          <div className={navRight}>
+          <div className="navRight">
             {windowDimensions.width < 800 ? (
               <Hamburger
                 isMenuOpen={isMenuOpen}
@@ -120,7 +112,7 @@ const Navbar = () => {
           </div>
         </nav>
         <div
-          className={dropdown}
+          className="dropdown"
           onMouseEnter={() =>
             setHoveredDept({ ...hoveredDept, showDropdown: true })
           }
@@ -128,11 +120,7 @@ const Navbar = () => {
             setHoveredDept({ ...hoveredDept, showDropdown: false })
           }
         >
-          <div
-            className={`${dropdownContents} ${
-              isDropdownShown ? `${isShown}` : ""
-            }`}
-          >
+          <div className={`content ${isDropdownShown ? "isShown" : ""}`}>
             {isDropdownShown ? (
               <SubNav
                 deptName={null}
@@ -146,12 +134,10 @@ const Navbar = () => {
   }
 
   return (
-    <div
-      className={`${container} ${isNavbarDisplayed ? `` : `${notDisplayed}`}`}
-    >
+    <div className={`navbar ${isNavbarDisplayed ? "" : "notDisplayed"}`}>
       {renderNav()}
       <div
-        className={dropdown}
+        className="dropdown"
         onMouseEnter={() =>
           setHoveredDept({ ...hoveredDept, showDropdown: true })
         }
@@ -159,11 +145,7 @@ const Navbar = () => {
           setHoveredDept({ showDropdown: false, name: "", slug: "" })
         }
       >
-        <div
-          className={`${dropdownContents} ${
-            isDropdownShown ? `${isShown}` : ""
-          }`}
-        >
+        <div className={`content ${isDropdownShown ? "isShown" : ""}`}>
           {isDropdownShown ? (
             <SubNav
               deptName={null}
