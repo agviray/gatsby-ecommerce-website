@@ -10,6 +10,7 @@ module.exports = {
     DEV_SSR: true,
   },
   plugins: [
+    "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
