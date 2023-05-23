@@ -1,22 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Link } from "gatsby"
-import {
-  overlay,
-  overlayActive,
-  container,
-  menu,
-  menuItem,
-  slideContents,
-  isOpen,
-  deptSlide,
-  deptName,
-  isHovered,
-  categoriesSlide,
-  isSlid,
-  arrowContainer,
-  text,
-  arrow,
-} from "../styles/navmenu.module.css"
 import SubNav from "./SubNav"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
@@ -88,10 +71,10 @@ const NavMenu = ({
 
   const mobileContents = (
     <>
-      <div className={deptSlide}>
-        <div className={slideContents}>
+      <div className="deptSlide">
+        <div className="slideContents">
           {departments.map(department => (
-            <div key={department.id} className={menuItem}>
+            <div key={department.id}>
               <div
                 onClick={() =>
                   showCategories(
@@ -99,22 +82,22 @@ const NavMenu = ({
                     department.frontmatter.slug
                   )
                 }
-                className={deptName}
+                className="deptName"
               >
                 {department.frontmatter.name}
               </div>
             </div>
           ))}
           <a href={"/#footer"} onClick={routeToFooter}>
-            <div className={deptName}>NEED HELP?</div>
+            <div className="deptName">NEED HELP?</div>
           </a>
         </div>
       </div>
-      <div className={categoriesSlide}>
-        <div className={slideContents}>
-          <div onClick={clearSelectedDept} className={arrowContainer}>
-            <span className={arrow}></span>
-            <span className={text}>BACK</span>
+      <div className="categoriesSlide">
+        <div className="slideContents">
+          <div onClick={clearSelectedDept} className="arrowContainer">
+            <span></span>
+            <span>BACK</span>
           </div>
           {selectedDept.name === "" ? null : (
             <SubNav
@@ -137,9 +120,9 @@ const NavMenu = ({
           to={`/${department.frontmatter.slug}`}
         >
           <div
-            className={`${deptName} ${
+            className={`deptName ${
               hoveredDept.slug === department.frontmatter.slug
-                ? `${isHovered}`
+                ? "isHovered"
                 : ""
             }`}
           >
@@ -148,13 +131,13 @@ const NavMenu = ({
         </Link>
       ))}
       <a href={"/#footer"}>
-        <div className={deptName}>NEED HELP?</div>
+        <div className="deptName">NEED HELP?</div>
       </a>
     </>
   )
 
   const navMenu = (
-    <div className={`${menu} ${slideToCategories ? `${isSlid}` : ``}`}>
+    <div className={`navmenu ${slideToCategories ? "isSlid" : ""}`}>
       {windowDimensions.width < 800 ? mobileContents : desktopContents}
     </div>
   )
@@ -162,12 +145,12 @@ const NavMenu = ({
   const renderNavMenu = () => {
     return windowDimensions.width < 800 ? (
       <div
-        className={`${overlay} ${isMenuOpen ? `${overlayActive}` : ``}`}
+        className={`overlay ${isMenuOpen ? "isActive" : ""}`}
         onClick={e => closeMenu(e)}
       >
         <div
           ref={menuContainerRef}
-          className={`${container} ${isMenuOpen ? `${isOpen}` : ``}`}
+          className={`mobileNavmenuWrapper ${isMenuOpen ? "isOpen" : ""}`}
         >
           {navMenu}
         </div>
