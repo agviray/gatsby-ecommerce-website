@@ -1,0 +1,43 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+p {
+  line-height: 1.6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans Regular", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Prata Regular";
+  src: url(../fonts/prata_ff/Prata-Regular.ttf);
+}
+@font-face {
+  font-family: "Josefin Sans Regular";
+  src: url(../fonts/josefinsans_ff/JosefinSans-Regular.ttf);
+}
+@font-face {
+  font-family: "Josefin Sans Thin";
+  src: url(../fonts/josefinsans_ff/JosefinSans-Thin.ttf);
+}
+header {
+  position: relative;
+  padding-top: 80px;
+}
+@media screen and (min-width: 800px) {
+  header {
+    padding-top: 0;
+  }
+}/*# sourceMappingURL=main.css.map */

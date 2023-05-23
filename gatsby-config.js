@@ -46,7 +46,6 @@ module.exports = {
   ],
   siteMetadata: {
     title: "Garments & Goods",
-    description: "online clothing store",
-    copyright: "This website is copyright 2022 Fitted Finesse",
+    description: "mock online clothing store",
   },
 }

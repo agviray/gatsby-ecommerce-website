@@ -1,0 +1,8 @@
+header {
+  position: relative;
+  padding-top: 80px;
+
+  @media screen and (min-width: 800px) {
+    padding-top: 0;
+  }
+}

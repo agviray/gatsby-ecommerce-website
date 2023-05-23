@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import "../sass/main.css"
 import Navbar from "./Navbar"
 import FooterContent from "./FooterContent"
 import BagContextProvider from "./BagContextComponent"
-import "../styles/global.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
