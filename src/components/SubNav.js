@@ -1,11 +1,5 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import {
-  subNav,
-  departmentName,
-  departmentLink,
-  categoryLink,
-} from "../styles/subnav.module.css"
 
 const SubNav = ({ deptName, deptSlug }) => {
   const data = useStaticQuery(graphql`
