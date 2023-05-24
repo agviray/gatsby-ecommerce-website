@@ -111,24 +111,6 @@ const Navbar = () => {
             </Link>
           </div>
         </nav>
-        <div
-          className="dropdown"
-          onMouseEnter={() =>
-            setHoveredDept({ ...hoveredDept, showDropdown: true })
-          }
-          onMouseLeave={() =>
-            setHoveredDept({ ...hoveredDept, showDropdown: false })
-          }
-        >
-          <div className={`content ${isDropdownShown ? "isShown" : ""}`}>
-            {isDropdownShown ? (
-              <SubNav
-                deptName={null}
-                deptSlug={hoveredDept.slug === "" ? null : hoveredDept.slug}
-              />
-            ) : null}
-          </div>
-        </div>
       </>
     )
   }

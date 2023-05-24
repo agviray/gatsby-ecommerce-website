@@ -34,16 +34,16 @@ const SubNav = ({ deptName, deptSlug }) => {
   )
 
   return (
-    <div className={subNav}>
-      {deptName ? <div className={departmentName}>{name}</div> : null}
-      <Link to={`/${deptSlug}`} className={departmentLink}>
+    <div className="subnav">
+      {deptName ? <div className="departmentName">{name}</div> : null}
+      <Link to={`/${deptSlug}`} className="departmentLink">
         VIEW ALL
       </Link>
       {categoriesToDisplay.map(category => (
         <Link
           key={category.id}
           to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
-          className={categoryLink}
+          className="categoryLink"
         >
           {category.frontmatter.name}
         </Link>
