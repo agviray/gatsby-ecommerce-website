@@ -1,0 +1,60 @@
+.bagItemCard {
+  position: relative;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid lightgray;
+
+  .item {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    .imgContainer {
+      position: relative;
+      width: 50%;
+      min-width: 67px;
+
+      @media screen and (min-width: 350px) {
+        width: 25%;
+      }
+
+      a.link {
+        display: inline-block;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .detail {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      @media screen and (min-width: 350px) {
+        width: 100%;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 50%;
+
+        h3 {
+          padding-bottom: 1rem;
+          font-size: 18px;
+          text-align: left;
+          display: inline-block;
+        }
+      }
+
+      .right {
+        position: relative;
+      }
+    }
+  }
+}

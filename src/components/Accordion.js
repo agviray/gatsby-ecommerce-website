@@ -1,13 +1,4 @@
 import React, { useState, useEffect, useRef } from "react"
-import {
-  accordion,
-  headingContainer,
-  arrowContainer,
-  arrow,
-  arrowActive,
-  bodyContainer,
-  bodyContent,
-} from "../styles/accordion.module.css"
 
 const Accordion = ({ accordionContent }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,17 +19,15 @@ const Accordion = ({ accordionContent }) => {
 
   const renderContent = content => {
     return (
-      <div className={accordion}>
-        <div onClick={() => setIsOpen(!isOpen)} className={headingContainer}>
+      <div className="accordion">
+        <div onClick={() => setIsOpen(!isOpen)} className="headingContainer">
           <h3>{content.headingText}</h3>
-          <div className={arrowContainer}>
-            <span
-              className={`${arrow} ${isOpen ? `${arrowActive}` : ""}`}
-            ></span>
+          <div className="arrowContainer">
+            <span className={`arrow ${isOpen ? "arrowActive" : ""}`}></span>
           </div>
         </div>
-        <div ref={bodyTextRef} className={bodyContainer}>
-          <div className={bodyContent}>
+        <div ref={bodyTextRef} className="bodyContainer">
+          <div className="content">
             {content.bodyTextWithLink ? (
               <>{content.bodyTextWithLink()}</>
             ) : (

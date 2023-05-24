@@ -1,17 +1,5 @@
 import React, { useState } from "react"
 import {
-  quantityEditorWrapper,
-  quantityEditorContainer,
-  button,
-  hidden,
-  quantityAmount,
-  removeButton,
-  contentContainer,
-  imageContainer,
-  detail,
-  cancelButton,
-} from "../styles/quantity-editor.module.css"
-import {
   messageBox,
   modalHeading,
   modalButton,
@@ -71,27 +59,27 @@ const QuantityEditor = ({ item }) => {
   }
 
   return (
-    <div className={quantityEditorWrapper}>
+    <div className="quantityEditor">
       <BagContext.Consumer>
         {value => (
           <>
-            <div className={quantityEditorContainer}>
+            <div className="amountControls">
               <span
                 onClick={() => decreaseQty(item, item.quantity, value)}
-                className={`${button} ${item.quantity < 2 ? `${hidden}` : ""}`}
+                className={`button ${item.quantity < 2 ? "hidden" : ""}`}
               >
                 -
               </span>
-              <span className={quantityAmount}>{item.quantity}</span>
+              <span className="amount">{item.quantity}</span>
               <span
                 onClick={() => increaseQty(item, item.quantity, value)}
-                className={button}
+                className="button"
               >
                 +
               </span>
             </div>
             <span
-              className={removeButton}
+              className="removeButton"
               onClick={() => displayConfirmation(true, { ...item })}
             >
               Remove
@@ -100,14 +88,14 @@ const QuantityEditor = ({ item }) => {
               <div className={messageBox}>
                 <p className={modalHeading}>Remove this item?</p>
                 {Object.keys(itemToRemove).length === 0 ? null : (
-                  <div className={contentContainer}>
-                    <div className={imageContainer}>
+                  <div className="quantityEditorModalContent">
+                    <div className="imgContainer">
                       <img
                         src={itemToRemove.image.images.fallback.src}
                         alt={itemToRemove.name}
                       />
                     </div>
-                    <div className={detail}>
+                    <div className="detail">
                       <h3>{itemToRemove.name}</h3>
                       <p>Size: {itemToRemove.size}</p>
                       <p>Price: {itemToRemove.price}</p>
@@ -125,7 +113,7 @@ const QuantityEditor = ({ item }) => {
                     e.preventDefault()
                     displayConfirmation(false, initialItemToRemove)
                   }}
-                  className={cancelButton}
+                  className="cancelButton"
                 >
                   CANCEL
                 </button>

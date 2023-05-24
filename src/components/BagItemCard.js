@@ -1,23 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
-import {
-  container,
-  itemContainer,
-  imageContainer,
-  detail,
-  leftDetail,
-  rightDetail,
-  itemLink,
-} from "../styles/bag-item-card.module.css"
 import QuantityEditor from "./QuantityEditor"
 
 const BagItemCard = ({ item }) => {
   return (
-    <div className={container}>
-      <div className={itemContainer}>
-        <div className={imageContainer}>
+    <div className="bagItemCard">
+      <div className="item">
+        <div className="imgContainer">
           <Link
-            className={itemLink}
+            className="link"
             to={`/${item.department}/${item.type}/${item.slug}`}
           >
             <figure>
@@ -25,11 +16,11 @@ const BagItemCard = ({ item }) => {
             </figure>
           </Link>
         </div>
-        <div className={detail}>
-          <div className={leftDetail}>
+        <div className="detail">
+          <div className="left">
             <h3>
               <Link
-                className={itemLink}
+                className="link"
                 to={`/${item.department}/${item.type}/${item.slug}`}
               >
                 {item.name}
@@ -38,7 +29,7 @@ const BagItemCard = ({ item }) => {
             <p>Size: {item.size}</p>
             <p>Price: {item.price}</p>
           </div>
-          <div className={rightDetail}>
+          <div className="right">
             <QuantityEditor item={item} />
           </div>
         </div>
