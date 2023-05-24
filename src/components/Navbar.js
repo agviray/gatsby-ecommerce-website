@@ -42,6 +42,9 @@ const Navbar = () => {
     if (isMenuOpen === true) {
       setIsMenuOpen(false)
     }
+    if (hoveredDept.name !== "") {
+      setHoveredDept(false, "", "")
+    }
   }, [windowDimensions])
 
   const data = useStaticQuery(graphql`

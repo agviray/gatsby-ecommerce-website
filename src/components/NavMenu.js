@@ -115,7 +115,7 @@ const NavMenu = ({
       {departments.map(department => (
         <Link
           onMouseEnter={() => onMouseEnterDept(department)}
-          onMouseLeave={onMouseLeaveDept}
+          onMouseLeave={() => onMouseLeaveDept()}
           key={department.id}
           to={`/${department.frontmatter.slug}`}
         >
