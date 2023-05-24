@@ -347,4 +347,29 @@ nav .navRight {
 }
 .hamburger span:nth-of-type(3).toggled {
   transform: rotate(-45deg);
+}
+
+.bagIcon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bagIcon .counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background-color: orangered;
+  color: white;
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bagIcon .imgContainer {
+  padding: 0.5rem;
 }/*# sourceMappingURL=main.css.map */

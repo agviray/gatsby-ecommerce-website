@@ -1,18 +1,17 @@
 import React from "react"
-import { container, itemCounter, bag } from "../styles/bag-icon.module.css"
 import icon from "../images/bag-icon.svg"
 import { BagContext } from "./BagContextComponent"
 
 const BagIcon = () => {
   const renderItemCounter = total => {
-    return total ? <span className={itemCounter}>{total}</span> : null
+    return total ? <span className="counter">{total}</span> : null
   }
   return (
     <BagContext.Consumer>
       {value => (
-        <div className={container}>
+        <div className="bagIcon">
           {renderItemCounter(value.itemCount)}
-          <div className={bag}>
+          <div className="imgContainer">
             <img src={icon} alt="bag icon" />
           </div>
         </div>
