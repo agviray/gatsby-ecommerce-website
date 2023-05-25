@@ -1,9 +1,4 @@
 import React, { useState } from "react"
-import {
-  messageBox,
-  modalHeading,
-  modalButton,
-} from "../styles/modal.module.css"
 import { BagContext } from "./BagContextComponent"
 import Modal from "./Modal"
 
@@ -85,8 +80,8 @@ const QuantityEditor = ({ item }) => {
               Remove
             </span>
             <Modal activeStatus={displayModal}>
-              <div className={messageBox}>
-                <p className={modalHeading}>Remove this item?</p>
+              <div className="messageBox">
+                <p className="modalHeading">Remove this item?</p>
                 {Object.keys(itemToRemove).length === 0 ? null : (
                   <div className="quantityEditorModalContent">
                     <div className="imgContainer">
@@ -104,7 +99,7 @@ const QuantityEditor = ({ item }) => {
                 )}
                 <button
                   onClick={e => removeItemFromBag(e, item, value)}
-                  className={modalButton}
+                  className="modalButton"
                 >
                   REMOVE ITEM
                 </button>

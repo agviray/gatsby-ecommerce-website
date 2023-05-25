@@ -21,11 +21,6 @@ import {
   buttonContainer,
   submitButton,
 } from "../styles/checkout.module.css"
-import {
-  messageBox,
-  modalHeading,
-  modalButton,
-} from "../styles/modal.module.css"
 import { formContent } from "../styles/form.module.css"
 import {
   breadcrumbsContainer,
@@ -84,7 +79,7 @@ const Checkout = () => {
         heading: `OH NO!`,
         message: `Something isn't right. Please review your information.`,
         renderedButton: callback => (
-          <button onClick={e => callback(e)} className={modalButton}>
+          <button onClick={e => callback(e)} className="modalButton">
             OK
           </button>
         ),
@@ -95,7 +90,7 @@ const Checkout = () => {
         heading: `MISSING ITEMS`,
         message: `You must complete all form fields.`,
         renderedButton: callback => (
-          <button onClick={e => callback(e)} className={modalButton}>
+          <button onClick={e => callback(e)} className="modalButton">
             OK
           </button>
         ),
@@ -106,7 +101,7 @@ const Checkout = () => {
         heading: `ORDER PLACED`,
         message: `Thank you for your order! You will receive an email confirmation shortly.`,
         renderedButton: callback => (
-          <Link to="/" onClick={callback} className={modalButton}>
+          <Link to="/" onClick={callback} className="modalButton">
             RETURN HOME
           </Link>
         ),
@@ -515,8 +510,8 @@ const Checkout = () => {
         </section>
       </Layout>
       <Modal activeStatus={displayModal}>
-        <div className={messageBox}>
-          <h3 className={modalHeading}>{modalContent.heading}</h3>
+        <div className="messageBox">
+          <h3 className="modalHeading">{modalContent.heading}</h3>
           <p>{modalContent.message}</p>
           {Object.keys(modalContent).length === 0 ? null : (
             <>{modalContent.renderedButton(closeModal)}</>

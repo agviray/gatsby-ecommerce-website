@@ -29,7 +29,6 @@ import {
   addToBagButton,
   activeSize,
 } from "../styles/product-details.module.css"
-import { messageBox, modalButton } from "../styles/modal.module.css"
 
 const initialSelection = {
   name: "",
@@ -310,10 +309,10 @@ const ProductDetails = ({ data }) => {
         </div>
       </Layout>
       <Modal activeStatus={displayModal}>
-        <div className={messageBox}>
+        <div className="messageBox">
           <p>{modalContent.message}</p>
           {Object.keys(modalContent).length === 0 ? null : (
-            <button onClick={e => setModalContent({})} className={modalButton}>
+            <button onClick={e => setModalContent({})} className="modalButton">
               OK
             </button>
           )}

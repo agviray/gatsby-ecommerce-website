@@ -11,11 +11,6 @@ import {
   submitButton,
 } from "../styles/contact.module.css"
 import {
-  messageBox,
-  modalHeading,
-  modalButton,
-} from "../styles/modal.module.css"
-import {
   formContainer,
   formHeading,
   formContent,
@@ -192,10 +187,10 @@ const Contact = () => {
         </section>
       </Layout>
       <Modal activeStatus={displayModal}>
-        <div className={messageBox}>
-          <h3 className={modalHeading}>{modalContent.heading}</h3>
+        <div className="messageBox">
+          <h3 className="modalHeading">{modalContent.heading}</h3>
           <p>{modalContent.message}</p>
-          <button onClick={e => closeModal(e)} className={modalButton}>
+          <button onClick={e => closeModal(e)} className="modalButton">
             OK
           </button>
         </div>

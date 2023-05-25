@@ -475,6 +475,62 @@ nav .navRight {
   position: relative;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 91;
+}
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal .content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal .content .messageBox {
+  width: 85%;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+.modal .content .messageBox .modalHeading {
+  padding-bottom: 1.5rem;
+  font-size: 25px;
+}
+@media screen and (min-width: 800px) {
+  .modal .content .messageBox .modalHeading {
+    font-size: 30px;
+  }
+}
+.modal .content .messageBox .modalButton {
+  margin-top: 20px;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: black;
+  color: #f3f3f3;
+  font-size: 18px;
+  border-style: none;
+  letter-spacing: 1px;
+}
+.modal .content .messageBox .modalButton:hover {
+  cursor: pointer;
+}
+
 .quantityEditor {
   display: flex;
   flex-direction: column;
