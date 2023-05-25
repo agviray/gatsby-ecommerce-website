@@ -1,27 +1,4 @@
 import React, { useState } from "react"
-import {
-  container,
-  content,
-  carousel,
-  carouselContent,
-  carouselItems,
-  carouselControls,
-  controlsContent,
-  productImage,
-  control,
-  disabledControl,
-  previous,
-  next,
-  tracker,
-  trackerContent,
-  currentTracked,
-  trackerLine,
-  allTracked,
-  sidePanel,
-  sidePanelContent,
-  panelItem,
-  panelItemSelected,
-} from "../styles/product-details-images.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 import { useSwipeable } from "react-swipeable"
 
@@ -45,44 +22,44 @@ const ProductDetailsImages = ({ allProductImages }) => {
 
   const renderMobileView = () => {
     return (
-      <div {...swipedHandlers} className={carousel}>
-        <div className={carouselContent}>
+      <div {...swipedHandlers} className="carousel">
+        <div className="carouselContent">
           <div
-            className={carouselItems}
+            className="carouselItems"
             style={{ transform: `translateX(-${activeImageIndex * 100}%)` }}
           >
             {allProductImages.map((image, index) => (
-              <div key={index} className={productImage}>
+              <div key={index} className="productImage">
                 {image.content()}
               </div>
             ))}
           </div>
-          <div className={carouselControls}>
-            <div className={controlsContent}>
+          <div className="carouselControls">
+            <div className="controlsContent">
               <div
                 onClick={() => updateActiveImageIndex(activeImageIndex - 1)}
-                className={`${control} ${
-                  activeImageIndex <= 0 ? `${disabledControl}` : ""
+                className={`control ${
+                  activeImageIndex <= 0 ? "disabledControl" : ""
                 }`}
               >
-                <span className={previous}></span>
+                <span className="previous"></span>
               </div>
               <div
                 onClick={() => updateActiveImageIndex(activeImageIndex + 1)}
-                className={`${control} ${
+                className={`control ${
                   activeImageIndex >= allProductImages.length - 1
-                    ? `${disabledControl}`
+                    ? "disabledControl"
                     : ""
                 }`}
               >
-                <span className={next}></span>
+                <span className="next"></span>
               </div>
             </div>
-            <div className={tracker}>
-              <div className={trackerContent}>
-                <span className={currentTracked}>{activeImageIndex + 1}</span>
-                <span className={trackerLine}>|</span>
-                <span className={allTracked}>{allProductImages.length}</span>
+            <div className="tracker">
+              <div className="trackerContent">
+                <span className="currentTracked">{activeImageIndex + 1}</span>
+                <span className="trackerLine">|</span>
+                <span className="allTracked">{allProductImages.length}</span>
               </div>
             </div>
           </div>
@@ -93,13 +70,13 @@ const ProductDetailsImages = ({ allProductImages }) => {
 
   const renderSidePanel = () => {
     return (
-      <div className={sidePanel}>
-        <div className={sidePanelContent}>
+      <div className="sidePanel">
+        <div className="sidePanelContent">
           {allProductImages.map((image, index) => (
             <div
               key={index}
-              className={`${panelItem} ${
-                activeImageIndex === index ? `${panelItemSelected}` : ""
+              className={`panelItem ${
+                activeImageIndex === index ? "panelItemSelected" : ""
               }`}
               onClick={() => setActiveImageIndex(index)}
             >
@@ -112,8 +89,8 @@ const ProductDetailsImages = ({ allProductImages }) => {
   }
 
   return (
-    <div className={container}>
-      <div className={content}>
+    <div>
+      <div className="productDetailsImages">
         {windowDimensions.width >= 800 ? renderSidePanel() : null}
         {renderMobileView()}
       </div>

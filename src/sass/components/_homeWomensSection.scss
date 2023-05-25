@@ -1,0 +1,22 @@
+.homeWomensSection {
+  width: 100%;
+
+  @media screen and (min-width: 800px) {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .mobileStaticImage {
+    height: 100vh;
+  }
+
+  .desktopStaticImage {
+    @media screen and (min-width: 800px) {
+      max-width: 80vw;
+    }
+
+    @media screen and (min-width: 1200px) {
+      max-width: 60vw;
+    }
+  }
+}

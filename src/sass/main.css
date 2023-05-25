@@ -619,6 +619,65 @@ nav .navRight {
   transform: rotate(-45deg);
 }
 
+.homeAccessoriesSection {
+  width: 100%;
+}
+@media screen and (min-width: 800px) {
+  .homeAccessoriesSection {
+    padding-top: 99px;
+    padding-bottom: 99px;
+  }
+}
+.homeAccessoriesSection .mobileStaticImage {
+  height: 100vh;
+}
+.homeAccessoriesSection .desktopImageContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 800px) {
+  .homeAccessoriesSection .desktopImageContainer {
+    max-width: 80vw;
+  }
+}
+
+.homeHomeGoodsSection {
+  width: 100%;
+}
+.homeHomeGoodsSection .mobileStaticImage {
+  height: 100vh;
+}
+
+.homeMensSection {
+  width: 100%;
+}
+.homeMensSection .mobileStaticImage {
+  height: 100vh;
+}
+
+.homeWomensSection {
+  width: 100%;
+}
+@media screen and (min-width: 800px) {
+  .homeWomensSection {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+.homeWomensSection .mobileStaticImage {
+  height: 100vh;
+}
+@media screen and (min-width: 800px) {
+  .homeWomensSection .desktopStaticImage {
+    max-width: 80vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .homeWomensSection .desktopStaticImage {
+    max-width: 60vw;
+  }
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -673,6 +732,160 @@ nav .navRight {
 }
 .modal .content .messageBox .modalButton:hover {
   cursor: pointer;
+}
+
+.orderSummary .content {
+  padding: 1.5rem;
+  background-color: rgb(240, 238, 238);
+}
+.orderSummary .content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.orderSummary .content table .borderBottom {
+  border-bottom: 1px solid lightgray;
+}
+.orderSummary .content table h2 {
+  font-size: 18px;
+  padding-bottom: 1rem;
+}
+.orderSummary .content table .dataCell.heading {
+  width: 50%;
+}
+.orderSummary .content table .dataCell.detail {
+  padding: 1rem 0;
+}
+.orderSummary .content table .dataCell.left {
+  text-align: start;
+}
+.orderSummary .content table .dataCell.right {
+  text-align: end;
+}
+
+.productDetailsImages {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3%;
+}
+@media screen and (min-width: 800px) {
+  .productDetailsImages {
+    grid-template-columns: 1fr 8fr;
+  }
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.carousel .carouselContent {
+  display: relative;
+}
+.carousel .carouselContent .carouselItems {
+  display: flex;
+  transition: transform 0.3s;
+}
+.carousel .carouselContent .carouselItems .productImage {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+}
+.carousel .carouselContent .carouselControls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.carousel .carouselContent .carouselControls .controlsContent {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 1;
+}
+.carousel .carouselContent .carouselControls .controlsContent .control {
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(51, 51, 51, 0);
+  transition: all 0.3s;
+}
+.carousel .carouselContent .carouselControls .controlsContent .control:nth-child(1) {
+  margin-left: 5px;
+}
+.carousel .carouselContent .carouselControls .controlsContent .control:nth-child(2) {
+  margin-right: 5px;
+}
+.carousel .carouselContent .carouselControls .controlsContent .control.disabledControl {
+  visibility: hidden;
+}
+.carousel .carouselContent .carouselControls .controlsContent .control .previous,
+.carousel .carouselContent .carouselControls .controlsContent .control .next {
+  display: block;
+  padding: 10px;
+  border-width: 3px 3px 0 0;
+  border-style: solid;
+  border-color: rgb(243, 243, 243);
+  transition: all 0.3s;
+}
+.carousel .carouselContent .carouselControls .controlsContent .control .previous {
+  transform: translateX(7px) rotate(-135deg);
+}
+.carousel .carouselContent .carouselControls .controlsContent .control .next {
+  transform: translateX(-6px) rotate(45deg);
+}
+.carousel .carouselContent .carouselControls .tracker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 12px;
+}
+.carousel .carouselContent .carouselControls .tracker .trackerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: rgba(51, 51, 51, 0.4);
+}
+.carousel .carouselContent .carouselControls .tracker .trackerContent .currentTracked,
+.carousel .carouselContent .carouselControls .tracker .trackerContent .allTracked,
+.carousel .carouselContent .carouselControls .tracker .trackerContent .trackerLine {
+  display: inline-block;
+  color: #f3f3f3;
+  font-size: 14px;
+}
+.carousel .carouselContent .carouselControls .tracker .trackerContent .trackerLine {
+  color: #f3f3f3;
+  padding: 0 7px;
+}
+.carousel .carouselContent .carouselControls:hover .control {
+  background-color: rgba(51, 51, 51, 0.5);
+  cursor: pointer;
+}
+
+.sidePanel {
+  position: relative;
+}
+.sidePanel .sidePanelContent {
+  display: flex;
+  flex-direction: column;
+}
+.sidePanel .sidePanelContent .panelItem {
+  margin-bottom: 10px;
+  padding: 2px;
+}
+.sidePanel .sidePanelContent .panelItem:hover {
+  cursor: pointer;
+}
+.sidePanel .sidePanelContent .panelItem.panelItemSelected {
+  border: 3px solid black;
 }
 
 .quantityEditor {
@@ -748,4 +961,28 @@ nav .navRight {
 }
 .quantityEditor .cancelButton:hover {
   cursor: pointer;
+}
+
+.verticalCarousel {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+.verticalCarousel .slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.verticalCarousel .slides.transition {
+  transition: all 0.5s ease;
+}
+.verticalCarousel .slides .slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: auto;
 }/*# sourceMappingURL=main.css.map */

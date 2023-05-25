@@ -1,0 +1,26 @@
+.verticalCarousel {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+
+  .slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.transition {
+      transition: all 0.5s ease;
+    }
+
+    .slide {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: auto;
+    }
+  }
+}

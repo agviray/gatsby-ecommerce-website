@@ -1,10 +1,4 @@
 import React, { useState, useEffect, useRef } from "react"
-import {
-  slidesContainer,
-  slides,
-  slide,
-  transition,
-} from "../styles/vertical-carousel.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const VerticalCarousel = ({ allSlides }) => {
@@ -124,16 +118,16 @@ const VerticalCarousel = ({ allSlides }) => {
 
   return (
     <>
-      <div className={slidesContainer} style={applySlideDimensionStyles()}>
+      <div className="verticalCarousel" style={applySlideDimensionStyles()}>
         <div
-          className={`${slides} ${hasTransitionClass ? `${transition}` : ""}`}
+          className={`slides ${hasTransitionClass ? "transition" : ""}`}
           style={{ top: calculateTopMargin() }}
         >
           {stateSlides.map((stateSlide, index) => (
             <div
               key={index}
               ref={index === 0 ? slideContainerRef : null}
-              className={slide}
+              className="slide"
               style={applySlideDimensionStyles()}
             >
               <figure>{stateSlide.content()}</figure>

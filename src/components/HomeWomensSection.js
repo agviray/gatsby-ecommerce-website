@@ -1,10 +1,5 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import {
-  sectionContent,
-  mobileStaticImage,
-  desktopStaticImage,
-} from "../styles/home-womens-section.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 import VerticalCarousel from "./VerticalCarousel"
 
@@ -23,7 +18,7 @@ const HomeWomensSection = () => {
       slideNumber: "Slide #1",
       content: () => (
         <StaticImage
-          className={desktopStaticImage}
+          className="desktopStaticImage"
           src={desktopImageA}
           alt="Collage of woman posing"
           placeholder="blurred"
@@ -36,7 +31,7 @@ const HomeWomensSection = () => {
       slideNumber: "Slide #2",
       content: () => (
         <StaticImage
-          className={desktopStaticImage}
+          className="desktopStaticImage"
           src={desktopImageB}
           alt="Collage of woman posing"
           placeholder="blurred"
@@ -49,7 +44,7 @@ const HomeWomensSection = () => {
       slideNumber: "Slide #3",
       content: () => (
         <StaticImage
-          className={desktopStaticImage}
+          className="desktopStaticImage"
           src={desktopImageC}
           alt="Collage of woman posing"
           placeholder="blurred"
@@ -69,7 +64,7 @@ const HomeWomensSection = () => {
   const renderedMobileImage = (
     <>
       <StaticImage
-        className={mobileStaticImage}
+        className="mobileStaticImage"
         src={mobileImage}
         alt="woman posing"
         placeholder="blurred"
@@ -81,7 +76,7 @@ const HomeWomensSection = () => {
 
   const renderedMobileLandscapeImage = (
     <StaticImage
-      className={mobileStaticImage}
+      className="mobileStaticImage"
       src={mobileLandscapeImage}
       alt="woman posing"
       placeholder="blurred"
@@ -96,7 +91,7 @@ const HomeWomensSection = () => {
   }
 
   return (
-    <div className={sectionContent}>
+    <div className="homeWomensSection">
       {windowDimensions.width < 800 ? (
         <>{showMobileImage()}</>
       ) : (

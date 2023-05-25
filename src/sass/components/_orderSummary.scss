@@ -1,0 +1,37 @@
+.orderSummary {
+  .content {
+    padding: 1.5rem;
+    background-color: rgb(240, 238, 238);
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      .borderBottom {
+        border-bottom: 1px solid lightgray;
+      }
+
+      h2 {
+        font-size: 18px;
+        padding-bottom: 1rem;
+      }
+
+      .dataCell {
+        &.heading {
+          width: 50%;
+        }
+
+        &.detail {
+          padding: 1rem 0;
+        }
+
+        &.left {
+          text-align: start;
+        }
+        &.right {
+          text-align: end;
+        }
+      }
+    }
+  }
+}

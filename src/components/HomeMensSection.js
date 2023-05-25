@@ -1,9 +1,5 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import {
-  sectionContent,
-  mobileStaticImage,
-} from "../styles/home-mens-section.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const HomeMensSection = () => {
@@ -14,7 +10,7 @@ const HomeMensSection = () => {
   const renderedMobileImage = (
     <figure>
       <StaticImage
-        className={mobileStaticImage}
+        className="mobileStaticImage"
         src={mobileImage}
         alt="man posing"
         placeholder="blurred"
@@ -30,8 +26,8 @@ const HomeMensSection = () => {
         className={`${
           windowDimensions.width < 800 &&
           windowDimensions.width > windowDimensions.height
-            ? mobileStaticImage
-            : null
+            ? "mobileStaticImage"
+            : ""
         }`}
         src={desktopImage}
         alt="collage of men posing"
@@ -48,7 +44,7 @@ const HomeMensSection = () => {
   }
 
   return (
-    <div className={sectionContent}>
+    <div className="homeMensSection">
       {windowDimensions.width < 800 ? (
         <>{showMobileImage()}</>
       ) : (
