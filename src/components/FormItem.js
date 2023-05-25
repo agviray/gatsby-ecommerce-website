@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react"
-import {
-  content,
-  invalidField,
-  errorMessage,
-} from "../styles/form-item.module.css"
 
 const FormItem = ({ children, error, isErrorVisible }) => {
   const [errorNotification, setErrorNotification] = useState(null)
@@ -17,12 +12,12 @@ const FormItem = ({ children, error, isErrorVisible }) => {
   }, [error])
 
   return (
-    <div>
-      <div className={`${content} ${isErrorVisible ? `${invalidField}` : ""}`}>
+    <div className="formItem">
+      <div className={`content ${isErrorVisible ? "invalid" : ""}`}>
         {children}
       </div>
       {isErrorVisible ? (
-        <div className={errorMessage}>{errorNotification}</div>
+        <div className="errorMessage">{errorNotification}</div>
       ) : null}
     </div>
   )

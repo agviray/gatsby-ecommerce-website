@@ -3,18 +3,6 @@ import { Link } from "gatsby"
 import twitterIcon from "../images/social-media/twitter-icon.svg"
 import instagramIcon from "../images/social-media/instagram-icon.svg"
 import facebookIcon from "../images/social-media/facebook-icon.svg"
-import {
-  container,
-  content,
-  contentBlock,
-  blockHeading,
-  companyInfoContent,
-  socialMediaContent,
-  item,
-  socialMediaIcon,
-  iconContainer,
-  siteCopyrightContent,
-} from "../styles/footer-content.module.css"
 
 const socialMediaIcons = [
   {
@@ -39,35 +27,35 @@ const currentYear = new Date().getFullYear()
 const FooterContent = ({ title }) => {
   return (
     <section>
-      <div id="footer" className={container}>
-        <div className={content}>
-          <div className={contentBlock}>
+      <div id="footer" className="footerContent">
+        <div className="content">
+          <div className="contentBlock">
             <article>
-              <h4 className={blockHeading}>MORE INFO</h4>
+              <h4 className="heading">MORE INFO</h4>
               <div>
-                <ul className={companyInfoContent}>
-                  <li className={item}>
-                    <Link to={"/contact"}>CONTACT</Link>
-                  </li>
-                  <li className={item}>
+                <ul className="companyInfo">
+                  <li className="item">
                     <Link to={"/about"}>ABOUT</Link>
                   </li>
-                  <li className={item}>
+                  <li className="item">
                     <a href="/faq">FAQ</a>
+                  </li>
+                  <li className="item">
+                    <Link to={"/contact"}>CONTACT</Link>
                   </li>
                 </ul>
               </div>
             </article>
           </div>
-          <div className={contentBlock}>
+          <div className="contentBlock">
             <article>
-              <h4 className={blockHeading}>GET CONNECTED</h4>
+              <h4 className="heading">GET CONNECTED</h4>
               <div>
-                <ul className={socialMediaContent}>
+                <ul className="socialMedia">
                   {socialMediaIcons.map(icon => (
-                    <li key={icon.alt} className={`${socialMediaIcon}`}>
+                    <li key={icon.alt} className="icon">
                       <a href={icon.href} target="_blank" rel="noreferrer">
-                        <span className={iconContainer}>
+                        <span className="imgContainer">
                           <img src={icon.src} alt={icon.alt} />
                         </span>
                       </a>
@@ -77,9 +65,9 @@ const FooterContent = ({ title }) => {
               </div>
             </article>
           </div>
-          <div className={contentBlock}>
+          <div className="contentBlock">
             <article>
-              <div className={siteCopyrightContent}>
+              <div className="copyright">
                 &copy; {currentYear} {title}
               </div>
             </article>

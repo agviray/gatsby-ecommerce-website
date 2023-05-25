@@ -1,15 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import {
-  container,
-  link,
-  imageContainer,
-  image,
-  imageOverlay,
-  productName,
-  productPrice,
-} from "../styles/category-product-snippets.module.css"
 import useWindowDimensions from "./hooks/useWindowDimensions"
 
 const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
@@ -26,21 +17,21 @@ const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
       <Link
         key={index}
         to={`/${product.department}/${product.type}/${product.slug}`}
-        className={link}
+        className="link"
       >
         <figure>
-          <div className={imageContainer}>
+          <div className="imageContainer">
             <GatsbyImage
-              className={image}
+              className="image"
               image={product.images[0].childImageSharp.gatsbyImageData}
               alt={product.name}
               placeholder="blurred"
               objectFit="cover"
               objectPosition={"50% 50%"}
             />
-            <div className={imageOverlay}>
-              <span className={productName}>{product.name}</span>
-              <span className={productPrice}>{product.price}</span>
+            <div className="imageOverlay">
+              <span className="productName">{product.name}</span>
+              <span className="productPrice">{product.price}</span>
             </div>
           </div>
         </figure>
@@ -51,7 +42,7 @@ const CategoryProductSnippets = ({ categorySlug, categoryProducts }) => {
   return (
     <>
       {windowDimensions.width < 800 ? null : (
-        <div className={container}>{renderContent()}</div>
+        <div className="categoryProductSnippets">{renderContent()}</div>
       )}
     </>
   )
