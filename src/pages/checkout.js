@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import {
   checkoutWrapper,
   container,
@@ -60,13 +60,17 @@ const Checkout = () => {
     }
   }, [modalContent])
 
+  // - Handle Modal button click
   const closeModal = e => {
+    e.preventDefault()
+    // - If errors with form, just close modal.
     if (modalContent.formErrorsExist === true) {
-      e.preventDefault()
       setModalContent({})
+      // - If no errors with form, clear form, bag, and return to home page.
     } else if (modalContent.formErrorsExist === false) {
       resetForm()
       localStorage.removeItem("bag")
+      navigate("/")
     }
   }
 
@@ -101,9 +105,9 @@ const Checkout = () => {
         heading: `ORDER PLACED`,
         message: `Thank you for your order! You will receive an email confirmation shortly.`,
         renderedButton: callback => (
-          <Link to="/" onClick={callback} className="modalButton">
+          <button onClick={e => callback(e)} className="modalButton">
             RETURN HOME
-          </Link>
+          </button>
         ),
       })
     }

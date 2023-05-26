@@ -940,27 +940,30 @@ nav .navRight {
   display: flex;
   gap: 1rem;
 }
-.quantityEditor .quantityEditorModalContent .imgContainer {
+.quantityEditor .quantityEditorModalContent > .imgContainer {
   position: relative;
   width: 50%;
   min-width: 67px;
 }
 @media screen and (min-width: 350px) {
-  .quantityEditor .quantityEditorModalContent .imgContainer {
+  .quantityEditor .quantityEditorModalContent > .imgContainer {
     width: 25%;
   }
 }
-.quantityEditor .quantityEditorModalContent .imgContainer img {
+.quantityEditor .quantityEditorModalContent > .imgContainer img {
   width: 100%;
 }
-.quantityEditor .quantityEditorModalContent .detail {
+.quantityEditor .quantityEditorModalContent > .detail {
   text-align: left;
 }
-.quantityEditor .quantityEditorModalContent .detail h3 {
+.quantityEditor .quantityEditorModalContent > .detail h3 {
   padding-bottom: 1rem;
   font-size: 18px;
   text-align: left;
   display: inline-block;
+}
+.quantityEditor .quantityEditorModalContent > .detail p {
+  width: 100%;
 }
 .quantityEditor .cancelButton {
   margin-top: 20px;
