@@ -3,16 +3,6 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import ProductLink from "../components/ProductLink"
-import {
-  breadcrumbsContainer,
-  breadcrumbs,
-  crumb,
-} from "../styles/breadcrumbs.module.css"
-import {
-  container,
-  categoryHeading,
-  productsContainer,
-} from "../styles/category-products.module.css"
 
 export default function CategoryProducts({ data }) {
   const category = data.category.frontmatter
@@ -35,28 +25,28 @@ export default function CategoryProducts({ data }) {
 
   return (
     <Layout>
-      <div className={container}>
-        <div className={categoryHeading}>
+      <div className="categoryProducts">
+        <div className="categoryHeading">
           <h2>{category.name}</h2>
         </div>
-        <div className={breadcrumbsContainer}>
-          <ul className={breadcrumbs}>
-            <li className={crumb}>
+        <div className="breadcrumbsWrapper">
+          <ul className="breadcrumbs">
+            <li className="crumb">
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li className={crumb}>
+            <li className="crumb">
               <Link to={`/${category.department}`}>
                 <span>{department}</span>
               </Link>
             </li>
-            <li className={crumb}>
+            <li className="crumb">
               <span>{categoryName}</span>
             </li>
           </ul>
         </div>
-        <div className={productsContainer}>
+        <div className="productsContainer">
           {products.map(product => (
             <ProductLink
               key={product.id}

@@ -5,30 +5,6 @@ import { BagContext } from "../components/BagContextComponent"
 import Layout from "../components/Layout"
 import ProductDetailsImages from "../components/ProductDetailsImages"
 import Modal from "../components/Modal"
-import {
-  breadcrumbsContainer,
-  breadcrumbs,
-  crumb,
-} from "../styles/breadcrumbs.module.css"
-import {
-  wrapper,
-  container,
-  contents,
-  productImage,
-  productImage02,
-  productImage03,
-  productImage04,
-  productImage05,
-  detailsContainer,
-  productName,
-  productDescription,
-  price,
-  sizeOptions,
-  option,
-  buttonContainer,
-  addToBagButton,
-  activeSize,
-} from "../styles/product-details.module.css"
 
 const initialSelection = {
   name: "",
@@ -129,7 +105,7 @@ const ProductDetails = ({ data }) => {
           <GatsbyImage
             image={product.images[0].childImageSharp.gatsbyImageData}
             alt={product.slug}
-            className={productImage}
+            className="productImage"
           />
         </figure>
       ),
@@ -141,7 +117,7 @@ const ProductDetails = ({ data }) => {
           <GatsbyImage
             image={product.images[0].childImageSharp.gatsbyImageData}
             alt={product.slug}
-            className={`${productImage} ${productImage02}`}
+            className={`productImage productImage02`}
           />
         </figure>
       ),
@@ -153,7 +129,7 @@ const ProductDetails = ({ data }) => {
           <GatsbyImage
             image={product.images[0].childImageSharp.gatsbyImageData}
             alt={product.slug}
-            className={`${productImage} ${productImage03}`}
+            className={`productImage productImage03`}
           />
         </figure>
       ),
@@ -165,7 +141,7 @@ const ProductDetails = ({ data }) => {
           <GatsbyImage
             image={product.images[0].childImageSharp.gatsbyImageData}
             alt={product.slug}
-            className={`${productImage} ${productImage04}`}
+            className={`productImage productImage04`}
           />
         </figure>
       ),
@@ -177,7 +153,7 @@ const ProductDetails = ({ data }) => {
           <GatsbyImage
             image={product.images[0].childImageSharp.gatsbyImageData}
             alt={product.slug}
-            className={`${productImage} ${productImage05}`}
+            className={`productImage productImage05`}
           />
         </figure>
       ),
@@ -188,9 +164,7 @@ const ProductDetails = ({ data }) => {
     return sizes.map((size, index) => (
       <div
         onClick={() => updateSelectedSize(size)}
-        className={`${option} ${
-          size === selection.size ? `${activeSize}` : ""
-        }`}
+        className={`option ${size === selection.size ? "activeSize" : ""}`}
         key={index}
       >
         <span>{size}</span>
@@ -247,56 +221,56 @@ const ProductDetails = ({ data }) => {
   }
 
   return (
-    <div className={wrapper}>
+    <div className="productDetailsWrapper">
       <Layout>
-        <div className={container}>
+        <div className="productDetails">
           <section>
-            <div className={breadcrumbsContainer}>
-              <ul className={breadcrumbs}>
-                <li className={crumb}>
+            <div className="breadcrumbsWrapper">
+              <ul className="breadcrumbs">
+                <li className="crumb">
                   <Link to="/">
                     <span>Home</span>
                   </Link>
                 </li>
-                <li className={crumb}>
+                <li className="crumb">
                   <Link to={`/${product.department}`}>
                     <span>{department}</span>
                   </Link>
                 </li>
-                <li className={crumb}>
+                <li className="crumb">
                   <Link to={`/${product.department}/${product.type}`}>
                     {category}
                   </Link>
                 </li>
-                <li className={crumb}>{product.name}</li>
+                <li className="crumb">{product.name}</li>
               </ul>
             </div>
           </section>
           <section>
-            <div className={contents}>
+            <div className="produtDetailsContents">
               <div>
                 <ProductDetailsImages allProductImages={productImages} />
               </div>
-              <div className={detailsContainer}>
-                <h2 className={productName}>{name}</h2>
-                <div className={price}>{product.price}</div>
-                <div className={productDescription}>
+              <div className="detailsContainer">
+                <h2 className="productName">{name}</h2>
+                <div className="price">{product.price}</div>
+                <div className="productDescription">
                   <p>{product.description}</p>
                 </div>
                 <div>
                   {selectedSize === null ? null : <p>Select a size</p>}
                   {product.allProductSizes ? (
-                    <div className={sizeOptions}>
+                    <div className="sizeOptions">
                       {renderProductSizes(product.allProductSizes)}
                     </div>
                   ) : null}
                 </div>
-                <div className={buttonContainer}>
+                <div className="buttonContainer">
                   <BagContext.Consumer>
                     {value => (
                       <button
                         onClick={e => addItemToBag(e, selection, value)}
-                        className={addToBagButton}
+                        className="addToBagButton"
                       >
                         ADD TO BAG
                       </button>

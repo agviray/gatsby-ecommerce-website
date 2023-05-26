@@ -1,32 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { Link, navigate } from "gatsby"
-import {
-  checkoutWrapper,
-  container,
-  heading,
-  content,
-  contentBlock,
-  flexFormContent,
-  billingGrid,
-  shippingGrid,
-  paymentGrid,
-  areaA,
-  areaB,
-  areaC,
-  areaD,
-  fieldsetStyle,
-  legendStyle,
-  formLabel,
-  formTextInput,
-  buttonContainer,
-  submitButton,
-} from "../styles/checkout.module.css"
-import { formContent } from "../styles/form.module.css"
-import {
-  breadcrumbsContainer,
-  breadcrumbs,
-  crumb,
-} from "../styles/breadcrumbs.module.css"
 import { BagContext } from "../components/BagContextComponent"
 import Layout from "../components/Layout"
 import FormItem from "../components/FormItem"
@@ -35,23 +8,12 @@ import Modal from "../components/Modal"
 import useFormValidation from "../components/hooks/useFormValidation"
 
 const Checkout = () => {
-  const [items, setItems] = useState([])
   const [modalContent, setModalContent] = useState({})
   const [displayModal, setDisplayModal] = useState(false)
   const { formValues, formErrors, updateFormValues, clearError, resetForm } =
     useFormValidation()
 
-  useEffect(() => {
-    const storedBag = JSON.parse(localStorage.getItem("bag"))
-    const storedItems = [...storedBag.items]
-
-    if (storedBag) {
-      if (items.length === 0) {
-        setItems([...storedItems])
-      }
-    }
-  }, [])
-
+  // - Display/close modal based on the availability of modalContent.
   useEffect(() => {
     if (Object.keys(modalContent).length === 0) {
       setDisplayModal(false)
@@ -74,9 +36,11 @@ const Checkout = () => {
     }
   }
 
+  // - Handles place order button click
+  // - Displays modal with notification of success or failure
+  //   after placing an order.
   const placeOrder = e => {
     e.preventDefault()
-
     if (Object.keys(formErrors).length !== 0) {
       setModalContent({
         formErrorsExist: true,
@@ -114,45 +78,45 @@ const Checkout = () => {
   }
 
   return (
-    <div className={checkoutWrapper}>
+    <div className="checkoutWrapper">
       <Layout>
         <section>
-          <div className={container}>
-            <div className={heading}>
+          <div className="checkout">
+            <div className="heading">
               <h2>CHECKOUT</h2>
             </div>
-            <div className={content}>
+            <div className="content">
               <section>
-                <div className={breadcrumbsContainer}>
-                  <ul className={breadcrumbs}>
-                    <li className={crumb}>
+                <div className="breadcrumbsWrapper">
+                  <ul className="breadcrumbs">
+                    <li className="crumb">
                       <Link to="/bag">Shopping Bag</Link>
                     </li>
-                    <li className={crumb}>Checkout</li>
+                    <li className="crumb">Checkout</li>
                   </ul>
                 </div>
               </section>
               <section>
                 <form onSubmit={e => placeOrder(e)}>
-                  <div className={`${formContent} ${flexFormContent}`}>
-                    <div className={contentBlock}>
+                  <div className={`formContent flexFormContent`}>
+                    <div className="contentBlock">
                       <article>
-                        <fieldset className={fieldsetStyle}>
-                          <legend className={legendStyle}>BILLING</legend>
-                          <div className={billingGrid}>
-                            <div className={areaA}>
+                        <fieldset className="fieldsetStyle">
+                          <legend className="legendStyle">BILLING</legend>
+                          <div className="billingGrid">
+                            <div className="areaA">
                               <FormItem
                                 error={formErrors.name ? formErrors.name : null}
                                 isErrorVisible={formErrors.name ? true : false}
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormName"
                                 >
                                   NAME
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   id="CheckoutFormName"
                                   placeholder="NAME"
@@ -164,7 +128,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaB}>
+                            <div className="areaB">
                               <FormItem
                                 error={
                                   formErrors.email ? formErrors.email : null
@@ -172,13 +136,13 @@ const Checkout = () => {
                                 isErrorVisible={formErrors.email ? true : false}
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormEmail"
                                 >
                                   EMAIL
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   id="CheckoutFormEmail"
                                   placeholder="EMAIL"
@@ -192,7 +156,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaC}>
+                            <div className="areaC">
                               <FormItem
                                 error={
                                   formErrors.phone ? formErrors.phone : null
@@ -200,13 +164,13 @@ const Checkout = () => {
                                 isErrorVisible={formErrors.phone ? true : false}
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormPhone"
                                 >
                                   PHONE
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   maxLength={10}
                                   id="CheckoutFormPhone"
@@ -225,10 +189,10 @@ const Checkout = () => {
                         </fieldset>
                       </article>
                       <article>
-                        <fieldset className={fieldsetStyle}>
-                          <legend className={legendStyle}>SHIPPING</legend>
-                          <div className={shippingGrid}>
-                            <div className={areaA}>
+                        <fieldset className="fieldsetStyle">
+                          <legend className="legendStyle">SHIPPING</legend>
+                          <div className="shippingGrid">
+                            <div className="areaA">
                               <FormItem
                                 error={
                                   formErrors.address ? formErrors.address : null
@@ -238,13 +202,13 @@ const Checkout = () => {
                                 }
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormAddress"
                                 >
                                   ADDRESS
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   id="CheckoutFormAddress"
                                   placeholder="ADDRESS"
@@ -258,19 +222,19 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaB}>
+                            <div className="areaB">
                               <FormItem
                                 error={formErrors.city ? formErrors.city : null}
                                 isErrorVisible={formErrors.city ? true : false}
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormCity"
                                 >
                                   CITY
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   id="CheckoutFormCity"
                                   placeholder="CITY"
@@ -282,7 +246,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaC}>
+                            <div className="areaC">
                               <FormItem
                                 error={
                                   formErrors.state ? formErrors.state : null
@@ -290,13 +254,13 @@ const Checkout = () => {
                                 isErrorVisible={formErrors.state ? true : false}
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormState"
                                 >
                                   COUNTRY
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   maxLength={2}
                                   id="CheckoutFormState"
@@ -311,7 +275,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaD}>
+                            <div className="areaD">
                               <FormItem
                                 error={
                                   formErrors.zipcode ? formErrors.zipcode : null
@@ -321,13 +285,13 @@ const Checkout = () => {
                                 }
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormZipCode"
                                 >
                                   ZIP CODE
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   maxLength={5}
                                   id="CheckoutFormZipCode"
@@ -346,10 +310,10 @@ const Checkout = () => {
                         </fieldset>
                       </article>
                       <article>
-                        <fieldset className={fieldsetStyle}>
-                          <legend className={legendStyle}>PAYMENT</legend>
-                          <div className={paymentGrid}>
-                            <div className={areaA}>
+                        <fieldset className="fieldsetStyle">
+                          <legend className="legendStyle">PAYMENT</legend>
+                          <div className="paymentGrid">
+                            <div className="areaA">
                               <FormItem
                                 error={
                                   formErrors.cardholder
@@ -361,13 +325,13 @@ const Checkout = () => {
                                 }
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormCCHolder"
                                 >
                                   CARD HOLDER NAME
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   id="CheckoutFormCCHolder"
                                   placeholder="CARD HOLDER"
@@ -383,7 +347,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaB}>
+                            <div className="areaB">
                               <FormItem
                                 error={
                                   formErrors.cardnumber
@@ -395,13 +359,13 @@ const Checkout = () => {
                                 }
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormCCNumber"
                                 >
                                   CARD NUMBER
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   id="CheckoutFormCCNumber"
                                   placeholder="CARD NUMBER"
@@ -417,7 +381,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaC}>
+                            <div className="areaC">
                               <FormItem
                                 error={
                                   formErrors.cardexpiry
@@ -429,13 +393,13 @@ const Checkout = () => {
                                 }
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormCCExpiryDate"
                                 >
                                   EXPIRY DATE
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   maxLength={4}
                                   id="CheckoutFormCCExpiryDate"
@@ -452,7 +416,7 @@ const Checkout = () => {
                                 />
                               </FormItem>
                             </div>
-                            <div className={areaD}>
+                            <div className="areaD">
                               <FormItem
                                 error={
                                   formErrors.cardsecuritycode
@@ -464,13 +428,13 @@ const Checkout = () => {
                                 }
                               >
                                 <label
-                                  className={formLabel}
+                                  className="formLabel"
                                   htmlFor="CheckoutFormCCSecurityCode"
                                 >
                                   CARD CVV/CSC
                                 </label>
                                 <input
-                                  className={formTextInput}
+                                  className="formTextInput"
                                   type="text"
                                   maxLength={4}
                                   id="CheckoutFormCCSecurityCode"
@@ -497,11 +461,11 @@ const Checkout = () => {
                           {value => <OrderSummary BagContext={value} />}
                         </BagContext.Consumer>
                       </article>
-                      <div className={buttonContainer}>
+                      <div className="buttonContainer">
                         <input
                           type="button"
                           value="PLACE MY ORDER"
-                          className={submitButton}
+                          className="submitButton"
                           onClick={e => placeOrder(e)}
                         />
                       </div>

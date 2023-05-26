@@ -3,27 +3,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/Layout"
 import CategoryProductSnippets from "../components/CategoryProductSnippets"
-import {
-  breadcrumbsContainer,
-  breadcrumbs,
-  crumb,
-} from "../styles/breadcrumbs.module.css"
-import {
-  departmentContainer,
-  departmentHeading,
-  categoriesContainer,
-  categoryImageContainer,
-  mobilePortrait,
-  categoryOverlay,
-  textContainer,
-  text,
-  container,
-  textBlock,
-  categoryBlock,
-  moreBlock,
-  textBlockContent,
-  arrow,
-} from "../styles/department.module.css"
 import useWindowDimensions from "../components/hooks/useWindowDimensions"
 
 export default function Department({ data }) {
@@ -41,12 +20,12 @@ export default function Department({ data }) {
         to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
       >
         <figure>
-          <div className={categoryImageContainer}>
+          <div className="categoryImageContainer">
             <GatsbyImage
               className={
                 windowDimensions.height > windowDimensions.width
-                  ? mobilePortrait
-                  : null
+                  ? "mobilePortrait"
+                  : ""
               }
               image={
                 category.frontmatter.thumbnail.childImageSharp.gatsbyImageData
@@ -56,9 +35,9 @@ export default function Department({ data }) {
               objectFit="cover"
               objectPosition={"50% 50%"}
             />
-            <div className={categoryOverlay}>
-              <div className={textContainer}>
-                <span className={text}>{category.frontmatter.name}</span>
+            <div className="categoryOverlay">
+              <div className="textContainer">
+                <span className="text">{category.frontmatter.name}</span>
               </div>
             </div>
           </div>
@@ -70,12 +49,12 @@ export default function Department({ data }) {
   const renderDesktopContent = () => {
     return categories.map(category => (
       <section key={category.id}>
-        <div key={category.id} className={container}>
+        <div key={category.id} className="container">
           <Link
             to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
           >
-            <div className={`${textBlock} ${categoryBlock}`}>
-              <div className={textBlockContent}>
+            <div className={`textBlock categoryBlock`}>
+              <div className="textBlockContent">
                 {category.frontmatter.name}
               </div>
             </div>
@@ -87,10 +66,10 @@ export default function Department({ data }) {
           <Link
             to={`/${category.frontmatter.department}/${category.frontmatter.slug}`}
           >
-            <div className={`${textBlock} ${moreBlock}`}>
-              <div className={textBlockContent}>
+            <div className={`textBlock moreBlock`}>
+              <div className="textBlockContent">
                 <span>MORE</span>
-                <span className={arrow}></span>
+                <span className="arrow"></span>
               </div>
             </div>
           </Link>
@@ -102,22 +81,22 @@ export default function Department({ data }) {
   return (
     <Layout>
       <section>
-        <div className={departmentContainer}>
+        <div className="departmentContainer">
           {windowDimensions.width >= 800 ? (
-            <div className={departmentHeading}>
+            <div className="departmentHeading">
               <h2>{department.name}</h2>
             </div>
           ) : null}
-          <div className={categoriesContainer}>
+          <div className="categoriesContainer">
             <section>
-              <div className={breadcrumbsContainer}>
-                <ul className={breadcrumbs}>
-                  <li className={crumb}>
+              <div className="breadcrumbsWrapper">
+                <ul className="breadcrumbs">
+                  <li className="crumb">
                     <Link to="/">
                       <span>Home</span>
                     </Link>
                   </li>
-                  <li className={crumb}>
+                  <li className="crumb">
                     <span>{departmentName}</span>
                   </li>
                 </ul>

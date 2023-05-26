@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { container, content, heading, siteLink } from "../styles/faq.module.css"
 import Layout from "../components/Layout"
 import Accordion from "../components/Accordion"
 
@@ -42,7 +41,7 @@ const Faq = () => {
         <p>
           You can start the return process by sending us a message through our{" "}
           <Link to="/contact">
-            <span className={siteLink}>Contact page</span>
+            <span className="siteLink">Contact page</span>
           </Link>
           . Be sure to include your order number and reason for return.
         </p>
@@ -55,7 +54,7 @@ const Faq = () => {
           We will happily exchange your purchased item as long as we have your
           requested size in stock. Head over to our{" "}
           <Link to="/contact">
-            <span className={siteLink}>Contact page</span>
+            <span className="siteLink">Contact page</span>
           </Link>
           , and send us a message with your request.
         </p>
@@ -67,7 +66,7 @@ const Faq = () => {
         <p>
           Please visit our{" "}
           <Link to="/contact">
-            <span className={siteLink}>Contact page</span>
+            <span className="siteLink">Contact page</span>
           </Link>
           , and send us a message if you have received an incorrect item.
         </p>
@@ -77,9 +76,9 @@ const Faq = () => {
   return (
     <Layout>
       <section>
-        <div className={container}>
-          <div className={content}>
-            <div className={heading}>
+        <div className="faq">
+          <div className="faqContent">
+            <div className="heading">
               <h2>FAQ</h2>
             </div>
             <div className="body">

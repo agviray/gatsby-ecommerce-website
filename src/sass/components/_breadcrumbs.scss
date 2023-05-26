@@ -1,0 +1,23 @@
+.breadcrumbsWrapper {
+  padding: 1rem 10px 2rem 10px;
+
+  & > .breadcrumbs {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    font-size: 14px;
+
+    & > .crumb {
+      padding: 4px 0;
+      display: inline-block;
+
+      &:not(:last-child):after {
+        content: "/";
+        display: inline-block;
+        margin: 0 8px;
+      }
+    }
+  }
+}

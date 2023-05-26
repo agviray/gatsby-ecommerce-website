@@ -2,23 +2,6 @@ import React, { useState, useEffect } from "react"
 import FormItem from "../components/FormItem"
 import Layout from "../components/Layout"
 import Modal from "../components/Modal"
-import {
-  contactWrapper,
-  container,
-  heading,
-  content,
-  buttonContainer,
-  submitButton,
-} from "../styles/contact.module.css"
-import {
-  formContainer,
-  formHeading,
-  formContent,
-  formItemWrapper,
-  formLabel,
-  formTextInput,
-  formTextarea,
-} from "../styles/form.module.css"
 import useFormValidation from "../components/hooks/useFormValidation"
 
 const Contact = () => {
@@ -70,28 +53,28 @@ const Contact = () => {
   }
 
   return (
-    <div className={contactWrapper}>
+    <div className="contactWrapper">
       <Layout>
         <section>
-          <div className={container}>
-            <div className={heading}>
+          <div className="contact">
+            <div className="heading">
               <h2>CONTACT</h2>
             </div>
-            <div className={content}>
-              <div className={formContainer}>
+            <div className="content">
+              <div className="formContainer">
                 <form onSubmit={e => sendMessage(e)}>
-                  <h3 className={formHeading}>SEND US A MESSAGE</h3>
-                  <div className={formContent}>
-                    <div className={formItemWrapper}>
+                  <h3 className="formHeading">SEND US A MESSAGE</h3>
+                  <div className="formContent">
+                    <div className="formItemWrapper">
                       <FormItem
                         error={formErrors.name ? formErrors.name : null}
                         isErrorVisible={formErrors.name ? true : false}
                       >
-                        <label className={formLabel} htmlFor="ContactFormName">
+                        <label className="formLabel" htmlFor="ContactFormName">
                           NAME
                         </label>
                         <input
-                          className={formTextInput}
+                          className="formTextInput"
                           type="text"
                           id="ContactFormName"
                           placeholder="NAME"
@@ -103,16 +86,16 @@ const Contact = () => {
                         />
                       </FormItem>
                     </div>
-                    <div className={formItemWrapper}>
+                    <div className="formItemWrapper">
                       <FormItem
                         error={formErrors.email ? formErrors.email : null}
                         isErrorVisible={formErrors.email ? true : false}
                       >
-                        <label className={formLabel} htmlFor="ContactFormEmail">
+                        <label className="formLabel" htmlFor="ContactFormEmail">
                           EMAIL
                         </label>
                         <input
-                          className={formTextInput}
+                          className="formTextInput"
                           type="text"
                           id="ContactFormEmail"
                           placeholder="EMAIL"
@@ -124,17 +107,17 @@ const Contact = () => {
                         />
                       </FormItem>
                     </div>
-                    <div className={formItemWrapper}>
+                    <div className="formItemWrapper">
                       <FormItem
                         error={formErrors.phone ? formErrors.phone : null}
                         isErrorVisible={formErrors.phone ? true : false}
                       >
                         {" "}
-                        <label className={formLabel} htmlFor="ContactFormPhone">
+                        <label className="formLabel" htmlFor="ContactFormPhone">
                           PHONE
                         </label>
                         <input
-                          className={formTextInput}
+                          className="formTextInput"
                           type="text"
                           maxLength={10}
                           id="ContactFormPhone"
@@ -147,19 +130,19 @@ const Contact = () => {
                         />
                       </FormItem>
                     </div>
-                    <div className={formItemWrapper}>
+                    <div className="formItemWrapper">
                       <FormItem
                         error={formErrors.message ? formErrors.message : null}
                         isErrorVisible={formErrors.message ? true : false}
                       >
                         <label
-                          className={formLabel}
+                          className="formLabel"
                           htmlFor="ContactFormMessage"
                         >
                           MESSAGE
                         </label>
                         <textarea
-                          className={formTextarea}
+                          className="formTextarea"
                           rows="10"
                           id="ContactFormMessage"
                           placeholder="MESSAGE"
@@ -171,11 +154,11 @@ const Contact = () => {
                         />
                       </FormItem>
                     </div>
-                    <div className={buttonContainer}>
+                    <div className="buttonContainer">
                       <input
                         type="button"
                         value="SEND"
-                        className={submitButton}
+                        className="submitButton"
                         onClick={e => sendMessage(e)}
                       />
                     </div>

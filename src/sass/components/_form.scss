@@ -1,0 +1,51 @@
+.formContainer {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .formHeading {
+    padding-bottom: 40px;
+    text-align: center;
+    font-size: 18px;
+
+    @media screen and (min-width: 800px) {
+      font-size: 25px;
+    }
+  }
+
+  .formItemWrapper {
+    padding-bottom: 1rem;
+  }
+
+  .formLabel,
+  .formTextInput,
+  .formTextarea {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .formTextInput,
+  .formTextarea {
+    line-height: 1.75;
+    color: #333333;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .formTextarea {
+    resize: none;
+  }
+
+  .formLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+}
+
+// - Do not change name. Class is used in other files
+.formContent {
+  padding-left: 16px;
+  padding-right: 16px;
+}

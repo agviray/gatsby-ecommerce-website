@@ -12,8 +12,10 @@
 @import "./components/accordion";
 @import "./components/bagIcon";
 @import "./components/bagItemCard";
+@import "./components/breadcrumbs";
 @import "./components/categoryProductSnippets";
 @import "./components/footerContent";
+@import "./components/form";
 @import "./components/formItem";
 @import "./components//hamburger";
 @import "./components/homeAccessoriesSection";
@@ -29,5 +31,11 @@
 
 @import "./pages/about";
 @import "./pages/bag";
+@import "./pages/categoryProducts";
 @import "./pages/checkout";
+@import "./pages/contact";
+@import "./pages/department";
+@import "./pages/faq";
+@import "./pages/home";
 @import "./pages/notFoundPage";
+@import "./pages/productDetails";
