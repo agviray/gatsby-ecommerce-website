@@ -1,15 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import {
-  container,
-  heading,
-  content,
-  contentBlock,
-  empty,
-  cardContentHeadings,
-  buttonContainer,
-  checkoutLink,
-} from "../styles/bag.module.css"
 import Layout from "../components/Layout"
 import BagItemCard from "../components/BagItemCard"
 import { BagContext } from "../components/BagContextComponent"
@@ -18,11 +8,11 @@ import OrderSummary from "../components/OrderSummary"
 const Bag = () => {
   const renderItems = itemsToRender => {
     if (itemsToRender.length === 0) {
-      return <p className={empty}>Your bag is empty</p>
+      return <p className="empty">Your bag is empty</p>
     }
     return (
       <>
-        <div className={cardContentHeadings}>
+        <div className="cardContentHeadings">
           <h2>ITEM</h2>
           <h2>QTY</h2>
         </div>
@@ -46,8 +36,8 @@ const Bag = () => {
         <article>
           <OrderSummary bagContext={bagContext} />
         </article>
-        <div className={buttonContainer}>
-          <Link to="/checkout" className={checkoutLink}>
+        <div className="buttonContainer">
+          <Link to="/checkout" className="checkoutLink">
             CHECKOUT
           </Link>
         </div>
@@ -58,12 +48,12 @@ const Bag = () => {
   return (
     <Layout>
       <section>
-        <div className={container}>
-          <div className={heading}>
+        <div className="bag">
+          <div className="heading">
             <h2>SHOPPING BAG</h2>
           </div>
-          <div className={content}>
-            <div className={`${contentBlock}`}>
+          <div className="content">
+            <div className="contentBlock">
               <BagContext.Consumer>
                 {value => renderItems([...value.itemsInBag])}
               </BagContext.Consumer>

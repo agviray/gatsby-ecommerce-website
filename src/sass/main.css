@@ -694,7 +694,7 @@ nav .navRight {
   visibility: visible;
   opacity: 1;
 }
-.modal .content {
+.modal > .content {
   display: flex;
   height: 100%;
   width: 100%;
@@ -702,7 +702,7 @@ nav .navRight {
   justify-content: center;
   align-items: center;
 }
-.modal .content .messageBox {
+.modal > .content > .messageBox {
   width: 85%;
   max-width: 350px;
   margin: 0 auto;
@@ -711,16 +711,18 @@ nav .navRight {
   font-size: 16px;
   text-align: center;
 }
-.modal .content .messageBox .modalHeading {
+.modal > .content > .messageBox > .modalHeading, .modal > .content > .messageBox > p {
   padding-bottom: 1.5rem;
+}
+.modal > .content > .messageBox .modalHeading {
   font-size: 25px;
 }
 @media screen and (min-width: 800px) {
-  .modal .content .messageBox .modalHeading {
+  .modal > .content > .messageBox .modalHeading {
     font-size: 30px;
   }
 }
-.modal .content .messageBox .modalButton {
+.modal > .content > .messageBox .modalButton {
   margin-top: 20px;
   width: 100%;
   padding: 1rem 1.25rem;
@@ -730,7 +732,7 @@ nav .navRight {
   border-style: none;
   letter-spacing: 1px;
 }
-.modal .content .messageBox .modalButton:hover {
+.modal > .content > .messageBox .modalButton:hover {
   cursor: pointer;
 }
 
@@ -888,6 +890,17 @@ nav .navRight {
   border: 3px solid black;
 }
 
+@media screen and (min-width: 800px) {
+  .productLink .caption {
+    font-size: 18px;
+  }
+}
+.productLink .productName,
+.productLink .productPrice {
+  padding-top: 8px;
+  line-height: 20px;
+}
+
 .quantityEditor {
   display: flex;
   flex-direction: column;
@@ -985,4 +998,171 @@ nav .navRight {
   display: flex;
   justify-content: center;
   width: auto;
+}
+
+.about {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about .heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.about .heading h2 {
+  font-size: 7vw;
+  text-align: center;
+  letter-spacing: 0.18rem;
+}
+@media screen and (min-width: 800px) {
+  .about .heading {
+    padding-top: 96px;
+  }
+  .about .heading h2 {
+    font-size: 55px;
+  }
+}
+.about .content {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0 10px 150px 10px;
+}
+.about .content .contentBlock {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.about .content .contentBlock p {
+  padding-bottom: 1.5rem;
+}
+
+.bag {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bag > .heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+@media screen and (min-width: 800px) {
+  .bag > .heading {
+    padding-top: 96px;
+  }
+}
+.bag > .heading h2 {
+  font-size: 7vw;
+  text-align: center;
+  letter-spacing: 0.18rem;
+}
+@media screen and (min-width: 800px) {
+  .bag > .heading h2 {
+    font-size: 55px;
+  }
+}
+.bag > .content {
+  padding: 0 10px 300px 10px;
+}
+@media screen and (min-width: 1150px) {
+  .bag > .content {
+    display: flex;
+  }
+}
+.bag > .content .contentBlock {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.bag > .content .contentBlock .empty {
+  text-align: center;
+}
+@media screen and (min-width: 800px) {
+  .bag > .content .contentBlock .empty {
+    font-size: 18px;
+  }
+}
+.bag > .content .contentBlock .cardContentHeadings {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bag > .content .contentBlock .cardContentHeadings h2 {
+  padding-bottom: 1rem;
+  color: darkgray;
+  font-size: 18px;
+}
+.bag > .content .buttonContainer {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.bag > .content .buttonContainer .checkoutLink {
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem 1.25rem;
+  background-color: black;
+  color: #f3f3f3;
+  font-size: 18px;
+  border-style: none;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.notFoundPage {
+  max-width: 1400px;
+  min-height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0;
+}
+.notFoundPage .heading,
+.notFoundPage .subheading {
+  text-align: center;
+  letter-spacing: 0.18rem;
+  padding-bottom: 2rem;
+}
+.notFoundPage .heading {
+  font-size: 7vw;
+}
+@media screen and (min-width: 800px) {
+  .notFoundPage .heading {
+    font-size: 55px;
+  }
+}
+.notFoundPage .subheading {
+  font-size: 5vw;
+  letter-spacing: 0.12rem;
+}
+@media screen and (min-width: 800px) {
+  .notFoundPage .subheading {
+    font-size: 35px;
+  }
+}
+.notFoundPage .content {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.notFoundPage .content p {
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+.notFoundPage .content .siteLink {
+  padding-bottom: 1px;
+  border-bottom: 1px solid #333333;
 }/*# sourceMappingURL=main.css.map */

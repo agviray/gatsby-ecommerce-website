@@ -15,7 +15,7 @@
     opacity: 1;
   }
 
-  .content {
+  & > .content {
     display: flex;
     height: 100%;
     width: 100%;
@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
 
-    .messageBox {
+    & > .messageBox {
       width: 85%;
       max-width: 350px;
       margin: 0 auto;
@@ -32,8 +32,12 @@
       font-size: 16px;
       text-align: center;
 
-      .modalHeading {
+      & > .modalHeading,
+      & > p {
         padding-bottom: 1.5rem;
+      }
+
+      .modalHeading {
         font-size: 25px;
 
         @media screen and (min-width: 800px) {

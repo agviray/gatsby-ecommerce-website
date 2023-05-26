@@ -1,21 +1,15 @@
 import React from "react"
-import {
-  container,
-  heading,
-  content,
-  contentBlock,
-} from "../styles/about.module.css"
 import Layout from "../components/Layout"
 
 export default function About() {
   return (
     <Layout>
-      <div className={container}>
-        <div className={heading}>
+      <div className="about">
+        <div className="heading">
           <h2>ABOUT US</h2>
         </div>
-        <div className={content}>
-          <div className={contentBlock}>
+        <div className="content">
+          <div className="contentBlock">
             <p>Welcome to Garments & Goods!</p>
             <p>
               We are a team of artisans, designers, and fashion enthusiasts who

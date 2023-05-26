@@ -1,0 +1,43 @@
+.about {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    h2 {
+      font-size: 7vw;
+      text-align: center;
+      letter-spacing: 0.18rem;
+    }
+
+    @media screen and (min-width: 800px) {
+      padding-top: 96px;
+      h2 {
+        font-size: 55px;
+      }
+    }
+  }
+
+  .content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 10px 150px 10px;
+
+    .contentBlock {
+      max-width: 1000px;
+      margin: 0 auto;
+
+      p {
+        padding-bottom: 1.5rem;
+      }
+    }
+  }
+}

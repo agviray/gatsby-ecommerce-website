@@ -1,0 +1,13 @@
+.productLink {
+  .caption {
+    @media screen and (min-width: 800px) {
+      font-size: 18px;
+    }
+  }
+
+  .productName,
+  .productPrice {
+    padding-top: 8px;
+    line-height: 20px;
+  }
+}
