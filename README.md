@@ -14,11 +14,11 @@ You can view Garments & Goods [here](https://garmentsandgoods.netlify.app), or j
 
 - [GraphQL](https://graphql.org/)
 
-  - Used to make data available when needed by components.
+  - Used to query page content from markdown files.
 
 - [GraphiQL](https://www.gatsbyjs.com/docs/how-to/querying-data/running-queries-with-graphiql/)
 
-- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Sass](https://sass-lang.com/)
 
 - [react-swipeable](https://www.npmjs.com/package/react-swipeable)
 
