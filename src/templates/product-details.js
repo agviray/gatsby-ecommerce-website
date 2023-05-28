@@ -202,7 +202,11 @@ const ProductDetails = ({ data }) => {
       currentBagItems.forEach((item, index, thisArray) => {
         item.id = index
         if (item.name === itemToAdd.name && item.size === itemToAdd.size) {
-          const updatedItem = { ...itemToAdd, quantity: item.quantity + 1 }
+          const updatedItem = {
+            ...itemToAdd,
+            id: item.id,
+            quantity: item.quantity + 1,
+          }
           thisArray[index] = updatedItem
           itemToAddIsCopy = true
         }

@@ -34,7 +34,7 @@ const Bag = () => {
     return (
       <div>
         <article>
-          <OrderSummary bagContext={bagContext} />
+          <OrderSummary />
         </article>
         <div className="buttonContainer">
           <Link to="/checkout" className="checkoutLink">
