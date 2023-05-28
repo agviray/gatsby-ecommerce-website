@@ -27,22 +27,8 @@ const ProductDetails = ({ data }) => {
   const department = product.department.toUpperCase()
   const category = product.type.charAt(0).toUpperCase() + product.type.slice(1)
 
-  useEffect(() => {
-    const storedBag = JSON.parse(localStorage.getItem("bag"))
-
-    if (storedBag) {
-      const updateStatus = storedBag.isBagUpdated
-      if (updateStatus === true) {
-        const newBagToStore = { ...storedBag, isBagUpdated: false }
-        localStorage.setItem("bag", JSON.stringify({ ...newBagToStore }))
-        setModalContent({
-          doesErrorExist: false,
-          message: `Item "${product.name}" was added to your bag`,
-        })
-      }
-    }
-  })
-
+  // - Sets appropriate value for selection state, depending on
+  //   department in view.
   useEffect(() => {
     if (selection.name === "") {
       setSelection({
@@ -66,26 +52,28 @@ const ProductDetails = ({ data }) => {
     }
   }, [selection])
 
+  // - Update selection with current selectedSize,
+  //   any time selectedSize changes.
   useEffect(() => {
     if (selectedSize === "") {
       return
     }
-
     if (selection.size !== selectedSize) {
       setSelection({ ...selection, size: selectedSize })
     }
   }, [selectedSize])
 
+  // - Prevent/pause scrolling if a modal is open.
   useEffect(() => {
     if (displayModal) {
       document.body.style.overflow = "hidden"
     }
-
     if (!displayModal) {
       document.body.style.overflow = "visible"
     }
   }, [displayModal])
 
+  // - Display modal if there is modal content to show.
   useEffect(() => {
     if (Object.keys(modalContent).length === 0) {
       setDisplayModal(false)
@@ -176,52 +164,28 @@ const ProductDetails = ({ data }) => {
     setSelectedSize(size)
   }
 
-  const addItemToBag = (e, item, bagContext) => {
+  const updateModalContent = (errorStatus, errorMessage) => {
+    setModalContent({
+      doesErrorExist: errorStatus,
+      message: errorMessage,
+    })
+  }
+
+  const handleAddToBagClick = (e, item, bagContext) => {
     e.preventDefault()
-    let currentBagItems = [...bagContext.itemsInBag]
-    let updatedBagItems = [...currentBagItems]
-    let itemToAdd = { ...item }
-    let itemToAddIsCopy = false
-
-    if (itemToAdd.size === "") {
-      setModalContent({
-        doesErrorExist: true,
-        message: `Please select a size`,
-      })
+    if (item.size === "") {
+      updateModalContent(true, "Please select a size")
       return
-    }
-
-    if (currentBagItems.length === 0) {
-      itemToAdd = { ...itemToAdd, id: 0 }
-      updatedBagItems = [itemToAdd]
-      setSelection(initialSelection)
-      setSelectedSize(initialSelectedSize)
-      bagContext.updateItemsInBag([...updatedBagItems])
-      bagContext.changeBagUpdated(true)
     } else {
-      currentBagItems.forEach((item, index, thisArray) => {
-        item.id = index
-        if (item.name === itemToAdd.name && item.size === itemToAdd.size) {
-          const updatedItem = {
-            ...itemToAdd,
-            id: item.id,
-            quantity: item.quantity + 1,
-          }
-          thisArray[index] = updatedItem
-          itemToAddIsCopy = true
-        }
-      })
-      updatedBagItems = [...currentBagItems]
-      if (itemToAddIsCopy === false) {
-        itemToAdd.id = updatedBagItems.length
-        updatedBagItems = [...updatedBagItems, itemToAdd]
-      }
-
-      setSelection(initialSelection)
-      setSelectedSize(initialSelectedSize)
-      bagContext.updateItemsInBag([...updatedBagItems])
-      bagContext.changeBagUpdated(true)
+      bagContext.addItemToBag(item, updateModalContent)
     }
+  }
+
+  const closeModal = e => {
+    e.preventDefault()
+    setSelection(initialSelection)
+    setSelectedSize(initialSelectedSize)
+    setModalContent({})
   }
 
   return (
@@ -272,12 +236,16 @@ const ProductDetails = ({ data }) => {
                 <div className="buttonContainer">
                   <BagContext.Consumer>
                     {value => (
-                      <button
-                        onClick={e => addItemToBag(e, selection, value)}
-                        className="addToBagButton"
-                      >
-                        ADD TO BAG
-                      </button>
+                      <>
+                        <button
+                          onClick={e =>
+                            handleAddToBagClick(e, selection, value)
+                          }
+                          className="addToBagButton"
+                        >
+                          ADD TO BAG
+                        </button>
+                      </>
                     )}
                   </BagContext.Consumer>
                 </div>
@@ -290,7 +258,7 @@ const ProductDetails = ({ data }) => {
         <div className="messageBox">
           <p>{modalContent.message}</p>
           {Object.keys(modalContent).length === 0 ? null : (
-            <button onClick={e => setModalContent({})} className="modalButton">
+            <button onClick={e => closeModal(e)} className="modalButton">
               OK
             </button>
           )}

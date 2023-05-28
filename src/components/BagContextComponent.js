@@ -4,7 +4,6 @@ const initialStoredBag = {
   items: [],
   itemCount: null,
   itemsTotal: null,
-  isBagUpdated: false,
 }
 
 export const BagContext = React.createContext()
@@ -13,7 +12,6 @@ const BagContextProvider = ({ children }) => {
   const [itemsInBag, setItemsInBag] = useState([])
   const [itemCount, setItemCount] = useState(null)
   const [itemsTotal, setItemsTotal] = useState(null)
-  const [isBagUpdated, setIsBagUpdated] = useState(false)
 
   useEffect(() => {
     const storedBag = JSON.parse(localStorage.getItem("bag"))
@@ -54,7 +52,6 @@ const BagContextProvider = ({ children }) => {
         items: [...newBagItems],
         itemCount: totalItems,
         itemsTotal: itemsOnlyTotal,
-        isBagUpdated: isBagUpdated,
       }
 
       localStorage.setItem("bag", JSON.stringify({ ...newBag }))
@@ -67,8 +64,55 @@ const BagContextProvider = ({ children }) => {
     setItemsInBag([...updatedBagItems])
   }
 
-  const changeBagUpdated = status => {
-    setIsBagUpdated(status)
+  const addItemToBag = (item, callback) => {
+    let currentBagItems = [...itemsInBag]
+    let updatedBagItems = [...currentBagItems]
+    let itemToAdd = { ...item }
+    let itemToAddIsCopy = false
+
+    // - If bag has zero items, add item as first item, and
+    //   assign 0 as the item id.
+    if (currentBagItems.length === 0) {
+      itemToAdd = { ...itemToAdd, id: 0 }
+      updatedBagItems = [itemToAdd]
+      updateItemsInBag(updatedBagItems)
+      callback(false, `Item ${item.name} was added to your  bag`)
+    } else {
+      // - If bag does not have 0 items, first check if item being added is
+      //   the same as an item that already is in the bag.
+      currentBagItems.forEach((item, index, thisArray) => {
+        item.id = index
+        // - If item being added is the same as an existing bag item,
+        //   just increase item's quantity by 1, and replace the
+        //   original bag item with the updated bag item.
+        // - Also set itemToAddIsCopy flag to true.
+        if (item.name === itemToAdd.name && item.size === itemToAdd.size) {
+          const updatedItem = {
+            ...itemToAdd,
+            id: item.id,
+            quantity: item.quantity + 1,
+          }
+          thisArray[index] = updatedItem
+          itemToAddIsCopy = true
+        }
+      })
+      // - Update updatedBagItems to contain the values of the
+      //   altered currentBagItems array.
+      updatedBagItems = [...currentBagItems]
+      // - If itemToAddIsCopy is still false after the first check, we
+      //   now know for sure that itemToAdd is not a copy.
+      // - We can now safely just add a new id to the itemToAdd, then
+      //   add it to the end of the bag items list.
+      if (itemToAddIsCopy === false) {
+        itemToAdd.id = updatedBagItems.length
+        updatedBagItems = [...updatedBagItems, itemToAdd]
+      }
+
+      // - After all checks are completed, we can update
+      //   the bagItems state.
+      updateItemsInBag(updatedBagItems)
+      callback(false, `Item ${item.name} was added to your  bag`)
+    }
   }
 
   const contextValue = {
@@ -76,8 +120,7 @@ const BagContextProvider = ({ children }) => {
     itemCount: itemCount,
     itemsTotal: itemsTotal,
     updateItemsInBag: updateItemsInBag,
-    isBagUpdated: isBagUpdated,
-    changeBagUpdated: changeBagUpdated,
+    addItemToBag: addItemToBag,
   }
 
   return (
