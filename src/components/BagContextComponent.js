@@ -115,12 +115,42 @@ const BagContextProvider = ({ children }) => {
     }
   }
 
+  // - Handles the + button click in QuantityEditor.
+  // - Increases the quantity of the item displayed.
+  const increaseQty = item => {
+    let currentBagItems = [...itemsInBag]
+    const updatedItem = { ...item, quantity: item.quantity + 1 }
+    currentBagItems[item.id] = updatedItem
+    const updatedBagItems = currentBagItems.map((item, index) => ({
+      ...item,
+      id: index,
+    }))
+
+    updateItemsInBag([...updatedBagItems])
+  }
+
+  // - Handles the - button click in QuantityEditor.
+  // - Decreases the quantity of the item displayed.
+  const decreaseQty = item => {
+    let currentBagItems = [...itemsInBag]
+    const updatedItem = { ...item, quantity: item.quantity - 1 }
+    currentBagItems[item.id] = updatedItem
+    const updatedBagItems = currentBagItems.map((item, index) => ({
+      ...item,
+      id: index,
+    }))
+
+    updateItemsInBag([...updatedBagItems])
+  }
+
   const contextValue = {
     itemsInBag: itemsInBag,
     itemCount: itemCount,
     itemsTotal: itemsTotal,
     updateItemsInBag: updateItemsInBag,
     addItemToBag: addItemToBag,
+    increaseQty: increaseQty,
+    decreaseQty: decreaseQty,
   }
 
   return (

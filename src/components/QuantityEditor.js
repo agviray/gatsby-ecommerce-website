@@ -8,30 +8,6 @@ const QuantityEditor = ({ item }) => {
   const [itemToRemove, setItemToRemove] = useState(initialItemToRemove)
   const [displayModal, setDisplayModal] = useState(false)
 
-  const decreaseQty = (item, qty, bagContext) => {
-    let currentBagItems = [...bagContext.itemsInBag]
-    const updatedItem = { ...item, quantity: qty - 1 }
-    currentBagItems[item.id] = updatedItem
-    const updatedBagItems = currentBagItems.map((item, index) => ({
-      ...item,
-      id: index,
-    }))
-
-    bagContext.updateItemsInBag([...updatedBagItems])
-  }
-
-  const increaseQty = (item, qty, bagContext) => {
-    let currentBagItems = [...bagContext.itemsInBag]
-    const updatedItem = { ...item, quantity: qty + 1 }
-    currentBagItems[item.id] = updatedItem
-    const updatedBagItems = currentBagItems.map((item, index) => ({
-      ...item,
-      id: index,
-    }))
-
-    bagContext.updateItemsInBag([...updatedBagItems])
-  }
-
   const displayConfirmation = (status, item) => {
     setItemToRemove({ ...item })
     setDisplayModal(status)
@@ -60,16 +36,13 @@ const QuantityEditor = ({ item }) => {
           <>
             <div className="amountControls">
               <span
-                onClick={() => decreaseQty(item, item.quantity, value)}
+                onClick={() => value.decreaseQty(item)}
                 className={`button ${item.quantity < 2 ? "hidden" : ""}`}
               >
                 -
               </span>
               <span className="amount">{item.quantity}</span>
-              <span
-                onClick={() => increaseQty(item, item.quantity, value)}
-                className="button"
-              >
+              <span onClick={() => value.increaseQty(item)} className="button">
                 +
               </span>
             </div>
