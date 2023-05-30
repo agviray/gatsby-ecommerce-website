@@ -19,7 +19,14 @@ const QuantityEditor = ({ item }) => {
   //   from the shopping bag.
   const removeItem = (e, item, bagContext) => {
     e.preventDefault()
-    bagContext.removeItemFromBag(item)
+    bagContext.removeItemFromBag(item, closeModal)
+  }
+
+  // - Argument passed to removeItemFromBag, to serve
+  //   as callback to close modal.
+  const closeModal = () => {
+    setItemToRemove(initialItemToRemove)
+    setDisplayModal(false)
   }
 
   return (

@@ -141,7 +141,7 @@ const BagContextProvider = ({ children }) => {
   }
 
   // - Removes an item from the bag.
-  const removeItemFromBag = item => {
+  const removeItemFromBag = (item, callback) => {
     const currentBagItems = [...itemsInBag]
     const idOfItemToRemove = item.id
     let updatedBagItems = currentBagItems.filter((item, index, thisArray) => {
@@ -153,6 +153,7 @@ const BagContextProvider = ({ children }) => {
       item.id = index
     })
     updateItemsInBag([...updatedBagItems])
+    callback() // - closeModal function
   }
 
   const contextValue = {
