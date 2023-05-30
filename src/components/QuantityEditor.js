@@ -8,25 +8,18 @@ const QuantityEditor = ({ item }) => {
   const [itemToRemove, setItemToRemove] = useState(initialItemToRemove)
   const [displayModal, setDisplayModal] = useState(false)
 
+  // - Handles Remove click.
+  // - Will activate a confirmation modal and display item to remove.
   const displayConfirmation = (status, item) => {
     setItemToRemove({ ...item })
     setDisplayModal(status)
   }
 
-  const removeItemFromBag = (e, item, bagContext) => {
+  // - Confirms item removal, which will remove the item
+  //   from the shopping bag.
+  const removeItem = (e, item, bagContext) => {
     e.preventDefault()
-    const currentBagItems = [...bagContext.itemsInBag]
-    const idOfItemToRemove = item.id
-    let updatedBagItems = currentBagItems.filter((item, index, thisArray) => {
-      if (thisArray.indexOf(item) !== idOfItemToRemove) {
-        return item
-      }
-    })
-    updatedBagItems.forEach((item, index) => {
-      item.id = index
-    })
-    bagContext.updateItemsInBag([...updatedBagItems])
-    displayConfirmation(false, initialItemToRemove)
+    bagContext.removeItemFromBag(item)
   }
 
   return (
@@ -71,7 +64,7 @@ const QuantityEditor = ({ item }) => {
                   </div>
                 )}
                 <button
-                  onClick={e => removeItemFromBag(e, item, value)}
+                  onClick={e => removeItem(e, item, value)}
                   className="modalButton"
                 >
                   REMOVE ITEM

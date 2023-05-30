@@ -107,7 +107,6 @@ const BagContextProvider = ({ children }) => {
         itemToAdd.id = updatedBagItems.length
         updatedBagItems = [...updatedBagItems, itemToAdd]
       }
-
       // - After all checks are completed, we can update
       //   the bagItems state.
       updateItemsInBag(updatedBagItems)
@@ -125,7 +124,6 @@ const BagContextProvider = ({ children }) => {
       ...item,
       id: index,
     }))
-
     updateItemsInBag([...updatedBagItems])
   }
 
@@ -139,7 +137,21 @@ const BagContextProvider = ({ children }) => {
       ...item,
       id: index,
     }))
+    updateItemsInBag([...updatedBagItems])
+  }
 
+  // - Removes an item from the bag.
+  const removeItemFromBag = item => {
+    const currentBagItems = [...itemsInBag]
+    const idOfItemToRemove = item.id
+    let updatedBagItems = currentBagItems.filter((item, index, thisArray) => {
+      if (thisArray.indexOf(item) !== idOfItemToRemove) {
+        return item
+      }
+    })
+    updatedBagItems.forEach((item, index) => {
+      item.id = index
+    })
     updateItemsInBag([...updatedBagItems])
   }
 
@@ -151,6 +163,7 @@ const BagContextProvider = ({ children }) => {
     addItemToBag: addItemToBag,
     increaseQty: increaseQty,
     decreaseQty: decreaseQty,
+    removeItemFromBag: removeItemFromBag,
   }
 
   return (
