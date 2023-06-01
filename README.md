@@ -1,6 +1,6 @@
 # Garments & Goods
 
-<em>Garments & Goods</em> is a mock ecommerce website. I built this website to experiment with Gatsby (and its available plugins), GraphQL, and React functional components. I also wanted to familiarize myself more with the design and features of a typical ecommerce website.
+<em>Garments & Goods</em> is a mock ecommerce website. I built this website to experiment with Gatsby and GraphQL, and I also wanted to familiarize myself more with the design and features of a typical ecommerce website.
 
 ## View Website
 
