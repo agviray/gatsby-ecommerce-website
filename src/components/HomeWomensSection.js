@@ -95,7 +95,16 @@ const HomeWomensSection = () => {
       {windowDimensions.width < 800 ? (
         <>{showMobileImage()}</>
       ) : (
-        <>{renderedDesktopContent}</>
+        <div className="desktopStaticImageWrapper">
+          <StaticImage
+            className="desktopStaticImage"
+            src={desktopImageA}
+            alt="Collage of woman posing"
+            placeholder="blurred"
+            objectFit="contain"
+            objectPosition={"50% 50%"}
+          />
+        </div>
       )}
     </div>
   )

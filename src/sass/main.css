@@ -734,6 +734,10 @@ nav .navRight {
 .homeWomensSection .mobileStaticImage {
   height: 100vh;
 }
+.homeWomensSection .desktopStaticImageWrapper {
+  display: flex;
+  justify-content: center;
+}
 @media screen and (min-width: 800px) {
   .homeWomensSection .desktopStaticImage {
     max-width: 80vw;
